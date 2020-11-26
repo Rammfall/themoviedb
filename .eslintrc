@@ -1,6 +1,6 @@
 {
-  "plugins": ["react"],
-  "extends": ["eslint:recommended", "airbnb", "plugin:react/recommended"],
+  "plugins": ["react", "prettier"],
+  "extends": ["eslint:recommended", "airbnb", "plugin:react/recommended", "prettier", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": 8
   },
@@ -40,6 +40,7 @@
       {
         "ignore": ["Components/", "Helpers/", "Store/"]
       }
-    ]
+    ],
+    "prettier/prettier": "error"
   }
 }
