@@ -11,7 +11,7 @@
     "start:prod": "node server",
     "start": "node index.js",
     "lint": "eslint --format codeframe src/",
-    "heroku-prebuild": "npm run prestart:prod && npm run start"
+    "heroku-prebuild": "npm run prestart:prod"
   },
   "engines": {
     "node": "8.11"
