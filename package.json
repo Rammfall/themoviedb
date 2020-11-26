@@ -9,7 +9,9 @@
     "start:dev": "webpack-dev-server --mode development --config config/webpack.base.config.js --hot --history-api-fallback",
     "prestart:prod": "webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production --progress",
     "start:prod": "node server",
-    "lint": "eslint --format codeframe src/"
+    "start": "node index.js",
+    "lint": "eslint --format codeframe src/",
+    "heroku-prebuild": "npm run prestart:prod"
   },
   "engines": {
     "node": "8.11"
@@ -31,16 +33,21 @@
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.13.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
-    "node-sass": "^4.14.1",
+    "lint-staged": "^10.5.2",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "prettier": "^2.2.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "regenerator-runtime": "^0.13.2",
@@ -50,7 +57,7 @@
     "url-loader": "^2.0.0",
     "webpack": "^4.33.0",
     "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.11.0",
+    "webpack-dev-server": "^3.7.1",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
@@ -59,8 +66,9 @@
     "antd": "^4.4.3",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "express": "^4.17.1",
     "js-cookie": "^2.2.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -96,5 +104,22 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/file_mock.js",
       "\\.(s?css)$": "identity-obj-proxy"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "jest --findRelatedTests"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none"
   }
 }

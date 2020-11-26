@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Layout, Row, Col, Typography, Modal, Pagination
-} from 'antd'
+import { Layout, Row, Col, Typography, Modal, Pagination } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 import { range } from 'lodash'
 
@@ -40,10 +38,13 @@ const Watchlist = () => (
         >
           <Row
             gutter={{
-              xs: 8, sm: 16, md: 24, lg: 32
+              xs: 8,
+              sm: 16,
+              md: 24,
+              lg: 32
             }}
           >
-            {range(10).map(item => (
+            {range(10).map((item) => (
               <Col
                 key={item}
                 xs={{ span: 24 }}
@@ -52,7 +53,6 @@ const Watchlist = () => (
                 lg={{ span: 8 }}
                 xl={{ span: 6 }}
               >
-
                 <Movie
                   actions={[
                     <DeleteOutlined

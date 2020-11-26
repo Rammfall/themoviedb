@@ -20,7 +20,7 @@ client.interceptors.request.use((config) => {
 })
 
 client.interceptors.response.use(
-  response => response,
+  (response) => response,
   (error) => {
     if (error.response) {
       const { message } = error.response.data

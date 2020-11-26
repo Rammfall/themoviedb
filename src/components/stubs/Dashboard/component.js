@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Layout, Row, Col, Input, Pagination
-} from 'antd'
+import { Layout, Row, Col, Input, Pagination } from 'antd'
 import { range } from 'lodash'
 
 import Header from '../Header'
@@ -14,7 +12,10 @@ const Dashboard = () => (
       <Row
         justify="center"
         gutter={{
-          xs: 8, sm: 16, md: 24, lg: 22
+          xs: 8,
+          sm: 16,
+          md: 24,
+          lg: 22
         }}
       >
         <Col
@@ -45,10 +46,13 @@ const Dashboard = () => (
           >
             <Row
               gutter={{
-                xs: 8, sm: 16, md: 24, lg: 32
+                xs: 8,
+                sm: 16,
+                md: 24,
+                lg: 32
               }}
             >
-              {range(17).map(item => (
+              {range(17).map((item) => (
                 <Col
                   key={item}
                   xs={{ span: 24 }}

@@ -20,7 +20,11 @@ const configureStore = (initialState = {}) => {
   const dependencies = {}
 
   const logicMiddleware = createLogicMiddleware(logics, dependencies)
-  const store = createStore(rootReducer, initialState, bindMiddleware([logicMiddleware]))
+  const store = createStore(
+    rootReducer,
+    initialState,
+    bindMiddleware([logicMiddleware])
+  )
 
   return store
 }

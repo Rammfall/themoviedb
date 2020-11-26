@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Layout, Row, Col, Typography, Modal, Pagination
-} from 'antd'
+import { Layout, Row, Col, Typography, Modal, Pagination } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 import { range } from 'lodash'
 
@@ -40,10 +38,13 @@ const Favorites = () => (
         >
           <Row
             gutter={{
-              xs: 8, sm: 16, md: 24, lg: 32
+              xs: 8,
+              sm: 16,
+              md: 24,
+              lg: 32
             }}
           >
-            {range(10).map(item => (
+            {range(10).map((item) => (
               <Col
                 key={item}
                 xs={{ span: 24 }}

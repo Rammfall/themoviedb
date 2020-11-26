@@ -9,14 +9,21 @@
 function diveTo(wrapper, TargetComponent) {
   wrapper.single((n) => {
     if (n && n.nodeType === 'host') {
-      throw new Error('diveTo(): Target component not found, but other host component was reached (nested components is not supported by dive())')
+      throw new Error(
+        'diveTo(): Target component not found, but other host component was reached (nested components is not supported by dive())'
+      )
     }
   })
   const targetWrapper = wrapper.dive()
   if (targetWrapper.instance() === null) {
-    throw Error("diveTo(): Target component is not found in given wrapper's component hierarchy or is a functional component")
+    throw Error(
+      "diveTo(): Target component is not found in given wrapper's component hierarchy or is a functional component"
+    )
   }
-  if (Object.getPrototypeOf(targetWrapper.instance()) === TargetComponent.prototype) {
+  if (
+    Object.getPrototypeOf(targetWrapper.instance()) ===
+    TargetComponent.prototype
+  ) {
     return targetWrapper
   }
 

@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Button, Col, Form, Input, Layout, Row, Typography
-} from 'antd'
+import { Button, Col, Form, Input, Layout, Row, Typography } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
 const Login = () => (
@@ -20,21 +18,13 @@ const Login = () => (
                 help="Should be combination of numbers & alphabets"
               >
                 <Input
-                  prefix={(
-                    <UserOutlined
-                      style={{ color: 'rgba(0,0,0,.25)' }}
-                    />
-                  )}
+                  prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                   placeholder="Username"
                 />
               </Form.Item>
               <Form.Item>
                 <Input
-                  prefix={(
-                    <LockOutlined
-                      style={{ color: 'rgba(0,0,0,.25)' }}
-                    />
-                  )}
+                  prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                   type="password"
                   placeholder="Password"
                 />

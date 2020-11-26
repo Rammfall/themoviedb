@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Layout, Row, Col, Typography, Modal, Pagination
-} from 'antd'
+import { Layout, Row, Col, Typography, Modal, Pagination } from 'antd'
 import { MinusCircleOutlined, DeleteOutlined } from '@ant-design/icons'
 import { range } from 'lodash'
 
@@ -71,10 +69,13 @@ class ListDetails extends React.Component {
             >
               <Row
                 gutter={{
-                  xs: 8, sm: 16, md: 24, lg: 32
+                  xs: 8,
+                  sm: 16,
+                  md: 24,
+                  lg: 32
                 }}
               >
-                {range(10).map(item => (
+                {range(10).map((item) => (
                   <Col
                     key={item}
                     xs={{ span: 24 }}

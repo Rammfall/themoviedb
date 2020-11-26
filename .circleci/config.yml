@@ -1,7 +1,21 @@
 version: 2.1
+
+jobs:
+  linters:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
+      - run: npm run lint
+
 orbs:
   node: circleci/node@3.0.0
 workflows:
   node-tests:
     jobs:
-      - node/test
+      - node/test:
+          requires:
+            - linters
+      - linters
