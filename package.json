@@ -114,11 +114,12 @@
     "*.js": [
       "prettier --write",
       "eslint --fix",
-      "jest --findRelatedTest"
+      "jest --findRelatedTests"
     ]
   },
   "prettier": {
     "singleQuote": true,
-    "semi": false
+    "semi": false,
+    "trailingComma": "none"
   }
 }

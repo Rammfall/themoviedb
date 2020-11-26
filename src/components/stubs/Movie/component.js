@@ -12,7 +12,11 @@ import {
   Button,
   Modal
 } from 'antd'
-import { HeartOutlined, BookOutlined, PlusCircleOutlined } from '@ant-design/icons'
+import {
+  HeartOutlined,
+  BookOutlined,
+  PlusCircleOutlined
+} from '@ant-design/icons'
 import { range } from 'lodash'
 
 import Header from '../Header'
@@ -72,18 +76,16 @@ class Movie extends React.Component {
     }
 
     this.handleWatchlist = () => {
-      this.setState(state => ({ watchlist: !state.watchlist }))
+      this.setState((state) => ({ watchlist: !state.watchlist }))
     }
 
     this.handleBookmark = () => {
-      this.setState(state => ({ bookmarked: !state.bookmarked }))
+      this.setState((state) => ({ bookmarked: !state.bookmarked }))
     }
   }
 
   render() {
-    const {
-      modalVisible, popoverVisible, bookmarked, watchlist
-    } = this.state
+    const { modalVisible, popoverVisible, bookmarked, watchlist } = this.state
     return (
       <Layout>
         <Header />
@@ -134,7 +136,7 @@ class Movie extends React.Component {
                         openModal={this.showModal}
                         closePopover={() => this.handleVisiblePopover(false)}
                       />
-                    )}
+)}
                   >
                     <PlusCircleOutlined />
                   </Popover>
@@ -151,11 +153,12 @@ class Movie extends React.Component {
                 </Typography.Title>
                 <Typography.Title level={3}>Overview</Typography.Title>
                 <Typography.Paragraph>
-                  After the devastating events of Avengers: Infinity War, the universe is in ruins
-                  due to the efforts of the Mad Titan, Thanos. With the help of remaining allies,
-                  the Avengers must assemble once more in order to undo Thanos&apos; actions and
-                  restore order to the universe once and for all, no matter what consequences may be
-                  in store.
+                  After the devastating events of Avengers: Infinity War, the
+                  universe is in ruins due to the efforts of the Mad Titan,
+                  Thanos. With the help of remaining allies, the Avengers must
+                  assemble once more in order to undo Thanos&apos; actions and
+                  restore order to the universe once and for all, no matter what
+                  consequences may be in store.
                 </Typography.Paragraph>
               </Col>
             </Row>
@@ -227,10 +230,13 @@ class Movie extends React.Component {
               >
                 <Row
                   gutter={{
-                    xs: 8, sm: 16, md: 24, lg: 32
+                    xs: 8,
+                    sm: 16,
+                    md: 24,
+                    lg: 32
                   }}
                 >
-                  {range(10).map(index => (
+                  {range(10).map((index) => (
                     <Col
                       key={index}
                       xs={{ span: 24 }}
@@ -245,7 +251,7 @@ class Movie extends React.Component {
                             alt="example"
                             src="https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_.jpg"
                           />
-                      )}
+)}
                         className="top-margin"
                       >
                         <Card.Meta
@@ -275,11 +281,15 @@ class Movie extends React.Component {
                 span={20}
                 offset={2}
               >
-                <Row gutter={{
-                  xs: 8, sm: 16, md: 24, lg: 32
-                }}
+                <Row
+                  gutter={{
+                    xs: 8,
+                    sm: 16,
+                    md: 24,
+                    lg: 32
+                  }}
                 >
-                  {range(10).map(index => (
+                  {range(10).map((index) => (
                     <Col
                       key={index}
                       xs={{ span: 12 }}

@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Layout, Row, Col, Input, Empty
-} from 'antd'
+import { Layout, Row, Col, Input, Empty } from 'antd'
 
 import Header from '../Header'
 

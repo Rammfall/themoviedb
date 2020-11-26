@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Layout, Row, Col, Card, Typography, Modal, Pagination
-} from 'antd'
+import { Layout, Row, Col, Card, Typography, Modal, Pagination } from 'antd'
 import { PlusCircleOutlined, DeleteOutlined } from '@ant-design/icons'
 import { range } from 'lodash'
 
@@ -45,7 +43,7 @@ class Lists extends React.Component {
             >
               <div className="top-margin">
                 <Typography.Title>
-                  My Lists
+                  My Lists 
                   {' '}
                   <PlusCircleOutlined onClick={this.showModal} />
                 </Typography.Title>
@@ -62,10 +60,13 @@ class Lists extends React.Component {
             >
               <Row
                 gutter={{
-                  xs: 8, sm: 16, md: 24, lg: 32
+                  xs: 8,
+                  sm: 16,
+                  md: 24,
+                  lg: 32
                 }}
               >
-                {range(10).map(index => (
+                {range(10).map((index) => (
                   <Col
                     key={index}
                     xs={{ span: 24 }}
@@ -85,10 +86,10 @@ class Lists extends React.Component {
                       ]}
                     >
                       <Typography.Title level={4}>
-                      List name
+                        List name
                         {index}
                       </Typography.Title>
-                    Description
+                      Description
                     </Card>
                   </Col>
                 ))}

@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Link, Route, BrowserRouter as Router, Switch
-} from 'react-router-dom'
+import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import Login from '../Login'
 import Dashboard from '../Dashboard'
