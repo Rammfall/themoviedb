@@ -5,17 +5,13 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
+      - node/install-packages
       - run: npm run lint
   build:
     executor: node/default
     steps:
       - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
+      - node/install-packages
       - run: npm run prestart:prod
 
 orbs:
