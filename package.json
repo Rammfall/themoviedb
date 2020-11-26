@@ -10,8 +10,8 @@
     "prestart:prod": "webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production --progress",
     "start:prod": "node server",
     "start": "node index.js",
-    "lint": "eslint --format  codeframe src/",
-    "heroku-prebuild": "npm run prestart:prod"
+    "lint": "eslint --format codeframe src/",
+    "heroku-prebuild": "npm i && npm run prestart:prod && npm prune --production"
   },
   "engines": {
     "node": "14.15.1"
