@@ -9,13 +9,23 @@ jobs:
           cache-path: ~/project/node_modules
           override-ci-command: npm install
       - run: npm run lint
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
+      - run: npm run prestart:prod
 
 orbs:
   node: circleci/node@3.0.0
 workflows:
-  node-tests:
+  main-pipeline:
     jobs:
-      - node/test:
+      - node/test
+      - linters
+      - build:
           requires:
             - linters
-      - linters
+            - node/test
