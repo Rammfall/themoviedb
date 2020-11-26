@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": ".",
+    "paths": {
+      "Components/*": ["./src/components/*"],
+      "Helpers/*": ["./src/config/*"],
+      "Store/*": ["./src/store/*"]
+    },
+    "module": "commonjs"
+  },
+  "exclude": ["node_modules", "dist"]
+}

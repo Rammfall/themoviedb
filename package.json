@@ -1,0 +1,99 @@
+{
+  "name": "internship_template",
+  "version": "1.0.0",
+  "description": "Internship Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest --coverage",
+    "start:dev": "webpack-dev-server --mode development --config config/webpack.base.config.js --hot --history-api-fallback",
+    "prestart:prod": "webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production --progress",
+    "start:prod": "node server",
+    "lint": "eslint --format codeframe src/"
+  },
+  "engines": {
+    "node": "8.11"
+  },
+  "keywords": [],
+  "author": "Mykola Voronin",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-async-to-generator": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.3",
+    "regenerator-runtime": "^0.13.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "url-loader": "^2.0.0",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.1",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "@babel/runtime": "^7.0.0-beta.56",
+    "antd": "^4.4.3",
+    "axios": "^0.19.0",
+    "classnames": "^2.2.6",
+    "js-cookie": "^2.2.0",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.1",
+    "redux-logic": "^2.1.1",
+    "reselect": "^4.0.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testURL": "http://test.com",
+    "coverageThreshold": {
+      "global": {
+        "statements": 100
+      }
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/components/App/index.js",
+      "<rootDir>/src/store/configureStore.js",
+      "<rootDir>/src/vendor"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/file_mock.js",
+      "\\.(s?css)$": "identity-obj-proxy"
+    }
+  }
+}
