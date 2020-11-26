@@ -1,3 +1,3 @@
 # themoviedb
 
-Application - https://frontend-intership.herokuapp.com/
+Application - https://frontend-internship.herokuapp.com/
