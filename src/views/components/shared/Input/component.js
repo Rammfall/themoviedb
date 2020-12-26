@@ -11,8 +11,7 @@ const Input = ({
   onChange,
   onBlur,
   name,
-  prefix,
-  ...props
+  prefix
 }) => (
   <Form.Item
     validateStatus={validateStatus}
@@ -26,7 +25,6 @@ const Input = ({
       onChange={onChange}
       name={name}
       value={value}
-      {...props}
     />
   </Form.Item>
 )

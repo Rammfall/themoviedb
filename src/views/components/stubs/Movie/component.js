@@ -23,7 +23,7 @@ import Header from '../Header'
 import CreateListModal from '../CreateListModal'
 
 const PopoverContent = ({ openModal, closePopover }) => (
-  <React.Fragment>
+  <>
     <div>
       <Button
         type="link"
@@ -44,7 +44,7 @@ const PopoverContent = ({ openModal, closePopover }) => (
     <div>
       <Button type="link">List 3</Button>
     </div>
-  </React.Fragment>
+  </>
 )
 
 PopoverContent.propTypes = {
@@ -136,7 +136,7 @@ class Movie extends React.Component {
                         openModal={this.showModal}
                         closePopover={() => this.handleVisiblePopover(false)}
                       />
-)}
+                    )}
                   >
                     <PlusCircleOutlined />
                   </Popover>
@@ -251,7 +251,7 @@ class Movie extends React.Component {
                             alt="example"
                             src="https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_.jpg"
                           />
-)}
+                        )}
                         className="top-margin"
                       >
                         <Card.Meta
@@ -304,7 +304,7 @@ class Movie extends React.Component {
                             alt="example"
                             src="https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_.jpg"
                           />
-)}
+                        )}
                         className="top-margin"
                       >
                         <Card.Meta

@@ -12,7 +12,7 @@ import Watchlist from '../Watchlist'
 import Favorites from '../Favorites/component'
 
 const Links = () => (
-  <React.Fragment>
+  <>
     <div>
       <Link to="/stubs/login">Login</Link>
     </div>
@@ -40,7 +40,7 @@ const Links = () => (
     <div>
       <Link to="/stubs/favorites">Favorites</Link>
     </div>
-  </React.Fragment>
+  </>
 )
 
 const StubsRoot = () => (

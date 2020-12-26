@@ -39,7 +39,6 @@
     ],
     "semi": ["error", "never"],
     "import/prefer-default-export": "off",
-    "import/extensions": ["never"],
     "import/no-unresolved": [
       "error",
       {

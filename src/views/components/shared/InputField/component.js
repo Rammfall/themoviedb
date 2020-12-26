@@ -6,8 +6,7 @@ import Input from '../Input'
 
 const InputField = ({
   field: { name, onChange, onBlur, value },
-  form: { touched, errors },
-  ...props
+  form: { touched, errors }
 }) => {
   const fieldTouched = getIn(touched, name)
   const fieldErrors = getIn(errors, name)
@@ -20,7 +19,6 @@ const InputField = ({
       value={value}
       validationMessage={fieldErrors}
       validateStatus={fieldTouched && fieldErrors && 'error'}
-      {...props}
     />
   )
 }
@@ -33,7 +31,8 @@ InputField.propTypes = {
     value: PropTypes.string
   }).isRequired,
   form: PropTypes.shape({
-    touched: PropTypes.bool
+    touched: PropTypes.bool,
+    errors: PropTypes.string
   }).isRequired
 }
 

@@ -7,7 +7,7 @@ import Login from './component'
 // eslint-disable-next-line react/prefer-stateless-function
 class LoginContainer extends Component {
   render() {
-    return <Login {...this.props} />
+    return <Login />
   }
 }
 

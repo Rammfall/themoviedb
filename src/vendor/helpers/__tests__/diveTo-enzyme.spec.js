@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import React from 'react'
 import { connect } from 'react-redux'
 import configureStore from 'redux-mock-store'
