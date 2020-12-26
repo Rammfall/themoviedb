@@ -11,11 +11,8 @@ const AppRoot = ({ isLogged }) => (
       path="/login"
       component={LoginScreen}
     />
-    <Route
-      path="/"
-      component={Dashboard}
-    >
-      {!isLogged && <Redirect to="/login" />}
+    <Route path="/">
+      {!isLogged ? <Redirect to="/login" /> : <Dashboard />}
     </Route>
   </BrowserRouter>
 )

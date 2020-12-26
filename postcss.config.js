@@ -4,7 +4,7 @@ const cssnano = require('cssnano')
 
 module.exports = (ctx) => {
   const production = ctx.env === 'production'
-  const productionPlugins = production && [cssnano]
+  const productionPlugins = production ? [cssnano] : []
 
   return {
     parser: false,

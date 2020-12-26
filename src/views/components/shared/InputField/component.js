@@ -31,8 +31,8 @@ InputField.propTypes = {
     value: PropTypes.string
   }).isRequired,
   form: PropTypes.shape({
-    touched: PropTypes.bool,
-    errors: PropTypes.string
+    touched: PropTypes.shape(),
+    errors: PropTypes.shape()
   }).isRequired
 }
 

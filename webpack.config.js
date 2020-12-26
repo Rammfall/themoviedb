@@ -16,10 +16,10 @@ module.exports = (env, { mode }) => {
     entry: './src/index.js',
     output: {
       filename: '[name][fullhash].js',
-      path: resolve(__dirname, '../dist')
+      path: resolve(__dirname, 'dist')
     },
     mode: production ? 'production' : 'development',
-    devtool: !production && 'inline-source-maps',
+    devtool: !production && 'inline-source-map',
     module: {
       rules: [
         {
@@ -77,9 +77,9 @@ module.exports = (env, { mode }) => {
     ],
     resolve: {
       alias: {
-        Components: resolve(__dirname, '../src/components'),
-        Helpers: resolve(__dirname, '../src/helpers'),
-        Store: resolve(__dirname, '../src/store')
+        Components: resolve(__dirname, 'src/components'),
+        Helpers: resolve(__dirname, 'src/helpers'),
+        Store: resolve(__dirname, 'src/store')
       }
     },
     devServer: {
@@ -90,7 +90,8 @@ module.exports = (env, { mode }) => {
         },
         secure: false
       },
-      contentBase: '../dist'
+      hot: true,
+      historyApiFallback: true
     }
   }
 }
