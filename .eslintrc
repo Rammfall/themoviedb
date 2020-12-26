@@ -1,9 +1,14 @@
 {
   "plugins": ["react", "prettier"],
-  "extends": ["eslint:recommended", "airbnb", "prettier", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "airbnb", "plugin:react/recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
