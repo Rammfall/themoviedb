@@ -6,8 +6,8 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "coverage": "NODE_ENV=test jest --coverage",
-    "start:dev": "NODE_ENV=development webpack serve --open --mode development --config config/webpack.base.config.js --hot",
-    "prestart:prod": "NODE_ENV=production webpack --mode production --config config/webpack.base.config.js --progress",
+    "start:dev": "webpack serve --open --mode development --config config/webpack.base.config.js --hot",
+    "prestart:prod": "webpack --mode production --config config/webpack.base.config.js --progress",
     "start:prod": "node server",
     "start": "node index.js",
     "lint": "eslint --format codeframe src/",
@@ -30,6 +30,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "cssnano": "^4.1.10",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",

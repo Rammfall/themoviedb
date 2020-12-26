@@ -2,8 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { resolve, join } = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = ({ environment }) => {
-  const development = environment === 'development'
+module.exports = ({ production, development }) => {
   const MiniCssLoader = {
     loader: MiniCssExtractPlugin.loader,
     options: {
@@ -17,7 +16,7 @@ module.exports = ({ environment }) => {
       filename: '[name][hash].js',
       path: resolve(__dirname, '../dist')
     },
-    mode: development,
+    mode: production ? 'production' : 'development',
     devtool: development && 'inline-source-maps',
     module: {
       rules: [
@@ -66,7 +65,7 @@ module.exports = ({ environment }) => {
       new HtmlWebpackPlugin({
         template: './public/index.html',
         filename: './index.html',
-        minify: !development
+        minify: production
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[hash].css',
