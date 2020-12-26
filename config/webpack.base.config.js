@@ -1,8 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { resolve, join } = require('path')
+const { resolve } = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-module.exports = ({ production, development }) => {
+module.exports = (env, { mode }) => {
+  const production = mode === 'production'
   const MiniCssLoader = {
     loader: MiniCssExtractPlugin.loader,
     options: {
@@ -13,11 +15,11 @@ module.exports = ({ production, development }) => {
   return {
     entry: './src/index.js',
     output: {
-      filename: '[name][hash].js',
+      filename: '[name][fullhash].js',
       path: resolve(__dirname, '../dist')
     },
     mode: production ? 'production' : 'development',
-    devtool: development && 'inline-source-maps',
+    devtool: !production && 'inline-source-maps',
     module: {
       rules: [
         {
@@ -30,7 +32,7 @@ module.exports = ({ production, development }) => {
         {
           test: /\.s?css$/,
           use: [
-            development ? 'style-loader' : MiniCssLoader,
+            !production ? 'style-loader' : MiniCssLoader,
             'css-loader',
             'postcss-loader',
             'sass-loader'
@@ -43,7 +45,7 @@ module.exports = ({ production, development }) => {
               loader: 'url-loader',
               options: {
                 limit: 8000, // Convert images < 8kb to base64 strings
-                name: 'images/[hash]-[name].[ext]'
+                name: 'images/[fullhash]-[name].[ext]'
               }
             }
           ]
@@ -54,7 +56,7 @@ module.exports = ({ production, development }) => {
             {
               loader: 'file-loader',
               options: {
-                name: 'fonts/[hash]-[name].[ext]'
+                name: 'fonts/[fullhash]-[name].[ext]'
               }
             }
           ]
@@ -64,13 +66,14 @@ module.exports = ({ production, development }) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './public/index.html',
-        filename: './index.html',
+        filename: 'index.html',
         minify: production
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].[hash].css',
-        chunkFilename: '[id].[hash].css'
-      })
+        filename: '[name].[fullhash].css',
+        chunkFilename: '[id].[fullhash].css'
+      }),
+      new CleanWebpackPlugin()
     ],
     resolve: {
       alias: {
@@ -86,7 +89,8 @@ module.exports = ({ production, development }) => {
           pathRewrite: { '^/api': '' }
         },
         secure: false
-      }
+      },
+      contentBase: '../dist'
     }
   }
 }
