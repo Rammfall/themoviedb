@@ -8,7 +8,7 @@ module.exports = (env, { mode }) => {
   const MiniCssLoader = {
     loader: MiniCssExtractPlugin.loader,
     options: {
-      publicPath: '../public/css'
+      publicPath: './public/css'
     }
   }
 
@@ -91,6 +91,7 @@ module.exports = (env, { mode }) => {
         secure: false
       },
       hot: true,
+      port: 4000,
       historyApiFallback: true
     }
   }
