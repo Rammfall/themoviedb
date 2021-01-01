@@ -15,7 +15,7 @@ jobs:
       - run: npm run prestart:prod
 
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@4.1.0
 workflows:
   main-pipeline:
     jobs:
