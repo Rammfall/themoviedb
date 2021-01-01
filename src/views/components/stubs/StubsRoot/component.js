@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 import Login from '../Login'
 import Dashboard from '../Dashboard'
@@ -44,47 +44,48 @@ const Links = () => (
 )
 
 const StubsRoot = () => (
-  <Router>
-    <Switch>
-      <Route
-        path="/stubs/login"
-        component={Login}
-      />
-      <Route
-        path="/stubs/dashboard"
-        component={Dashboard}
-      />
-      <Route
-        path="/stubs/dashboard-empty"
-        component={DashboardEmpty}
-      />
-      <Route
-        path="/stubs/dashboard-loading"
-        component={DashboardLoading}
-      />
-      <Route
-        path="/stubs/movie"
-        component={Movie}
-      />
-      <Route
-        path="/stubs/lists"
-        component={Lists}
-      />
-      <Route
-        path="/stubs/list/details"
-        component={ListDetails}
-      />
-      <Route
-        path="/stubs/watchlist"
-        component={Watchlist}
-      />
-      <Route
-        path="/stubs/favorites"
-        component={Favorites}
-      />
-      <Route component={Links} />
-    </Switch>
-  </Router>
+  <>
+    <Route
+      path="/stubs/login"
+      component={Login}
+    />
+    <Route
+      path="/stubs/dashboard"
+      component={Dashboard}
+    />
+    <Route
+      path="/stubs/dashboard-empty"
+      component={DashboardEmpty}
+    />
+    <Route
+      path="/stubs/dashboard-loading"
+      component={DashboardLoading}
+    />
+    <Route
+      path="/stubs/movie"
+      component={Movie}
+    />
+    <Route
+      path="/stubs/lists"
+      component={Lists}
+    />
+    <Route
+      path="/stubs/list/details"
+      component={ListDetails}
+    />
+    <Route
+      path="/stubs/watchlist"
+      component={Watchlist}
+    />
+    <Route
+      path="/stubs/favorites"
+      component={Favorites}
+    />
+    <Route
+      path="/stubs"
+      component={Links}
+    />
+  </>
 )
 
 export default StubsRoot

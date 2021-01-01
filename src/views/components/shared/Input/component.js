@@ -1,6 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Form, Input as AntInput } from 'antd'
+import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons'
+
+import { propTypes, defaultProps } from './types'
 
 const Input = ({
   placeholder,
@@ -17,44 +19,38 @@ const Input = ({
     validateStatus={validateStatus}
     help={validationMessage}
   >
-    <AntInput
-      placeholder={placeholder}
-      type={type}
-      onBlur={onBlur}
-      prefix={prefix}
-      onChange={onChange}
-      name={name}
-      value={value}
-    />
+    {type === 'password' ? (
+      <AntInput.Password
+        placeholder={placeholder}
+        type={type}
+        onBlur={onBlur}
+        prefix={prefix}
+        onChange={onChange}
+        name={name}
+        value={value}
+        iconRender={(visible) =>
+          visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
+      />
+    ) : (
+      <AntInput
+        placeholder={placeholder}
+        type={type}
+        onBlur={onBlur}
+        prefix={prefix}
+        onChange={onChange}
+        name={name}
+        value={value}
+      />
+    )}
   </Form.Item>
 )
 
 Input.propTypes = {
-  placeholder: PropTypes.string,
-  validateStatus: PropTypes.oneOf([
-    'success',
-    'warning',
-    'error',
-    'validating',
-    ''
-  ]),
-  validationMessage: PropTypes.string,
-  type: PropTypes.oneOf(['password', 'text']),
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
-  name: PropTypes.string,
-  prefix: PropTypes.node
+  ...propTypes
 }
 
 Input.defaultProps = {
-  placeholder: undefined,
-  validateStatus: undefined,
-  validationMessage: undefined,
-  type: 'text',
-  value: '',
-  name: '',
-  prefix: undefined
+  ...defaultProps
 }
 
 export default Input

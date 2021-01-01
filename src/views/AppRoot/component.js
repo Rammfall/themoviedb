@@ -4,24 +4,29 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 
 import LoginScreen from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
+import StubsRoot from '../components/stubs/StubsRoot'
 
-const AppRoot = ({ isLogged }) => (
+const AppRootComponent = ({ isLogged }) => (
   <BrowserRouter>
     <Route
       path="/login"
       component={LoginScreen}
     />
-    <Route path="/">
-      {!isLogged ? <Redirect to="/login" /> : <Dashboard />}
-    </Route>
+    <Route
+      path="/"
+      component={Dashboard}
+    />
+    <Route
+      path="/stubs"
+      component={Dashboard}
+    />
+    {!isLogged && <Redirect to="/login" />}
+    <StubsRoot />
   </BrowserRouter>
 )
 
-AppRoot.propTypes = {
-  isLogged: PropTypes.bool
-}
-AppRoot.defaultProps = {
-  isLogged: false
+AppRootComponent.propTypes = {
+  isLogged: PropTypes.bool.isRequired
 }
 
-export default AppRoot
+export default AppRootComponent

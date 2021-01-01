@@ -1,7 +1,9 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-const baseURL = 'http://localhost:8080/api/'
+import { APPLICATION_API } from '../config/application'
+
+const baseURL = `${APPLICATION_API}3/`
 
 const client = axios.create({
   baseURL,

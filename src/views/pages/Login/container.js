@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
-import { withFormik } from 'formik'
-import * as yup from 'yup'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import Login from './component'
+import { loginUser } from 'Store/concepts/session/actions'
+
+import LoginForm from '../../components/LoginForm'
 
 // eslint-disable-next-line react/prefer-stateless-function
 class LoginContainer extends Component {
+  // eslint-disable-next-line react/static-property-placement
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired
+  }
+
   render() {
-    return <Login />
+    const { onSubmit } = this.props
+
+    return <LoginForm onSubmit={onSubmit} />
   }
 }
 
-export default withFormik({
-  validationSchema: yup.object().shape({
-    username: yup.string().required(),
-    password: yup.string().min(4).required()
-  }),
-  mapPropsToValues: () => ({
-    username: '',
-    password: ''
-  }),
-  // eslint-disable-next-line no-console
-  handleSubmit: () => console.log('submit')
-})(LoginContainer)
+const mapStateToProps = (state) => ({
+  state
+})
+
+const mapDispatchToProps = {
+  onSubmit: loginUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)

@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { resolve } = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const DotEnvPlugin = require('dotenv-webpack')
 
 module.exports = (env, { mode }) => {
   const production = mode === 'production'
@@ -73,13 +74,15 @@ module.exports = (env, { mode }) => {
         filename: '[name].[fullhash].css',
         chunkFilename: '[id].[fullhash].css'
       }),
-      new CleanWebpackPlugin()
+      new CleanWebpackPlugin(),
+      new DotEnvPlugin()
     ],
     resolve: {
       alias: {
-        Components: resolve(__dirname, 'src/components'),
         Helpers: resolve(__dirname, 'src/helpers'),
-        Store: resolve(__dirname, 'src/store')
+        Config: resolve(__dirname, 'src/config'),
+        Store: resolve(__dirname, 'src/store'),
+        Views: resolve(__dirname, 'src/views')
       }
     },
     devServer: {

@@ -4,9 +4,10 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": ".",
     "paths": {
-      "Components/*": ["./src/components/*"],
-      "Helpers/*": ["./src/config/*"],
-      "Store/*": ["./src/store/*"]
+      "Config/*": ["./src/config/*"],
+      "Helpers/*": ["./src/helpers/*"],
+      "Store/*": ["./src/store/*"],
+      "Views/*": ["./src/views/*"]
     },
     "module": "commonjs"
   },
