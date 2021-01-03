@@ -11,7 +11,7 @@ const checkLoggedStatusOperation = createLogic({
     const token = Cookies.get('session_id')
 
     if (token) {
-      dispatch(changeLoggedStatus(true))
+      dispatch(changeLoggedStatus(false))
     }
 
     return done()

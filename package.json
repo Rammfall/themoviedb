@@ -4,8 +4,7 @@
   "description": "Internship Template",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest",
-    "coverage": "NODE_ENV=test jest --coverage",
+    "test": "NODE_ENV=test jest --coverage",
     "start:dev": "webpack serve --mode development",
     "prestart:prod": "webpack --mode production --progress",
     "start:prod": "node server",
@@ -57,6 +56,7 @@
     "prettier": "^2.2.0",
     "react-hot-loader": "^4.13.0",
     "redux-devtools-extension": "^2.13.8",
+    "redux-logic-test": "^2.0.0",
     "redux-mock-store": "^1.5.4",
     "regenerator-runtime": "^0.13.2",
     "sass-loader": "^10.1.0",
@@ -79,8 +79,8 @@
     "lodash": "^4.17.20",
     "normalizr": "^3.6.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-intl": "^5.10.9",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
@@ -109,12 +109,18 @@
       "<rootDir>/src/index.js",
       "<rootDir>/src/components/App/index.js",
       "<rootDir>/src/store/configureStore.js",
-      "<rootDir>/src/vendor"
+      "<rootDir>/src/vendor",
+      "<rootDir>/src/views/components/stubs"
     ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/file_mock.js",
-      "\\.(s?css)$": "identity-obj-proxy"
-    }
+      "\\.(s?css)$": "identity-obj-proxy",
+      "^Store(.*)$": "<rootDir>/src/store$1",
+      "^Config(.*)$": "<rootDir>/src/config$1"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/views/components/stubs"
+    ]
   },
   "husky": {
     "hooks": {

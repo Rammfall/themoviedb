@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component matches snapshot with default props 1`] = `
+<Input
+  name="test"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+  placeholder="Test"
+  type="text"
+  validateStatus="error"
+  validationMessage="test"
+  value="test"
+/>
+`;

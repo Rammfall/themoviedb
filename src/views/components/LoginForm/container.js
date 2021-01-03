@@ -3,7 +3,7 @@ import { withFormik } from 'formik'
 import * as yup from 'yup'
 import LoginFormComponent from './component'
 
-const handleSubmit = (
+export const handleSubmit = (
   values,
   { props, setErrors, setSubmitting, setStatus, resetForm, setValues }
 ) => {

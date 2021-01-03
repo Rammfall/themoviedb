@@ -43,11 +43,13 @@ const loginUserLogicOperation = createLogic({
     } catch (e) {
       if (e.status === 401) {
         // eslint-disable-next-line no-console
-        return console.log('Username or password are incorrect')
+        console.log('Username or password are incorrect')
+        return done()
       }
 
       // eslint-disable-next-line no-console
-      return console.log('Server error')
+      console.log('Server error')
+      return done()
     }
     return done()
   }

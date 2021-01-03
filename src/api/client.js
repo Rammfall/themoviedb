@@ -14,6 +14,7 @@ client.interceptors.request.use((config) => {
   const newConfig = config
 
   const token = Cookies.get('auth_token')
+
   if (token) {
     newConfig.headers = { Authorization: `Bearer ${token}` }
   }

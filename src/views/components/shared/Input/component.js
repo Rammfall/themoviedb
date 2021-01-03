@@ -4,6 +4,9 @@ import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons'
 
 import { propTypes, defaultProps } from './types'
 
+export const iconRender = (visible) =>
+  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+
 const Input = ({
   placeholder,
   validateStatus,
@@ -28,8 +31,7 @@ const Input = ({
         onChange={onChange}
         name={name}
         value={value}
-        iconRender={(visible) =>
-          visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
+        iconRender={iconRender}
       />
     ) : (
       <AntInput

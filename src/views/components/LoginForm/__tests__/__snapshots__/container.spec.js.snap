@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm to match snapshot with default props 1`] = `undefined`;
+
+exports[`LoginForm to match snapshot with default props 2`] = `
+<Formik
+  handleSubmit={[Function]}
+  initialValues={
+    Object {
+      "password": "",
+      "username": "",
+    }
+  }
+  onSubmit={[Function]}
+  validationSchema={[Function]}
+>
+  <Component />
+</Formik>
+`;
