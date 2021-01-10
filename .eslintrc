@@ -42,7 +42,7 @@
     "import/no-unresolved": [
       "error",
       {
-        "ignore": ["Components/", "Helpers/", "Store/"]
+        "ignore": ["Views/", "Helpers/", "Store/", "Config/"]
       }
     ]
   }

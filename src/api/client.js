@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-import { API_URL } from '../config/application'
+import { API_KEY, API_URL } from 'Config/application'
 
 const baseURL = `${API_URL}3/`
 
@@ -11,13 +11,22 @@ const client = axios.create({
 })
 
 client.interceptors.request.use((config) => {
-  const newConfig = config
+  const newConfig = { ...config }
+  const { headers } = newConfig
 
   const token = Cookies.get('auth_token')
 
   if (token) {
-    newConfig.headers = { Authorization: `Bearer ${token}` }
+    newConfig.headers = { ...headers, Authorization: `Bearer ${token}` }
   }
+
+  return newConfig
+})
+
+client.interceptors.request.use((config) => {
+  const newConfig = { ...config }
+
+  newConfig.url = `${newConfig.url}?api_key=${API_KEY}`
 
   return newConfig
 })

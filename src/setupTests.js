@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16' // eslint-disable-line import/no-e
 Enzyme.configure({ adapter: new Adapter() })
 
 process.env.API_URL = 'server.test/'
+process.env.API_KEY = 'TEST_KEY'
 
 jest.mock('react-intl', () => {
   const reactIntl = jest.requireActual('react-intl')

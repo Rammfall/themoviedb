@@ -52,5 +52,15 @@ describe('client', () => {
         })
       ).rejects.toStrictEqual({ message: serverError })
     })
+
+    it('insert API key in get param', () => {
+      const url = '/request'
+
+      expect(
+        client.interceptors.request.handlers[1].fulfilled({ url })
+      ).toStrictEqual({
+        url: `${url}?api_key=TEST_KEY`
+      })
+    })
   })
 })
