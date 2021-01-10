@@ -2,46 +2,55 @@ import Cookies from 'js-cookie'
 
 import client from '../client'
 
-describe('check http client', () => {
-  describe('make get request', () => {
-    it('success response', async () => {
-      expect(client).toMatchSnapshot()
+describe('client', () => {
+  jest.mock('js-cookie')
+
+  it('have correct config variables', async () => {
+    const { baseURL, timeout } = client.defaults
+
+    expect({
+      baseURL,
+      timeout
+    }).toStrictEqual({
+      baseURL: 'server.test/3/',
+      timeout: 10000
     })
+  })
 
-    it('check cookies interceptor', async () => {
-      jest.mock('js-cookie')
-      Cookies.get = jest.fn(() => '0123456789')
+  describe('interceptors', () => {
+    it('cookies token set in header on every request', async () => {
+      const token = '0123456789'
 
-      jest.mock('../client', (clientMock) => ({
-        ...clientMock,
-        get: jest.fn()
-      }))
+      Cookies.get = jest.fn(() => token)
 
-      expect(client.get('https://test.tet')).toMatchSnapshot()
       await expect(
         client.interceptors.response.handlers[0].fulfilled('Success')
       ).toStrictEqual('Success')
       await expect(
         client.interceptors.request.handlers[0].fulfilled({})
-      ).toStrictEqual({ headers: { Authorization: `Bearer 0123456789` } })
+      ).toStrictEqual({ headers: { Authorization: `Bearer ${token}` } })
     })
 
-    it('check error interceptor', async () => {
+    it('server error and response error', async () => {
+      const responseErrorMessage = 'Page not found'
+      const serverError = 'Some error'
+      const { rejected } = client.interceptors.response.handlers[0]
+
       await expect(
-        client.interceptors.response.handlers[0].rejected({
+        rejected({
           response: {
             statusText: 'NotFound',
             status: 404,
-            data: { message: 'Page not found' }
+            data: { message: responseErrorMessage }
           }
         })
-      ).rejects.toThrowError('Page not found')
+      ).rejects.toThrowError(responseErrorMessage)
 
       await expect(
-        client.interceptors.response.handlers[0].rejected({
-          message: 'Some error'
+        rejected({
+          message: serverError
         })
-      ).rejects.toStrictEqual({ message: 'Some error' })
+      ).rejects.toStrictEqual({ message: serverError })
     })
   })
 })

@@ -3,17 +3,52 @@
 exports[`LoginForm to match snapshot with default props 1`] = `undefined`;
 
 exports[`LoginForm to match snapshot with default props 2`] = `
-<Formik
+<LoginForm
+  dirty={false}
+  errors={Object {}}
+  getFieldHelpers={[Function]}
+  getFieldMeta={[Function]}
+  getFieldProps={[Function]}
+  handleBlur={[Function]}
+  handleChange={[Function]}
+  handleReset={[Function]}
   handleSubmit={[Function]}
+  initialErrors={Object {}}
+  initialTouched={Object {}}
   initialValues={
     Object {
       "password": "",
       "username": "",
     }
   }
-  onSubmit={[Function]}
-  validationSchema={[Function]}
->
-  <Component />
-</Formik>
+  isSubmitting={false}
+  isValid={true}
+  isValidating={false}
+  registerField={[Function]}
+  resetForm={[Function]}
+  setErrors={[Function]}
+  setFieldError={[Function]}
+  setFieldTouched={[Function]}
+  setFieldValue={[Function]}
+  setFormikState={[Function]}
+  setStatus={[Function]}
+  setSubmitting={[Function]}
+  setTouched={[Function]}
+  setValues={[Function]}
+  submitCount={0}
+  submitForm={[Function]}
+  touched={Object {}}
+  unregisterField={[Function]}
+  validateField={[Function]}
+  validateForm={[Function]}
+  validateOnBlur={true}
+  validateOnChange={true}
+  validateOnMount={false}
+  values={
+    Object {
+      "password": "",
+      "username": "",
+    }
+  }
+/>
 `;

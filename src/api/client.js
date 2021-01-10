@@ -1,9 +1,9 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-import { APPLICATION_API } from '../config/application'
+import { API_URL } from '../config/application'
 
-const baseURL = `${APPLICATION_API}3/`
+const baseURL = `${API_URL}3/`
 
 const client = axios.create({
   baseURL,

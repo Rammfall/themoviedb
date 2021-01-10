@@ -5,7 +5,6 @@ import { IntlProvider } from 'react-intl'
 
 import configureStore from './store/configureStore'
 import en from './locales/en'
-
 import AppRoot from './views/AppRoot'
 
 import './assets/styles/app.scss'
