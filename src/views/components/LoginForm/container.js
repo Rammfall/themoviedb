@@ -3,6 +3,7 @@ import { withFormik } from 'formik'
 import * as yup from 'yup'
 
 import LoginFormComponent from './component'
+import { defaultProps, propTypes } from './types'
 
 export const handleSubmit = (
   values,
@@ -21,8 +22,23 @@ export const handleSubmit = (
 // eslint-disable-next-line react/prefer-stateless-function
 class LoginForm extends Component {
   render() {
-    return <LoginFormComponent />
+    const { isSubmitting, status } = this.props
+
+    return (
+      <LoginFormComponent
+        status={status}
+        isSubmitting={isSubmitting}
+      />
+)
   }
+}
+
+LoginForm.propTypes = {
+  ...propTypes
+}
+
+LoginForm.defaultProps = {
+  ...defaultProps
 }
 
 export default withFormik({

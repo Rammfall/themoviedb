@@ -14,7 +14,7 @@ const checkLoggedStatusOperation = createLogic({
       dispatch(changeLoggedStatus(false))
     }
 
-    return done()
+    done()
   }
 })
 

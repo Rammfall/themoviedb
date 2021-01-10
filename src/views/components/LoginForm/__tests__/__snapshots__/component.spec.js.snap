@@ -49,11 +49,13 @@ exports[`LoginForm match snapshot with default props 1`] = `
             <FormItem>
               <Button
                 htmlType="submit"
+                loading={true}
                 type="primary"
               >
                 Log in
               </Button>
             </FormItem>
+            <p />
           </Form>
         </Col>
       </Row>

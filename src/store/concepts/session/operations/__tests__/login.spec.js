@@ -11,8 +11,8 @@ import reducer from 'Store/concepts/session/reducer'
 import loginUserLogicOperation from 'Store/concepts/session/operations/login'
 
 jest.mock('js-cookie')
-describe('check login operation', () => {
-  it('login action with success response server', async () => {
+describe('loginUserLogicOperation()', () => {
+  it('with success response', async () => {
     const initialState = {}
     const httpClient = jest.fn()
     Cookie.set = jest.fn()

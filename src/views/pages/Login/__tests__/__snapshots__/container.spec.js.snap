@@ -98,7 +98,9 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                 }
               }
             >
-              <LoginFormComponent>
+              <LoginFormComponent
+                isSubmitting={false}
+              >
                 <div
                   className="center"
                 >
@@ -310,6 +312,7 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                                                                 className="ant-form-item-control-input-content"
                                                               >
                                                                 <Input
+                                                                  iconRender={[Function]}
                                                                   name="username"
                                                                   onBlur={[Function]}
                                                                   onChange={[Function]}
@@ -331,6 +334,7 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                                                                     element={
                                                                       <input
                                                                         className="ant-input"
+                                                                        iconRender={[Function]}
                                                                         name="username"
                                                                         onBlur={[Function]}
                                                                         onChange={[Function]}
@@ -343,6 +347,7 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                                                                     }
                                                                     focused={false}
                                                                     handleReset={[Function]}
+                                                                    iconRender={[Function]}
                                                                     inputType="input"
                                                                     name="username"
                                                                     onBlur={[Function]}
@@ -459,6 +464,7 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                                                                       </span>
                                                                       <input
                                                                         className="ant-input"
+                                                                        iconRender={[Function]}
                                                                         name="username"
                                                                         onBlur={[Function]}
                                                                         onChange={[Function]}
@@ -1003,6 +1009,7 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                                                         >
                                                           <Button
                                                             htmlType="submit"
+                                                            loading={false}
                                                             type="primary"
                                                           >
                                                             <Wave>
@@ -1061,6 +1068,7 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
                                               </div>
                                             </Row>
                                           </FormItem>
+                                          <p />
                                         </form>
                                       </Form>
                                     </div>

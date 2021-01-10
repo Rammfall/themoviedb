@@ -1,6 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppRootComponent matches snapshot with default props 1`] = `
+exports[`AppRootComponent when isLogged true matches snapshot 1`] = `
+<Component>
+  <Route
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(LoginContainer)",
+        "type": [Function],
+      }
+    }
+    path="/login"
+  />
+  <Route
+    component={[Function]}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    path="/stubs"
+  />
+  <StubsRoot />
+</Component>
+`;
+
+exports[`AppRootComponent with default props matches snapshot 1`] = `
 <Component>
   <Route
     component={
@@ -24,32 +50,6 @@ exports[`AppRootComponent matches snapshot with default props 1`] = `
   />
   <Redirect
     to="/login"
-  />
-  <StubsRoot />
-</Component>
-`;
-
-exports[`AppRootComponent matches snapshot with default props 2`] = `
-<Component>
-  <Route
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
-        "displayName": "Connect(LoginContainer)",
-        "type": [Function],
-      }
-    }
-    path="/login"
-  />
-  <Route
-    component={[Function]}
-    path="/"
-  />
-  <Route
-    component={[Function]}
-    path="/stubs"
   />
   <StubsRoot />
 </Component>

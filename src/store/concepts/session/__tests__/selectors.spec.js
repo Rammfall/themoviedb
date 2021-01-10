@@ -1,9 +1,7 @@
 import { isLoggedSelector } from '../selectors'
 
-describe('check selectors functional', () => {
-  it('isLoggedSelector', () => {
-    expect(isLoggedSelector({ session: { isLogged: true } })).toStrictEqual(
-      true
-    )
+describe('session selectors', () => {
+  it('isLoggedSelector()', () => {
+    expect(isLoggedSelector({ session: { isLogged: true } })).toBeTruthy()
   })
 })

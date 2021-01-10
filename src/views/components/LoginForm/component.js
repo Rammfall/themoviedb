@@ -4,9 +4,10 @@ import { Button, Col, Layout, Row, Typography, Form as AntForm } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Form, Field } from 'formik'
 
-import InputField from '../shared/InputField'
+import InputField from 'Views/components/shared/InputField'
+import { defaultProps, propTypes } from './types'
 
-const LoginFormComponent = () => {
+const LoginFormComponent = ({ isSubmitting, status }) => {
   const { formatMessage } = useIntl()
 
   return (
@@ -43,10 +44,12 @@ const LoginFormComponent = () => {
                   <Button
                     type="primary"
                     htmlType="submit"
+                    loading={isSubmitting}
                   >
                     {formatMessage({ id: 'page.login.form.login' })}
                   </Button>
                 </AntForm.Item>
+                <p>{status}</p>
               </Form>
             </Col>
           </Row>
@@ -54,6 +57,14 @@ const LoginFormComponent = () => {
       </Layout>
     </div>
   )
+}
+
+LoginFormComponent.propTypes = {
+  ...propTypes
+}
+
+LoginFormComponent.defaultProps = {
+  ...defaultProps
 }
 
 export default LoginFormComponent

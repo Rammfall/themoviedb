@@ -15,13 +15,16 @@ const loginUserLogicOperation = createLogic({
   async process(
     {
       action: {
-        values: { username, password }
+        values: { username, password },
+        form: { setStatus, setSubmitting }
       },
       httpClient
     },
     dispatch,
     done
   ) {
+    setSubmitting(true)
+
     try {
       /* eslint-disable camelcase */
       const {
@@ -42,16 +45,13 @@ const loginUserLogicOperation = createLogic({
       dispatch(changeLoggedStatus(true))
     } catch (e) {
       if (e.status === 401) {
-        // eslint-disable-next-line no-console
-        console.log('Username or password are incorrect')
-        return done()
+        setStatus('Username or password are incorrect')
+      } else {
+        setStatus('Server error')
       }
-
-      // eslint-disable-next-line no-console
-      console.log('Server error')
-      return done()
     }
-    return done()
+    setSubmitting(false)
+    done()
   }
 })
 

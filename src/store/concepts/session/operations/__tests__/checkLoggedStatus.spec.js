@@ -11,7 +11,7 @@ import checkLoggedStatus from '../checkLoggedStatus'
 
 jest.mock('js-cookie')
 
-describe('checkLoggedStatus working', () => {
+describe('checkLoggedStatus()', () => {
   it('if cookie exist', async () => {
     const initialState = {}
     const logicMiddleware = createLogicMiddleware([checkLoggedStatus])
@@ -34,12 +34,12 @@ describe('checkLoggedStatus working', () => {
     ])
   })
 
-  it('if cookie not exist', async () => {
+  it('without cookies', async () => {
     const initialState = {}
     const logicMiddleware = createLogicMiddleware([checkLoggedStatus])
     const mockStore = configureStore([logicMiddleware])
 
-    Cookie.get = jest.fn(() => undefined)
+    Cookie.get.mockReturnValueOnce()
 
     const store = mockStore(initialState, reducer)
 

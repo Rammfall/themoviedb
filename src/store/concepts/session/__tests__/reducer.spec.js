@@ -1,15 +1,15 @@
 import reducers from '../reducer'
 import { USER_LOGIN_SUCCESS } from '../types'
 
-describe('check session reducers', () => {
+describe('session reducers', () => {
   describe('isLogged reducer', () => {
-    it('mutate state if type user login success', () => {
+    it('handles USER_LOGIN_SUCCESS action', () => {
       expect(
         reducers({ isLogged: false }, { type: USER_LOGIN_SUCCESS })
       ).toStrictEqual({ isLogged: true })
     })
 
-    it('not mutate state if type not session', () => {
+    it('not handle incorrect action', () => {
       expect(
         reducers({ isLogged: false }, { type: 'NOT_RELEVANT_TYPE' })
       ).toStrictEqual({ isLogged: false })

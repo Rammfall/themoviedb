@@ -17,13 +17,16 @@ const Input = ({
   onBlur,
   name,
   prefix
-}) => (
-  <Form.Item
-    validateStatus={validateStatus}
-    help={validationMessage}
-  >
-    {type === 'password' ? (
-      <AntInput.Password
+}) => {
+  const isPassword = type === 'password'
+  const CustomInput = isPassword ? AntInput.Password : AntInput
+
+  return (
+    <Form.Item
+      validateStatus={validateStatus}
+      help={validationMessage}
+    >
+      <CustomInput
         placeholder={placeholder}
         type={type}
         onBlur={onBlur}
@@ -33,19 +36,9 @@ const Input = ({
         value={value}
         iconRender={iconRender}
       />
-    ) : (
-      <AntInput
-        placeholder={placeholder}
-        type={type}
-        onBlur={onBlur}
-        prefix={prefix}
-        onChange={onChange}
-        name={name}
-        value={value}
-      />
-    )}
-  </Form.Item>
-)
+    </Form.Item>
+  )
+}
 
 Input.propTypes = {
   ...propTypes

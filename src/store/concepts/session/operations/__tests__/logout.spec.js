@@ -9,8 +9,8 @@ import logoutUserLogicOperation from '../logout'
 
 jest.mock('js-cookie')
 
-describe('check logout operation', () => {
-  it('logout action clear cookie', async () => {
+describe('logoutUserLogicOperation()', () => {
+  it('clears cookie', async () => {
     const initialState = {}
     const logicMiddleware = createLogicMiddleware([logoutUserLogicOperation])
     const mockStore = configureStore([logicMiddleware])

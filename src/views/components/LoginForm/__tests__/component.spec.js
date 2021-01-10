@@ -4,10 +4,15 @@ import { shallow } from 'enzyme'
 import LoginFormComponent from '../component'
 
 describe('LoginForm match snapshot', () => {
-  it('with default props', () => {
-    jest.mock('react-intl')
+  jest.mock('react-intl')
+  const defaultProp = {
+    isSubmitting: true,
+    status: undefined
+  }
 
-    const component = shallow(<LoginFormComponent />)
+  it('with default props', () => {
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    const component = shallow(<LoginFormComponent {...defaultProp} />)
 
     expect(component).toMatchSnapshot()
   })

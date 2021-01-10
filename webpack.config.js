@@ -75,7 +75,9 @@ module.exports = (env, { mode }) => {
         chunkFilename: '[id].[fullhash].css'
       }),
       new CleanWebpackPlugin(),
-      new DotEnvPlugin()
+      new DotEnvPlugin({
+        systemvars: true
+      })
     ],
     resolve: {
       alias: {
