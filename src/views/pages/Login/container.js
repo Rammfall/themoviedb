@@ -1,31 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { loginUser } from 'Store/concepts/session/actions'
 
-import LoginForm from '../../components/LoginForm'
+import LoginForm from 'Views/components/LoginForm'
 
-// eslint-disable-next-line react/prefer-stateless-function
-class LoginContainer extends Component {
-  // eslint-disable-next-line react/static-property-placement
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired
-  }
+const LoginContainer = ({ onSubmit }) => <LoginForm onSubmit={onSubmit} />
 
-  render() {
-    const { onSubmit } = this.props
-
-    return <LoginForm onSubmit={onSubmit} />
-  }
+LoginContainer.propTypes = {
+  onSubmit: PropTypes.func.isRequired
 }
-
-const mapStateToProps = (state) => ({
-  state
-})
 
 const mapDispatchToProps = {
   onSubmit: loginUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+export default connect(undefined, mapDispatchToProps)(LoginContainer)

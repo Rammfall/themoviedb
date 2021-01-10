@@ -34,11 +34,6 @@ exports[`LoginContainer to match snapshots with default props 1`] = `
     >
       <LoginContainer
         onSubmit={[Function]}
-        state={
-          Object {
-            "session": Object {},
-          }
-        }
       >
         <WithFormik(LoginForm)
           onSubmit={[Function]}

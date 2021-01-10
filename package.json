@@ -115,7 +115,8 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/file_mock.js",
       "\\.(s?css)$": "identity-obj-proxy",
       "^Store(.*)$": "<rootDir>/src/store$1",
-      "^Config(.*)$": "<rootDir>/src/config$1"
+      "^Config(.*)$": "<rootDir>/src/config$1",
+      "^Views(.*)$": "<rootDir>/src/views$1"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/src/views/components/stubs"
