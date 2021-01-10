@@ -1,37 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { isLoggedSelector } from 'Store/concepts/session/selectors'
+import { isLoggedInSelector } from 'Store/concepts/session/selectors'
 
-import { checkLoggedStatus } from 'Store/concepts/session/actions'
 import AppRootComponent from './component'
 
-class AppRoot extends Component {
-  // eslint-disable-next-line react/static-property-placement
-  static propTypes = {
-    isLogged: PropTypes.bool.isRequired,
-    checkLogged: PropTypes.func.isRequired
-  }
+const AppRoot = ({ isLoggedIn }) => <AppRootComponent isLoggedIn={isLoggedIn} />
 
-  componentDidMount() {
-    const { checkLogged } = this.props
-
-    checkLogged()
-  }
-
-  render() {
-    const { isLogged } = this.props
-    return <AppRootComponent isLogged={isLogged} />
-  }
+AppRoot.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  isLogged: isLoggedSelector(state)
+  isLoggedIn: isLoggedInSelector(state)
 })
 
-const mapDispatchToProps = {
-  checkLogged: checkLoggedStatus
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppRoot)
+export default connect(mapStateToProps)(AppRoot)

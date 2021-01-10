@@ -1,18 +1,24 @@
 import reducers from '../reducer'
-import { USER_LOGIN_SUCCESS } from '../types'
+import { USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS } from '../types'
 
 describe('session reducers', () => {
-  describe('isLogged reducer', () => {
+  describe('isLoggedIn reducer', () => {
     it('handles USER_LOGIN_SUCCESS action', () => {
-      expect(
-        reducers({ isLogged: false }, { type: USER_LOGIN_SUCCESS })
-      ).toStrictEqual({ isLogged: true })
+      expect(reducers(undefined, { type: USER_LOGIN_SUCCESS })).toStrictEqual({
+        isLoggedIn: true
+      })
     })
 
-    it('not handle incorrect action', () => {
+    it('handles USER_LOGOUT_SUCCESS action', () => {
+      expect(reducers(undefined, { type: USER_LOGOUT_SUCCESS })).toStrictEqual({
+        isLoggedIn: false
+      })
+    })
+
+    it('not handle incorrect action', async () => {
       expect(
-        reducers({ isLogged: false }, { type: 'NOT_RELEVANT_TYPE' })
-      ).toStrictEqual({ isLogged: false })
+        await reducers(undefined, { type: 'NOT_RELEVANT_TYPE' })
+      ).toStrictEqual({ isLoggedIn: false })
     })
   })
 })

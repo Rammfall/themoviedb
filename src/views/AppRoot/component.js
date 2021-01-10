@@ -6,7 +6,7 @@ import LoginScreen from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import StubsRoot from '../components/stubs/StubsRoot'
 
-const AppRootComponent = ({ isLogged }) => (
+const AppRootComponent = ({ isLoggedIn }) => (
   <BrowserRouter>
     <Route
       path="/login"
@@ -20,13 +20,13 @@ const AppRootComponent = ({ isLogged }) => (
       path="/stubs"
       component={Dashboard}
     />
-    {!isLogged && <Redirect to="/login" />}
+    {!isLoggedIn && <Redirect to="/login" />}
     <StubsRoot />
   </BrowserRouter>
 )
 
 AppRootComponent.propTypes = {
-  isLogged: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired
 }
 
 export default AppRootComponent

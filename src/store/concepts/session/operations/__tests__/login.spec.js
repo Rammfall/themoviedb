@@ -1,123 +1,136 @@
-import { createLogicMiddleware } from 'redux-logic'
-import configureStore from 'redux-mock-store'
 import Cookie from 'js-cookie'
 
 import {
-  SUBMIT_USER_LOGIN,
+  USER_LOGIN_SUBMIT,
   USER_LOGIN_SUCCESS
 } from 'Store/concepts/session/types'
 
-import reducer from 'Store/concepts/session/reducer'
-import loginUserLogicOperation from 'Store/concepts/session/operations/login'
+import loginUserOperation from 'Store/concepts/session/operations/login'
+import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
+import mockHttpClient from '../../../../../api/__mocks__/mockHttpClient'
 
 jest.mock('js-cookie')
-describe('loginUserLogicOperation()', () => {
-  it('with success response', async () => {
-    const initialState = {}
-    const httpClient = jest.fn()
-    Cookie.set = jest.fn()
-    httpClient.get = jest.fn(
-      () =>
-        new Promise((resolve) =>
-          resolve({ data: { request_token: 'testset' } })
-        )
-    )
-    httpClient.post = jest.fn(
-      () =>
-        new Promise((resolve) => resolve({ data: { session_id: 'testset' } }))
-    )
-    const logicMiddleware = createLogicMiddleware([loginUserLogicOperation], {
-      httpClient
-    })
-    const mockStore = configureStore([logicMiddleware])
+describe('loginUserOperation()', () => {
+  Cookie.set = jest.fn()
 
-    const store = mockStore(initialState, reducer)
-
-    store.dispatch({
-      type: SUBMIT_USER_LOGIN,
-      values: { username: 'test', password: 'test' }
-    })
-    await logicMiddleware.whenComplete()
-
-    expect(store.getActions()).toStrictEqual([
+  describe('with success response', () => {
+    const formMocks = {
+      form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
+    }
+    const httpClient = mockHttpClient([
       {
-        type: SUBMIT_USER_LOGIN,
-        values: {
-          username: 'test',
-          password: 'test'
-        }
+        method: 'get',
+        response: () =>
+          new Promise((resolve) => resolve({ data: { request_token: 'test' } }))
       },
       {
-        type: USER_LOGIN_SUCCESS,
-        isLogged: true
+        method: 'post',
+        response: () =>
+          new Promise((resolve) => resolve({ data: { session_id: 'testId' } }))
       }
     ])
-    expect(Cookie.set).toHaveBeenCalledTimes(1)
-  })
-
-  it('login action with error response server', async () => {
-    const initialState = {}
-    const httpClient = jest.fn()
-    httpClient.get = jest.fn(
-      () =>
-        new Promise((resolve, rejects) => {
-          const error = new Error()
-
-          error.status = 401
-          rejects(error)
-        })
-    )
-    const logicMiddleware = createLogicMiddleware([loginUserLogicOperation], {
-      httpClient
-    })
-    const mockStore = configureStore([logicMiddleware])
-
-    const store = mockStore(initialState, reducer)
+    const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
+      loginUserOperation
+    ])
 
     store.dispatch({
-      type: SUBMIT_USER_LOGIN,
-      values: { username: 'test', password: 'test' }
+      type: USER_LOGIN_SUBMIT,
+      values: { username: 'test', password: 'test' },
+      ...formMocks
     })
-    await logicMiddleware.whenComplete()
 
-    expect(store.getActions()).toStrictEqual([
-      {
-        type: SUBMIT_USER_LOGIN,
-        values: {
-          username: 'test',
-          password: 'test'
+    it('handles USER_LOGIN_SUCCESS', async () => {
+      await logicMiddleware.whenComplete()
+
+      expect(store.getActions()).toStrictEqual([
+        {
+          type: USER_LOGIN_SUBMIT,
+          values: {
+            username: 'test',
+            password: 'test'
+          },
+          ...formMocks
+        },
+        {
+          type: USER_LOGIN_SUCCESS
         }
-      }
-    ])
+      ])
+      expect(Cookie.set).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it('login action with incorrect error', async () => {
-    const initialState = {}
-    const httpClient = jest.fn()
-    httpClient.get = jest.fn(
-      () => new Promise((resolve, rejects) => rejects(new Error()))
-    )
-    const logicMiddleware = createLogicMiddleware([loginUserLogicOperation], {
-      httpClient
-    })
-    const mockStore = configureStore([logicMiddleware])
-
-    const store = mockStore(initialState, reducer)
-
-    store.dispatch({
-      type: SUBMIT_USER_LOGIN,
-      values: { username: 'test', password: 'test' }
-    })
-    await logicMiddleware.whenComplete()
-
-    expect(store.getActions()).toStrictEqual([
-      {
-        type: SUBMIT_USER_LOGIN,
-        values: {
-          username: 'test',
-          password: 'test'
-        }
+  describe('with errors', () => {
+    it('in response', async () => {
+      const formMocks = {
+        form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
       }
-    ])
+      const httpClient = mockHttpClient([
+        {
+          method: 'get',
+          response: () =>
+            new Promise((resolve, rejects) => {
+              const error = new Error()
+
+              error.status = 401
+              rejects(error)
+            })
+        }
+      ])
+      const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
+        loginUserOperation
+      ])
+
+      store.dispatch({
+        type: USER_LOGIN_SUBMIT,
+        values: { username: 'test', password: 'test' },
+        ...formMocks
+      })
+      await logicMiddleware.whenComplete()
+
+      expect(store.getActions()).toStrictEqual([
+        {
+          type: USER_LOGIN_SUBMIT,
+          values: {
+            username: 'test',
+            password: 'test'
+          },
+          ...formMocks
+        }
+      ])
+    })
+
+    it('login action with incorrect error', async () => {
+      const formMocks = {
+        form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
+      }
+      const httpClient = mockHttpClient([
+        {
+          method: 'get',
+          response: () =>
+            new Promise((resolve, rejects) => rejects(new Error()))
+        }
+      ])
+      const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
+        loginUserOperation
+      ])
+
+      store.dispatch({
+        type: USER_LOGIN_SUBMIT,
+        values: { username: 'test', password: 'test' },
+        ...formMocks
+      })
+      await logicMiddleware.whenComplete()
+
+      expect(store.getActions()).toStrictEqual([
+        {
+          type: USER_LOGIN_SUBMIT,
+          values: {
+            username: 'test',
+            password: 'test'
+          },
+          ...formMocks
+        }
+      ])
+    })
   })
 })

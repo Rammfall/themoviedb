@@ -84,7 +84,8 @@ module.exports = (env, { mode }) => {
         Helpers: resolve(__dirname, 'src/helpers'),
         Config: resolve(__dirname, 'src/config'),
         Store: resolve(__dirname, 'src/store'),
-        Views: resolve(__dirname, 'src/views')
+        Views: resolve(__dirname, 'src/views'),
+        Modules: resolve(__dirname, 'src/modules')
       }
     },
     devServer: {

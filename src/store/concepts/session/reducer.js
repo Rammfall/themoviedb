@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux'
+import Cookies from 'js-cookie'
 
-import { USER_LOGIN_SUCCESS } from './types'
+import { USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS } from './types'
 
-const isLogged = (state = false, action) => {
+const isLoggedIn = (state = !!Cookies.get('session_id'), action) => {
   switch (action.type) {
     case USER_LOGIN_SUCCESS:
       return true
+    case USER_LOGOUT_SUCCESS:
+      return false
     default:
       return state
   }
 }
 
-export default combineReducers({ isLogged })
+export default combineReducers({ isLoggedIn })

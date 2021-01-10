@@ -1,56 +1,43 @@
 import {
-  USER_CHECK_LOGGED_STATUS,
+  loginUserSuccess,
+  loginUser,
+  logoutUser,
+  logoutUserSuccess
+} from '../actions'
+import {
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
-  SUBMIT_USER_LOGIN
+  USER_LOGIN_SUBMIT,
+  USER_LOGOUT_SUCCESS
 } from '../types'
-import {
-  checkLoggedStatus,
-  changeLoggedStatus,
-  loginUser,
-  logoutUser
-} from '../actions'
 
 describe('check session action', () => {
-  it('checkLoggedStatus', () => {
-    expect({ type: USER_CHECK_LOGGED_STATUS }).toStrictEqual(
-      checkLoggedStatus()
-    )
+  it('loginUserSuccess()', () => {
+    expect(loginUserSuccess(true)).toStrictEqual({
+      type: USER_LOGIN_SUCCESS
+    })
   })
 
-  it('changeLoggedStatus', () => {
-    expect({
-      type: USER_LOGIN_SUCCESS,
-      isLogged: true
-    }).toStrictEqual(changeLoggedStatus(true))
-  })
-
-  it('loginUser', () => {
+  it('loginUser()', () => {
     const username = 'username'
     const password = 'password'
+    const actionResult = loginUser({
+      username,
+      password
+    })
 
-    expect({
-      type: SUBMIT_USER_LOGIN,
-      form: {
-        resetForm: undefined,
-        setErrors: undefined,
-        setStatus: undefined,
-        setSubmitting: undefined,
-        setValues: undefined
-      },
-      values: {
-        username,
-        password
-      }
-    }).toStrictEqual(
-      loginUser({
-        username,
-        password
-      })
-    )
+    expect(actionResult.type).toStrictEqual(USER_LOGIN_SUBMIT)
+    expect(actionResult.values).toStrictEqual({
+      username,
+      password
+    })
   })
 
-  it('logoutUser', () => {
-    expect({ type: USER_LOGOUT }).toStrictEqual(logoutUser())
+  it('logoutUser()', () => {
+    expect(logoutUser()).toStrictEqual({ type: USER_LOGOUT })
+  })
+
+  it('logoutUserSuccess()', () => {
+    expect(logoutUserSuccess()).toStrictEqual({ type: USER_LOGOUT_SUCCESS })
   })
 })

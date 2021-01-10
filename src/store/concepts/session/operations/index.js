@@ -1,9 +1,4 @@
-import loginUserLogicOperation from 'Store/concepts/session/operations/login'
-import logoutUserLogicOperation from 'Store/concepts/session/operations/logout'
-import checkLoggedStatusOperation from 'Store/concepts/session/operations/checkLoggedStatus'
+import loginUserOperation from 'Store/concepts/session/operations/login'
+import logoutUserOperation from 'Store/concepts/session/operations/logout'
 
-export default [
-  loginUserLogicOperation,
-  logoutUserLogicOperation,
-  checkLoggedStatusOperation
-]
+export default [loginUserOperation, logoutUserOperation]

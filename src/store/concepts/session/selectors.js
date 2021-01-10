@@ -1,1 +1,1 @@
-export const isLoggedSelector = ({ session: { isLogged } }) => isLogged
+export const isLoggedInSelector = ({ session: { isLoggedIn } }) => isLoggedIn

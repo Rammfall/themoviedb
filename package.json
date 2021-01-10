@@ -116,7 +116,8 @@
       "\\.(s?css)$": "identity-obj-proxy",
       "^Store(.*)$": "<rootDir>/src/store$1",
       "^Config(.*)$": "<rootDir>/src/config$1",
-      "^Views(.*)$": "<rootDir>/src/views$1"
+      "^Views(.*)$": "<rootDir>/src/views$1",
+      "^Modules(.*)$": "<rootDir>/src/modules$1"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/src/views/components/stubs"

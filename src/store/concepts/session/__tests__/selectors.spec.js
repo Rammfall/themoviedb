@@ -1,7 +1,7 @@
-import { isLoggedSelector } from '../selectors'
+import { isLoggedInSelector } from '../selectors'
 
 describe('session selectors', () => {
-  it('isLoggedSelector()', () => {
-    expect(isLoggedSelector({ session: { isLogged: true } })).toBeTruthy()
+  it('isLoggedInSelector()', () => {
+    expect(isLoggedInSelector({ session: { isLoggedIn: true } })).toBeTruthy()
   })
 })

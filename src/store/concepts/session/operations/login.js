@@ -1,16 +1,16 @@
 import { createLogic } from 'redux-logic'
 import Cookie from 'js-cookie'
 
-import { SUBMIT_USER_LOGIN } from 'Store/concepts/session/types'
+import { USER_LOGIN_SUBMIT } from 'Store/concepts/session/types'
 import {
   requestToken,
   newSession,
   validateRequestToken
 } from 'Store/concepts/session/endpoints'
-import { changeLoggedStatus } from 'Store/concepts/session/actions'
+import { loginUserSuccess } from 'Store/concepts/session/actions'
 
-const loginUserLogicOperation = createLogic({
-  type: SUBMIT_USER_LOGIN,
+const loginUserOperation = createLogic({
+  type: USER_LOGIN_SUBMIT,
   latest: true,
   async process(
     {
@@ -42,7 +42,7 @@ const loginUserLogicOperation = createLogic({
 
       Cookie.set('session_id', session_id)
 
-      dispatch(changeLoggedStatus(true))
+      dispatch(loginUserSuccess())
     } catch (e) {
       if (e.status === 401) {
         setStatus('Username or password are incorrect')
@@ -55,4 +55,4 @@ const loginUserLogicOperation = createLogic({
   }
 })
 
-export default loginUserLogicOperation
+export default loginUserOperation

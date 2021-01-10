@@ -20,6 +20,8 @@ const Input = ({
 }) => {
   const isPassword = type === 'password'
   const CustomInput = isPassword ? AntInput.Password : AntInput
+  const passwordProps = isPassword ? { iconRender } : {}
+  /* eslint-disable react/jsx-props-no-spreading */
 
   return (
     <Form.Item
@@ -34,10 +36,11 @@ const Input = ({
         onChange={onChange}
         name={name}
         value={value}
-        iconRender={iconRender}
+        {...passwordProps}
       />
     </Form.Item>
   )
+  /* eslint-enable react/jsx-props-no-spreading */
 }
 
 Input.propTypes = {

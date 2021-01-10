@@ -63,7 +63,6 @@ exports[`Input component matches snapshot if type password with default props 1`
 exports[`Input component matches snapshot if type text with default props 1`] = `
 <FormItem>
   <Input
-    iconRender={[Function]}
     name=""
     onBlur={[MockFunction]}
     onChange={[MockFunction]}
