@@ -1,11 +1,10 @@
-import Cookie from 'js-cookie'
-
 import { USER_LOGOUT, USER_LOGOUT_SUCCESS } from 'Store/concepts/session/types'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
+import mockHttpClient from 'Api/__mocks__/mockHttpClient'
+import storage from 'Modules/storage'
 import logoutUserOperation from '../logout'
-import mockHttpClient from '../../../../../api/__mocks__/mockHttpClient'
 
-jest.mock('js-cookie')
+jest.mock('Modules/storage')
 
 describe('logoutUserLogicOperation()', () => {
   it('clears cookie, dispatch USER_LOGOUT_SUCCESS', async () => {
@@ -30,6 +29,6 @@ describe('logoutUserLogicOperation()', () => {
         type: USER_LOGOUT_SUCCESS
       }
     ])
-    expect(Cookie.remove).toHaveBeenCalledTimes(1)
+    expect(storage.session.remove).toHaveBeenCalledTimes(1)
   })
 })

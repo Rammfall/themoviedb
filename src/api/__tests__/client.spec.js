@@ -1,10 +1,9 @@
-import Cookies from 'js-cookie'
-
+import storage from 'Modules/storage'
 import client from '../client'
 
-describe('client', () => {
-  jest.mock('js-cookie')
+jest.mock('Modules/storage')
 
+describe('client', () => {
   it('have correct config variables', async () => {
     const { baseURL, timeout } = client.defaults
 
@@ -21,7 +20,7 @@ describe('client', () => {
     it('cookies token set in header on every request', async () => {
       const token = '0123456789'
 
-      Cookies.get = jest.fn(() => token)
+      storage.session.get.mockImplementation(() => token)
 
       await expect(
         client.interceptors.response.handlers[0].fulfilled('Success')

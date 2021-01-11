@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import Cookies from 'js-cookie'
 
+import storage from 'Modules/storage'
 import { USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS } from './types'
 
-const isLoggedIn = (state = !!Cookies.get('session_id'), action) => {
+const isLoggedIn = (state = !!storage.session.get(), action) => {
   switch (action.type) {
     case USER_LOGIN_SUCCESS:
       return true

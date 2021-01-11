@@ -7,7 +7,9 @@
       "Config/*": ["./src/config/*"],
       "Helpers/*": ["./src/helpers/*"],
       "Store/*": ["./src/store/*"],
-      "Views/*": ["./src/views/*"]
+      "Views/*": ["./src/views/*"],
+      "Api/*": ["./src/api/*"],
+      "Modules/*": ["./src/modules/*"]
     },
     "module": "commonjs"
   },

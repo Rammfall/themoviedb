@@ -1,5 +1,3 @@
-import Cookie from 'js-cookie'
-
 import {
   USER_LOGIN_SUBMIT,
   USER_LOGIN_SUCCESS
@@ -7,11 +5,13 @@ import {
 
 import loginUserOperation from 'Store/concepts/session/operations/login'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
-import mockHttpClient from '../../../../../api/__mocks__/mockHttpClient'
+import mockHttpClient from 'Api/__mocks__/mockHttpClient'
+import storage from 'Modules/storage'
 
-jest.mock('js-cookie')
+jest.mock('Modules/storage')
+
 describe('loginUserOperation()', () => {
-  Cookie.set = jest.fn()
+  storage.session.set.mockImplementation(jest.fn())
 
   describe('with success response', () => {
     const formMocks = {
@@ -55,7 +55,7 @@ describe('loginUserOperation()', () => {
           type: USER_LOGIN_SUCCESS
         }
       ])
-      expect(Cookie.set).toHaveBeenCalledTimes(1)
+      expect(storage.session.set).toHaveBeenCalledTimes(1)
     })
   })
 

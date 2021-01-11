@@ -1,5 +1,4 @@
 import { createLogic } from 'redux-logic'
-import Cookie from 'js-cookie'
 
 import { USER_LOGIN_SUBMIT } from 'Store/concepts/session/types'
 import {
@@ -8,6 +7,7 @@ import {
   validateRequestToken
 } from 'Store/concepts/session/endpoints'
 import { loginUserSuccess } from 'Store/concepts/session/actions'
+import storage from 'Modules/storage'
 
 const loginUserOperation = createLogic({
   type: USER_LOGIN_SUBMIT,
@@ -40,7 +40,7 @@ const loginUserOperation = createLogic({
       } = await httpClient.post(newSession, { request_token })
       /* eslint-enable camelcase */
 
-      Cookie.set('session_id', session_id)
+      storage.session.set(session_id)
 
       dispatch(loginUserSuccess())
     } catch (e) {

@@ -1,5 +1,7 @@
 import session from 'Modules/storage/session'
 
-export default {
+const storage = {
   session
 }
+
+export default storage
