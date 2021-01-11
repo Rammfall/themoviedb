@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 const storeWithMiddlewareMock = (httpClient, operations) => {
   const initialState = {}
 
-  const logicMiddleware = createLogicMiddleware([...operations], {
+  const logicMiddleware = createLogicMiddleware(operations, {
     httpClient
   })
   const mockStore = configureStore([logicMiddleware])

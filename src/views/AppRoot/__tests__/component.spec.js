@@ -17,7 +17,7 @@ describe('AppRootComponent', () => {
     })
   })
 
-  describe('when isLogged true', () => {
+  describe('when isLoggedIn true', () => {
     it('matches snapshot', () => {
       const component = shallow(<AppRootComponent isLoggedIn />)
 

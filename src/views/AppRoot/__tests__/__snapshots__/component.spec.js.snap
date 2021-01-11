@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppRootComponent when isLogged true matches snapshot 1`] = `
+exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
 <Component>
   <Route
     component={

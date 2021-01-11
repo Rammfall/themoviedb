@@ -1,6 +1,6 @@
 import handleSubmit from 'Modules/formikEvents/handleSubmit'
 
-describe('handleSubmit', () => {
+describe('handleSubmit()', () => {
   it('runs onSubmit with all formik data', () => {
     const onSubmit = jest.fn()
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
 
-import diveTo from '../diveTo-enzyme'
+import diveTo from '../diveToEnzyme'
 
 // eslint-disable-next-line react/prefer-stateless-function
 class MockComponent extends React.Component {

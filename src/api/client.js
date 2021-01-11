@@ -11,25 +11,24 @@ const client = axios.create({
 })
 
 client.interceptors.request.use((config) => {
-  const newConfig = { ...config }
-  const { headers } = newConfig
+  const { headers } = config
 
   const token = storage.session.get()
 
   if (token) {
-    newConfig.headers = { ...headers, Authorization: `Bearer ${token}` }
+    return {
+      ...config,
+      headers: { ...headers, Authorization: `Bearer ${token}` }
+    }
   }
 
-  return newConfig
+  return config
 })
 
-client.interceptors.request.use((config) => {
-  const newConfig = { ...config }
-
-  newConfig.url = `${newConfig.url}?api_key=${API_KEY}`
-
-  return newConfig
-})
+client.interceptors.request.use((config) => ({
+  ...config,
+  url: `${config.url}?api_key=${API_KEY}`
+}))
 
 client.interceptors.response.use(
   (response) => response,

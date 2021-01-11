@@ -1,7 +1,7 @@
 import rootReducer from 'Store/rootReducer'
 import { RESET_STORE } from 'Store/types'
 
-describe('rootReducer', () => {
+describe('rootReducer()', () => {
   it('should handle RESET_STORE', () => {
     const state = {
       session: {

@@ -11,14 +11,16 @@ import {
   USER_LOGOUT_SUCCESS
 } from '../types'
 
-describe('check session action', () => {
-  it('loginUserSuccess()', () => {
-    expect(loginUserSuccess(true)).toStrictEqual({
-      type: USER_LOGIN_SUCCESS
+describe('session actions', () => {
+  describe('loginUserSuccess()', () => {
+    it('return correct result', () => {
+      expect(loginUserSuccess(true)).toStrictEqual({
+        type: USER_LOGIN_SUCCESS
+      })
     })
   })
 
-  it('loginUser()', () => {
+  describe('loginUser()', () => {
     const username = 'username'
     const password = 'password'
     const actionResult = loginUser({
@@ -26,18 +28,27 @@ describe('check session action', () => {
       password
     })
 
-    expect(actionResult.type).toStrictEqual(USER_LOGIN_SUBMIT)
-    expect(actionResult.values).toStrictEqual({
-      username,
-      password
+    it('return correct type', () => {
+      expect(actionResult.type).toStrictEqual(USER_LOGIN_SUBMIT)
+    })
+
+    it('return correct values', () => {
+      expect(actionResult.values).toStrictEqual({
+        username,
+        password
+      })
     })
   })
 
-  it('logoutUser()', () => {
-    expect(logoutUser()).toStrictEqual({ type: USER_LOGOUT })
+  describe('logoutUser()', () => {
+    it('return correct result', () => {
+      expect(logoutUser()).toStrictEqual({ type: USER_LOGOUT })
+    })
   })
 
-  it('logoutUserSuccess()', () => {
-    expect(logoutUserSuccess()).toStrictEqual({ type: USER_LOGOUT_SUCCESS })
+  describe('logoutUserSuccess()', () => {
+    it('return correct result', () => {
+      expect(logoutUserSuccess()).toStrictEqual({ type: USER_LOGOUT_SUCCESS })
+    })
   })
 })

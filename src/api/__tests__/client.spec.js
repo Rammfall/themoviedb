@@ -30,6 +30,13 @@ describe('client', () => {
       ).toStrictEqual({ headers: { Authorization: `Bearer ${token}` } })
     })
 
+    it('without cookies config without headers', async () => {
+      storage.session.get.mockImplementation(() => undefined)
+      await expect(
+        client.interceptors.request.handlers[0].fulfilled({})
+      ).toStrictEqual({})
+    })
+
     it('server error and response error', async () => {
       const responseErrorMessage = 'Page not found'
       const serverError = 'Some error'
@@ -52,7 +59,7 @@ describe('client', () => {
       ).rejects.toStrictEqual({ message: serverError })
     })
 
-    it('insert API key in get param', () => {
+    it('inserts API key in get pararms', () => {
       const url = '/request'
 
       expect(

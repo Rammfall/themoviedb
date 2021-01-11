@@ -1,4 +1,4 @@
-export const FormikFactory = (type) => (
+export const makeSubmitAction = (type) => (
   values,
   setErrors,
   setSubmitting,

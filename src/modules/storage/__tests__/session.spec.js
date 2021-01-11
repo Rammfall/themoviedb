@@ -2,31 +2,46 @@ import Cookie from 'js-cookie'
 
 import session from 'Modules/storage/session'
 
+jest.mock('js-cookie')
+
 describe('session', () => {
-  jest.mock('js-cookie')
   const sessionId = '0123456789'
 
-  it('get', () => {
+  describe('get()', () => {
     Cookie.get = jest.fn(() => sessionId)
 
-    expect(session.get()).toStrictEqual(sessionId)
-    expect(Cookie.get).toHaveBeenCalledTimes(1)
+    it('returns cookie session_id', () => {
+      expect(session.get()).toStrictEqual(sessionId)
+    })
+
+    it('call Cookie.get 1 times', () => {
+      expect(Cookie.get).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it('set', () => {
+  describe('set()', () => {
     const newId = 'newId'
     Cookie.set = jest.fn(() => newId)
 
-    expect(session.set(newId)).toStrictEqual(newId)
-    expect(Cookie.set).toHaveBeenCalledTimes(1)
+    it('sets cookie session_id', () => {
+      expect(session.set(newId)).toStrictEqual(newId)
+    })
+
+    it('call Cookie.set 1 times', () => {
+      expect(Cookie.set).toHaveBeenCalledTimes(1)
+    })
   })
 
-
-  it('remove', () => {
+  describe('remove()', () => {
     const newId = 'removeId'
     Cookie.remove = jest.fn(() => newId)
 
-    expect(session.remove()).toStrictEqual(newId)
-    expect(Cookie.remove).toHaveBeenCalledTimes(1)
+    it('removes cookie session_id', () => {
+      expect(session.remove()).toStrictEqual(newId)
+    })
+
+    it('call Cookie.remove 1 times', () => {
+      expect(Cookie.remove).toHaveBeenCalledTimes(1)
+    })
   })
 })

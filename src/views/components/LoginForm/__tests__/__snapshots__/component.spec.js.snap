@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginForm match snapshot with default props 1`] = `
+exports[`LoginForm match snapshot matches snapshot 1`] = `
 <div
   className="center"
 >

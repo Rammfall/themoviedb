@@ -1,6 +1,6 @@
-import { FormikFactory } from 'Store/actionFactories/formikFactory'
+import { makeSubmitAction } from 'Store/actionFactories/makeSubmitAction'
 
-describe('FormikFactory', () => {
+describe('makeSubmitAction()()', () => {
   const formikData = {
     type: 'SOME_TYPE',
     form: {
@@ -20,7 +20,7 @@ describe('FormikFactory', () => {
     form: { setErrors, setStatus, resetForm, setSubmitting, setValues }
   } = formikData
 
-  const action = FormikFactory(type)(
+  const action = makeSubmitAction(type)(
     values,
     setErrors,
     setSubmitting,
@@ -29,7 +29,7 @@ describe('FormikFactory', () => {
     setValues
   )
 
-  it('works correct', () => {
+  it('returns correct value', () => {
     expect(action).toStrictEqual(formikData)
   })
 })
