@@ -22,9 +22,6 @@ exports[`AppRootComponent when isLogged true matches snapshot 1`] = `
     component={[Function]}
     path="/stubs"
   />
-  <Redirect
-    to="/login"
-  />
   <StubsRoot />
 </Component>
 `;

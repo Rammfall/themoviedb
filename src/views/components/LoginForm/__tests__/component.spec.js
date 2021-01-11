@@ -4,7 +4,6 @@ import { shallow } from 'enzyme'
 import LoginFormComponent from '../component'
 
 describe('LoginForm match snapshot', () => {
-  jest.mock('react-intl')
   const defaultProp = {
     isSubmitting: true,
     status: undefined

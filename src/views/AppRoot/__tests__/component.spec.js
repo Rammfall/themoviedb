@@ -5,7 +5,7 @@ import AppRootComponent from '../component'
 
 describe('AppRootComponent', () => {
   const defaultProps = {
-    isLogged: false
+    isLoggedIn: false
   }
 
   describe('with default props', () => {
@@ -19,10 +19,9 @@ describe('AppRootComponent', () => {
 
   describe('when isLogged true', () => {
     it('matches snapshot', () => {
-      const component = shallow(<AppRootComponent isLogged />)
+      const component = shallow(<AppRootComponent isLoggedIn />)
 
-      expect(component)
-        .toMatchSnapshot()
+      expect(component).toMatchSnapshot()
     })
   })
 })

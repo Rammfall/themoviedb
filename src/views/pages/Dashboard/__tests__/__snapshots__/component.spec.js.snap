@@ -1,0 +1,638 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard matches snapshot 1`] = `
+<Layout>
+  <Header />
+  <Content>
+    <Row
+      gutter={
+        Object {
+          "lg": 22,
+          "md": 24,
+          "sm": 16,
+          "xs": 8,
+        }
+      }
+      justify="center"
+    >
+      <Col
+        className="gutter-row"
+        lg={
+          Object {
+            "span": 12,
+          }
+        }
+        md={
+          Object {
+            "span": 14,
+          }
+        }
+        sm={
+          Object {
+            "span": 20,
+          }
+        }
+        xl={
+          Object {
+            "span": 10,
+          }
+        }
+        xs={
+          Object {
+            "span": 20,
+          }
+        }
+      >
+        <Search
+          className="top-margin"
+          enterButton="Search"
+          placeholder="Enter movie name"
+          size="large"
+        />
+      </Col>
+    </Row>
+    <div
+      className="top-margin"
+    >
+      <Row
+        gutter={16}
+        type="flex"
+      >
+        <Col
+          className="gutter-row"
+          offset={2}
+          span={20}
+        >
+          <Row
+            gutter={
+              Object {
+                "lg": 32,
+                "md": 24,
+                "sm": 16,
+                "xs": 8,
+              }
+            }
+          >
+            <Col
+              key="0"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="1"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="2"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="3"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="4"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="5"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="6"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="7"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="8"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="9"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="10"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="11"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="12"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="13"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="14"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="15"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+            <Col
+              key="16"
+              lg={
+                Object {
+                  "span": 8,
+                }
+              }
+              md={
+                Object {
+                  "span": 8,
+                }
+              }
+              sm={
+                Object {
+                  "span": 12,
+                }
+              }
+              xl={
+                Object {
+                  "span": 6,
+                }
+              }
+              xs={
+                Object {
+                  "span": 24,
+                }
+              }
+            >
+              <Movie
+                actions={Array []}
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <Row
+        justify="center"
+        type="flex"
+      >
+        <Col>
+          <Pagination
+            className="pagination"
+            defaultCurrent={1}
+            total={50}
+          />
+        </Col>
+      </Row>
+    </div>
+  </Content>
+</Layout>
+`;

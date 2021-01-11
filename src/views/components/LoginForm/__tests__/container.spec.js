@@ -1,20 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import LoginForm, { handleSubmit } from '../container'
+import LoginForm from '../container'
 
-describe('LoginForm to match snapshot', () => {
-  it('with default props', () => {
+describe('LoginForm', () => {
+  it('matches snapshot', () => {
     const container = shallow(<LoginForm />)
       .dive()
       .dive()
-    const props = {
-      onSubmit: jest.fn()
-    }
+      .dive()
 
-    expect(
-      handleSubmit({ email: 'tset', password: 'test' }, { props })
-    ).toMatchSnapshot()
     expect(container).toMatchSnapshot()
   })
 })
