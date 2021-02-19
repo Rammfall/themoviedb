@@ -2,10 +2,11 @@ import React from 'react'
 import { Row, Col, Input, Pagination } from 'antd'
 import { range } from 'lodash'
 
+import PrivateLayout from 'Views/layouts/PrivateLayout'
 import Movie from '../../components/stubs/MovieItem'
 
 const DashboardComponent = () => (
-  <>
+  <PrivateLayout>
     <Row
       justify="center"
       gutter={{
@@ -77,7 +78,7 @@ const DashboardComponent = () => (
         </Col>
       </Row>
     </div>
-  </>
+  </PrivateLayout>
 )
 
 export default DashboardComponent
