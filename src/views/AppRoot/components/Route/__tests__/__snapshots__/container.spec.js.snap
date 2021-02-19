@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Route matches snapshot with default props 1`] = `
+<RouteComponent
+  component={[Function]}
+  conditionRender={false}
+  exact={false}
+  path="/"
+  redirectTo="/"
+/>
+`;
+
+exports[`Route matches snapshot with privateRoute 1`] = `
+<RouteComponent
+  component={[Function]}
+  conditionRender={true}
+  exact={false}
+  path="/"
+  redirectTo="/login"
+/>
+`;

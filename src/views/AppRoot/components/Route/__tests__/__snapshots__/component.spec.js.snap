@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouteComponent matches snapshot with conditionRender 1`] = `
+<Route
+  exact={true}
+  path="/"
+>
+  <[object Object] />
+</Route>
+`;
+
+exports[`RouteComponent matches snapshot with default props 1`] = `
+<Route
+  exact={true}
+  path="/"
+>
+  <Redirect
+    to="/"
+  />
+</Route>
+`;

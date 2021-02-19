@@ -2,7 +2,7 @@
 
 exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
 <Component>
-  <Route
+  <Connect(Route)
     component={
       Object {
         "$$typeof": Symbol(react.memo),
@@ -14,9 +14,10 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
     }
     path="/login"
   />
-  <Route
+  <Connect(Route)
     component={[Function]}
     path="/"
+    privateRoute={true}
   />
   <Route
     component={[Function]}
@@ -28,7 +29,7 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
 
 exports[`AppRootComponent with default props matches snapshot 1`] = `
 <Component>
-  <Route
+  <Connect(Route)
     component={
       Object {
         "$$typeof": Symbol(react.memo),
@@ -40,16 +41,14 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
     }
     path="/login"
   />
-  <Route
+  <Connect(Route)
     component={[Function]}
     path="/"
+    privateRoute={true}
   />
   <Route
     component={[Function]}
     path="/stubs"
-  />
-  <Redirect
-    to="/login"
   />
   <StubsRoot />
 </Component>

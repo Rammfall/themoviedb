@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuestLayout matches snapshot 1`] = `
+<div
+  className="center"
+>
+  <Layout>
+    <Content>
+      <Row
+        justify="center"
+        type="flex"
+      >
+        <Col>
+          Test
+        </Col>
+      </Row>
+    </Content>
+  </Layout>
+</div>
+`;

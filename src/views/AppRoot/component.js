@@ -1,32 +1,29 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
+
+import CustomRoute from 'Views/AppRoot/components/Route'
 
 import LoginScreen from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import StubsRoot from '../components/stubs/StubsRoot'
 
-const AppRootComponent = ({ isLoggedIn }) => (
+const AppRootComponent = () => (
   <BrowserRouter>
-    <Route
+    <CustomRoute
       path="/login"
       component={LoginScreen}
     />
-    <Route
+    <CustomRoute
       path="/"
+      privateRoute
       component={Dashboard}
     />
     <Route
       path="/stubs"
       component={Dashboard}
     />
-    {!isLoggedIn && <Redirect to="/login" />}
     <StubsRoot />
   </BrowserRouter>
 )
-
-AppRootComponent.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
-}
 
 export default AppRootComponent
