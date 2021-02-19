@@ -17,7 +17,7 @@ describe('client', () => {
   })
 
   describe('interceptors', () => {
-    it('cookies token set in header on every request', async () => {
+    it('sets cookies token in header on every request', async () => {
       const token = '0123456789'
 
       storage.session.get.mockImplementation(() => token)
@@ -30,42 +30,55 @@ describe('client', () => {
       ).toStrictEqual({ headers: { Authorization: `Bearer ${token}` } })
     })
 
-    it('without cookies config without headers', async () => {
-      storage.session.get.mockImplementation(() => undefined)
-      await expect(
-        client.interceptors.request.handlers[0].fulfilled({})
-      ).toStrictEqual({})
+    describe('without cookies config and headers', () => {
+      it('return correct value', async () => {
+        storage.session.get.mockImplementation(() => undefined)
+
+        await expect(
+          client.interceptors.request.handlers[0].fulfilled({})
+        ).toStrictEqual({})
+      })
     })
 
-    it('server error and response error', async () => {
-      const responseErrorMessage = 'Page not found'
-      const serverError = 'Some error'
-      const { rejected } = client.interceptors.response.handlers[0]
+    describe('when server error', () => {
+      it('rejects correct server error message', async () => {
+        const serverError = 'Some error'
+        const { rejected } = client.interceptors.response.handlers[0]
 
-      await expect(
-        rejected({
-          response: {
-            statusText: 'NotFound',
-            status: 404,
-            data: { message: responseErrorMessage }
-          }
-        })
-      ).rejects.toThrowError(responseErrorMessage)
-
-      await expect(
-        rejected({
-          message: serverError
-        })
-      ).rejects.toStrictEqual({ message: serverError })
+        await expect(
+          rejected({
+            message: serverError
+          })
+        ).rejects.toStrictEqual({ message: serverError })
+      })
     })
 
-    it('inserts API key in get pararms', () => {
-      const url = '/request'
+    describe('when response error', () => {
+      it('rejects correct response message', async () => {
+        const responseErrorMessage = 'Page not found'
+        const { rejected } = client.interceptors.response.handlers[0]
 
-      expect(
-        client.interceptors.request.handlers[1].fulfilled({ url })
-      ).toStrictEqual({
-        url: `${url}?api_key=TEST_KEY`
+        await expect(
+          rejected({
+            response: {
+              statusText: 'NotFound',
+              status: 404,
+              data: { message: responseErrorMessage }
+            }
+          })
+        ).rejects.toThrowError(responseErrorMessage)
+      })
+    })
+
+    describe('when inserts API key in get params', () => {
+      it('return url with api key', () => {
+        const url = '/request'
+
+        expect(
+          client.interceptors.request.handlers[1].fulfilled({ url })
+        ).toStrictEqual({
+          url: `${url}?api_key=TEST_KEY`
+        })
       })
     })
   })
