@@ -5,7 +5,7 @@ exports[`RouteComponent matches snapshot with conditionRender 1`] = `
   exact={true}
   path="/"
 >
-  <[object Object] />
+  <component />
 </Route>
 `;
 

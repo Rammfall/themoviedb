@@ -7,7 +7,8 @@ describe('RouteComponent matches snapshot', () => {
   const defaultProp = {
     exact: true,
     path: '/',
-    component: <div>Test</div>,
+    // eslint-disable-next-line react/display-name
+    component: () => <div>Test</div>,
     redirectTo: '/',
     conditionRender: false
   }
