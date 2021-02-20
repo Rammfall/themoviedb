@@ -14,7 +14,7 @@ describe('session', () => {
       expect(session.get()).toStrictEqual(sessionId)
     })
 
-    it('call Cookie.get 1 times', () => {
+    it('call Cookie.get()', () => {
       expect(Cookie.get).toHaveBeenCalledTimes(1)
     })
   })
@@ -27,7 +27,7 @@ describe('session', () => {
       expect(session.set(newId)).toStrictEqual(newId)
     })
 
-    it('call Cookie.set 1 times', () => {
+    it('call Cookie.set()', () => {
       expect(Cookie.set).toHaveBeenCalledTimes(1)
     })
   })
@@ -40,7 +40,7 @@ describe('session', () => {
       expect(session.remove()).toStrictEqual(newId)
     })
 
-    it('call Cookie.remove 1 times', () => {
+    it('call Cookie.remove()', () => {
       expect(Cookie.remove).toHaveBeenCalledTimes(1)
     })
   })

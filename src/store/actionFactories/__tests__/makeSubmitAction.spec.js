@@ -1,6 +1,6 @@
 import { makeSubmitAction } from 'Store/actionFactories/makeSubmitAction'
 
-describe('makeSubmitAction()()', () => {
+describe('makeSubmitAction()', () => {
   const formikData = {
     type: 'SOME_TYPE',
     form: {

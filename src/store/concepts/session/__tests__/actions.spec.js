@@ -13,7 +13,7 @@ import {
 
 describe('session actions', () => {
   describe('loginUserSuccess()', () => {
-    it('return correct result', () => {
+    it('returns correct result', () => {
       expect(loginUserSuccess(true)).toStrictEqual({
         type: USER_LOGIN_SUCCESS
       })
@@ -28,11 +28,11 @@ describe('session actions', () => {
       password
     })
 
-    it('return correct type', () => {
+    it('returns correct type', () => {
       expect(actionResult.type).toStrictEqual(USER_LOGIN_SUBMIT)
     })
 
-    it('return correct values', () => {
+    it('returns correct values', () => {
       expect(actionResult.values).toStrictEqual({
         username,
         password
@@ -41,13 +41,13 @@ describe('session actions', () => {
   })
 
   describe('logoutUser()', () => {
-    it('return correct result', () => {
+    it('returns correct result', () => {
       expect(logoutUser()).toStrictEqual({ type: USER_LOGOUT })
     })
   })
 
   describe('logoutUserSuccess()', () => {
-    it('return correct result', () => {
+    it('returns correct result', () => {
       expect(logoutUserSuccess()).toStrictEqual({ type: USER_LOGOUT_SUCCESS })
     })
   })
