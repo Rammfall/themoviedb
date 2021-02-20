@@ -3,31 +3,35 @@ import { shallow } from 'enzyme'
 
 import RouteComponent from '../component'
 
-describe('RouteComponent matches snapshot', () => {
+describe('RouteComponent', () => {
   const defaultProp = {
     exact: true,
     path: '/',
     // eslint-disable-next-line react/display-name
     component: () => <div>Test</div>,
     redirectTo: '/',
-    conditionRender: false
+    isAccessAllowed: false
   }
 
-  it('with default props', () => {
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    const component = shallow(<RouteComponent {...defaultProp} />)
+  describe('with default props', () => {
+    it('matches snapshot', () => {
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      const component = shallow(<RouteComponent {...defaultProp} />)
 
-    expect(component).toMatchSnapshot()
+      expect(component).toMatchSnapshot()
+    })
   })
 
-  it('with conditionRender', () => {
-    const props = {
-      ...defaultProp,
-      conditionRender: true
-    }
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    const component = shallow(<RouteComponent {...props} />)
+  describe('with conditionRender', () => {
+    it('matches snapshot', () => {
+      const props = {
+        ...defaultProp,
+        isAccessAllowed: true
+      }
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      const component = shallow(<RouteComponent {...props} />)
 
-    expect(component).toMatchSnapshot()
+      expect(component).toMatchSnapshot()
+    })
   })
 })

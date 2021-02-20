@@ -19,11 +19,6 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
     path="/"
     privateRoute={true}
   />
-  <Route
-    component={[Function]}
-    path="/stubs"
-  />
-  <StubsRoot />
 </Component>
 `;
 
@@ -46,10 +41,5 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
     path="/"
     privateRoute={true}
   />
-  <Route
-    component={[Function]}
-    path="/stubs"
-  />
-  <StubsRoot />
 </Component>
 `;

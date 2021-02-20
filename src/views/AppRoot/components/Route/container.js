@@ -9,13 +9,13 @@ import { defaultProps, propTypes } from './types'
 import RouteComponent from './component'
 
 class Route extends Component {
-  redirectTo = () => {
+  get redirectTo() {
     const { privateRoute } = this.props
 
     return privateRoute ? '/login' : '/'
   }
 
-  conditionRender = () => {
+  get isAccessAllowed() {
     const { privateRoute, isLoggedIn } = this.props
 
     return privateRoute ? isLoggedIn : !isLoggedIn
@@ -29,8 +29,8 @@ class Route extends Component {
         exact={exact}
         path={path}
         component={component}
-        redirectTo={this.redirectTo()}
-        conditionRender={this.conditionRender()}
+        redirectTo={this.redirectTo}
+        isAccessAllowed={this.isAccessAllowed}
       />
     )
   }

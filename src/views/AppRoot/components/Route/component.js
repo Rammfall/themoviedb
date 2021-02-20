@@ -6,7 +6,7 @@ import { propTypes, defaultProps } from './types'
 
 const RouteComponent = ({
   component: Component,
-  conditionRender,
+  isAccessAllowed,
   exact,
   path,
   redirectTo
@@ -15,13 +15,14 @@ const RouteComponent = ({
     exact={exact}
     path={path}
   >
-    {conditionRender ? <Component /> : <Redirect to={redirectTo} />}
+    {isAccessAllowed ? <Component /> : <Redirect to={redirectTo} />}
   </Route>
 )
 
 RouteComponent.propTypes = {
   ...propTypes,
-  redirectTo: PropTypes.string.isRequired
+  redirectTo: PropTypes.string.isRequired,
+  isAccessAllowed: PropTypes.bool.isRequired
 }
 
 RouteComponent.defaultProps = {

@@ -3,8 +3,8 @@
 exports[`Route matches snapshot with default props 1`] = `
 <RouteComponent
   component={[Function]}
-  conditionRender={false}
   exact={false}
+  isAccessAllowed={false}
   path="/"
   redirectTo="/"
 />
@@ -13,8 +13,8 @@ exports[`Route matches snapshot with default props 1`] = `
 exports[`Route matches snapshot with privateRoute 1`] = `
 <RouteComponent
   component={[Function]}
-  conditionRender={true}
   exact={false}
+  isAccessAllowed={true}
   path="/"
   redirectTo="/login"
 />

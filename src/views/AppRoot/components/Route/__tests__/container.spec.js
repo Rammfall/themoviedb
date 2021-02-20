@@ -10,7 +10,7 @@ jest.mock('Store/concepts/session/selectors', () => ({
 
 describe('Route', () => {
   describe('matches snapshot', () => {
-    const mockStore = configureStore([])()
+    const mockStore = configureStore()()
     const Component = () => <div>Test</div>
     const defaultProps = {
       store: mockStore,
@@ -28,12 +28,12 @@ describe('Route', () => {
     })
 
     it('with privateRoute', () => {
-      const withPrivateProps = {
+      const privateProps = {
         ...defaultProps,
         privateRoute: true
       }
       // eslint-disable-next-line react/jsx-props-no-spreading
-      const container = shallow(<Route {...withPrivateProps} />)
+      const container = shallow(<Route {...privateProps} />)
         .dive()
         .dive()
 
