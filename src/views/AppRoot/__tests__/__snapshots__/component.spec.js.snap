@@ -8,7 +8,7 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(LoginContainer)",
+        "displayName": "Connect(LoginPage)",
         "type": [Function],
       }
     }
@@ -30,7 +30,7 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(LoginContainer)",
+        "displayName": "Connect(LoginPage)",
         "type": [Function],
       }
     }

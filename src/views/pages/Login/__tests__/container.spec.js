@@ -2,14 +2,14 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 
-import LoginContainer from '../container'
+import LoginPage from '../container'
 
-describe('LoginContainer', () => {
+describe('LoginPage', () => {
   const mockStore = configureStore()()
 
   it('matches snapshot', () => {
     const container = shallow(
-      <LoginContainer
+      <LoginPage
         store={mockStore}
         onSubmit={jest.fn}
       />

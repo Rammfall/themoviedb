@@ -6,9 +6,9 @@ import { loginUser } from 'Store/concepts/session/actions'
 
 import LoginForm from 'Views/components/LoginForm'
 
-const LoginContainer = ({ onSubmit }) => <LoginForm onSubmit={onSubmit} />
+const LoginPage = ({ onSubmit }) => <LoginForm onSubmit={onSubmit} />
 
-LoginContainer.propTypes = {
+LoginPage.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 
@@ -16,4 +16,4 @@ const mapDispatchToProps = {
   onSubmit: loginUser
 }
 
-export default connect(undefined, mapDispatchToProps)(LoginContainer)
+export default connect(undefined, mapDispatchToProps)(LoginPage)

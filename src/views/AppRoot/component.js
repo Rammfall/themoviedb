@@ -3,19 +3,19 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Route from 'Views/AppRoot/components/Route'
 
-import LoginScreen from '../pages/Login'
-import Dashboard from '../pages/Dashboard'
+import LoginPage from '../pages/Login'
+import DashboardPage from '../pages/Dashboard'
 
 const AppRootComponent = () => (
   <BrowserRouter>
     <Route
       path="/login"
-      component={LoginScreen}
+      component={LoginPage}
     />
     <Route
       path="/"
       privateRoute
-      component={Dashboard}
+      component={DashboardPage}
     />
   </BrowserRouter>
 )

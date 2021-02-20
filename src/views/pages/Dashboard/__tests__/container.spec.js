@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Dashboard from 'Views/pages/Dashboard'
+import DashboardPage from 'Views/pages/Dashboard'
 
-describe('Dashboard', () => {
+describe('DashboardPage', () => {
   it('matches snapshot', () => {
-    const container = shallow(<Dashboard />)
+    const container = shallow(<DashboardPage />)
 
     expect(container).toMatchSnapshot()
   })

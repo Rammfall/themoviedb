@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginContainer matches snapshot 1`] = `
+exports[`LoginPage matches snapshot 1`] = `
 <Formik
   handleSubmit={[Function]}
   initialValues={
