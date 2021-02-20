@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Input, { iconRender } from '../component'
+import Input from '../component'
 
 describe('Input component matches snapshot', () => {
   const defaultProps = {
@@ -30,15 +30,6 @@ describe('Input component matches snapshot', () => {
       const component = shallow(<Input {...passwordProps} />)
 
       expect(component).toMatchSnapshot()
-    })
-
-    it('eye icon component', () => {
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      const visibleComponent = shallow(iconRender(true))
-      const invisibleComponent = shallow(iconRender(false))
-
-      expect(visibleComponent).toMatchSnapshot()
-      expect(invisibleComponent).toMatchSnapshot()
     })
   })
 })

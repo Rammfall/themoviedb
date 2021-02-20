@@ -24,6 +24,7 @@ exports[`LoginForm match snapshot matches snapshot 1`] = `
     />
     <Field
       component={[Function]}
+      iconRender={[Function]}
       name="password"
       placeholder="Password"
       prefix={

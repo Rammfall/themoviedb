@@ -6,6 +6,7 @@ import { Form, Field } from 'formik'
 
 import InputField from 'Views/components/shared/InputField'
 import GuestLayout from 'Views/layouts/GuestLayout'
+import PasswordIcon from 'Views/components/shared/PasswordIcon'
 
 import { defaultProps, propTypes } from './types'
 
@@ -32,6 +33,7 @@ const LoginFormComponent = ({ isSubmitting, status }) => {
           placeholder={formatMessage({
             id: 'page.login.form.password'
           })}
+          iconRender={PasswordIcon}
           type="password"
           prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
         />

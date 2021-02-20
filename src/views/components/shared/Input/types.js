@@ -14,6 +14,7 @@ export const propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+  iconRender: PropTypes.func,
   name: PropTypes.string,
   prefix: PropTypes.node
 }
@@ -25,5 +26,6 @@ export const defaultProps = {
   type: 'text',
   value: '',
   name: '',
-  prefix: undefined
+  prefix: undefined,
+  iconRender: undefined
 }

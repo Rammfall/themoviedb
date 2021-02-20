@@ -1,11 +1,7 @@
 import React from 'react'
 import { Form, Input as AntInput } from 'antd'
-import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons'
 
 import { propTypes, defaultProps } from './types'
-
-export const iconRender = (visible) =>
-  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
 
 const Input = ({
   placeholder,
@@ -16,12 +12,11 @@ const Input = ({
   onChange,
   onBlur,
   name,
-  prefix
+  prefix,
+  iconRender
 }) => {
   const isPassword = type === 'password'
   const CustomInput = isPassword ? AntInput.Password : AntInput
-  const passwordProps = isPassword ? { iconRender } : {}
-  /* eslint-disable react/jsx-props-no-spreading */
 
   return (
     <Form.Item
@@ -36,11 +31,10 @@ const Input = ({
         onChange={onChange}
         name={name}
         value={value}
-        {...passwordProps}
+        iconRender={iconRender}
       />
     </Form.Item>
   )
-  /* eslint-enable react/jsx-props-no-spreading */
 }
 
 Input.propTypes = {
