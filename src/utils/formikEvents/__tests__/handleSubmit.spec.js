@@ -1,4 +1,4 @@
-import handleSubmit from 'Modules/formikEvents/handleSubmit'
+import handleSubmit from 'Utils/formikEvents/handleSubmit'
 
 describe('handleSubmit()', () => {
   it('runs onSubmit with all formik data', () => {

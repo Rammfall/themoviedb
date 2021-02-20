@@ -1,6 +1,6 @@
 import Cookie from 'js-cookie'
 
-import session from 'Modules/storage/session'
+import session from 'Utils/storage/session'
 
 jest.mock('js-cookie')
 

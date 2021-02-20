@@ -2,7 +2,7 @@ import React from 'react'
 import { withFormik } from 'formik'
 import * as yup from 'yup'
 
-import handleSubmit from 'Modules/formikEvents/handleSubmit'
+import handleSubmit from 'Utils/formikEvents/handleSubmit'
 import LoginFormComponent from './component'
 import { defaultProps, propTypes } from './types'
 

@@ -1,4 +1,4 @@
-import session from 'Modules/storage/session'
+import session from 'Utils/storage/session'
 
 const storage = {
   session

@@ -1,7 +1,7 @@
-import storage from 'Modules/storage'
+import storage from 'Utils/storage'
 import client from '../client'
 
-jest.mock('Modules/storage')
+jest.mock('Utils/storage')
 
 describe('client', () => {
   it('have correct config variables', async () => {

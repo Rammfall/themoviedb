@@ -6,9 +6,9 @@ import {
 import loginUserOperation from 'Store/concepts/session/operations/login'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
-import storage from 'Modules/storage'
+import storage from 'Utils/storage'
 
-jest.mock('Modules/storage')
+jest.mock('Utils/storage')
 
 describe('loginUserOperation()', () => {
   storage.session.set.mockImplementation(jest.fn())

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { API_KEY, API_URL } from 'Config/application'
-import storage from 'Modules/storage'
+import storage from 'Utils/storage'
 
 const baseURL = `${API_URL}3/`
 

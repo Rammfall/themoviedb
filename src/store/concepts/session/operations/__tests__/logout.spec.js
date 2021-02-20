@@ -1,10 +1,10 @@
 import { USER_LOGOUT, USER_LOGOUT_SUCCESS } from 'Store/concepts/session/types'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
-import storage from 'Modules/storage'
+import storage from 'Utils/storage'
 import logoutUserOperation from '../logout'
 
-jest.mock('Modules/storage')
+jest.mock('Utils/storage')
 
 describe('logoutUserLogicOperation()', () => {
   it('clears cookie, dispatch USER_LOGOUT_SUCCESS', async () => {

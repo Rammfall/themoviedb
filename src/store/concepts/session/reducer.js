@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import storage from 'Modules/storage'
+import storage from 'Utils/storage'
 import { USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS } from './types'
 
 const isLoggedIn = (state = !!storage.session.get(), action) => {

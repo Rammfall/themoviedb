@@ -7,7 +7,7 @@ import {
   validateRequestToken
 } from 'Store/concepts/session/endpoints'
 import { loginUserSuccess } from 'Store/concepts/session/actions'
-import storage from 'Modules/storage'
+import storage from 'Utils/storage'
 
 const loginUserOperation = createLogic({
   type: USER_LOGIN_SUBMIT,

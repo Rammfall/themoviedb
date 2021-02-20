@@ -120,7 +120,7 @@
       "^Store(.*)$": "<rootDir>/src/store$1",
       "^Config(.*)$": "<rootDir>/src/config$1",
       "^Views(.*)$": "<rootDir>/src/views$1",
-      "^Modules(.*)$": "<rootDir>/src/modules$1",
+      "^Utils(.*)$": "<rootDir>/src/utils$1",
       "^Api(.*)$": "<rootDir>/src/api$1"
     },
     "testPathIgnorePatterns": [
