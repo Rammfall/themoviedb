@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 import LoginContainer from '../container'
 
 describe('LoginContainer', () => {
-  const mockStore = configureStore([])()
+  const mockStore = configureStore()()
 
   it('matches snapshot', () => {
     const container = shallow(
