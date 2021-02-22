@@ -16,4 +16,6 @@ const mapDispatchToProps = {
   onSubmit: loginUser
 }
 
+export { LoginForm as LoginFormContainer }
+
 export default connect(undefined, mapDispatchToProps)(LoginPage)

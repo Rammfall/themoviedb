@@ -51,4 +51,5 @@ const mapStateToProps = (state) => ({
   isLoggedIn: isLoggedInSelector(state)
 })
 
+export { Route as RouteContainer }
 export default connect(mapStateToProps)(Route)

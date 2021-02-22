@@ -2,7 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
 
-import Route from '../container'
+import diveTo from 'TestUtils/diveToEnzyme'
+
+import Route, { RouteContainer } from '../container'
 
 jest.mock('Store/concepts/session/selectors', () => ({
   isLoggedInSelector: jest.fn(() => true)
@@ -20,9 +22,8 @@ describe('Route', () => {
 
     it('with default props', () => {
       // eslint-disable-next-line react/jsx-props-no-spreading
-      const container = shallow(<Route {...defaultProps} />)
-        .dive()
-        .dive()
+      const wrapper = shallow(<Route {...defaultProps} />)
+      const container = diveTo(wrapper, RouteContainer)
 
       expect(container).toMatchSnapshot()
     })
@@ -33,9 +34,8 @@ describe('Route', () => {
         privateRoute: true
       }
       // eslint-disable-next-line react/jsx-props-no-spreading
-      const container = shallow(<Route {...privateProps} />)
-        .dive()
-        .dive()
+      const wrapper = shallow(<Route {...privateProps} />)
+      const container = diveTo(wrapper, RouteContainer)
 
       expect(container).toMatchSnapshot()
     })

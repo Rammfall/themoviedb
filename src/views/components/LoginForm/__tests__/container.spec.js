@@ -1,14 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import LoginForm from '../container'
+import diveTo from 'TestUtils/diveToEnzyme'
+
+import LoginForm, { LoginFormContainer } from '../container'
 
 describe('LoginForm', () => {
   it('matches snapshot', () => {
-    const container = shallow(<LoginForm />)
-      .dive()
-      .dive()
-      .dive()
+    const wrapper = shallow(<LoginForm />)
+    const container = diveTo(wrapper, LoginFormContainer)
 
     expect(container).toMatchSnapshot()
   })

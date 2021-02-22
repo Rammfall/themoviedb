@@ -37,12 +37,8 @@ const Input = ({
   )
 }
 
-Input.propTypes = {
-  ...propTypes
-}
+Input.propTypes = propTypes
 
-Input.defaultProps = {
-  ...defaultProps
-}
+Input.defaultProps = defaultProps
 
 export default Input

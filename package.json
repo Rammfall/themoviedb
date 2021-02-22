@@ -121,6 +121,7 @@
       "^Config(.*)$": "<rootDir>/src/config$1",
       "^Views(.*)$": "<rootDir>/src/views$1",
       "^Utils(.*)$": "<rootDir>/src/utils$1",
+      "^TestUtils(.*)$": "<rootDir>/src/testUtils$1",
       "^Api(.*)$": "<rootDir>/src/api$1"
     },
     "testPathIgnorePatterns": [

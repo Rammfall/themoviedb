@@ -9,7 +9,8 @@
       "Store/*": ["./src/store/*"],
       "Views/*": ["./src/views/*"],
       "Api/*": ["./src/api/*"],
-      "Utils/*": ["./src/utils/*"]
+      "Utils/*": ["./src/utils/*"],
+      "TestUtils/*": ["./src/testUtils/*"]
     },
     "module": "commonjs"
   },

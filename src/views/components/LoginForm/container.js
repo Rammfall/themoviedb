@@ -13,14 +13,11 @@ const LoginForm = ({ isSubmitting, status }) => (
   />
 )
 
-LoginForm.propTypes = {
-  ...propTypes
-}
+LoginForm.propTypes = propTypes
 
-LoginForm.defaultProps = {
-  ...defaultProps
-}
+LoginForm.defaultProps = defaultProps
 
+export { LoginForm as LoginFormContainer }
 export default withFormik({
   validationSchema: yup.object().shape({
     username: yup.string().required(),

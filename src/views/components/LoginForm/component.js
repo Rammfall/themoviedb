@@ -52,12 +52,8 @@ const LoginFormComponent = ({ isSubmitting, status }) => {
   )
 }
 
-LoginFormComponent.propTypes = {
-  ...propTypes
-}
+LoginFormComponent.propTypes = propTypes
 
-LoginFormComponent.defaultProps = {
-  ...defaultProps
-}
+LoginFormComponent.defaultProps = defaultProps
 
 export default LoginFormComponent

@@ -16,4 +16,5 @@ const mapStateToProps = (state) => ({
   isLoggedIn: isLoggedInSelector(state)
 })
 
+export { AppRoot as AppRootContainer }
 export default connect(mapStateToProps)(AppRoot)
