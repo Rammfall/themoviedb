@@ -3,9 +3,14 @@ import { shallow } from 'enzyme'
 
 import PrivateLayout from '../component'
 
-describe('GuestLayout', () => {
+describe('PrivateLayout', () => {
   it('matches snapshot', () => {
-    const component = shallow(<PrivateLayout>Test</PrivateLayout>)
+    const Children = () => <>test</>
+    const component = shallow(
+      <PrivateLayout>
+        <Children />
+      </PrivateLayout>
+    )
 
     expect(component).toMatchSnapshot()
   })

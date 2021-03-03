@@ -18,10 +18,7 @@ const GuestLayout = ({ children }) => (
 )
 
 GuestLayout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.elementType),
-    PropTypes.elementType
-  ]).isRequired
+  children: PropTypes.element.isRequired
 }
 
 export default GuestLayout

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GuestLayout matches snapshot 1`] = `
+exports[`PrivateLayout matches snapshot 1`] = `
 <Layout>
   <Header />
   <Content>
-    Test
+    <Children />
   </Content>
 </Layout>
 `;
