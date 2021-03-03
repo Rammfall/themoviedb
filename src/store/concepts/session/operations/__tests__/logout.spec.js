@@ -11,7 +11,7 @@ describe('logoutUserLogicOperation()', () => {
     const httpClient = mockHttpClient([
       {
         method: 'delete',
-        response: () => new Promise((resolve) => resolve())
+        resolve: true
       }
     ])
     const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [

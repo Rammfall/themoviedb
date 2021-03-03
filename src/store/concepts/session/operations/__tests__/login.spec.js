@@ -20,13 +20,11 @@ describe('loginUserOperation()', () => {
     const httpClient = mockHttpClient([
       {
         method: 'get',
-        response: () =>
-          new Promise((resolve) => resolve({ data: { request_token: 'test' } }))
+        resolve: { data: { request_token: 'test' } }
       },
       {
         method: 'post',
-        response: () =>
-          new Promise((resolve) => resolve({ data: { session_id: 'testId' } }))
+        resolve: { data: { session_id: 'testId' } }
       }
     ])
     const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
@@ -64,16 +62,12 @@ describe('loginUserOperation()', () => {
       const formMocks = {
         form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
       }
+      const error = new Error()
+      error.status = 401
       const httpClient = mockHttpClient([
         {
           method: 'get',
-          response: () =>
-            new Promise((resolve, rejects) => {
-              const error = new Error()
-
-              error.status = 401
-              rejects(error)
-            })
+          reject: error
         }
       ])
       const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
@@ -106,8 +100,7 @@ describe('loginUserOperation()', () => {
       const httpClient = mockHttpClient([
         {
           method: 'get',
-          response: () =>
-            new Promise((resolve, rejects) => rejects(new Error()))
+          reject: new Error()
         }
       ])
       const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [

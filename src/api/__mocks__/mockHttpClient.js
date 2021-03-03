@@ -1,8 +1,17 @@
 const mockHttpClient = (mocksResponses) => {
   const result = {}
 
-  mocksResponses.forEach(({ method, response }) => {
-    result[method] = jest.fn(response)
+  mocksResponses.forEach(({ method, resolve, reject }) => {
+    result[method] = jest.fn(
+      () =>
+        new Promise((resolvePromise, rejectPromise) => {
+          if (resolve !== undefined) {
+            resolvePromise(resolve)
+          }
+
+          rejectPromise(reject)
+        })
+    )
   })
 
   return result
