@@ -58,7 +58,7 @@ describe('loginUserOperation()', () => {
   })
 
   describe('with errors', () => {
-    it('in response', async () => {
+    describe('in response', () => {
       const formMock = {
         form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
       }
@@ -79,18 +79,20 @@ describe('loginUserOperation()', () => {
         values: { username: 'test', password: 'test' },
         ...formMock
       })
-      await logicMiddleware.whenComplete()
+      it('have 401 error', async () => {
+        await logicMiddleware.whenComplete()
 
-      expect(store.getActions()).toStrictEqual([
-        {
-          type: USER_LOGIN_SUBMIT,
-          values: {
-            username: 'test',
-            password: 'test'
-          },
-          ...formMock
-        }
-      ])
+        expect(store.getActions()).toStrictEqual([
+          {
+            type: USER_LOGIN_SUBMIT,
+            values: {
+              username: 'test',
+              password: 'test'
+            },
+            ...formMock
+          }
+        ])
+      })
     })
 
     it('login action with incorrect error', async () => {

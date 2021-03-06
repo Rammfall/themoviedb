@@ -18,7 +18,7 @@ describe('Input component matches snapshot', () => {
     placeholder: 'Test'
   }
 
-  it('with default props', () => {
+  it('matches snapshot', () => {
     // eslint-disable-next-line react/jsx-props-no-spreading
     const component = shallow(<Input {...defaultProps} />)
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input component matches snapshot with default props 1`] = `
+exports[`Input component matches snapshot matches snapshot 1`] = `
 <Input
   name="test"
   onBlur={[MockFunction]}
