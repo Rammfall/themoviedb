@@ -3,15 +3,15 @@ import { shallow } from 'enzyme'
 
 import Input from '../component'
 
-describe('Input component matches snapshot', () => {
+describe('Input', () => {
   const defaultProps = {
     placeholder: 'test',
     onBlur: jest.fn(),
     onChange: jest.fn()
   }
 
-  describe('if type text', () => {
-    it('with default props', () => {
+  describe('with type text', () => {
+    it('matches snapshot', () => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       const component = shallow(<Input {...defaultProps} />)
 
@@ -19,13 +19,13 @@ describe('Input component matches snapshot', () => {
     })
   })
 
-  describe('if type password', () => {
+  describe('with type password', () => {
     const passwordProps = {
       ...defaultProps,
       type: 'password'
     }
 
-    it('with default props', () => {
+    it('matches snapshot', () => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       const component = shallow(<Input {...passwordProps} />)
 

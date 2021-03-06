@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input component matches snapshot if type password with default props 1`] = `
+exports[`Input with type password matches snapshot 1`] = `
 <FormItem>
   <Password
     action="click"
@@ -16,7 +16,7 @@ exports[`Input component matches snapshot if type password with default props 1`
 </FormItem>
 `;
 
-exports[`Input component matches snapshot if type text with default props 1`] = `
+exports[`Input with type text matches snapshot 1`] = `
 <FormItem>
   <Input
     name=""
