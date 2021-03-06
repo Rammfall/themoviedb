@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Input from '../component'
+import InputField from '../component'
 
-describe('Input component matches snapshot', () => {
+describe('InputField', () => {
   const defaultProps = {
     field: {
       name: 'test',
@@ -20,7 +20,7 @@ describe('Input component matches snapshot', () => {
 
   it('matches snapshot', () => {
     // eslint-disable-next-line react/jsx-props-no-spreading
-    const component = shallow(<Input {...defaultProps} />)
+    const component = shallow(<InputField {...defaultProps} />)
 
     expect(component).toMatchSnapshot()
   })
