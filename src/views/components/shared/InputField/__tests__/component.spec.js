@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import InputField from '../component'
+import InputField from '../container'
 
 describe('InputField', () => {
   const defaultProps = {
