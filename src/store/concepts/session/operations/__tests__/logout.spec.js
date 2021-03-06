@@ -7,18 +7,24 @@ import logoutUserOperation from '../logout'
 jest.mock('Utils/storage')
 
 describe('logoutUserLogicOperation()', () => {
-  it('clears cookie, dispatch USER_LOGOUT_SUCCESS', async () => {
-    const httpClient = mockHttpClient([
-      {
-        method: 'delete',
-        resolve: true
-      }
-    ])
-    const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
-      logoutUserOperation
-    ])
+  const httpClient = mockHttpClient([
+    {
+      method: 'delete',
+      resolve: true
+    }
+  ])
+  const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
+    logoutUserOperation
+  ])
+  store.dispatch({ type: USER_LOGOUT })
 
-    store.dispatch({ type: USER_LOGOUT })
+  it('clears cookie', async () => {
+    await logicMiddleware.whenComplete()
+
+    expect(storage.session.remove).toHaveBeenCalledTimes(1)
+  })
+
+  it('dispatch USER_LOGOUT_SUCCESS', async () => {
     await logicMiddleware.whenComplete()
 
     expect(store.getActions()).toStrictEqual([
@@ -29,6 +35,5 @@ describe('logoutUserLogicOperation()', () => {
         type: USER_LOGOUT_SUCCESS
       }
     ])
-    expect(storage.session.remove).toHaveBeenCalledTimes(1)
   })
 })

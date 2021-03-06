@@ -11,11 +11,7 @@ jest.mock('Store/concepts/session/selectors', () => ({
 }))
 
 describe('AppRoot match snapshot', () => {
-  let mockStore
-
-  beforeAll(() => {
-    mockStore = configureStore([])()
-  })
+  const mockStore = configureStore([])()
 
   it('with default props', () => {
     const wrapper = shallow(<AppRoot store={mockStore} />)

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Route matches snapshot with default props 1`] = `
+exports[`Route matches snapshot with default props matches snapshot 1`] = `
 <RouteComponent
   component={[Function]}
   exact={false}
@@ -10,7 +10,7 @@ exports[`Route matches snapshot with default props 1`] = `
 />
 `;
 
-exports[`Route matches snapshot with privateRoute 1`] = `
+exports[`Route matches snapshot with privateRoute matches snapshot 1`] = `
 <RouteComponent
   component={[Function]}
   exact={false}

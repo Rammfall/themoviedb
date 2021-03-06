@@ -20,24 +20,28 @@ describe('Route', () => {
       component: Component
     }
 
-    it('with default props', () => {
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      const wrapper = shallow(<Route {...defaultProps} />)
-      const container = diveTo(wrapper, RouteContainer)
+    describe('with default props', () => {
+      it('matches snapshot', () => {
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        const wrapper = shallow(<Route {...defaultProps} />)
+        const container = diveTo(wrapper, RouteContainer)
 
-      expect(container).toMatchSnapshot()
+        expect(container).toMatchSnapshot()
+      })
     })
 
-    it('with privateRoute', () => {
-      const privateProps = {
-        ...defaultProps,
-        privateRoute: true
-      }
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      const wrapper = shallow(<Route {...privateProps} />)
-      const container = diveTo(wrapper, RouteContainer)
+    describe('with privateRoute', () => {
+      it('matches snapshot', () => {
+        const privateProps = {
+          ...defaultProps,
+          privateRoute: true
+        }
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        const wrapper = shallow(<Route {...privateProps} />)
+        const container = diveTo(wrapper, RouteContainer)
 
-      expect(container).toMatchSnapshot()
+        expect(container).toMatchSnapshot()
+      })
     })
   })
 })

@@ -14,7 +14,7 @@ import {
 describe('session actions', () => {
   describe('loginUserSuccess()', () => {
     it('returns correct result', () => {
-      expect(loginUserSuccess(true)).toStrictEqual({
+      expect(loginUserSuccess()).toStrictEqual({
         type: USER_LOGIN_SUCCESS
       })
     })

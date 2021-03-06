@@ -14,7 +14,7 @@ describe('loginUserOperation()', () => {
   storage.session.set.mockImplementation(jest.fn())
 
   describe('with success response', () => {
-    const formMocks = {
+    const formMock = {
       form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
     }
     const httpClient = mockHttpClient([
@@ -34,7 +34,7 @@ describe('loginUserOperation()', () => {
     store.dispatch({
       type: USER_LOGIN_SUBMIT,
       values: { username: 'test', password: 'test' },
-      ...formMocks
+      ...formMock
     })
 
     it('handles USER_LOGIN_SUCCESS', async () => {
@@ -47,7 +47,7 @@ describe('loginUserOperation()', () => {
             username: 'test',
             password: 'test'
           },
-          ...formMocks
+          ...formMock
         },
         {
           type: USER_LOGIN_SUCCESS
@@ -59,7 +59,7 @@ describe('loginUserOperation()', () => {
 
   describe('with errors', () => {
     it('in response', async () => {
-      const formMocks = {
+      const formMock = {
         form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
       }
       const error = new Error()
@@ -77,7 +77,7 @@ describe('loginUserOperation()', () => {
       store.dispatch({
         type: USER_LOGIN_SUBMIT,
         values: { username: 'test', password: 'test' },
-        ...formMocks
+        ...formMock
       })
       await logicMiddleware.whenComplete()
 
@@ -88,13 +88,13 @@ describe('loginUserOperation()', () => {
             username: 'test',
             password: 'test'
           },
-          ...formMocks
+          ...formMock
         }
       ])
     })
 
     it('login action with incorrect error', async () => {
-      const formMocks = {
+      const formMock = {
         form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
       }
       const httpClient = mockHttpClient([
@@ -110,7 +110,7 @@ describe('loginUserOperation()', () => {
       store.dispatch({
         type: USER_LOGIN_SUBMIT,
         values: { username: 'test', password: 'test' },
-        ...formMocks
+        ...formMock
       })
       await logicMiddleware.whenComplete()
 
@@ -121,7 +121,7 @@ describe('loginUserOperation()', () => {
             username: 'test',
             password: 'test'
           },
-          ...formMocks
+          ...formMock
         }
       ])
     })
