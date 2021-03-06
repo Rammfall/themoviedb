@@ -25,8 +25,6 @@ RouteComponent.propTypes = {
   isAccessAllowed: PropTypes.bool.isRequired
 }
 
-RouteComponent.defaultProps = {
-  ...defaultProps
-}
+RouteComponent.defaultProps = defaultProps
 
 export default RouteComponent

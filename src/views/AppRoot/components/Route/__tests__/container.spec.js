@@ -11,37 +11,35 @@ jest.mock('Store/concepts/session/selectors', () => ({
 }))
 
 describe('Route', () => {
-  describe('matches snapshot', () => {
-    const mockStore = configureStore()()
-    const Component = () => <div>Test</div>
-    const defaultProps = {
-      store: mockStore,
-      path: '/',
-      component: Component
-    }
+  const mockStore = configureStore()()
+  const Component = () => <div>Test</div>
+  const defaultProps = {
+    store: mockStore,
+    path: '/',
+    component: Component
+  }
 
-    describe('with default props', () => {
-      it('matches snapshot', () => {
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        const wrapper = shallow(<Route {...defaultProps} />)
-        const container = diveTo(wrapper, RouteContainer)
+  describe('with default props', () => {
+    it('matches snapshot', () => {
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      const wrapper = shallow(<Route {...defaultProps} />)
+      const container = diveTo(wrapper, RouteContainer)
 
-        expect(container).toMatchSnapshot()
-      })
+      expect(container).toMatchSnapshot()
     })
+  })
 
-    describe('with privateRoute', () => {
-      it('matches snapshot', () => {
-        const privateProps = {
-          ...defaultProps,
-          privateRoute: true
-        }
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        const wrapper = shallow(<Route {...privateProps} />)
-        const container = diveTo(wrapper, RouteContainer)
+  describe('with privateRoute', () => {
+    it('matches snapshot', () => {
+      const privateProps = {
+        ...defaultProps,
+        privateRoute: true
+      }
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      const wrapper = shallow(<Route {...privateProps} />)
+      const container = diveTo(wrapper, RouteContainer)
 
-        expect(container).toMatchSnapshot()
-      })
+      expect(container).toMatchSnapshot()
     })
   })
 })
