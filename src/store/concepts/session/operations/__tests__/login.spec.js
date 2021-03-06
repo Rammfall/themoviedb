@@ -2,10 +2,11 @@ import {
   USER_LOGIN_SUBMIT,
   USER_LOGIN_SUCCESS
 } from 'Store/concepts/session/types'
-
 import loginUserOperation from 'Store/concepts/session/operations/login'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
+
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
+
 import storage from 'Utils/storage'
 
 jest.mock('Utils/storage')
@@ -58,9 +59,10 @@ describe('loginUserOperation()', () => {
   })
 
   describe('with errors', () => {
-    describe('in response', () => {
+    describe('with 401 error', () => {
+      const setStatus = jest.fn()
       const formMock = {
-        form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
+        form: { setStatus, setSubmitting: jest.fn() }
       }
       const error = new Error()
       error.status = 401
@@ -79,7 +81,14 @@ describe('loginUserOperation()', () => {
         values: { username: 'test', password: 'test' },
         ...formMock
       })
-      it('have 401 error', async () => {
+
+      it('call setStatus', async () => {
+        await logicMiddleware.whenComplete()
+
+        expect(setStatus).toBeCalledWith('Username or password are incorrect')
+      })
+
+      it('handles only USER_LOGIN_SUBMIT', async () => {
         await logicMiddleware.whenComplete()
 
         expect(store.getActions()).toStrictEqual([
@@ -95,9 +104,10 @@ describe('loginUserOperation()', () => {
       })
     })
 
-    it('login action with incorrect error', async () => {
+    describe('with any error', () => {
+      const setStatus = jest.fn()
       const formMock = {
-        form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
+        form: { setStatus, setSubmitting: jest.fn() }
       }
       const httpClient = mockHttpClient([
         {
@@ -114,18 +124,27 @@ describe('loginUserOperation()', () => {
         values: { username: 'test', password: 'test' },
         ...formMock
       })
-      await logicMiddleware.whenComplete()
 
-      expect(store.getActions()).toStrictEqual([
-        {
-          type: USER_LOGIN_SUBMIT,
-          values: {
-            username: 'test',
-            password: 'test'
-          },
-          ...formMock
-        }
-      ])
+      it('calls setStatus', async () => {
+        await logicMiddleware.whenComplete()
+
+        expect(setStatus).toBeCalledWith('Server error')
+      })
+
+      it('handles only USER_LOGIN_SUBMIT', async () => {
+        await logicMiddleware.whenComplete()
+
+        expect(store.getActions()).toStrictEqual([
+          {
+            type: USER_LOGIN_SUBMIT,
+            values: {
+              username: 'test',
+              password: 'test'
+            },
+            ...formMock
+          }
+        ])
+      })
     })
   })
 })
