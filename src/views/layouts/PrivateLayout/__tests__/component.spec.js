@@ -5,12 +5,7 @@ import PrivateLayout from '../component'
 
 describe('PrivateLayout', () => {
   it('matches snapshot', () => {
-    const Children = () => <>test</>
-    const component = shallow(
-      <PrivateLayout>
-        <Children />
-      </PrivateLayout>
-    )
+    const component = shallow(<PrivateLayout>Test</PrivateLayout>)
 
     expect(component).toMatchSnapshot()
   })

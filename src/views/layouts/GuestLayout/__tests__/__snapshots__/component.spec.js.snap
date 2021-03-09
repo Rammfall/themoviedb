@@ -11,7 +11,7 @@ exports[`GuestLayout matches snapshot 1`] = `
         type="flex"
       >
         <Col>
-          <Children />
+          test
         </Col>
       </Row>
     </Content>

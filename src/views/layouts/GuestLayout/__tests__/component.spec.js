@@ -5,12 +5,7 @@ import GuestLayout from '../component'
 
 describe('GuestLayout', () => {
   it('matches snapshot', () => {
-    const Children = () => <>Test</>
-    const component = shallow(
-      <GuestLayout>
-        <Children />
-      </GuestLayout>
-    )
+    const component = shallow(<GuestLayout>test</GuestLayout>)
 
     expect(component).toMatchSnapshot()
   })
