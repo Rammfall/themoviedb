@@ -10,13 +10,15 @@ jest.mock('Store/concepts/session/selectors', () => ({
   isLoggedInSelector: jest.fn(() => true)
 }))
 
-describe('AppRoot match snapshot', () => {
+describe('AppRoot', () => {
   const mockStore = configureStore([])()
 
-  it('with default props', () => {
-    const wrapper = shallow(<AppRoot store={mockStore} />)
-    const container = diveTo(wrapper, AppRootContainer)
+  describe('with default props', () => {
+    it('match snapshot', () => {
+      const wrapper = shallow(<AppRoot store={mockStore} />)
+      const container = diveTo(wrapper, AppRootContainer)
 
-    expect(container).toMatchSnapshot()
+      expect(container).toMatchSnapshot()
+    })
   })
 })
