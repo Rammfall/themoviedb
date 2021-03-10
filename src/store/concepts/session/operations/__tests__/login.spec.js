@@ -13,11 +13,12 @@ jest.mock('Utils/storage')
 
 describe('loginUserOperation()', () => {
   storage.session.set.mockImplementation(jest.fn())
+  const setStatus = jest.fn()
+  const formMock = {
+    form: { setStatus, setSubmitting: jest.fn() }
+  }
 
   describe('with success response', () => {
-    const formMock = {
-      form: { setStatus: jest.fn(), setSubmitting: jest.fn() }
-    }
     const httpClient = mockHttpClient([
       {
         method: 'get',
@@ -60,10 +61,6 @@ describe('loginUserOperation()', () => {
 
   describe('with errors', () => {
     describe('with 401 error', () => {
-      const setStatus = jest.fn()
-      const formMock = {
-        form: { setStatus, setSubmitting: jest.fn() }
-      }
       const error = new Error()
       error.status = 401
       const httpClient = mockHttpClient([
@@ -105,10 +102,6 @@ describe('loginUserOperation()', () => {
     })
 
     describe('with any error', () => {
-      const setStatus = jest.fn()
-      const formMock = {
-        form: { setStatus, setSubmitting: jest.fn() }
-      }
       const httpClient = mockHttpClient([
         {
           method: 'get',
