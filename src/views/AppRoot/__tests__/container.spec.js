@@ -14,7 +14,7 @@ describe('AppRoot', () => {
   const mockStore = configureStore([])()
 
   describe('with default props', () => {
-    it('match snapshot', () => {
+    it('matches snapshot', () => {
       const wrapper = shallow(<AppRoot store={mockStore} />)
       const container = diveTo(wrapper, AppRootContainer)
 
