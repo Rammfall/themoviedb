@@ -1,3 +1,17 @@
-const reducers = () => ({})
+import { combineReducers } from 'redux'
 
-export default reducers
+import session from 'Store/concepts/session/reducer'
+import { RESET_STORE } from 'Store/types'
+
+const reducers = combineReducers({
+  session
+})
+
+export default (state, action) => {
+  switch (action.type) {
+    case RESET_STORE:
+      return reducers(undefined, action)
+    default:
+      return reducers(state, action)
+  }
+}

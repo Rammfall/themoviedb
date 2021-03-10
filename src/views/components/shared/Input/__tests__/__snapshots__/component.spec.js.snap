@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input with type password matches snapshot 1`] = `
+<FormItem>
+  <Password
+    action="click"
+    iconRender={[Function]}
+    name=""
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    placeholder="test"
+    type="password"
+    value=""
+    visibilityToggle={true}
+  />
+</FormItem>
+`;
+
+exports[`Input with type text matches snapshot 1`] = `
+<FormItem>
+  <Input
+    name=""
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    placeholder="test"
+    type="text"
+    value=""
+  />
+</FormItem>
+`;

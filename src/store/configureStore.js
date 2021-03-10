@@ -1,7 +1,9 @@
 import { createLogicMiddleware } from 'redux-logic'
 import { createStore, applyMiddleware } from 'redux'
 
-import logics from './logics'
+import httpClient from '../api/client'
+
+import logics from './concepts/rootOperations'
 import rootReducer from './rootReducer'
 
 const bindMiddleware = (middleware) => {
@@ -15,9 +17,11 @@ const bindMiddleware = (middleware) => {
   return applyMiddleware(...middleware)
 }
 
-const configureStore = (initialState = {}) => {
+const configureStore = (initialState) => {
   // Add dependencies to pass them to logic functions
-  const dependencies = {}
+  const dependencies = {
+    httpClient
+  }
 
   const logicMiddleware = createLogicMiddleware(logics, dependencies)
   const store = createStore(

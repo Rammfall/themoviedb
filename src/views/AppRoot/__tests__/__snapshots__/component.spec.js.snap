@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
+<Component>
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(LoginPage)",
+        "type": [Function],
+      }
+    }
+    path="/login"
+  />
+  <Connect(Route)
+    component={[Function]}
+    path="/"
+    privateRoute={true}
+  />
+</Component>
+`;
+
+exports[`AppRootComponent with default props matches snapshot 1`] = `
+<Component>
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(LoginPage)",
+        "type": [Function],
+      }
+    }
+    path="/login"
+  />
+  <Connect(Route)
+    component={[Function]}
+    path="/"
+    privateRoute={true}
+  />
+</Component>
+`;

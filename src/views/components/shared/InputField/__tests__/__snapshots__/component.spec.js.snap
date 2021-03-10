@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField matches snapshot 1`] = `
+<Input
+  name="test"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+  placeholder="Test"
+  type="text"
+  validateStatus="error"
+  validationMessage="test"
+  value="test"
+/>
+`;

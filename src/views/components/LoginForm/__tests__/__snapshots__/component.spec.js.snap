@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm match snapshot matches snapshot 1`] = `
+<GuestLayout>
+  <Form>
+    <Title>
+      <FormattedMessage
+        id="application.theMovieDB"
+      />
+    </Title>
+    <Field
+      component={[Function]}
+      name="username"
+      placeholder="Username"
+      prefix={
+        <ForwardRef(UserOutlined)
+          style={
+            Object {
+              "color": "rgba(0,0,0,.25)",
+            }
+          }
+        />
+      }
+    />
+    <Field
+      component={[Function]}
+      iconRender={[Function]}
+      name="password"
+      placeholder="Password"
+      prefix={
+        <ForwardRef(LockOutlined)
+          style={
+            Object {
+              "color": "rgba(0,0,0,.25)",
+            }
+          }
+        />
+      }
+      type="password"
+    />
+    <FormItem>
+      <Button
+        htmlType="submit"
+        loading={true}
+        type="primary"
+      >
+        Log in
+      </Button>
+    </FormItem>
+    <p />
+  </Form>
+</GuestLayout>
+`;

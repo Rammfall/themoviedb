@@ -1,9 +1,14 @@
 {
   "plugins": ["react", "prettier"],
-  "extends": ["eslint:recommended", "airbnb", "prettier", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "airbnb", "plugin:react/recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
@@ -34,11 +39,10 @@
     ],
     "semi": ["error", "never"],
     "import/prefer-default-export": "off",
-    "import/extensions": ["never"],
     "import/no-unresolved": [
       "error",
       {
-        "ignore": ["Components/", "Helpers/", "Store/"]
+        "ignore": ["Views/", "Helpers/", "Store/", "Config/", "Utils/", "Api/", "TestUtils/"]
       }
     ]
   }
