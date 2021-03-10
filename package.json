@@ -75,7 +75,7 @@
     "express": "^4.17.1",
     "formik": "^2.2.6",
     "js-cookie": "^2.2.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "normalizr": "^3.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
