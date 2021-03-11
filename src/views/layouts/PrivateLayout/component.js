@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Layout } from 'antd'
 
-import Header from 'Views/components/stubs/Header'
+import Header from 'Views/layouts/Header'
 
 const PrivateLayout = ({ children }) => (
   <Layout>

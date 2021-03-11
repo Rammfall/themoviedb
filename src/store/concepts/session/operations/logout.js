@@ -8,7 +8,7 @@ import storage from 'Utils/storage'
 const logoutUserOperation = createLogic({
   type: USER_LOGOUT,
   async process({ httpClient }, dispatch, done) {
-    await httpClient.delete(deleteSessionEndpoint)
+    await httpClient.delete(deleteSessionEndpoint, { params: { session_id: storage.session.get() } })
 
     storage.session.remove()
     dispatch(logoutUserSuccess())
