@@ -18,7 +18,7 @@ describe('accountOperation()', () => {
     ])
     store.dispatch({ type: GET_INFO })
 
-    it('dispatches ACCOUNT_GET_INFO and ACCOUNT_SET_USERNAME', async () => {
+    it('dispatches GET_INFO and SET_USERNAME', async () => {
       await logicMiddleware.whenComplete()
 
       expect(store.getActions()).toStrictEqual([
