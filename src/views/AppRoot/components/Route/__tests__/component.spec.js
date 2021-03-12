@@ -15,7 +15,6 @@ describe('RouteComponent', () => {
 
   describe('with default props', () => {
     it('matches snapshot', () => {
-      // eslint-disable-next-line react/jsx-props-no-spreading
       const component = shallow(<RouteComponent {...defaultProp} />)
 
       expect(component).toMatchSnapshot()
@@ -28,7 +27,6 @@ describe('RouteComponent', () => {
         ...defaultProp,
         isAccessAllowed: true
       }
-      // eslint-disable-next-line react/jsx-props-no-spreading
       const component = shallow(<RouteComponent {...props} />)
 
       expect(component).toMatchSnapshot()

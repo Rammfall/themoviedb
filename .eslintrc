@@ -45,5 +45,13 @@
         "ignore": ["Views/", "Helpers/", "Store/", "Config/", "Utils/", "Api/", "TestUtils/"]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.spec.js"],
+      "rules": {
+        "react/jsx-props-no-spreading": "off"
+      }
+    }
+  ]
 }

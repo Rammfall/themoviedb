@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 
 import session from 'Store/concepts/session/reducer'
+import account from 'Store/concepts/account/reducer'
 import { RESET_STORE } from 'Store/types'
 
 const reducers = combineReducers({
-  session
+  session,
+  account
 })
 
 export default (state, action) => {

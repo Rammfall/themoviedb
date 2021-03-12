@@ -21,7 +21,6 @@ describe('Route', () => {
 
   describe('with default props', () => {
     it('matches snapshot', () => {
-      // eslint-disable-next-line react/jsx-props-no-spreading
       const wrapper = shallow(<Route {...defaultProps} />)
       const container = diveTo(wrapper, RouteContainer)
 
@@ -35,7 +34,6 @@ describe('Route', () => {
         ...defaultProps,
         privateRoute: true
       }
-      // eslint-disable-next-line react/jsx-props-no-spreading
       const wrapper = shallow(<Route {...privateProps} />)
       const container = diveTo(wrapper, RouteContainer)
 

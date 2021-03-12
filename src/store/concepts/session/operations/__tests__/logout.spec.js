@@ -6,7 +6,7 @@ import logoutUserOperation from '../logout'
 
 jest.mock('Utils/storage')
 
-describe('logoutUserLogicOperation()', () => {
+describe('logoutUserOperation()', () => {
   const httpClient = mockHttpClient([
     {
       method: 'delete',

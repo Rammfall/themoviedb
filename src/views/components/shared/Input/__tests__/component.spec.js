@@ -12,7 +12,6 @@ describe('Input', () => {
 
   describe('with type text', () => {
     it('matches snapshot', () => {
-      // eslint-disable-next-line react/jsx-props-no-spreading
       const component = shallow(<Input {...defaultProps} />)
 
       expect(component).toMatchSnapshot()
@@ -26,7 +25,6 @@ describe('Input', () => {
     }
 
     it('matches snapshot', () => {
-      // eslint-disable-next-line react/jsx-props-no-spreading
       const component = shallow(<Input {...passwordProps} />)
 
       expect(component).toMatchSnapshot()
