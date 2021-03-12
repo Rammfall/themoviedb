@@ -1,14 +1,15 @@
 import React from 'react'
 import { Avatar, Col, Dropdown, Layout, Row, Typography } from 'antd'
 import { CaretDownOutlined, UserOutlined } from '@ant-design/icons'
+import PropTypes from 'prop-types'
 
 import Menu from './Menu'
 
-const HeaderComponent = () => (
+const HeaderComponent = ({ username }) => (
   <Layout.Header>
     <Row
-      type="flex"
-      justify="space-between"
+      type='flex'
+      justify='space-between'
     >
       <Col>
         <Typography.Text>THE MOVIE DB</Typography.Text>
@@ -18,7 +19,7 @@ const HeaderComponent = () => (
           <Typography.Text>
             <Avatar icon={<UserOutlined />} />
             {' '}
-            <span className="hide-sm-down">Username</span>
+            <span className='hide-sm-down'>{username}</span>
             {' '}
             <CaretDownOutlined />
           </Typography.Text>
@@ -27,5 +28,13 @@ const HeaderComponent = () => (
     </Row>
   </Layout.Header>
 )
+
+HeaderComponent.propTypes = {
+  username: PropTypes.string
+}
+
+HeaderComponent.defaultProps = {
+  username: null
+}
 
 export default HeaderComponent

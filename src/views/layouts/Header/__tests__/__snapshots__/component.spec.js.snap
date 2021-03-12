@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuComponent matches snapshot 1`] = `
+<Header>
+  <Row
+    justify="space-between"
+    type="flex"
+  >
+    <Col>
+      <Text>
+        THE MOVIE DB
+      </Text>
+    </Col>
+    <Col>
+      <Dropdown
+        mouseEnterDelay={0.15}
+        mouseLeaveDelay={0.1}
+        overlay={<Memo(Connect(Menu)) />}
+      >
+        <Text>
+          <Avatar
+            icon={<ForwardRef(UserOutlined) />}
+            shape="circle"
+            size="default"
+          />
+           
+          <span
+            className="hide-sm-down"
+          >
+            testUser
+          </span>
+           
+          <ForwardRef(CaretDownOutlined) />
+        </Text>
+      </Dropdown>
+    </Col>
+  </Row>
+</Header>
+`;
