@@ -17,11 +17,9 @@ const accountOperation = createLogic({
   ) {
     try {
       const { data: { username } } = await httpClient.get(account, { params: { session_id: storage.session.get() } })
-      console.log(23)
       dispatch(setUsername({ username }))
-    } catch (e) {
-      console.log(e)
-    }
+      // eslint-disable-next-line no-empty
+    } catch (e) {}
     done()
   }
 })
