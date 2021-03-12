@@ -9,7 +9,6 @@ describe('MenuComponent', () => {
   }
 
   it('matches snapshot', () => {
-    // eslint-disable-next-line react/jsx-props-no-spreading
     const component = shallow(<Header {...defaultProps} />)
 
     expect(component).toMatchSnapshot()
