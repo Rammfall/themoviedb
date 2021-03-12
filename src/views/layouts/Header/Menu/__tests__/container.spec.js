@@ -11,9 +11,11 @@ describe('Menu', () => {
 
   it('matches snapshot', () => {
     const wrapper = shallow(
-      <Menu store={mockStore}
-            onLogout={jest.fn}
-      />)
+      <Menu
+        store={mockStore}
+        onLogout={jest.fn}
+      />
+    )
     const container = diveTo(wrapper, MenuComponent)
 
     expect(container).toMatchSnapshot()

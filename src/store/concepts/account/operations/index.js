@@ -1,3 +1,3 @@
-import accountOperation from './account'
+import getAccountOperation from './account'
 
-export default [accountOperation]
+export default [getAccountOperation]

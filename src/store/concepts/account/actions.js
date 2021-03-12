@@ -1,11 +1,11 @@
-import { ACCOUNT_GET_INFO, ACCOUNT_SET_USERNAME } from 'Store/concepts/account/types'
+import { GET_INFO, SET_USERNAME } from 'Store/concepts/account/types'
 
 export const getUsername = () => ({
-  type: ACCOUNT_GET_INFO
+  type: GET_INFO
 })
 
 export const setUsername = ({ username }) => ({
-  type: ACCOUNT_SET_USERNAME,
+  type: SET_USERNAME,
   username
 })
 
