@@ -4,7 +4,7 @@
   "description": "Internship Template",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest --coverage",
+    "test": "NODE_ENV=test jest --coverage --maxWorkers=3",
     "start:dev": "webpack serve --mode development",
     "prestart:prod": "webpack --mode production --progress",
     "start:prod": "node server",
