@@ -122,7 +122,8 @@
       "^Views(.*)$": "<rootDir>/src/views$1",
       "^Utils(.*)$": "<rootDir>/src/utils$1",
       "^TestUtils(.*)$": "<rootDir>/src/testUtils$1",
-      "^Api(.*)$": "<rootDir>/src/api$1"
+      "^Api(.*)$": "<rootDir>/src/api$1",
+      "^Constants(.*)$": "<rootDir>/src/constants$1"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/src/views/components/stubs"

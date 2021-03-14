@@ -87,7 +87,8 @@ module.exports = (env, { mode }) => {
         Views: resolve(__dirname, 'src/views'),
         Utils: resolve(__dirname, 'src/utils'),
         TestUtils: resolve(__dirname, 'src/testUtils'),
-        Api: resolve(__dirname, 'src/api')
+        Api: resolve(__dirname, 'src/api'),
+        Constants: resolve(__dirname, 'src/constants')
       }
     },
     devServer: {
