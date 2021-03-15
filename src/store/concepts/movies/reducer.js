@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 
-import { SAVE_TRENDING_IDS, SAVE_TRENDING_QUANTITY } from './types'
+import { SAVE_FOUNDED_IDS, SAVE_FOUNDED_QUANTITY, SAVE_TRENDING_IDS, SAVE_TRENDING_QUANTITY } from './types'
 
-const moviesIds = (state = [], action) => {
+const trendingMoviesIds = (state = [], action) => {
   switch (action.type) {
     case SAVE_TRENDING_IDS:
       return action.moviesIds
@@ -11,7 +11,7 @@ const moviesIds = (state = [], action) => {
   }
 }
 
-const quantity = (state = null, action) => {
+const trendingQuantity = (state = null, action) => {
   switch (action.type) {
     case SAVE_TRENDING_QUANTITY:
       return action.quantity
@@ -20,6 +20,35 @@ const quantity = (state = null, action) => {
   }
 }
 
-const trendingMovies = combineReducers({ moviesIds, quantity })
+const foundedMoviesIds = (state = [], action) => {
+  switch (action.type) {
+    case SAVE_FOUNDED_IDS:
+      return action.moviesIds
+    default:
+      return state
+  }
+}
 
-export default combineReducers({ trendingMovies })
+const foundedQuantity = (state = null, action) => {
+  switch (action.type) {
+    case SAVE_FOUNDED_QUANTITY:
+      return action.quantity
+    default:
+      return state
+  }
+}
+
+const trendingMovies = combineReducers({
+  moviesIds: trendingMoviesIds,
+  quantity: trendingQuantity
+})
+
+const foundedMovies = combineReducers({
+  moviesIds: foundedMoviesIds,
+  quantity: foundedQuantity
+})
+
+export default combineReducers({
+  trendingMovies,
+  foundedMovies
+})

@@ -4,54 +4,59 @@ import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
 
-import { trendingMovies, moviesConstant } from '../../endpoints'
-import moviesResponse from '../__mocks__/moviesResponse'
-import { GET_TRENDING, SAVE_TRENDING_IDS, SAVE_TRENDING_QUANTITY } from '../../types'
+import { moviesConstant, searchMovies } from '../../endpoints'
+import trendingMoviesResponse from '../__mocks__/moviesResponse'
+import {
+  GET_TRENDING,
+  SAVE_FOUNDED_IDS,
+  SAVE_FOUNDED_QUANTITY,
+  SEARCH
+} from '../../types'
 
-import getTrendingMoviesOperation from '../trendingMovies'
+import searchMoviesOperation from '../searchMovies'
 
-describe('trendingMovies()', () => {
+describe('searchMoviesOperation()', () => {
   describe('with success response', () => {
     const httpClient = mockHttpClient([
       {
         method: 'get',
-        resolve: { data: { ...moviesResponse } }
+        resolve: { data: { ...trendingMoviesResponse } }
       }
     ])
     const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
-      getTrendingMoviesOperation
+      searchMoviesOperation
     ])
 
-    store.dispatch({ type: GET_TRENDING })
+    store.dispatch({ type: SEARCH })
 
     it('dispatches actions', async () => {
       await logicMiddleware.whenComplete()
 
       const movie = new schema.Entity('movie')
-      const normalizedResponse = normalize(moviesResponse.results, [movie])
+      const normalizedResponse = normalize(trendingMoviesResponse.results, [movie])
       expect(store.getActions()).toStrictEqual([
         {
-          type: GET_TRENDING
+          type: SEARCH
         },
         {
           type: API_REQUEST,
-          endpoint: trendingMovies
+          endpoint: searchMovies
         },
         {
           type: API_SUCCESS,
-          endpoint: trendingMovies
+          endpoint: searchMovies
         },
         {
           type: API_SAVE,
           endpoint: moviesConstant,
-          response: normalizedResponse.entities.movie
+          response: normalizedResponse.entities.movies
         },
         {
-          type: SAVE_TRENDING_IDS,
+          type: SAVE_FOUNDED_IDS,
           moviesIds: normalizedResponse.result
         },
         {
-          type: SAVE_TRENDING_QUANTITY,
+          type: SAVE_FOUNDED_QUANTITY,
           quantity: 20000
         }
       ])

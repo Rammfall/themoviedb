@@ -1,3 +1,4 @@
 import getTrendingMoviesOperation from './trendingMovies'
+import searchMoviesOperation from './searchMovies'
 
-export default [getTrendingMoviesOperation]
+export default [getTrendingMoviesOperation, searchMoviesOperation]

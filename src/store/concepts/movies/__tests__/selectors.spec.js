@@ -1,4 +1,9 @@
-import { getTrendingMoviesQuantitySelector, getTrendingMoviesSelector } from '../selectors'
+import {
+  getFoundedMoviesQuantitySelector,
+  getFoundedMoviesSelector,
+  getTrendingMoviesQuantitySelector,
+  getTrendingMoviesSelector
+} from '../selectors'
 
 describe('movies selectors', () => {
   const state = {
@@ -16,6 +21,10 @@ describe('movies selectors', () => {
       trendingMovies: {
         moviesIds: [1],
         quantity: 10
+      },
+      foundedMovies: {
+        moviesIds: [1],
+        quantity: 10
       }
     }
   }
@@ -23,13 +32,27 @@ describe('movies selectors', () => {
   describe('trendingMovies', () => {
     describe('getTrendingMoviesSelector()', () => {
       it('returns array movies', () => {
-        expect(getTrendingMoviesSelector(state)).toStrictEqual([ { name: 'test' } ])
+        expect(getTrendingMoviesSelector(state)).toStrictEqual([{ name: 'test' }])
       })
     })
 
     describe('getTrendingMoviesQuantitySelector()', () => {
       it('returns quantity', () => {
         expect(getTrendingMoviesQuantitySelector(state)).toStrictEqual(10)
+      })
+    })
+  })
+
+  describe('foundedMovies', () => {
+    describe('getFoundedMoviesSelector()', () => {
+      it('returns array movies', () => {
+        expect(getFoundedMoviesSelector(state)).toStrictEqual([{ name: 'test' }])
+      })
+    })
+
+    describe('getFoundedMoviesQuantitySelector()', () => {
+      it('returns quantity', () => {
+        expect(getFoundedMoviesQuantitySelector(state)).toStrictEqual(10)
       })
     })
   })

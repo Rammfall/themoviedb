@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic'
-import { normalize, schema } from 'normalizr'
 
 import { dataApiRequest, dataApiSave, dataApiSuccess } from 'Store/concepts/data/actions'
+import normalizeMovies from 'Store/schemas/movies'
 
 import { saveTrendingMoviesIds, saveTrendingQuantity } from '../actions'
 import { GET_TRENDING } from '../types'
@@ -21,13 +21,17 @@ const getTrendingMoviesOperation = createLogic({
     done
   ) {
     dispatch(dataApiRequest({ endpoint: trendingMovies }))
-    const { data: { results, total_results: totalResults } } = await httpClient.get(trendingMovies, { params: { page } })
+    const {
+      data: {
+        results,
+        total_results: totalResults
+      }
+    } = await httpClient.get(trendingMovies, { params: { page } })
 
-    const movies = new schema.Entity('movies')
-    const normalizedResponse = normalize(results, [movies])
+    const normalizedResponse = normalizeMovies(results)
 
     dispatch(dataApiSuccess({ endpoint: trendingMovies }))
-    dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedResponse.entities.movies }))
+    dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedResponse.entities.movie }))
     dispatch(saveTrendingMoviesIds({ moviesIds: normalizedResponse.result }))
     dispatch(saveTrendingQuantity({ quantity: totalResults }))
 
