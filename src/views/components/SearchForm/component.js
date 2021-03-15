@@ -24,6 +24,7 @@ const SearchForm = () => (
         size="large"
         enterButton="Search"
         className="top-margin"
+        allowClear
       />
     </Col>
   </Row>

@@ -28,8 +28,8 @@ const getTrendingMoviesOperation = createLogic({
 
     dispatch(dataApiSuccess({ endpoint: trendingMovies }))
     dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedResponse.entities.movies }))
-    dispatch(saveTrendingMoviesIds({ trendingMoviesIds: normalizedResponse.result }))
-    dispatch(saveTrendingQuantity({ trendingMoviesQuantity: totalResults }))
+    dispatch(saveTrendingMoviesIds({ moviesIds: normalizedResponse.result }))
+    dispatch(saveTrendingQuantity({ quantity: totalResults }))
 
     done()
   }

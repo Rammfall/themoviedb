@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesEmptyState matches snapshot 1`] = `
+<div
+  className="top-margin"
+>
+  <Empty
+    description="No movies found"
+    image={<Simple />}
+  />
+</div>
+`;

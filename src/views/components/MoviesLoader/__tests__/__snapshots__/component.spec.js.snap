@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesLoader matches snapshot 1`] = `
+<div
+  className="top-margin"
+>
+  <Row
+    justify="center"
+    type="flex"
+  >
+    <Col>
+      <Spin
+        size="default"
+        spinning={true}
+        wrapperClassName=""
+      />
+    </Col>
+  </Row>
+</div>
+`;

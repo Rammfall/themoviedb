@@ -1,33 +1,58 @@
-import React, { useEffect } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
-import useQuery from 'Utils/hooks/useQuery'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
 import { getTrendingMovies } from 'Store/concepts/movies/actions'
 import { getTrendingMoviesQuantitySelector, getTrendingMoviesSelector } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { trendingMovies } from 'Store/concepts/movies/endpoints'
 
+import getSearchParams from 'Utils/url/getSearchParams'
+
 import MoviesList from 'Views/components/MoviesList'
 
-const DashboardPage = ({ getMovies, movies, quantity, isLoading }) => {
-  const query = useQuery()
-  let currentPage = query.get('page')
-  currentPage = currentPage ? +currentPage : 1
+class DashboardPage extends Component {
+  componentDidMount() {
+    const { getMovies } = this.props
 
-  useEffect(() => {
-    getMovies(currentPage)
-  }, [])
+    getMovies(this.currentPage)
+  }
 
-  return (
-    <MoviesList
-      current={currentPage}
-      movies={movies}
-      quantity={quantity}
-      isLoading={isLoading}
-      getMovies={getMovies}
-    />
-  )
+  get currentPage() {
+    const { location: { search } } = this.props
+    const queryPage = getSearchParams(search).get('page')
+    return queryPage ? +queryPage : 1
+  }
+
+  render() {
+    const { getMovies, movies, quantity, isLoading } = this.props
+
+    return (
+      <MoviesList
+        current={this.currentPage}
+        movies={movies}
+        quantity={quantity}
+        isLoading={isLoading}
+        getMovies={getMovies}
+      />
+    )
+  }
+}
+
+DashboardPage.propTypes = {
+  getMovies: PropTypes.func.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  quantity: PropTypes.number,
+  isLoading: PropTypes.bool,
+  location: PropTypes.shape({
+    search: PropTypes.string
+  }).isRequired
+}
+
+DashboardPage.defaultProps = {
+  quantity: 0,
+  isLoading: null
 }
 
 const mapStateToProps = (state) => ({
@@ -40,4 +65,5 @@ const mapDispatchToProps = {
   getMovies: getTrendingMovies
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage)
+export { MoviesList }
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DashboardPage))

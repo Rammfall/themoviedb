@@ -20,7 +20,7 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(DashboardPage)",
+        "displayName": "Connect(withRouter(DashboardPage))",
         "type": [Function],
       }
     }
@@ -50,7 +50,7 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(DashboardPage)",
+        "displayName": "Connect(withRouter(DashboardPage))",
         "type": [Function],
       }
     }

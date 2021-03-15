@@ -4,7 +4,7 @@ const dataSelector = (state) => state.data.movies
 
 export const getTrendingMoviesSelector = createSelector(
   dataSelector,
-  ({ movies: { trendingMoviesIds } }) => trendingMoviesIds,
-  (movies, trendingMoviesIds) => trendingMoviesIds.map(item => movies[item])
+  ({ movies: { trendingMovies: { moviesIds } } }) => moviesIds,
+  (movies, moviesIds) => moviesIds.map(item => movies[item])
 )
-export const getTrendingMoviesQuantitySelector = ({ movies: { trendingMoviesQuantity } }) => trendingMoviesQuantity
+export const getTrendingMoviesQuantitySelector = ({ movies: { trendingMovies: { quantity } } }) => quantity

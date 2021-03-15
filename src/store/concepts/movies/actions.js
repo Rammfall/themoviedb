@@ -5,12 +5,12 @@ export const getTrendingMovies = (page = 1) => ({
   page
 })
 
-export const saveTrendingMoviesIds = ({ trendingMoviesIds }) => ({
+export const saveTrendingMoviesIds = ({ moviesIds }) => ({
   type: SAVE_TRENDING_IDS,
-  trendingMoviesIds
+  moviesIds
 })
 
-export const saveTrendingQuantity = ({ trendingMoviesQuantity }) => ({
+export const saveTrendingQuantity = ({ quantity }) => ({
   type: SAVE_TRENDING_QUANTITY,
-  trendingMoviesQuantity
+  quantity
 })

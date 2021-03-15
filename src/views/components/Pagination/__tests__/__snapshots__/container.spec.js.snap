@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination matches snapshot 1`] = `
+<PaginationComponent
+  current={1}
+  onChange={[Function]}
+  total={1}
+/>
+`;

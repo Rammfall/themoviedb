@@ -1,44 +1,31 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Col, Row, Pagination as AntPagination } from 'antd'
-import { useHistory } from 'react-router-dom'
 
 import { paginationQuantityPerPage } from 'Constants/index'
 
-const Pagination = ({ current, total, onChange }) => {
-  const history = useHistory()
+import { paginationDefaultProps, paginationPropTypes } from './types'
 
-  return (
-    <Row
-      type='flex'
-      justify='center'
-    >
-      <Col>
-        <AntPagination
-          defaultCurrent={1}
-          current={current}
-          total={total}
-          defaultPageSize={paginationQuantityPerPage}
-          className='pagination'
-          onChange={(page) => {
-            history.push(`?page=${page}`)
-            onChange(page)
-          }}
-        />
-      </Col>
-    </Row>
-  )
-}
+const PaginationComponent = ({ current, total, onChange }) => (
+  <Row
+    type='flex'
+    justify='center'
+  >
+    <Col>
+      <AntPagination
+        showSizeChanger={false}
+        defaultCurrent={1}
+        current={current}
+        total={total}
+        defaultPageSize={paginationQuantityPerPage}
+        className='pagination'
+        onChange={onChange}
+      />
+    </Col>
+  </Row>
+)
 
-Pagination.propTypes = {
-  current: PropTypes.number,
-  total: PropTypes.number,
-  onChange: PropTypes.func.isRequired
-}
+PaginationComponent.propTypes = paginationPropTypes
 
-Pagination.defaultProps = {
-  current: 1,
-  total: 1
-}
+PaginationComponent.defaultProps = paginationDefaultProps
 
-export default Pagination
+export default PaginationComponent

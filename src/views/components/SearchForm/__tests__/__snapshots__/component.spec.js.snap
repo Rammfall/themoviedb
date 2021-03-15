@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm matches snapshot 1`] = `
+<Row
+  gutter={
+    Object {
+      "lg": 22,
+      "md": 24,
+      "sm": 16,
+      "xs": 8,
+    }
+  }
+  justify="center"
+>
+  <Col
+    className="gutter-row"
+    lg={
+      Object {
+        "span": 12,
+      }
+    }
+    md={
+      Object {
+        "span": 14,
+      }
+    }
+    sm={
+      Object {
+        "span": 20,
+      }
+    }
+    xl={
+      Object {
+        "span": 10,
+      }
+    }
+    xs={
+      Object {
+        "span": 20,
+      }
+    }
+  >
+    <Search
+      className="top-margin"
+      enterButton="Search"
+      placeholder="Enter movie name"
+      size="large"
+    />
+  </Col>
+</Row>
+`;
