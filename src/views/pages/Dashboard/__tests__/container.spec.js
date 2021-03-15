@@ -4,7 +4,6 @@ import configureStore from 'redux-mock-store'
 
 import diveTo from 'TestUtils/diveToEnzyme'
 
-import { Router } from 'react-router-dom'
 import DashboardPage, { MoviesList } from '../container'
 
 jest.mock('Store/concepts/movies/selectors', () => ({
