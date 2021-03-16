@@ -7,7 +7,6 @@ import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
 import { moviesConstant, searchMovies } from '../../endpoints'
 import trendingMoviesResponse from '../__mocks__/moviesResponse'
 import {
-  GET_TRENDING,
   SAVE_FOUNDED_IDS,
   SAVE_FOUNDED_QUANTITY,
   SEARCH
