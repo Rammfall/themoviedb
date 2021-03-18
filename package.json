@@ -10,7 +10,9 @@
     "start:prod": "node server",
     "start": "node index.js",
     "lint": "eslint --format codeframe src/",
-    "heroku-prebuild": "npm i && npm run prestart:prod && npm prune --production"
+    "heroku-prebuild": "npm i && npm run prestart:prod && npm prune --production",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "keywords": [],
   "author": "Mykola Voronin",
