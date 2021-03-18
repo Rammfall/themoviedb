@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination when isLoading matches snapshot 1`] = `
+exports[`Pagination when isLoading is true matches snapshot 1`] = `
 <PrivateLayout>
   <SearchForm />
   <div

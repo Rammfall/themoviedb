@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
+import { compose } from 'ramda'
 
 import { getTrendingMovies } from 'Store/concepts/movies/actions'
 import { getTrendingMoviesQuantitySelector, getTrendingMoviesSelector } from 'Store/concepts/movies/selectors'
@@ -22,7 +23,7 @@ class DashboardPage extends Component {
   get currentPage() {
     const { location: { search } } = this.props
     const queryPage = getSearchParams(search).get('page')
-    return queryPage ? +queryPage : 1
+    return queryPage ? Number(queryPage) : 1
   }
 
   render() {
@@ -66,4 +67,7 @@ const mapDispatchToProps = {
 }
 
 export { MoviesList }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DashboardPage))
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
+)(DashboardPage)

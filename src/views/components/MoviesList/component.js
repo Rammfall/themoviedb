@@ -10,62 +10,60 @@ import MoviesLoader from 'Views/components/MoviesLoader'
 
 const MoviesList = ({ movies, quantity, isLoading, current, getMovies }) => (
   <PrivateLayout>
-    <>
-      <SearchForm />
-      <div className='top-margin'>
-        {
-          isLoading
-            ? (
-              <MoviesLoader />
-            )
-            : (
-              <>
-                <Row
-                  type='flex'
-                  gutter={16}
+    <SearchForm />
+    <div className='top-margin'>
+      {
+        isLoading
+          ? (
+            <MoviesLoader />
+          )
+          : (
+            <>
+              <Row
+                type='flex'
+                gutter={16}
+              >
+                <Col
+                  className='gutter-row'
+                  span={20}
+                  offset={2}
                 >
-                  <Col
-                    className='gutter-row'
-                    span={20}
-                    offset={2}
+                  <Row
+                    gutter={{
+                      xs: 8,
+                      sm: 16,
+                      md: 24,
+                      lg: 32
+                    }}
                   >
-                    <Row
-                      gutter={{
-                        xs: 8,
-                        sm: 16,
-                        md: 24,
-                        lg: 32
-                      }}
-                    >
-                      {movies.map(({ original_title: originalTitle, id, overview, poster_path: posterPath }) => (
-                        <Col
-                          key={id}
-                          xs={{ span: 24 }}
-                          sm={{ span: 12 }}
-                          md={{ span: 8 }}
-                          lg={{ span: 8 }}
-                          xl={{ span: 6 }}
-                        >
-                          <MovieCard
-                            title={originalTitle}
-                            description={overview}
-                            image={posterPath}
-                          />
-                        </Col>
-                      ))}
-                    </Row>
-                  </Col>
-                </Row>
-                <Pagination
-                  total={quantity}
-                  current={current}
-                  onChange={getMovies}
-                />
-              </>
-            )
-        }
-      </div>
-    </>
+                    {movies.map(({ original_title: originalTitle, id, overview, poster_path: posterPath }) => (
+                      <Col
+                        key={id}
+                        xs={{ span: 24 }}
+                        sm={{ span: 12 }}
+                        md={{ span: 8 }}
+                        lg={{ span: 8 }}
+                        xl={{ span: 6 }}
+                      >
+                        <MovieCard
+                          title={originalTitle}
+                          description={overview}
+                          image={posterPath}
+                        />
+                      </Col>
+                    ))}
+                  </Row>
+                </Col>
+              </Row>
+              <Pagination
+                total={quantity}
+                current={current}
+                onChange={getMovies}
+              />
+            </>
+          )
+      }
+    </div>
   </PrivateLayout>
 )
 

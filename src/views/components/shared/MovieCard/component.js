@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card } from 'antd'
 
-import { imagePath } from 'Constants/index'
+import { imagePath } from 'Constants'
 
-const MovieCard = ({title, description, image}) => (
+const MovieCard = ({ title, description, image }) => (
   <Card
     hoverable
     cover={(

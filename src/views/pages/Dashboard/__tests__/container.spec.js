@@ -48,7 +48,7 @@ describe('DashboardPage', () => {
     })
   })
 
-  describe('when in url param page have value', () => {
+  describe('with page param', () => {
     const routerProps = {
       location: {
         search: '?page=2'

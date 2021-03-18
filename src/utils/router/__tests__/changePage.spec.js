@@ -10,7 +10,7 @@ describe('changePage()', () => {
     expect(typeof changePage(history, handler)).toStrictEqual('function')
   })
 
-  describe('handle functions', () => {
+  describe('changePage()()', () => {
     changePage(history, handler)(2)
 
     it('handles history.push', () => {
@@ -18,7 +18,7 @@ describe('changePage()', () => {
     })
 
     it('handles handler', () => {
-      expect(history.push).toBeCalledTimes(1)
+      expect(handler).toBeCalledTimes(1)
     })
   })
 })

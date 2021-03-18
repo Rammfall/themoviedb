@@ -9,7 +9,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('Pagination', () => {
   it('matches snapshot', () => {
-    const container = shallow(<Pagination onChange={jest.fn()} />)
+    const container = shallow(<Pagination onChange={jest.fn} />)
 
     expect(container).toMatchSnapshot()
   })

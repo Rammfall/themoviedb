@@ -25,7 +25,7 @@ describe('Pagination', () => {
     })
   })
 
-  describe('when isLoading', () => {
+  describe('when isLoading is true', () => {
     it('matches snapshot', () => {
       const props = {
         ...defaultProps,
