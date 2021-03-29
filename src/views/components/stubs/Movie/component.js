@@ -17,7 +17,6 @@ import {
   BookOutlined,
   PlusCircleOutlined
 } from '@ant-design/icons'
-import { range } from 'lodash'
 
 import Header from '../Header'
 import CreateListModal from '../CreateListModal'
@@ -236,7 +235,7 @@ class Movie extends React.Component {
                     lg: 32
                   }}
                 >
-                  {range(10).map((index) => (
+                  {new Array(10).map((index) => (
                     <Col
                       key={index}
                       xs={{ span: 24 }}
@@ -289,7 +288,7 @@ class Movie extends React.Component {
                     lg: 32
                   }}
                 >
-                  {range(10).map((index) => (
+                  {new Array(10).map((index) => (
                     <Col
                       key={index}
                       xs={{ span: 12 }}
