@@ -27,7 +27,7 @@ describe('movies actions', () => {
       })
     })
 
-    describe('with custom page', () => {
+    describe('with page', () => {
       it('returns correct type and custom page', () => {
         expect(getTrendingMovies(5))
           .toStrictEqual({

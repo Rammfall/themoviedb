@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+// import { c } from 'ramda'
 
 const dataSelector = state => state.data
 
