@@ -7,7 +7,6 @@ exports[`DashboardPage when page param excluded in url matches snapshot 1`] = `
     className="top-margin"
   >
     <Row
-      gutter={16}
       type="flex"
     >
       <Col
@@ -78,7 +77,6 @@ exports[`DashboardPage with page param matches snapshot 1`] = `
     className="top-margin"
   >
     <Row
-      gutter={16}
       type="flex"
     >
       <Col

@@ -21,7 +21,6 @@ const MoviesList = ({ movies, quantity, isLoading, current, getMovies }) => (
             <>
               <Row
                 type='flex'
-                gutter={16}
               >
                 <Col
                   className='gutter-row'

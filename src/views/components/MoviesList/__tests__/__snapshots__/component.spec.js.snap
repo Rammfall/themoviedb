@@ -18,7 +18,6 @@ exports[`Pagination with default props matches snapshot 1`] = `
     className="top-margin"
   >
     <Row
-      gutter={16}
       type="flex"
     >
       <Col
