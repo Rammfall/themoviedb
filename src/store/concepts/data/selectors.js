@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect'
-// import { c } from 'ramda'
+import { path } from 'ramda'
 
 const dataSelector = state => state.data
 
 export const loadingSelector = createSelector(
   dataSelector,
   (_, endpoint) => endpoint,
-  (data, endpoint) => data[endpoint] && data[endpoint].isLoading
+  (data, endpoint) => path([endpoint, 'isLoading'], data)
 )
