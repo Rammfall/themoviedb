@@ -1,25 +1,13 @@
 import {
-  SAVE_TRENDING_IDS,
   GET_TRENDING,
-  SAVE_TRENDING_QUANTITY,
   SEARCH,
-  SAVE_FOUNDED_IDS,
-  SAVE_FOUNDED_QUANTITY
+  SAVE_DASHBOARD_TOTAL,
+  SAVE_DASHBOARD_MOVIES
 } from './types'
 
 export const getTrendingMovies = (page = 1) => ({
   type: GET_TRENDING,
   page
-})
-
-export const saveTrendingMoviesIds = ({ moviesIds }) => ({
-  type: SAVE_TRENDING_IDS,
-  moviesIds
-})
-
-export const saveTrendingQuantity = ({ quantity }) => ({
-  type: SAVE_TRENDING_QUANTITY,
-  quantity
 })
 
 export const search = (page = 1, query) => ({
@@ -28,12 +16,12 @@ export const search = (page = 1, query) => ({
   query
 })
 
-export const saveFoundedIds = ({ moviesIds }) => ({
-  type: SAVE_FOUNDED_IDS,
-  moviesIds
+export const saveDashboardIds = ({ ids }) => ({
+  type: SAVE_DASHBOARD_MOVIES,
+  ids
 })
 
-export const saveFoundedQuantity = ({ quantity }) => ({
-  type: SAVE_FOUNDED_QUANTITY,
-  quantity
+export const saveDashboardTotal = ({ total }) => ({
+  type: SAVE_DASHBOARD_TOTAL,
+  total
 })

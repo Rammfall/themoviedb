@@ -1,8 +1,6 @@
 import {
-  getFoundedMoviesQuantitySelector,
-  getFoundedMoviesSelector,
-  getTrendingMoviesQuantitySelector,
-  getTrendingMoviesSelector
+  getDashboardMoviesTotalSelector,
+  getDashboardMoviesSelector
 } from '../selectors'
 
 describe('movies selectors', () => {
@@ -18,41 +16,21 @@ describe('movies selectors', () => {
       }
     },
     movies: {
-      trendingMovies: {
-        moviesIds: [1],
-        quantity: 10
-      },
-      foundedMovies: {
-        moviesIds: [1],
-        quantity: 10
-      }
+      dashboardIds:  [1],
+      dashboardTotal: 10
     }
   }
 
   describe('trendingMovies', () => {
-    describe('getTrendingMoviesSelector()', () => {
+    describe('getDashboardMoviesSelector()', () => {
       it('returns array movies', () => {
-        expect(getTrendingMoviesSelector(state)).toStrictEqual([{ name: 'test' }])
+        expect(getDashboardMoviesSelector(state)).toStrictEqual([{ name: 'test' }])
       })
     })
 
-    describe('getTrendingMoviesQuantitySelector()', () => {
+    describe('getDashboardMoviesTotalSelector()', () => {
       it('returns quantity', () => {
-        expect(getTrendingMoviesQuantitySelector(state)).toStrictEqual(10)
-      })
-    })
-  })
-
-  describe('foundedMovies', () => {
-    describe('getFoundedMoviesSelector()', () => {
-      it('returns array movies', () => {
-        expect(getFoundedMoviesSelector(state)).toStrictEqual([{ name: 'test' }])
-      })
-    })
-
-    describe('getFoundedMoviesQuantitySelector()', () => {
-      it('returns quantity', () => {
-        expect(getFoundedMoviesQuantitySelector(state)).toStrictEqual(10)
+        expect(getDashboardMoviesTotalSelector(state)).toStrictEqual(10)
       })
     })
   })

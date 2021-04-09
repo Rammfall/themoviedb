@@ -1,54 +1,29 @@
 import { combineReducers } from 'redux'
 
-import { SAVE_FOUNDED_IDS, SAVE_FOUNDED_QUANTITY, SAVE_TRENDING_IDS, SAVE_TRENDING_QUANTITY } from './types'
+import {
+  SAVE_DASHBOARD_MOVIES,
+  SAVE_DASHBOARD_TOTAL
+} from './types'
 
-const trendingMoviesIds = (state = [], action) => {
+const dashboardIds = (state = [], action) => {
   switch (action.type) {
-    case SAVE_TRENDING_IDS:
-      return action.moviesIds
+    case SAVE_DASHBOARD_MOVIES:
+      return action.ids
     default:
       return state
   }
 }
 
-const trendingQuantity = (state = null, action) => {
+const dashboardTotal = (state = null, action) => {
   switch (action.type) {
-    case SAVE_TRENDING_QUANTITY:
-      return action.quantity
+    case SAVE_DASHBOARD_TOTAL:
+      return action.total
     default:
       return state
   }
 }
-
-const foundedMoviesIds = (state = [], action) => {
-  switch (action.type) {
-    case SAVE_FOUNDED_IDS:
-      return action.moviesIds
-    default:
-      return state
-  }
-}
-
-const foundedQuantity = (state = null, action) => {
-  switch (action.type) {
-    case SAVE_FOUNDED_QUANTITY:
-      return action.quantity
-    default:
-      return state
-  }
-}
-
-const trendingMovies = combineReducers({
-  moviesIds: trendingMoviesIds,
-  quantity: trendingQuantity
-})
-
-const foundedMovies = combineReducers({
-  moviesIds: foundedMoviesIds,
-  quantity: foundedQuantity
-})
 
 export default combineReducers({
-  trendingMovies,
-  foundedMovies
+  dashboardIds,
+  dashboardTotal
 })

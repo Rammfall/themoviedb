@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'ramda'
 
-import { getTrendingMovies } from 'Store/concepts/movies/actions'
-import { getTrendingMoviesQuantitySelector, getTrendingMoviesSelector } from 'Store/concepts/movies/selectors'
+import { getTrendingMovies, search as searchMoviesAction } from 'Store/concepts/movies/actions'
+import { getDashboardMoviesSelector, getDashboardMoviesTotalSelector } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { trendingMovies } from 'Store/concepts/movies/endpoints'
+import { dashboard } from 'Store/concepts/movies/endpoints'
 
 import getSearchParams from 'Utils/url/getSearchParams'
 
@@ -15,9 +15,14 @@ import MoviesList from 'Views/components/MoviesList'
 
 class DashboardPage extends Component {
   componentDidMount() {
-    const { getMovies } = this.props
+    const { searchMovies, getMovies, location: { search } } = this.props
+    const searchQuery = getSearchParams(search).get('search')
 
-    getMovies(this.currentPage)
+    if (searchQuery) {
+      searchMovies(this.currentPage, searchQuery)
+    } else {
+      getMovies(this.currentPage)
+    }
   }
 
   get currentPage() {
@@ -48,7 +53,8 @@ DashboardPage.propTypes = {
   isLoading: PropTypes.bool,
   location: PropTypes.shape({
     search: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  searchMovies: PropTypes.func.isRequired
 }
 
 DashboardPage.defaultProps = {
@@ -57,13 +63,14 @@ DashboardPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getTrendingMoviesSelector(state),
-  quantity: getTrendingMoviesQuantitySelector(state),
-  isLoading: loadingSelector(state, trendingMovies)
+  movies: getDashboardMoviesSelector(state),
+  quantity: getDashboardMoviesTotalSelector(state),
+  isLoading: loadingSelector(state, dashboard)
 })
 
 const mapDispatchToProps = {
-  getMovies: getTrendingMovies
+  getMovies: getTrendingMovies,
+  searchMovies: searchMoviesAction
 }
 
 export { MoviesList }

@@ -4,9 +4,13 @@ import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
 
-import { trendingMovies, moviesConstant } from '../../endpoints'
+import { moviesConstant, dashboard } from '../../endpoints'
 import moviesResponse from '../__mocks__/moviesResponse'
-import { GET_TRENDING, SAVE_TRENDING_IDS, SAVE_TRENDING_QUANTITY } from '../../types'
+import {
+  GET_TRENDING,
+  SAVE_DASHBOARD_MOVIES,
+  SAVE_DASHBOARD_TOTAL
+} from '../../types'
 
 import getTrendingMoviesOperation from '../trendingMovies'
 
@@ -35,11 +39,11 @@ describe('trendingMovies()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: trendingMovies
+          endpoint: dashboard
         },
         {
           type: API_SUCCESS,
-          endpoint: trendingMovies
+          endpoint: dashboard
         },
         {
           type: API_SAVE,
@@ -47,12 +51,12 @@ describe('trendingMovies()', () => {
           response: normalizedResponse.entities.movie
         },
         {
-          type: SAVE_TRENDING_IDS,
-          moviesIds: normalizedResponse.result
+          type: SAVE_DASHBOARD_MOVIES,
+          ids: normalizedResponse.result
         },
         {
-          type: SAVE_TRENDING_QUANTITY,
-          quantity: 20000
+          type: SAVE_DASHBOARD_TOTAL,
+          total: 20000
         }
       ])
     })

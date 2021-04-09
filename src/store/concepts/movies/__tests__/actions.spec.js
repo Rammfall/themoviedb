@@ -1,18 +1,14 @@
 import {
   GET_TRENDING,
-  SAVE_FOUNDED_IDS,
-  SAVE_FOUNDED_QUANTITY,
-  SAVE_TRENDING_IDS,
-  SAVE_TRENDING_QUANTITY,
-  SEARCH
+  SEARCH,
+  SAVE_DASHBOARD_MOVIES,
+  SAVE_DASHBOARD_TOTAL
 } from '../types'
 import {
   getTrendingMovies,
-  saveFoundedIds,
-  saveFoundedQuantity,
-  saveTrendingMoviesIds,
-  saveTrendingQuantity,
-  search
+  search,
+  saveDashboardIds,
+  saveDashboardTotal
 } from '../actions'
 
 describe('movies actions', () => {
@@ -35,26 +31,6 @@ describe('movies actions', () => {
             page: 5
           })
       })
-    })
-  })
-
-  describe('getTrendingMoviesIds()', () => {
-    it('returns correct type and ids array', () => {
-      expect(saveTrendingMoviesIds({ moviesIds: [1, 2, 4] }))
-        .toStrictEqual({
-          type: SAVE_TRENDING_IDS,
-          moviesIds: [1, 2, 4]
-        })
-    })
-  })
-
-  describe('saveTrendingQuantity()', () => {
-    it('returns correct type and quantity', () => {
-      expect(saveTrendingQuantity({ quantity: 1000 }))
-        .toStrictEqual({
-          type: SAVE_TRENDING_QUANTITY,
-          quantity: 1000
-        })
     })
   })
 
@@ -82,22 +58,22 @@ describe('movies actions', () => {
     })
   })
 
-  describe('saveFoundedIds()', () => {
+  describe('saveDashboardIds()', () => {
     it('returns correct type and ids array', () => {
-      expect(saveFoundedIds({ moviesIds: [1, 2, 4] }))
+      expect(saveDashboardIds({ ids: [1, 2, 4] }))
         .toStrictEqual({
-          type: SAVE_FOUNDED_IDS,
-          moviesIds: [1, 2, 4]
+          type: SAVE_DASHBOARD_MOVIES,
+          ids: [1, 2, 4]
         })
     })
   })
 
-  describe('saveFoundedQuantity()', () => {
+  describe('saveDashboardTotal()', () => {
     it('returns correct type and quantity', () => {
-      expect(saveFoundedQuantity({ quantity: 1000 }))
+      expect(saveDashboardTotal({ total: 1000 }))
         .toStrictEqual({
-          type: SAVE_FOUNDED_QUANTITY,
-          quantity: 1000
+          type: SAVE_DASHBOARD_TOTAL,
+          total: 1000
         })
     })
   })

@@ -1,6 +1,9 @@
 function changePage(history, handler) {
   return (page) => {
-    history.push(`?page=${page}`)
+    console.log(history)
+    history.push({
+      search: `?page=${page}`
+    })
     handler(page)
   }
 }

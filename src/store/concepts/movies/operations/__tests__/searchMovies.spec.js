@@ -4,11 +4,11 @@ import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
 
-import { moviesConstant, searchMovies } from '../../endpoints'
+import { moviesConstant, dashboard } from '../../endpoints'
 import trendingMoviesResponse from '../__mocks__/moviesResponse'
 import {
-  SAVE_FOUNDED_IDS,
-  SAVE_FOUNDED_QUANTITY,
+  SAVE_DASHBOARD_MOVIES,
+  SAVE_DASHBOARD_TOTAL,
   SEARCH
 } from '../../types'
 
@@ -39,24 +39,24 @@ describe('searchMoviesOperation()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: searchMovies
+          endpoint: dashboard
         },
         {
           type: API_SUCCESS,
-          endpoint: searchMovies
+          endpoint: dashboard
         },
         {
           type: API_SAVE,
           endpoint: moviesConstant,
-          response: normalizedResponse.entities.movies
+          response: normalizedResponse.entities.movie
         },
         {
-          type: SAVE_FOUNDED_IDS,
-          moviesIds: normalizedResponse.result
+          type: SAVE_DASHBOARD_MOVIES,
+          ids: normalizedResponse.result
         },
         {
-          type: SAVE_FOUNDED_QUANTITY,
-          quantity: 20000
+          type: SAVE_DASHBOARD_TOTAL,
+          total: 20000
         }
       ])
     })

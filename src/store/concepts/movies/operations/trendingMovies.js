@@ -3,9 +3,9 @@ import { createLogic } from 'redux-logic'
 import { dataApiRequest, dataApiSave, dataApiSuccess } from 'Store/concepts/data/actions'
 import normalizeMovies from 'Store/schemas/movies'
 
-import { saveTrendingMoviesIds, saveTrendingQuantity } from '../actions'
+import { saveDashboardIds, saveDashboardTotal } from '../actions'
 import { GET_TRENDING } from '../types'
-import { moviesConstant, trendingMovies } from '../endpoints'
+import { moviesConstant, trendingMovies, dashboard } from '../endpoints'
 
 const getTrendingMoviesOperation = createLogic({
   type: GET_TRENDING,
@@ -20,7 +20,7 @@ const getTrendingMoviesOperation = createLogic({
     dispatch,
     done
   ) {
-    dispatch(dataApiRequest({ endpoint: trendingMovies }))
+    dispatch(dataApiRequest({ endpoint: dashboard }))
     const {
       data: {
         results,
@@ -30,10 +30,10 @@ const getTrendingMoviesOperation = createLogic({
 
     const normalizedResponse = normalizeMovies(results)
 
-    dispatch(dataApiSuccess({ endpoint: trendingMovies }))
+    dispatch(dataApiSuccess({ endpoint: dashboard }))
     dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedResponse.entities.movie }))
-    dispatch(saveTrendingMoviesIds({ moviesIds: normalizedResponse.result }))
-    dispatch(saveTrendingQuantity({ quantity: totalResults }))
+    dispatch(saveDashboardIds({ ids: normalizedResponse.result }))
+    dispatch(saveDashboardTotal({ total: totalResults }))
 
     done()
   }

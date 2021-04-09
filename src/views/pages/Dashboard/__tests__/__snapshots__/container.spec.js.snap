@@ -139,3 +139,73 @@ exports[`DashboardPage with page param matches snapshot 1`] = `
   </div>
 </PrivateLayout>
 `;
+
+exports[`DashboardPage with search page param matches snapshot 1`] = `
+<PrivateLayout>
+  <SearchForm />
+  <div
+    className="top-margin"
+  >
+    <Row
+      type="flex"
+    >
+      <Col
+        className="gutter-row"
+        offset={2}
+        span={20}
+      >
+        <Row
+          gutter={
+            Object {
+              "lg": 32,
+              "md": 24,
+              "sm": 16,
+              "xs": 8,
+            }
+          }
+        >
+          <Col
+            key="2"
+            lg={
+              Object {
+                "span": 8,
+              }
+            }
+            md={
+              Object {
+                "span": 8,
+              }
+            }
+            sm={
+              Object {
+                "span": 12,
+              }
+            }
+            xl={
+              Object {
+                "span": 6,
+              }
+            }
+            xs={
+              Object {
+                "span": 24,
+              }
+            }
+          >
+            <MovieCard
+              description="test"
+              image="test"
+              title="test"
+            />
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+    <Pagination
+      current={2}
+      onChange={[Function]}
+      total={0}
+    />
+  </div>
+</PrivateLayout>
+`;

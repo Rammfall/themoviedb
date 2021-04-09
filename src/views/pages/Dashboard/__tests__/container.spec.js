@@ -7,8 +7,8 @@ import diveTo from 'TestUtils/diveToEnzyme'
 import DashboardPage, { MoviesList } from '../container'
 
 jest.mock('Store/concepts/movies/selectors', () => ({
-  getTrendingMoviesQuantitySelector: jest.fn(),
-  getTrendingMoviesSelector: jest.fn(() => [{
+  getDashboardMoviesTotalSelector: jest.fn(),
+  getDashboardMoviesSelector: jest.fn(() => [{
     original_title: 'test',
     id: 2,
     overview: 'test',
@@ -52,6 +52,26 @@ describe('DashboardPage', () => {
     const routerProps = {
       location: {
         search: '?page=2'
+      }
+    }
+
+    it('matches snapshot', () => {
+      const wrapper = shallow(
+        <DashboardPage
+          store={mockStore}
+          {...routerProps}
+        />
+      )
+      const container = diveTo(wrapper, MoviesList)
+
+      expect(container).toMatchSnapshot()
+    })
+  })
+
+  describe('with search page param', () => {
+    const routerProps = {
+      location: {
+        search: '?page=2&search=test'
       }
     }
 

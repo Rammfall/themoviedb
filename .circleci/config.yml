@@ -6,7 +6,12 @@ jobs:
     steps:
       - checkout
       - node/install-packages
-      - run: npm run lint
+      - run:
+          command: npm run ci:lint
+      - store_test_results:
+          path: ~/reports
+      - store_artifacts:
+          path: ~/reports
   build:
     executor: node/default
     steps:
