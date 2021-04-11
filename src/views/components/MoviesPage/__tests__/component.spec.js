@@ -1,11 +1,23 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import MoviesLoader from '../component'
+import MoviesPage from '../component'
 
-describe('MoviesLoader', () => {
+describe('MoviesPage', () => {
   it('matches snapshot', () => {
-    const component = shallow(<MoviesLoader />)
+    const props = {
+      movies: [
+        {
+          original_title: 'test',
+          id: 1,
+          overview: 'test',
+          poster_path: 'uri'
+        }
+      ],
+      isLoading: false,
+      isEmpty: false
+    }
+    const component = shallow(<MoviesPage {...props} />)
 
     expect(component).toMatchSnapshot()
   })

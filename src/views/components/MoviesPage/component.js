@@ -10,10 +10,7 @@ import RenderCtrl from 'Views/components/RenderCtrl'
 
 const MoviesPage = ({
   movies,
-  quantity,
   isLoading,
-  current,
-  getMovies,
   isEmpty
 }) => (
   <PrivateLayout>
@@ -27,9 +24,6 @@ const MoviesPage = ({
         renderList={(
           <MoviesList
             movies={movies}
-            getMovies={getMovies}
-            current={current}
-            quantity={quantity}
           />
         )}
       />
@@ -44,16 +38,12 @@ MoviesPage.propTypes = {
     overview: PropTypes.string,
     poster_path: PropTypes.string
   })).isRequired,
-  quantity: PropTypes.number,
   isLoading: PropTypes.bool,
-  current: PropTypes.number.isRequired,
-  getMovies: PropTypes.func.isRequired,
   isEmpty: PropTypes.bool.isRequired
 }
 
 MoviesPage.defaultProps = {
-  isLoading: null,
-  quantity: null
+  isLoading: null
 }
 
 export default MoviesPage

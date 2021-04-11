@@ -4,10 +4,9 @@ import configureStore from 'redux-mock-store'
 
 import diveTo from 'TestUtils/diveToEnzyme'
 
-import DashboardPage, { MoviesPage } from '../container'
+import DashboardPage, { DashboardPageContainer } from '../container'
 
 jest.mock('Store/concepts/movies/selectors', () => ({
-  getDashboardMoviesTotalSelector: jest.fn(),
   getDashboardMoviesSelector: jest.fn(() => [{
     original_title: 'test',
     id: 2,
@@ -35,17 +34,39 @@ describe('DashboardPage', () => {
         search: ''
       }
     }
+    const wrapper = shallow(
+      <DashboardPage
+        store={mockStore}
+        {...routerProps}
+      />
+    )
 
-    it('matches snapshot', () => {
-      const wrapper = shallow(
-        <DashboardPage
-          store={mockStore}
-          {...routerProps}
-        />
-      )
-      const container = diveTo(wrapper, MoviesPage)
+    describe('with default props', () => {
+      it('matches snapshot', () => {
+        const container = diveTo(wrapper, DashboardPageContainer)
 
-      expect(container).toMatchSnapshot()
+        expect(container).toMatchSnapshot()
+      })
+    })
+
+    describe('after componentDidUpdate', () => {
+      describe('when search changed', () => {
+        it('matches snapshot', () => {
+          const container = diveTo(wrapper, DashboardPageContainer)
+          container.setProps({ location: { search: '?tes' } })
+
+          expect(container).toMatchSnapshot()
+        })
+      })
+
+      describe('when search not changed', () => {
+        it('matches snapshot', () => {
+          const container = diveTo(wrapper, DashboardPageContainer)
+          container.setProps({ location: { search: '' } })
+
+          expect(container).toMatchSnapshot()
+        })
+      })
     })
   })
 
@@ -63,7 +84,7 @@ describe('DashboardPage', () => {
           {...routerProps}
         />
       )
-      const container = diveTo(wrapper, MoviesPage)
+      const container = diveTo(wrapper, DashboardPageContainer)
 
       expect(container).toMatchSnapshot()
     })
@@ -83,7 +104,7 @@ describe('DashboardPage', () => {
           {...routerProps}
         />
       )
-      const container = diveTo(wrapper, MoviesPage)
+      const container = diveTo(wrapper, DashboardPageContainer)
 
       expect(container).toMatchSnapshot()
     })

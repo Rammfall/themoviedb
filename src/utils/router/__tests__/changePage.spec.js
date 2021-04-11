@@ -2,23 +2,23 @@ import changePage from '../changePage'
 
 describe('changePage()', () => {
   const history = {
-    push: jest.fn()
+    push: jest.fn(),
+    location: {
+      search: '?page=3',
+      pathname: '/test'
+    }
   }
-  const handler = jest.fn()
+  const handler = jest.fn
 
   it('returns function', () => {
     expect(typeof changePage(history, handler)).toStrictEqual('function')
   })
 
   describe('changePage()()', () => {
-    changePage(history, handler)(2)
-
     it('handles history.push', () => {
-      expect(history.push).toBeCalledTimes(1)
-    })
+      changePage(history, handler)(2)
 
-    it('handles handler', () => {
-      expect(handler).toBeCalledTimes(1)
+      expect(history.push).toBeCalledTimes(1)
     })
   })
 })

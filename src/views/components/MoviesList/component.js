@@ -6,10 +6,7 @@ import MovieCard from 'Views/components/shared/MovieCard'
 import Pagination from 'Views/components/Pagination'
 
 const MoviesList = ({
-  movies,
-  total,
-  current,
-  getMovies
+  movies
 }) => (
   <>
     <Row
@@ -47,11 +44,7 @@ const MoviesList = ({
         </Row>
       </Col>
     </Row>
-    <Pagination
-      total={total}
-      current={current}
-      onChange={getMovies}
-    />
+    <Pagination />
   </>
 )
 
@@ -61,14 +54,7 @@ MoviesList.propTypes = {
     id: PropTypes.number,
     overview: PropTypes.string,
     poster_path: PropTypes.string
-  })).isRequired,
-  total: PropTypes.number,
-  current: PropTypes.number.isRequired,
-  getMovies: PropTypes.func.isRequired
-}
-
-MoviesList.defaultProps = {
-  total: null
+  })).isRequired
 }
 
 export default MoviesList

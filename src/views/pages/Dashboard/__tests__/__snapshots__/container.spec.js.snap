@@ -1,103 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DashboardPage when page param excluded in url after componentDidUpdate matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage when page param excluded in url after componentDidUpdate when search changed matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage when page param excluded in url after componentDidUpdate when search not changed matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage when page param excluded in url lololo 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
 exports[`DashboardPage when page param excluded in url matches snapshot 1`] = `
-<PrivateLayout>
-  <SearchForm />
-  <div
-    className="top-margin"
-  >
-    <RenderCtrl
-      isEmpty={false}
-      isLoading={null}
-      renderEmpty={<MoviesEmptyState />}
-      renderList={
-        <MoviesList
-          current={1}
-          getMovies={[Function]}
-          movies={
-            Array [
-              Object {
-                "id": 2,
-                "original_title": "test",
-                "overview": "test",
-                "poster_path": "test",
-              },
-            ]
-          }
-          quantity={null}
-          total={null}
-        />
-      }
-      renderLoading={<MoviesLoader />}
-    />
-  </div>
-</PrivateLayout>
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage when page param excluded in url with default props matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
 `;
 
 exports[`DashboardPage with page param matches snapshot 1`] = `
-<PrivateLayout>
-  <SearchForm />
-  <div
-    className="top-margin"
-  >
-    <RenderCtrl
-      isEmpty={false}
-      isLoading={null}
-      renderEmpty={<MoviesEmptyState />}
-      renderList={
-        <MoviesList
-          current={2}
-          getMovies={[Function]}
-          movies={
-            Array [
-              Object {
-                "id": 2,
-                "original_title": "test",
-                "overview": "test",
-                "poster_path": "test",
-              },
-            ]
-          }
-          quantity={null}
-          total={null}
-        />
-      }
-      renderLoading={<MoviesLoader />}
-    />
-  </div>
-</PrivateLayout>
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
 `;
 
 exports[`DashboardPage with search page param matches snapshot 1`] = `
-<PrivateLayout>
-  <SearchForm />
-  <div
-    className="top-margin"
-  >
-    <RenderCtrl
-      isEmpty={false}
-      isLoading={null}
-      renderEmpty={<MoviesEmptyState />}
-      renderList={
-        <MoviesList
-          current={2}
-          getMovies={[Function]}
-          movies={
-            Array [
-              Object {
-                "id": 2,
-                "original_title": "test",
-                "overview": "test",
-                "poster_path": "test",
-              },
-            ]
-          }
-          quantity={null}
-          total={null}
-        />
-      }
-      renderLoading={<MoviesLoader />}
-    />
-  </div>
-</PrivateLayout>
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
 `;

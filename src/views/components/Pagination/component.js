@@ -1,9 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Col, Row, Pagination as AntPagination } from 'antd'
 
 import { paginationQuantityPerPage } from 'Constants/index'
-
-import { paginationDefaultProps, paginationPropTypes } from './types'
 
 const PaginationComponent = ({ current, total, onChange }) => (
   <Row
@@ -24,8 +23,15 @@ const PaginationComponent = ({ current, total, onChange }) => (
   </Row>
 )
 
-PaginationComponent.propTypes = paginationPropTypes
+PaginationComponent.propTypes = {
+  current: PropTypes.number,
+  total: PropTypes.number,
+  onChange: PropTypes.func.isRequired
+}
 
-PaginationComponent.defaultProps = paginationDefaultProps
+PaginationComponent.defaultProps = {
+  current: 1,
+  total: 1
+}
 
 export default PaginationComponent

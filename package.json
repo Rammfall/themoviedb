@@ -6,6 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest --coverage --maxWorkers=3",
     "test:ci": "NODE_ENV=test jest --coverage --ci --runInBand --reporters=default --reporters=jest-junit",
+    "test:update": "jest -u",
     "start:dev": "webpack serve --mode development",
     "prestart:prod": "webpack --mode production --progress",
     "start:prod": "node server",

@@ -1,15 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import changePage from 'Utils/router/changePage'
-
-import { paginationDefaultProps, paginationPropTypes } from './types'
+import queryParams from 'Utils/router/queryParams'
+import { getDashboardMoviesTotalSelector } from 'Store/concepts/movies/selectors'
 
 import PaginationComponent from './component'
 
-const Pagination = ({ current, total, onChange }) => {
+const Pagination = ({ total }) => {
   const history = useHistory()
-  const onPageChange = changePage(history, onChange)
+  const onPageChange = changePage(history)
+  const current = Number(queryParams(history.location.search).get('page'))
 
   return (
     <PaginationComponent
@@ -20,8 +23,17 @@ const Pagination = ({ current, total, onChange }) => {
   )
 }
 
-Pagination.propTypes = paginationPropTypes
+Pagination.propTypes = {
+  total: PropTypes.number
+}
 
-Pagination.defaultProps = paginationDefaultProps
+Pagination.defaultProps = {
+  total: 0
+}
 
-export default Pagination
+const mapStateToProps = (state) => ({
+  total: getDashboardMoviesTotalSelector(state)
+})
+
+export { PaginationComponent }
+export default connect(mapStateToProps)(Pagination)

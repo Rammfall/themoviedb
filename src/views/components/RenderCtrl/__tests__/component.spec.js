@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import RenderCtrl from '../component'
 
 describe('RenderCtrl', () => {
-  const Element = <div>Test</div>
+  const Element = () => <div>Test</div>
   const defaultProps = {
     isLoading: false,
     isEmpty: false,

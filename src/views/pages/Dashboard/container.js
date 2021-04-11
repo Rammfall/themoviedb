@@ -7,20 +7,31 @@ import { compose } from 'ramda'
 import { getTrendingMovies, search as searchMoviesAction } from 'Store/concepts/movies/actions'
 import {
   getDashboardMoviesSelector,
-  getDashboardMoviesTotalSelector,
   isEmptySelector
 } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { dashboard } from 'Store/concepts/movies/endpoints'
 
-import getSearchParams from 'Utils/url/getSearchParams'
+import queryParams from 'Utils/router/queryParams'
 
 import MoviesPage from 'Views/components/MoviesPage'
 
 class DashboardPage extends Component {
   componentDidMount() {
+    this.getData()
+  }
+
+  componentDidUpdate(prevProps) {
+    const { location: { search } } = this.props
+
+    if(search !== prevProps.location.search) {
+      this.getData()
+    }
+  }
+
+  getData = () => {
     const { searchMovies, getMovies, location: { search } } = this.props
-    const searchQuery = getSearchParams(search).get('search')
+    const searchQuery = queryParams(search).get('search')
 
     if (searchQuery) {
       searchMovies(this.currentPage, searchQuery)
@@ -31,20 +42,17 @@ class DashboardPage extends Component {
 
   get currentPage() {
     const { location: { search } } = this.props
-    const queryPage = getSearchParams(search).get('page')
+    const queryPage = queryParams(search).get('page')
     return queryPage ? Number(queryPage) : 1
   }
 
   render() {
-    const { getMovies, movies, total, isLoading, isEmpty } = this.props
+    const { movies, isLoading, isEmpty } = this.props
 
     return (
       <MoviesPage
-        current={this.currentPage}
         movies={movies}
-        total={total}
         isLoading={isLoading}
-        getMovies={getMovies}
         isEmpty={isEmpty}
       />
     )
@@ -54,7 +62,6 @@ class DashboardPage extends Component {
 DashboardPage.propTypes = {
   getMovies: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  total: PropTypes.number,
   isLoading: PropTypes.bool,
   location: PropTypes.shape({
     search: PropTypes.string
@@ -64,13 +71,11 @@ DashboardPage.propTypes = {
 }
 
 DashboardPage.defaultProps = {
-  total: 0,
   isLoading: null
 }
 
 const mapStateToProps = (state) => ({
   movies: getDashboardMoviesSelector(state),
-  total: getDashboardMoviesTotalSelector(state),
   isLoading: loadingSelector(state, dashboard),
   isEmpty: isEmptySelector(state)
 })
@@ -80,7 +85,7 @@ const mapDispatchToProps = {
   searchMovies: searchMoviesAction
 }
 
-export { MoviesPage }
+export { DashboardPage as DashboardPageContainer }
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withRouter
