@@ -9,24 +9,38 @@ jobs:
       - run:
           command: npm run ci:lint
       - store_test_results:
-          path: ~/reports
+          path: ~/project/reports
       - store_artifacts:
-          path: ~/reports
+          path: ~/project/reports
   build:
     executor: node/default
     steps:
       - checkout
       - node/install-packages
       - run: npm run prestart:prod
+  test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Run tests with JUnit as reporter
+          command: npm run test:ci
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
 
 orbs:
   node: circleci/node@4.1.0
 workflows:
   main-pipeline:
     jobs:
-      - node/test
+      - test
       - linters
       - build:
           requires:
             - linters
-            - node/test
+            - test
