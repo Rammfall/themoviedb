@@ -6,65 +6,29 @@ exports[`DashboardPage when page param excluded in url matches snapshot 1`] = `
   <div
     className="top-margin"
   >
-    <Row
-      type="flex"
-    >
-      <Col
-        className="gutter-row"
-        offset={2}
-        span={20}
-      >
-        <Row
-          gutter={
-            Object {
-              "lg": 32,
-              "md": 24,
-              "sm": 16,
-              "xs": 8,
-            }
+    <RenderCtrl
+      isEmpty={false}
+      isLoading={null}
+      renderEmpty={<MoviesEmptyState />}
+      renderList={
+        <MoviesList
+          current={1}
+          getMovies={[Function]}
+          movies={
+            Array [
+              Object {
+                "id": 2,
+                "original_title": "test",
+                "overview": "test",
+                "poster_path": "test",
+              },
+            ]
           }
-        >
-          <Col
-            key="2"
-            lg={
-              Object {
-                "span": 8,
-              }
-            }
-            md={
-              Object {
-                "span": 8,
-              }
-            }
-            sm={
-              Object {
-                "span": 12,
-              }
-            }
-            xl={
-              Object {
-                "span": 6,
-              }
-            }
-            xs={
-              Object {
-                "span": 24,
-              }
-            }
-          >
-            <MovieCard
-              description="test"
-              image="test"
-              title="test"
-            />
-          </Col>
-        </Row>
-      </Col>
-    </Row>
-    <Pagination
-      current={1}
-      onChange={[Function]}
-      total={0}
+          quantity={null}
+          total={null}
+        />
+      }
+      renderLoading={<MoviesLoader />}
     />
   </div>
 </PrivateLayout>
@@ -76,65 +40,29 @@ exports[`DashboardPage with page param matches snapshot 1`] = `
   <div
     className="top-margin"
   >
-    <Row
-      type="flex"
-    >
-      <Col
-        className="gutter-row"
-        offset={2}
-        span={20}
-      >
-        <Row
-          gutter={
-            Object {
-              "lg": 32,
-              "md": 24,
-              "sm": 16,
-              "xs": 8,
-            }
+    <RenderCtrl
+      isEmpty={false}
+      isLoading={null}
+      renderEmpty={<MoviesEmptyState />}
+      renderList={
+        <MoviesList
+          current={2}
+          getMovies={[Function]}
+          movies={
+            Array [
+              Object {
+                "id": 2,
+                "original_title": "test",
+                "overview": "test",
+                "poster_path": "test",
+              },
+            ]
           }
-        >
-          <Col
-            key="2"
-            lg={
-              Object {
-                "span": 8,
-              }
-            }
-            md={
-              Object {
-                "span": 8,
-              }
-            }
-            sm={
-              Object {
-                "span": 12,
-              }
-            }
-            xl={
-              Object {
-                "span": 6,
-              }
-            }
-            xs={
-              Object {
-                "span": 24,
-              }
-            }
-          >
-            <MovieCard
-              description="test"
-              image="test"
-              title="test"
-            />
-          </Col>
-        </Row>
-      </Col>
-    </Row>
-    <Pagination
-      current={2}
-      onChange={[Function]}
-      total={0}
+          quantity={null}
+          total={null}
+        />
+      }
+      renderLoading={<MoviesLoader />}
     />
   </div>
 </PrivateLayout>
@@ -146,65 +74,29 @@ exports[`DashboardPage with search page param matches snapshot 1`] = `
   <div
     className="top-margin"
   >
-    <Row
-      type="flex"
-    >
-      <Col
-        className="gutter-row"
-        offset={2}
-        span={20}
-      >
-        <Row
-          gutter={
-            Object {
-              "lg": 32,
-              "md": 24,
-              "sm": 16,
-              "xs": 8,
-            }
+    <RenderCtrl
+      isEmpty={false}
+      isLoading={null}
+      renderEmpty={<MoviesEmptyState />}
+      renderList={
+        <MoviesList
+          current={2}
+          getMovies={[Function]}
+          movies={
+            Array [
+              Object {
+                "id": 2,
+                "original_title": "test",
+                "overview": "test",
+                "poster_path": "test",
+              },
+            ]
           }
-        >
-          <Col
-            key="2"
-            lg={
-              Object {
-                "span": 8,
-              }
-            }
-            md={
-              Object {
-                "span": 8,
-              }
-            }
-            sm={
-              Object {
-                "span": 12,
-              }
-            }
-            xl={
-              Object {
-                "span": 6,
-              }
-            }
-            xs={
-              Object {
-                "span": 24,
-              }
-            }
-          >
-            <MovieCard
-              description="test"
-              image="test"
-              title="test"
-            />
-          </Col>
-        </Row>
-      </Col>
-    </Row>
-    <Pagination
-      current={2}
-      onChange={[Function]}
-      total={0}
+          quantity={null}
+          total={null}
+        />
+      }
+      renderLoading={<MoviesLoader />}
     />
   </div>
 </PrivateLayout>

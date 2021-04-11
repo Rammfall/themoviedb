@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store'
 
 import diveTo from 'TestUtils/diveToEnzyme'
 
-import DashboardPage, { MoviesList } from '../container'
+import DashboardPage, { MoviesPage } from '../container'
 
 jest.mock('Store/concepts/movies/selectors', () => ({
   getDashboardMoviesTotalSelector: jest.fn(),
@@ -13,7 +13,8 @@ jest.mock('Store/concepts/movies/selectors', () => ({
     id: 2,
     overview: 'test',
     poster_path: 'test'
-  }])
+  }]),
+  isEmptySelector: jest.fn(() => false)
 }))
 
 jest.mock('Store/concepts/data/selectors', () => ({
@@ -42,7 +43,7 @@ describe('DashboardPage', () => {
           {...routerProps}
         />
       )
-      const container = diveTo(wrapper, MoviesList)
+      const container = diveTo(wrapper, MoviesPage)
 
       expect(container).toMatchSnapshot()
     })
@@ -62,7 +63,7 @@ describe('DashboardPage', () => {
           {...routerProps}
         />
       )
-      const container = diveTo(wrapper, MoviesList)
+      const container = diveTo(wrapper, MoviesPage)
 
       expect(container).toMatchSnapshot()
     })
@@ -82,7 +83,7 @@ describe('DashboardPage', () => {
           {...routerProps}
         />
       )
-      const container = diveTo(wrapper, MoviesList)
+      const container = diveTo(wrapper, MoviesPage)
 
       expect(container).toMatchSnapshot()
     })

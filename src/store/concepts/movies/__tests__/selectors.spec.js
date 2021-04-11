@@ -1,6 +1,7 @@
 import {
   getDashboardMoviesTotalSelector,
-  getDashboardMoviesSelector
+  getDashboardMoviesSelector,
+  isEmptySelector
 } from '../selectors'
 
 describe('movies selectors', () => {
@@ -21,7 +22,7 @@ describe('movies selectors', () => {
     }
   }
 
-  describe('trendingMovies', () => {
+  describe('dashboardMovies', () => {
     describe('getDashboardMoviesSelector()', () => {
       it('returns array movies', () => {
         expect(getDashboardMoviesSelector(state)).toStrictEqual([{ name: 'test' }])
@@ -31,6 +32,22 @@ describe('movies selectors', () => {
     describe('getDashboardMoviesTotalSelector()', () => {
       it('returns quantity', () => {
         expect(getDashboardMoviesTotalSelector(state)).toStrictEqual(10)
+      })
+    })
+
+    describe('isEmptySelector()', () => {
+      it('returns false', () => {
+        const stateForEmpty = {
+          movies: {
+            dashboardIds: []
+          }
+        }
+
+        expect(isEmptySelector(stateForEmpty)).toStrictEqual(true)
+      })
+
+      it('returns true', () => {
+        expect(isEmptySelector(state)).toStrictEqual(false)
       })
     })
   })

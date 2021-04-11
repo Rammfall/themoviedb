@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesLoader matches snapshot 1`] = `
+<PrivateLayout>
+  <SearchForm />
+  <div
+    className="top-margin"
+  >
+    <RenderCtrl
+      isLoading={null}
+      renderEmpty={<MoviesEmptyState />}
+      renderList={
+        <MoviesList
+          quantity={null}
+          total={null}
+        />
+      }
+      renderLoading={<MoviesLoader />}
+    />
+  </div>
+</PrivateLayout>
+`;

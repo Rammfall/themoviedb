@@ -102,6 +102,9 @@ module.exports = (env, { mode }) => {
       hot: true,
       port: 4000,
       historyApiFallback: true
+    },
+    optimization: {
+      runtimeChunk: 'single'
     }
   }
 }
