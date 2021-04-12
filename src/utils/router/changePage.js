@@ -1,4 +1,4 @@
-import queryParams from 'Utils/router/queryParams'
+import pushParam from 'Utils/router/pushParam'
 
 /**
  * @param {Object} history - history object from react-router
@@ -9,16 +9,8 @@ import queryParams from 'Utils/router/queryParams'
  * @returns {(function(*=): void)|*}
  */
 function changePage(history) {
-  const { location: { pathname, search } } = history
-
   return (page) => {
-    const searchQuery = queryParams(search)
-
-    searchQuery.set('page', page)
-    history.push({
-      pathname,
-      search: `?${searchQuery.toString()}`
-    })
+    pushParam(history, ['page', page])
   }
 }
 

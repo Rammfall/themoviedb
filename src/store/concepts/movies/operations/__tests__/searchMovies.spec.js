@@ -16,19 +16,19 @@ import searchMoviesOperation from '../searchMovies'
 
 describe('searchMoviesOperation()', () => {
   describe('with success response', () => {
-    const httpClient = mockHttpClient([
-      {
-        method: 'get',
-        resolve: { data: { ...trendingMoviesResponse } }
-      }
-    ])
-    const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
-      searchMoviesOperation
-    ])
-
-    store.dispatch({ type: SEARCH })
-
     it('dispatches actions', async () => {
+      const httpClient = mockHttpClient([
+        {
+          method: 'get',
+          resolve: { data: { ...trendingMoviesResponse } }
+        }
+      ])
+      const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
+        searchMoviesOperation
+      ])
+
+      store.dispatch({ type: SEARCH })
+
       await logicMiddleware.whenComplete()
 
       const movie = new schema.Entity('movie')
@@ -59,6 +59,58 @@ describe('searchMoviesOperation()', () => {
           total: 20000
         }
       ])
+    })
+
+    describe('with empty response', () => {
+      it('returns empty object', async () => {
+        const httpClient = mockHttpClient([
+          {
+            method: 'get',
+            resolve: {
+              data: {
+                results: [],
+                total_pages: 0,
+                total_results: 0
+              }
+            }
+          }
+        ])
+        const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
+          searchMoviesOperation
+        ])
+
+        store.dispatch({ type: SEARCH })
+        await logicMiddleware.whenComplete()
+
+        const movie = new schema.Entity('movie')
+        const normalizedResponse = normalize([], [movie])
+        expect(store.getActions()).toStrictEqual([
+          {
+            type: SEARCH
+          },
+          {
+            type: API_REQUEST,
+            endpoint: dashboard
+          },
+          {
+            type: API_SUCCESS,
+            endpoint: dashboard
+          },
+          {
+            type: API_SAVE,
+            endpoint: moviesConstant,
+            response: {}
+          },
+          {
+            type: SAVE_DASHBOARD_MOVIES,
+            ids: normalizedResponse.result
+          },
+          {
+            type: SAVE_DASHBOARD_TOTAL,
+            total: 0
+          }
+        ])
+      })
     })
   })
 })

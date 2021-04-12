@@ -34,7 +34,7 @@ class DashboardPage extends Component {
     const searchQuery = queryParams(search).get('search')
 
     if (searchQuery) {
-      searchMovies(this.currentPage, searchQuery)
+      searchMovies(this.currentPage, decodeURIComponent(searchQuery))
     } else {
       getMovies(this.currentPage)
     }

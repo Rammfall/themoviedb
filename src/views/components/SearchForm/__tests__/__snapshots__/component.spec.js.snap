@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchForm matches snapshot 1`] = `
+exports[`SearchFormComponent matches snapshot 1`] = `
 <Row
   justify="center"
 >
@@ -32,12 +32,24 @@ exports[`SearchForm matches snapshot 1`] = `
       }
     }
   >
-    <Search
-      className="top-margin"
-      enterButton="Search"
-      placeholder="Enter movie name"
-      size="large"
-    />
+    <Form>
+      <Field
+        className="top-margin"
+        component={[Function]}
+        enterButton="Search"
+        loading={false}
+        name="search"
+        onSearch={[Function]}
+        placeholder="Enter movie name"
+        prefix={
+          <ForwardRef(CloseOutlined)
+            onClick={[Function]}
+          />
+        }
+        size="large"
+        type="search"
+      />
+    </Form>
   </Col>
 </Row>
 `;

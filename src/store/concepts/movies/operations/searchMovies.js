@@ -32,10 +32,9 @@ const searchMoviesOperation = createLogic({
     const normalizedResponse = normalizeMovies(results)
 
     dispatch(dataApiSuccess({ endpoint: dashboard }))
-    dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedResponse.entities.movie }))
+    dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedResponse.entities.movie || {} }))
     dispatch(saveDashboardIds({ ids: normalizedResponse.result }))
     dispatch(saveDashboardTotal({ total: totalResults }))
-
     done()
   }
 })

@@ -2,6 +2,7 @@
 
 exports[`InputField matches snapshot 1`] = `
 <Input
+  className=""
   name="test"
   onBlur={[MockFunction]}
   onChange={[MockFunction]}

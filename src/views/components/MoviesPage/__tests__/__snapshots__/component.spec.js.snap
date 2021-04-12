@@ -2,7 +2,7 @@
 
 exports[`MoviesPage matches snapshot 1`] = `
 <PrivateLayout>
-  <SearchForm />
+  <withRouter(Connect(WithFormik(SearchForm))) />
   <div
     className="top-margin"
   >

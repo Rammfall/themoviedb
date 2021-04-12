@@ -1,5 +1,5 @@
 /**
- * @param {URLSearchParams} string
+ * @param {string} string
  * @returns {{set: (function(*=, *=): void), get: (function(*=): string), toString: (function(): string)}}
  */
 const queryParams = (string) => {

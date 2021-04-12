@@ -37,7 +37,12 @@ class InputField extends Component {
       field: { name, onChange, onBlur, value },
       placeholder,
       type,
-      prefix
+      prefix,
+      enterButton,
+      size,
+      className,
+      onSearch,
+      loading
     } = this.props
     return (
       <Input
@@ -50,6 +55,11 @@ class InputField extends Component {
         onBlur={onBlur}
         name={name}
         prefix={prefix}
+        enterButton={enterButton}
+        size={size}
+        className={className}
+        onSearch={onSearch}
+        loading={loading}
       />
     )
   }
@@ -68,13 +78,23 @@ InputField.propTypes = {
   }).isRequired,
   placeholder: inputPropTypes.placeholder,
   type: inputPropTypes.type,
-  prefix: inputPropTypes.prefix
+  prefix: inputPropTypes.prefix,
+  enterButton: inputPropTypes.enterButton,
+  size: inputPropTypes.size,
+  className: inputPropTypes.className,
+  onSearch: inputPropTypes.onSearch,
+  loading: inputPropTypes.loading
 }
 
 InputField.defaultProps = {
   placeholder: inputDefaultProps.placeholder,
   type: inputDefaultProps.type,
-  prefix: inputDefaultProps.prefix
+  prefix: inputDefaultProps.prefix,
+  enterButton: inputDefaultProps.enterButton,
+  size: inputDefaultProps.size,
+  className: inputDefaultProps.className,
+  onSearch: inputDefaultProps.onSearch,
+  loading: inputDefaultProps.loading
 }
 
 export default InputField

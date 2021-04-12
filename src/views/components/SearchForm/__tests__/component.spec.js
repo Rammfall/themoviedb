@@ -1,11 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import SearchForm from '../component'
+import SearchFormComponent from '../component'
 
-describe('SearchForm', () => {
+describe('SearchFormComponent', () => {
   it('matches snapshot', () => {
-    const component = shallow(<SearchForm />)
+    const props = {
+      handleSubmit: jest.fn,
+      handleReset: jest.fn
+    }
+    const component = shallow(<SearchFormComponent {...props} />)
 
     expect(component).toMatchSnapshot()
   })

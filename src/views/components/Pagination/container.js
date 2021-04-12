@@ -12,7 +12,7 @@ import PaginationComponent from './component'
 const Pagination = ({ total }) => {
   const history = useHistory()
   const onPageChange = changePage(history)
-  const current = Number(queryParams(history.location.search).get('page'))
+  const current = Number(queryParams(history.location.search).get('page')) || 1
 
   return (
     <PaginationComponent
@@ -35,5 +35,5 @@ const mapStateToProps = (state) => ({
   total: getDashboardMoviesTotalSelector(state)
 })
 
-export { PaginationComponent }
+export { Pagination as PaginationContainer }
 export default connect(mapStateToProps)(Pagination)
