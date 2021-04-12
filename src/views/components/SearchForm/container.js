@@ -7,10 +7,10 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import queryParams from 'Utils/router/queryParams'
+import searchSubmit from 'Utils/formikEvents/searchSubmit'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { dashboard } from 'Store/concepts/movies/endpoints'
 
-import pushParam from 'Utils/router/pushParam'
 import SearchFormComponent from './component'
 
 const SearchForm = ({ handleSubmit, isLoading, handleReset }) => (
@@ -50,10 +50,6 @@ export default compose(
         search: searchQuery
       }
     },
-    handleSubmit: ({ search }, { props: {
-      history
-    }}) => {
-      pushParam(history, ['search', encodeURIComponent(search)])
-    }
+    handleSubmit: searchSubmit
   })
 )(SearchForm)
