@@ -2,8 +2,8 @@ import { createLogic } from 'redux-logic'
 
 import { dataApiRequest, dataApiSave, dataApiSuccess } from 'Store/concepts/data/actions'
 import normalizeMovies from 'Store/schemas/movies'
-
 import { saveDashboardTotal, saveDashboardIds } from 'Store/concepts/movies/actions'
+
 import { SEARCH } from '../types'
 import { moviesConstant, searchMovies, dashboard } from '../endpoints'
 

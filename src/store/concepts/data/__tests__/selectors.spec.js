@@ -10,7 +10,7 @@ describe('data selectors', () => {
   }
 
   describe('loadingSelector()', () => {
-    it('return actual part of state', () => {
+    it('returns correct value', () => {
       expect(loadingSelector(state, 'endpoint')).toStrictEqual(true)
     })
   })

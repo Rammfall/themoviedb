@@ -5,7 +5,7 @@ describe('data actions', () => {
   const endpoint = 'endpoint'
 
   describe('dataApiRequest()', () => {
-    it('returns correct type and endpoint', () => {
+    it('returns object with correct shape', () => {
       expect(dataApiRequest({ endpoint }))
         .toStrictEqual({
           type: API_REQUEST,
@@ -15,7 +15,7 @@ describe('data actions', () => {
   })
 
   describe('dataApiSuccess()', () => {
-    it('returns correct type and endpoint', () => {
+    it('returns object with correct shape', () => {
       expect(dataApiSuccess({ endpoint }))
         .toStrictEqual({
           type: API_SUCCESS,
@@ -25,7 +25,7 @@ describe('data actions', () => {
   })
 
   describe('dataApiSave()', () => {
-    it('returns correct type, endpoint and response', () => {
+    it('returns object with correct shape', () => {
       expect(dataApiSave({ endpoint, response: [] }))
         .toStrictEqual({
           type: API_SAVE,
