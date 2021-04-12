@@ -57,7 +57,7 @@ exports[`Pagination when isLoading is true matches snapshot 1`] = `
       </Row>
     </Col>
   </Row>
-  <Connect(Pagination) />
+  <Connect(DashboardPagination) />
 </Fragment>
 `;
 
@@ -118,6 +118,6 @@ exports[`Pagination with default props matches snapshot 1`] = `
       </Row>
     </Col>
   </Row>
-  <Connect(Pagination) />
+  <Connect(DashboardPagination) />
 </Fragment>
 `;

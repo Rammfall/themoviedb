@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Col, Row } from 'antd'
 
 import MovieCard from 'Views/components/shared/MovieCard'
-import Pagination from 'Views/components/Pagination'
+import DashboardPagination from 'Views/components/DashboardPagination'
 
 const MoviesList = ({
   movies
@@ -44,7 +44,7 @@ const MoviesList = ({
         </Row>
       </Col>
     </Row>
-    <Pagination />
+    <DashboardPagination />
   </>
 )
 
