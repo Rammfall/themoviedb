@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic'
 
 import storage from 'Utils/storage'
-import { setUsername } from 'Store/concepts/account/actions'
+import { setUserId, setUsername } from 'Store/concepts/account/actions'
 import { GET_INFO } from '../types'
 import { account } from '../endpoints'
 
@@ -15,9 +15,10 @@ const getAccountOperation = createLogic({
     dispatch,
     done
   ) {
-    const { data: { username } } = await httpClient.get(account, { params: { session_id: storage.session.get() } })
+    const { data: { username, id } } = await httpClient.get(account, { params: { session_id: storage.session.get() } })
 
     dispatch(setUsername({ username }))
+    dispatch(setUserId({ id }))
 
     done()
   }
