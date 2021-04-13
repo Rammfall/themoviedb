@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import MoviesEmptyState from '../component'
+import Loader from '../component'
 
-describe('MoviesEmptyState', () => {
+describe('MoviesLoader', () => {
   it('matches snapshot', () => {
-    const component = shallow(<MoviesEmptyState />)
+    const component = shallow(<Loader />)
 
     expect(component).toMatchSnapshot()
   })

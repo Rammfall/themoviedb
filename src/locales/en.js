@@ -13,6 +13,9 @@ export default {
     'menu.favorites': 'favorites',
     'menu.logout': 'Logout',
 
-    'movies.empty': 'No movies found'
+    'movies.empty': 'No movies found',
+
+    'lists.empty': 'No lists found',
+    'lists.title': 'My Lists '
   }
 }

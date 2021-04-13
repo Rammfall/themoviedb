@@ -9,7 +9,7 @@ describe('account selectors', () => {
 
   describe('userIdSelector()', () => {
     it('returns actual state', () => {
-      expect(userIdSelector({ account: { id: 2 } })).toStrictEqual(2)
+      expect(userIdSelector({ account: { userId: 2 } })).toStrictEqual(2)
     })
   })
 })

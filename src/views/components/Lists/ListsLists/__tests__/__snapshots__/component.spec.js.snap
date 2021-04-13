@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListsLists matches snapshot 1`] = `
+<Fragment>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Row
+        gutter={
+          Object {
+            "lg": 32,
+            "md": 24,
+            "sm": 16,
+            "xs": 8,
+          }
+        }
+      >
+        <ListCard
+          description="test"
+          key="1"
+          name="test"
+        />
+      </Row>
+    </Col>
+  </Row>
+  <Row
+    justify="center"
+    type="flex"
+  >
+    <Col>
+      <Connect(ListsPagination) />
+    </Col>
+  </Row>
+</Fragment>
+`;

@@ -9,7 +9,11 @@ exports[`MoviesPage matches snapshot 1`] = `
     <RenderCtrl
       isEmpty={false}
       isLoading={false}
-      renderEmpty={<MoviesEmptyState />}
+      renderEmpty={
+        <EmptyState
+          title="No movies found"
+        />
+      }
       renderList={
         <MoviesList
           movies={
@@ -24,7 +28,7 @@ exports[`MoviesPage matches snapshot 1`] = `
           }
         />
       }
-      renderLoading={<MoviesLoader />}
+      renderLoading={<Loader />}
     />
   </div>
 </PrivateLayout>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row, Spin } from 'antd'
 
-const MoviesLoader = () => (
+const Loader = () => (
   <div className="top-margin">
     <Row
       type="flex"
@@ -14,4 +14,4 @@ const MoviesLoader = () => (
   </div>
 )
 
-export default MoviesLoader
+export default Loader

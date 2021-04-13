@@ -12,6 +12,7 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
         "type": [Function],
       }
     }
+    exact={true}
     path="/login"
   />
   <Connect(Route)
@@ -24,7 +25,22 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
         "type": [Function],
       }
     }
+    exact={true}
     path="/"
+    privateRoute={true}
+  />
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(ListsPage))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/lists"
     privateRoute={true}
   />
 </Component>
@@ -42,6 +58,7 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
         "type": [Function],
       }
     }
+    exact={true}
     path="/login"
   />
   <Connect(Route)
@@ -54,7 +71,22 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
         "type": [Function],
       }
     }
+    exact={true}
     path="/"
+    privateRoute={true}
+  />
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(ListsPage))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/lists"
     privateRoute={true}
   />
 </Component>

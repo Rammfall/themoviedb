@@ -1,35 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useIntl } from 'react-intl'
 
 import SearchForm from 'Views/components/SearchForm'
 import PrivateLayout from 'Views/layouts/PrivateLayout'
-import MoviesLoader from 'Views/components/MoviesLoader'
+import Loader from 'Views/components/Loader'
 import MoviesList from 'Views/components/MoviesList'
-import MoviesEmptyState from 'Views/components/MoviesEmptyState'
 import RenderCtrl from 'Views/components/RenderCtrl'
+import EmptyState from 'Views/components/EmptyState'
 
 const MoviesPage = ({
   movies,
   isLoading,
   isEmpty
-}) => (
-  <PrivateLayout>
-    <SearchForm />
-    <div className='top-margin'>
-      <RenderCtrl
-        isLoading={isLoading}
-        isEmpty={isEmpty}
-        renderEmpty={<MoviesEmptyState />}
-        renderLoading={<MoviesLoader />}
-        renderList={(
-          <MoviesList
-            movies={movies}
-          />
-        )}
-      />
-    </div>
-  </PrivateLayout>
-)
+}) => {
+  const { formatMessage } = useIntl()
+
+  return (
+    <PrivateLayout>
+      <SearchForm />
+      <div className='top-margin'>
+        <RenderCtrl
+          isLoading={isLoading}
+          isEmpty={isEmpty}
+          renderEmpty={<EmptyState title={formatMessage({ id: 'movies.empty' })} />}
+          renderLoading={<Loader />}
+          renderList={(
+            <MoviesList
+              movies={movies}
+            />
+          )}
+        />
+      </div>
+    </PrivateLayout>
+  )
+}
 
 MoviesPage.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
