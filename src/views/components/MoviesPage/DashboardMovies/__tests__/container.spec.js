@@ -4,20 +4,23 @@ import configureStore from 'redux-mock-store'
 
 import diveTo from 'TestUtils/diveToEnzyme'
 
-import DashboardPagination, { DashboardPaginationContainer } from '../container'
+import DashboardMovies, { DashboardMoviesContainer } from '../container'
 
 jest.mock('Store/concepts/movies/selectors', () => ({
+  getDashboardMoviesSelector: jest.fn(() => [{
+    id: 1,
+    name: 'test',
+    description: 'test'
+  }]),
   getDashboardMoviesTotalSelector: jest.fn(() => 3)
 }))
 
-describe('DashboardPagination', () => {
+describe('DashboardMovies', () => {
   const store = configureStore()()
 
   it('matches snapshot', () => {
-    const wrapper = shallow(
-      <DashboardPagination store={store} />
-    )
-    const container = diveTo(wrapper, DashboardPaginationContainer)
+    const wrapper = shallow(<DashboardMovies store={store} />)
+    const container = diveTo(wrapper, DashboardMoviesContainer)
 
     expect(container).toMatchSnapshot()
   })

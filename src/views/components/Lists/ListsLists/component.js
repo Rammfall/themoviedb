@@ -8,21 +8,13 @@ import ListsPagination from './ListsPagination'
 const ListsLists = ({ lists }) => (
   <>
     <Row
-      gutter={8}
       type='flex'
     >
       <Col
         span={20}
         offset={2}
       >
-        <Row
-          gutter={{
-            xs: 8,
-            sm: 16,
-            md: 24,
-            lg: 32
-          }}
-        >
+        <Row>
           {lists.map(({name, description, id}) => (
             <ListCard
               key={id}

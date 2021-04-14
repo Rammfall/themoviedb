@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`DashboardPagination matches snapshot 1`] = `
-<Pagination
-  total={3}
-/>
-`;

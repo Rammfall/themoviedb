@@ -5,7 +5,8 @@ import {
   SAVE_LISTS,
   GET_LISTS,
   ADD_LIST,
-  LOAD_LISTS
+  LOAD_LISTS,
+  DELETE_LIST
 } from './types'
 
 export const loadLists = (page = 1) => ({
@@ -29,3 +30,8 @@ export const saveTotal = ({ total }) => ({
 })
 
 export const addList = makeSubmitAction(ADD_LIST)
+
+export const deleteList = ({ id }) => ({
+  type: DELETE_LIST,
+  id
+})

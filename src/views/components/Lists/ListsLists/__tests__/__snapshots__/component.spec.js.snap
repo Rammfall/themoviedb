@@ -3,23 +3,13 @@
 exports[`ListsLists matches snapshot 1`] = `
 <Fragment>
   <Row
-    gutter={8}
     type="flex"
   >
     <Col
       offset={2}
       span={20}
     >
-      <Row
-        gutter={
-          Object {
-            "lg": 32,
-            "md": 24,
-            "sm": 16,
-            "xs": 8,
-          }
-        }
-      >
+      <Row>
         <ListCard
           description="test"
           key="1"

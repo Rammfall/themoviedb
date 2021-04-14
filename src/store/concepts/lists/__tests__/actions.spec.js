@@ -3,14 +3,16 @@ import {
   SAVE_LISTS,
   SAVE_LISTS_TOTAL,
   ADD_LIST,
-  LOAD_LISTS
+  LOAD_LISTS,
+  DELETE_LIST
 } from '../types'
 import {
   getLists,
   saveListsIds,
   saveTotal,
   addList,
-  loadLists
+  loadLists,
+  deleteList
 } from '../actions'
 
 describe('lists actions', () => {
@@ -92,4 +94,15 @@ describe('lists actions', () => {
       })
     })
   })
+
+  describe('deleteList()', () => {
+    it('returns object with correct shape', () => {
+      expect(deleteList({ id: 5 }))
+        .toStrictEqual({
+          type: DELETE_LIST,
+          id: 5
+        })
+    })
+  })
+
 })
