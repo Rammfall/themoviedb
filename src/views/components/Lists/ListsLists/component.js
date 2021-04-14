@@ -3,9 +3,10 @@ import { Col, Row } from 'antd'
 import PropTypes from 'prop-types'
 
 import ListCard from 'Views/components/Lists/ListsLists/ListCard'
-import ListsPagination from './ListsPagination'
+import Pagination from 'Views/components/Pagination'
+import onDeleteHandler from 'Utils/components/ListsLists/onDelete'
 
-const ListsLists = ({ lists }) => (
+const ListsListsComponent = ({ lists, total, onDelete }) => (
   <>
     <Row
       type='flex'
@@ -20,6 +21,7 @@ const ListsLists = ({ lists }) => (
               key={id}
               name={name}
               description={description}
+              onDelete={onDeleteHandler(onDelete, id)}
             />)
           )}
         </Row>
@@ -30,18 +32,24 @@ const ListsLists = ({ lists }) => (
       justify='center'
     >
       <Col>
-        <ListsPagination />
+        <Pagination total={total} />
       </Col>
     </Row>
   </>
 )
 
-ListsLists.propTypes = {
+ListsListsComponent.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string
-  }).isRequired).isRequired
+  }).isRequired).isRequired,
+  total: PropTypes.number,
+  onDelete: PropTypes.func.isRequired
 }
 
-export default ListsLists
+ListsListsComponent.defaultProps = {
+  total: null
+}
+
+export default ListsListsComponent

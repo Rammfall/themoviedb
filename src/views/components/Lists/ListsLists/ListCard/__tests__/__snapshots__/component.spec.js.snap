@@ -31,7 +31,9 @@ exports[`ListCard matches snapshot 1`] = `
   <Card
     actions={
       Array [
-        <ForwardRef(DeleteOutlined) />,
+        <ForwardRef(DeleteOutlined)
+          onClick={[Function]}
+        />,
       ]
     }
     className="top-margin"

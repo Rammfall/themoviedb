@@ -5,15 +5,6 @@ exports[`ListsPage when userId is null after componentDidUpdate when keyword pro
   createModalVisibility={false}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;
@@ -23,15 +14,6 @@ exports[`ListsPage when userId is null after componentDidUpdate when search was 
   createModalVisibility={false}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;
@@ -41,15 +23,6 @@ exports[`ListsPage when userId is null after componentDidUpdate when userId was 
   createModalVisibility={false}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;
@@ -59,15 +32,6 @@ exports[`ListsPage when userId is null matches snapshot 1`] = `
   createModalVisibility={false}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;
@@ -77,15 +41,6 @@ exports[`ListsPage with default props after componentDidUpdate matches snapshot 
   createModalVisibility={false}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;
@@ -95,15 +50,6 @@ exports[`ListsPage with default props after setState matches snapshot 1`] = `
   createModalVisibility={true}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;
@@ -113,15 +59,6 @@ exports[`ListsPage with default props matches snapshot 1`] = `
   createModalVisibility={false}
   isEmpty={false}
   isLoading={true}
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 2,
-        "name": "test",
-      },
-    ]
-  }
   toggleCreateModal={[Function]}
 />
 `;

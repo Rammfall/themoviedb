@@ -9,11 +9,6 @@ import { userIdSelector } from 'Store/concepts/account/selectors'
 import ListsPage, { ListsPageContainer } from '../container'
 
 jest.mock('Store/concepts/lists/selectors', () => ({
-  getListsSelector: jest.fn(() => [{
-    id: 2,
-    name: 'test',
-    description: 'test'
-  }]),
   isEmptyListsSelector: jest.fn(() => false)
 }))
 

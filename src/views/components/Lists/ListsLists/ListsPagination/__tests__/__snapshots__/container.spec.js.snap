@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ListsPagination matches snapshot 1`] = `
-<Pagination
-  total={3}
-/>
-`;

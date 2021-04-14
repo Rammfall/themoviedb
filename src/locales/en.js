@@ -20,6 +20,7 @@ export default {
     'lists.create.button': 'Create',
     'lists.create.title': 'Create list',
     'lists.create.name': 'Name',
-    'lists.create.description': 'Description'
+    'lists.create.description': 'Description',
+    'lists.delete.title': 'Do you want to delete list?'
   }
 }

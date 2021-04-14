@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Card, Col, Typography } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 
-const ListCard = ({ name, description }) => (
+const ListCard = ({ name, description, onDelete }) => (
   <Col
     xs={{ span: 24 }}
     sm={{ span: 12 }}
@@ -17,6 +17,7 @@ const ListCard = ({ name, description }) => (
       actions={[
         <DeleteOutlined
           key="delete"
+          onClick={onDelete}
         />
       ]}
     >
@@ -30,7 +31,8 @@ const ListCard = ({ name, description }) => (
 
 ListCard.propTypes = {
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired
 }
 
 export default ListCard

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListsLists matches snapshot 1`] = `
+exports[`ListsListsComponent matches snapshot 1`] = `
 <Fragment>
   <Row
     type="flex"
@@ -14,6 +14,7 @@ exports[`ListsLists matches snapshot 1`] = `
           description="test"
           key="1"
           name="test"
+          onDelete={[Function]}
         />
       </Row>
     </Col>
@@ -23,7 +24,9 @@ exports[`ListsLists matches snapshot 1`] = `
     type="flex"
   >
     <Col>
-      <Connect(ListsPagination) />
+      <Pagination
+        total={null}
+      />
     </Col>
   </Row>
 </Fragment>

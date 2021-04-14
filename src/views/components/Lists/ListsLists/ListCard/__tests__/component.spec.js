@@ -7,7 +7,8 @@ describe('ListCard', () => {
   it('matches snapshot', () => {
     const props = {
       name: 'test',
-      description: 'test'
+      description: 'test',
+      onDelete: jest.fn
     }
     const component = shallow(<ListCard {...props} />)
 

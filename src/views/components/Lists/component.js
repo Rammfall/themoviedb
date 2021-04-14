@@ -14,7 +14,6 @@ import CreateListModal from './CreateListModal'
 const Lists = ({
   isEmpty,
   isLoading,
-  lists,
   createModalVisibility,
   toggleCreateModal
 }) => {
@@ -38,7 +37,7 @@ const Lists = ({
       <RenderCtrl
         isEmpty={isEmpty}
         isLoading={isLoading}
-        renderList={<ListsLists lists={lists} />}
+        renderList={<ListsLists />}
         renderLoading={<Loader />}
         renderEmpty={<EmptyState title={formatMessage({ id: 'lists.empty' })} />}
       />
@@ -53,11 +52,6 @@ const Lists = ({
 Lists.propTypes = {
   isEmpty: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool,
-  lists: PropTypes.arrayOf(PropTypes.shape({
-    description: PropTypes.string,
-    name: PropTypes.string,
-    id: PropTypes.number
-  })).isRequired,
   createModalVisibility: PropTypes.bool.isRequired,
   toggleCreateModal: PropTypes.func.isRequired
 }

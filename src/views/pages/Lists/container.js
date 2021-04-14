@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { getListsSelector, isEmptyListsSelector } from 'Store/concepts/lists/selectors'
+import { isEmptyListsSelector } from 'Store/concepts/lists/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { lists as listsConstant } from 'Store/concepts/lists/endpoints'
 import { getLists } from 'Store/concepts/lists/actions'
@@ -50,14 +50,13 @@ class ListsPage extends Component {
   }
 
   render() {
-    const { isEmpty, isLoading, lists } = this.props
+    const { isEmpty, isLoading } = this.props
     const { createModalVisibility } = this.state
 
     return (
       <Lists
         isEmpty={isEmpty}
         isLoading={isLoading}
-        lists={lists}
         toggleCreateModal={this.toggleCreateModal}
         createModalVisibility={createModalVisibility}
       />
@@ -68,11 +67,6 @@ class ListsPage extends Component {
 ListsPage.propTypes = {
   isEmpty: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool,
-  lists: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    description: PropTypes.string
-  })).isRequired,
   userId: PropTypes.number,
   location: PropTypes.shape({
     search: PropTypes.string.isRequired
@@ -86,7 +80,6 @@ ListsPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  lists: getListsSelector(state),
   isEmpty: isEmptyListsSelector(state),
   isLoading: loadingSelector(state, listsConstant),
   userId: userIdSelector(state)

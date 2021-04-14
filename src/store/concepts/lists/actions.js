@@ -31,7 +31,8 @@ export const saveTotal = ({ total }) => ({
 
 export const addList = makeSubmitAction(ADD_LIST)
 
-export const deleteList = ({ id }) => ({
+export const deleteList = ({ id, page }) => ({
   type: DELETE_LIST,
-  id
+  id,
+  page
 })

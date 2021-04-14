@@ -97,10 +97,11 @@ describe('lists actions', () => {
 
   describe('deleteList()', () => {
     it('returns object with correct shape', () => {
-      expect(deleteList({ id: 5 }))
+      expect(deleteList({ id: 5, page: 1 }))
         .toStrictEqual({
           type: DELETE_LIST,
-          id: 5
+          id: 5,
+          page: 1
         })
     })
   })

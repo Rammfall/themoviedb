@@ -27,19 +27,7 @@ exports[`Lists matches snapshot 1`] = `
         title="test"
       />
     }
-    renderList={
-      <ListsLists
-        lists={
-          Array [
-            Object {
-              "description": "test",
-              "id": 3,
-              "name": "test",
-            },
-          ]
-        }
-      />
-    }
+    renderList={<Unknown />}
     renderLoading={<Loader />}
   />
   <Connect(withRouter(WithFormik(CreateListModal)))
