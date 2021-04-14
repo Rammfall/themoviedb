@@ -9,8 +9,15 @@ import RenderCtrl from 'Views/components/RenderCtrl'
 import Loader from 'Views/components/Loader'
 import EmptyState from 'Views/components/EmptyState'
 import ListsLists from './ListsLists'
+import CreateListModal from './CreateListModal'
 
-const Lists = ({ isEmpty, isLoading, lists }) => {
+const Lists = ({
+  isEmpty,
+  isLoading,
+  lists,
+  createModalVisibility,
+  toggleCreateModal
+}) => {
   const { formatMessage } = useIntl()
 
   return (
@@ -23,7 +30,7 @@ const Lists = ({ isEmpty, isLoading, lists }) => {
           <div className="top-margin">
             <Typography.Title>
               {formatMessage({ id: 'lists.title' })}
-              <PlusCircleOutlined />
+              <PlusCircleOutlined onClick={toggleCreateModal} />
             </Typography.Title>
           </div>
         </Col>
@@ -35,6 +42,10 @@ const Lists = ({ isEmpty, isLoading, lists }) => {
         renderLoading={<Loader />}
         renderEmpty={<EmptyState title={formatMessage({ id: 'lists.empty' })} />}
       />
+       <CreateListModal
+         isVisible={createModalVisibility}
+         toggleHandler={toggleCreateModal}
+       />
     </PrivateLayout>
   )
 }
@@ -46,7 +57,9 @@ Lists.propTypes = {
     description: PropTypes.string,
     name: PropTypes.string,
     id: PropTypes.number
-  })).isRequired
+  })).isRequired,
+  createModalVisibility: PropTypes.bool.isRequired,
+  toggleCreateModal: PropTypes.func.isRequired
 }
 
 Lists.defaultProps = {

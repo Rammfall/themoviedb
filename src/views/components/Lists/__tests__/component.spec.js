@@ -18,7 +18,9 @@ describe('Lists', () => {
         name: 'test',
         description: 'test',
         id: 3
-      }]
+      }],
+      createModalVisibility: false,
+      toggleCreateModal: jest.fn
     }
     const component = shallow(<Lists {...props} />)
 

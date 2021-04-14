@@ -1,19 +1,9 @@
 import { createLogic } from 'redux-logic'
 
-import {
-  dataApiRequest,
-  dataApiSave,
-  dataApiSuccess
-} from 'Store/concepts/data/actions'
-import { userIdSelector } from 'Store/concepts/account/selectors'
-import storage from 'Utils/storage'
+import { dataApiRequest } from 'Store/concepts/data/actions'
 
-import normalizeLists from 'Store/schemas/lists'
-import {
-  saveListsIds,
-  saveTotal
-} from '../actions'
-import { getListsEndpoint, lists } from '../endpoints'
+import { loadLists } from '../actions'
+import { lists } from '../endpoints'
 import { GET_LISTS } from '../types'
 
 const getListsOperation = createLogic({
@@ -21,29 +11,15 @@ const getListsOperation = createLogic({
   latest: true,
   async process(
     {
-      httpClient,
       action: {
         page
-      },
-      getState
+      }
     },
     dispatch,
     done
   ) {
-    const userId = userIdSelector(getState())
     dispatch(dataApiRequest({ endpoint: lists }))
-    const {
-      data: {
-        results,
-        total_results: totalResults
-      }
-    } = await httpClient.get(getListsEndpoint(userId), { params: { page, session_id: storage.session.get() } })
-    const normalizedData = normalizeLists(results)
-
-    dispatch(dataApiSuccess({ endpoint: lists }))
-    dispatch(dataApiSave({ endpoint: lists, response: normalizedData.entities.list || {} }))
-    dispatch(saveListsIds({ ids: normalizedData.result }))
-    dispatch(saveTotal({ total: totalResults }))
+    dispatch(loadLists(page))
 
     done()
   }

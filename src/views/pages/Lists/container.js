@@ -14,6 +14,14 @@ import { userIdSelector } from 'Store/concepts/account/selectors'
 import queryParams from 'Utils/router/queryParams'
 
 class ListsPage extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      createModalVisibility: false
+    }
+  }
+
   componentDidMount() {
     this.getData()
   }
@@ -35,14 +43,23 @@ class ListsPage extends Component {
     }
   }
 
+  toggleCreateModal = () => {
+    this.setState(({ createModalVisibility }) => ({
+      createModalVisibility: !createModalVisibility
+    }))
+  }
+
   render() {
     const { isEmpty, isLoading, lists } = this.props
+    const { createModalVisibility } = this.state
 
     return (
       <Lists
         isEmpty={isEmpty}
         isLoading={isLoading}
         lists={lists}
+        toggleCreateModal={this.toggleCreateModal}
+        createModalVisibility={createModalVisibility}
       />
     )
   }
@@ -64,7 +81,7 @@ ListsPage.propTypes = {
 }
 
 ListsPage.defaultProps = {
-  isLoading: false,
+  isLoading: true,
   userId: null
 }
 

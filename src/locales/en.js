@@ -16,6 +16,10 @@ export default {
     'movies.empty': 'No movies found',
 
     'lists.empty': 'No lists found',
-    'lists.title': 'My Lists '
+    'lists.title': 'My Lists ',
+    'lists.create.button': 'Create',
+    'lists.create.title': 'Create list',
+    'lists.create.name': 'Name',
+    'lists.create.description': 'Description'
   }
 }

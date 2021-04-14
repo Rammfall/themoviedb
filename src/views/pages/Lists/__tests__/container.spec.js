@@ -58,6 +58,15 @@ describe('ListsPage', () => {
         expect(container).toMatchSnapshot()
       })
     })
+
+    describe('after setState', () => {
+      it('matches snapshot', () => {
+        const container = diveTo(wrapper, ListsPageContainer)
+        container.instance().toggleCreateModal()
+
+        expect(container).toMatchSnapshot()
+      })
+    })
   })
 
   describe('when userId is null', () => {

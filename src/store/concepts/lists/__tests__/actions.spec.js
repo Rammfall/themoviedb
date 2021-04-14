@@ -1,15 +1,41 @@
 import {
   GET_LISTS,
   SAVE_LISTS,
-  SAVE_LISTS_TOTAL
+  SAVE_LISTS_TOTAL,
+  ADD_LIST,
+  LOAD_LISTS
 } from '../types'
 import {
   getLists,
   saveListsIds,
-  saveTotal
+  saveTotal,
+  addList,
+  loadLists
 } from '../actions'
 
 describe('lists actions', () => {
+  describe('loadLists()', () => {
+    describe('with default page', () => {
+      it('returns object with correct shape', () => {
+        expect(loadLists())
+          .toStrictEqual({
+            type: LOAD_LISTS,
+            page: 1
+          })
+      })
+    })
+
+    describe('with page', () => {
+      it('returns object with correct shape', () => {
+        expect(loadLists(5))
+          .toStrictEqual({
+            type: LOAD_LISTS,
+            page: 5
+          })
+      })
+    })
+  })
+
   describe('getLists()', () => {
     describe('with default page', () => {
       it('returns object with correct shape', () => {
@@ -49,6 +75,21 @@ describe('lists actions', () => {
           type: SAVE_LISTS_TOTAL,
           total: 5
         })
+    })
+  })
+
+  describe('addList()', () => {
+    it('returns object with correct shape', () => {
+      const actionResult = addList({
+        name: 'test',
+        description: 'test'
+      })
+
+      expect(actionResult.type).toStrictEqual(ADD_LIST)
+      expect(actionResult.values).toStrictEqual({
+        name: 'test',
+        description: 'test'
+      })
     })
   })
 })

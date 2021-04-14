@@ -12,7 +12,9 @@ exports[`Lists matches snapshot 1`] = `
       >
         <Title>
           test
-          <ForwardRef(PlusCircleOutlined) />
+          <ForwardRef(PlusCircleOutlined)
+            onClick={[Function]}
+          />
         </Title>
       </div>
     </Col>
@@ -39,6 +41,10 @@ exports[`Lists matches snapshot 1`] = `
       />
     }
     renderLoading={<Loader />}
+  />
+  <Connect(withRouter(WithFormik(CreateListModal)))
+    isVisible={false}
+    toggleHandler={[Function]}
   />
 </PrivateLayout>
 `;
