@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'ramda'
 
 import { getTrendingMovies, search as searchMoviesAction } from 'Store/concepts/movies/actions'
-import { isEmptySelector } from 'Store/concepts/movies/selectors'
+import { isEmptyDashboardSelector } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { dashboard } from 'Store/concepts/movies/endpoints'
 
@@ -71,7 +71,7 @@ DashboardPage.defaultProps = {
 
 const mapStateToProps = (state) => ({
   isLoading: loadingSelector(state, dashboard),
-  isEmpty: isEmptySelector(state)
+  isEmpty: isEmptyDashboardSelector(state)
 })
 
 const mapDispatchToProps = {

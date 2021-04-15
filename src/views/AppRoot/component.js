@@ -6,6 +6,7 @@ import Route from 'Views/AppRoot/components/Route'
 import LoginPage from '../pages/Login'
 import DashboardPage from '../pages/Dashboard'
 import ListsPage from '../pages/Lists'
+import WatchlistPage from '../pages/Watchlist'
 
 const AppRootComponent = () => (
   <BrowserRouter>
@@ -24,6 +25,12 @@ const AppRootComponent = () => (
       path="/lists"
       privateRoute
       component={ListsPage}
+      exact
+    />
+    <Route
+      path="/watchlist"
+      privateRoute
+      component={WatchlistPage}
       exact
     />
   </BrowserRouter>

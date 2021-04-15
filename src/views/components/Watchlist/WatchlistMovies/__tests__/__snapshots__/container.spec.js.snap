@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WatchlistMovies matches snapshot 1`] = `
+<MoviesList
+  movies={
+    Object {
+      "movies": Array [],
+      "total": 1,
+    }
+  }
+  total={null}
+/>
+`;

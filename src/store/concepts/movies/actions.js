@@ -2,7 +2,9 @@ import {
   GET_TRENDING,
   SEARCH,
   SAVE_DASHBOARD_TOTAL,
-  SAVE_DASHBOARD_MOVIES
+  SAVE_DASHBOARD_MOVIES,
+  GET_WATCHLIST_MOVIES,
+  SAVE_WATCHLIST_MOVIES
 } from './types'
 
 export const getTrendingMovies = (page = 1) => ({
@@ -23,5 +25,22 @@ export const saveDashboardIds = ({ ids }) => ({
 
 export const saveDashboardTotal = ({ total }) => ({
   type: SAVE_DASHBOARD_TOTAL,
+  total
+})
+
+export const getWatchlistMovies = (page = 1, withoutLoading = false) => ({
+  type: GET_WATCHLIST_MOVIES,
+  withoutLoading,
+  page
+})
+
+/**
+ * @param {number[]} ids
+ * @param {number} total
+ * @returns {{total, ids, type: string}}
+ */
+export const saveWatchlistMovies = ({ ids, total }) => ({
+  type: SAVE_WATCHLIST_MOVIES,
+  ids,
   total
 })

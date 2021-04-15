@@ -43,6 +43,20 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
     path="/lists"
     privateRoute={true}
   />
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(WatchlistPage))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/watchlist"
+    privateRoute={true}
+  />
 </Component>
 `;
 
@@ -87,6 +101,20 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
     }
     exact={true}
     path="/lists"
+    privateRoute={true}
+  />
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(WatchlistPage))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/watchlist"
     privateRoute={true}
   />
 </Component>

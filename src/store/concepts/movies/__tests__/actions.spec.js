@@ -2,13 +2,17 @@ import {
   GET_TRENDING,
   SEARCH,
   SAVE_DASHBOARD_MOVIES,
-  SAVE_DASHBOARD_TOTAL
+  SAVE_DASHBOARD_TOTAL,
+  SAVE_WATCHLIST_MOVIES,
+  GET_WATCHLIST_MOVIES
 } from '../types'
 import {
   getTrendingMovies,
   search,
   saveDashboardIds,
-  saveDashboardTotal
+  saveDashboardTotal,
+  getWatchlistMovies,
+  saveWatchlistMovies
 } from '../actions'
 
 describe('movies actions', () => {
@@ -73,6 +77,52 @@ describe('movies actions', () => {
       expect(saveDashboardTotal({ total: 1000 }))
         .toStrictEqual({
           type: SAVE_DASHBOARD_TOTAL,
+          total: 1000
+        })
+    })
+  })
+
+  describe('getWatchlistMovies()', () => {
+    describe('with default page', () => {
+      it('returns correct type and default page', () => {
+        expect(getWatchlistMovies())
+          .toStrictEqual({
+            type: GET_WATCHLIST_MOVIES,
+            page: 1,
+            withoutLoading: false
+          })
+      })
+    })
+
+    describe('with page', () => {
+      it('returns correct type and custom page', () => {
+        expect(getWatchlistMovies(5))
+          .toStrictEqual({
+            type: GET_WATCHLIST_MOVIES,
+            page: 5,
+            withoutLoading: false
+          })
+      })
+    })
+
+    describe('with withoutLoading', () => {
+      it('returns correct type and custom page', () => {
+        expect(getWatchlistMovies(5, true))
+          .toStrictEqual({
+            type: GET_WATCHLIST_MOVIES,
+            page: 5,
+            withoutLoading: true
+          })
+      })
+    })
+  })
+
+  describe('saveWatchlistMovies()', () => {
+    it('returns correct type and quantity', () => {
+      expect(saveWatchlistMovies({ ids: [0], total: 1000 }))
+        .toStrictEqual({
+          type: SAVE_WATCHLIST_MOVIES,
+          ids: [0],
           total: 1000
         })
     })

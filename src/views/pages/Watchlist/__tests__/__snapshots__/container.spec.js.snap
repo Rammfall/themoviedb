@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<Watchlist
+  isLoading={true}
+/>
+`;
+
+exports[`WatchlistPage matches snapshot 1`] = `
+<Watchlist
+  isLoading={true}
+/>
+`;

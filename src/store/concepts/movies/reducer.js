@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 
 import {
   SAVE_DASHBOARD_MOVIES,
-  SAVE_DASHBOARD_TOTAL
+  SAVE_DASHBOARD_TOTAL,
+  SAVE_WATCHLIST_MOVIES
 } from './types'
 
 const dashboardIds = (state = [], action) => {
@@ -23,7 +24,20 @@ const dashboardTotal = (state = null, action) => {
   }
 }
 
+const watchlist = (state = { total: 0, ids: [] }, action) => {
+  switch (action.type) {
+    case SAVE_WATCHLIST_MOVIES:
+      return {
+        total: action.total,
+        ids: action.ids
+      }
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   dashboardIds,
-  dashboardTotal
+  dashboardTotal,
+  watchlist
 })

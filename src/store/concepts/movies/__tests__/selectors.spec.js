@@ -1,7 +1,8 @@
 import {
   getDashboardMoviesTotalSelector,
   getDashboardMoviesSelector,
-  isEmptySelector
+  isEmptyDashboardSelector,
+  getWatchlistMoviesSelector
 } from '../selectors'
 
 describe('movies selectors', () => {
@@ -18,7 +19,11 @@ describe('movies selectors', () => {
     },
     movies: {
       dashboardIds:  [1],
-      dashboardTotal: 10
+      dashboardTotal: 10,
+      watchlist: {
+        ids: [1],
+        total: 1
+      }
     }
   }
 
@@ -43,11 +48,44 @@ describe('movies selectors', () => {
           }
         }
 
-        expect(isEmptySelector(stateForEmpty)).toStrictEqual(true)
+        expect(isEmptyDashboardSelector(stateForEmpty)).toStrictEqual(true)
       })
 
       it('returns true', () => {
-        expect(isEmptySelector(state)).toStrictEqual(false)
+        expect(isEmptyDashboardSelector(state)).toStrictEqual(false)
+      })
+    })
+  })
+
+  describe('getWatchlistMoviesSelector()', () => {
+    it('returns movies array', () => {
+      expect(getWatchlistMoviesSelector(state).movies).toStrictEqual([{
+        name: 'test'
+      }])
+    })
+
+    it('returns total', () => {
+      expect(getWatchlistMoviesSelector(state).total).toStrictEqual(1)
+    })
+
+    describe('isEmpty field', () => {
+      it('returns false', () => {
+        expect(getWatchlistMoviesSelector(state).isEmpty).toStrictEqual(false)
+      })
+
+      it('returns true', () => {
+        const currentState = {
+          ...state,
+          movies: {
+            ...state.movies,
+            watchlist: {
+              ids: [],
+              total: 0
+            }
+          }
+        }
+
+        expect(getWatchlistMoviesSelector(currentState).isEmpty).toStrictEqual(true)
       })
     })
   })
