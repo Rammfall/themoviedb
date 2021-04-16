@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesPage matches snapshot 1`] = `
+<PrivateLayout>
+  <withRouter(Connect(WithFormik(SearchForm))) />
+  <div
+    className="top-margin"
+  >
+    <RenderCtrl
+      isEmpty={false}
+      isLoading={false}
+      renderEmpty={<MoviesEmptyState />}
+      renderList={
+        <MoviesList
+          movies={
+            Array [
+              Object {
+                "id": 1,
+                "original_title": "test",
+                "overview": "test",
+                "poster_path": "uri",
+              },
+            ]
+          }
+        />
+      }
+      renderLoading={<MoviesLoader />}
+    />
+  </div>
+</PrivateLayout>
+`;

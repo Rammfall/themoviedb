@@ -1,7 +1,6 @@
 import React from 'react'
 import { Layout, Row, Col, Typography, Modal, Pagination } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
-import { range } from 'lodash'
 
 import Header from '../Header'
 import Movie from '../MovieItem'
@@ -44,7 +43,7 @@ const Favorites = () => (
               lg: 32
             }}
           >
-            {range(10).map((item) => (
+            {new Array(10).map((item) => (
               <Col
                 key={item}
                 xs={{ span: 24 }}

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination when isLoading is true matches snapshot 1`] = `
+<Fragment>
+  <Row
+    type="flex"
+  >
+    <Col
+      className="gutter-row"
+      offset={2}
+      span={20}
+    >
+      <Row
+        gutter={
+          Object {
+            "lg": 32,
+            "md": 24,
+            "sm": 16,
+            "xs": 8,
+          }
+        }
+      >
+        <Col
+          key="2"
+          lg={
+            Object {
+              "span": 8,
+            }
+          }
+          md={
+            Object {
+              "span": 8,
+            }
+          }
+          sm={
+            Object {
+              "span": 12,
+            }
+          }
+          xl={
+            Object {
+              "span": 6,
+            }
+          }
+          xs={
+            Object {
+              "span": 24,
+            }
+          }
+        >
+          <MovieCard
+            description="test"
+            image="test"
+            title="test"
+          />
+        </Col>
+      </Row>
+    </Col>
+  </Row>
+  <Connect(DashboardPagination) />
+</Fragment>
+`;
+
+exports[`Pagination with default props matches snapshot 1`] = `
+<Fragment>
+  <Row
+    type="flex"
+  >
+    <Col
+      className="gutter-row"
+      offset={2}
+      span={20}
+    >
+      <Row
+        gutter={
+          Object {
+            "lg": 32,
+            "md": 24,
+            "sm": 16,
+            "xs": 8,
+          }
+        }
+      >
+        <Col
+          key="2"
+          lg={
+            Object {
+              "span": 8,
+            }
+          }
+          md={
+            Object {
+              "span": 8,
+            }
+          }
+          sm={
+            Object {
+              "span": 12,
+            }
+          }
+          xl={
+            Object {
+              "span": 6,
+            }
+          }
+          xs={
+            Object {
+              "span": 24,
+            }
+          }
+        >
+          <MovieCard
+            description="test"
+            image="test"
+            title="test"
+          />
+        </Col>
+      </Row>
+    </Col>
+  </Row>
+  <Connect(DashboardPagination) />
+</Fragment>
+`;

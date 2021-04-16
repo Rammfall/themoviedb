@@ -10,13 +10,18 @@ export const propTypes = {
     ''
   ]),
   validationMessage: PropTypes.string,
-  type: PropTypes.oneOf(['password', 'text']),
+  type: PropTypes.oneOf(['password', 'text', 'search']),
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
   iconRender: PropTypes.func,
   name: PropTypes.string,
-  prefix: PropTypes.node
+  prefix: PropTypes.node,
+  enterButton: PropTypes.string,
+  size: PropTypes.oneOf(['large']),
+  className: PropTypes.string,
+  onSearch: PropTypes.func,
+  loading: PropTypes.bool
 }
 
 export const defaultProps = {
@@ -27,5 +32,10 @@ export const defaultProps = {
   value: '',
   name: '',
   prefix: undefined,
-  iconRender: undefined
+  iconRender: undefined,
+  enterButton: undefined,
+  size: undefined,
+  className: '',
+  onSearch: undefined,
+  loading: undefined
 }

@@ -30,4 +30,17 @@ describe('Input', () => {
       expect(component).toMatchSnapshot()
     })
   })
+
+  describe('with type search', () => {
+    const passwordProps = {
+      ...defaultProps,
+      type: 'search'
+    }
+
+    it('matches snapshot', () => {
+      const component = shallow(<Input {...passwordProps} />)
+
+      expect(component).toMatchSnapshot()
+    })
+  })
 })

@@ -15,7 +15,15 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
     path="/login"
   />
   <Connect(Route)
-    component={[Function]}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(DashboardPage))",
+        "type": [Function],
+      }
+    }
     path="/"
     privateRoute={true}
   />
@@ -37,7 +45,15 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
     path="/login"
   />
   <Connect(Route)
-    component={[Function]}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(DashboardPage))",
+        "type": [Function],
+      }
+    }
     path="/"
     privateRoute={true}
   />

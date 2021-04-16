@@ -3,8 +3,9 @@ import { withFormik } from 'formik'
 import * as yup from 'yup'
 
 import handleSubmit from 'Utils/formikEvents/handleSubmit'
-import LoginFormComponent from './component'
+
 import { defaultProps, propTypes } from './types'
+import LoginFormComponent from './component'
 
 const LoginForm = ({ isSubmitting, status }) => (
   <LoginFormComponent

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Layout, Row, Col, Typography, Modal, Pagination } from 'antd'
 import { MinusCircleOutlined, DeleteOutlined } from '@ant-design/icons'
-import { range } from 'lodash'
 
 import Header from '../Header'
 import CreateListModal from '../CreateListModal'
@@ -75,7 +74,7 @@ class ListDetails extends React.Component {
                   lg: 32
                 }}
               >
-                {range(10).map((item) => (
+                {new Array(10).map((item) => (
                   <Col
                     key={item}
                     xs={{ span: 24 }}

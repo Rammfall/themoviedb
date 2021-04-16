@@ -1,7 +1,6 @@
 import React from 'react'
 import { Layout, Row, Col, Card, Typography, Modal, Pagination } from 'antd'
 import { PlusCircleOutlined, DeleteOutlined } from '@ant-design/icons'
-import { range } from 'lodash'
 
 import Header from '../Header'
 import CreateListModal from '../CreateListModal'
@@ -43,7 +42,7 @@ class Lists extends React.Component {
             >
               <div className="top-margin">
                 <Typography.Title>
-                  My Lists 
+                  My Lists
                   {' '}
                   <PlusCircleOutlined onClick={this.showModal} />
                 </Typography.Title>
@@ -66,7 +65,7 @@ class Lists extends React.Component {
                   lg: 32
                 }}
               >
-                {range(10).map((index) => (
+                {new Array(10).map((index) => (
                   <Col
                     key={index}
                     xs={{ span: 24 }}

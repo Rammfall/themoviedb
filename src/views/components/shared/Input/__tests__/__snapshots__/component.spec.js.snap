@@ -4,6 +4,7 @@ exports[`Input with type password matches snapshot 1`] = `
 <FormItem>
   <Password
     action="click"
+    className=""
     iconRender={[Function]}
     name=""
     onBlur={[MockFunction]}
@@ -16,9 +17,24 @@ exports[`Input with type password matches snapshot 1`] = `
 </FormItem>
 `;
 
+exports[`Input with type search matches snapshot 1`] = `
+<FormItem>
+  <Search
+    className=""
+    name=""
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    placeholder="test"
+    type="search"
+    value=""
+  />
+</FormItem>
+`;
+
 exports[`Input with type text matches snapshot 1`] = `
 <FormItem>
   <Input
+    className=""
     name=""
     onBlur={[MockFunction]}
     onChange={[MockFunction]}

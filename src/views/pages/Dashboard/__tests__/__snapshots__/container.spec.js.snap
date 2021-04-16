@@ -1,3 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DashboardPage matches snapshot 1`] = `<DashboardComponent />`;
+exports[`DashboardPage when page param excluded in url after componentDidUpdate when search changed matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage when page param excluded in url after componentDidUpdate when search not changed matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage when page param excluded in url with default props matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage with page param matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`DashboardPage with search page param matches snapshot 1`] = `
+<MoviesPage
+  isEmpty={false}
+  isLoading={null}
+  movies={
+    Array [
+      Object {
+        "id": 2,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+/>
+`;

@@ -10,7 +10,8 @@
       "Views/*": ["./src/views/*"],
       "Api/*": ["./src/api/*"],
       "Utils/*": ["./src/utils/*"],
-      "TestUtils/*": ["./src/testUtils/*"]
+      "TestUtils/*": ["./src/testUtils/*"],
+      "Constants/*": ["./src/constants/*"]
     },
     "module": "commonjs"
   },

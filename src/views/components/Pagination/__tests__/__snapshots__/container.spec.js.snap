@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination with page param matches snapshot 1`] = `
+<PaginationComponent
+  current={1}
+  onChange={[MockFunction]}
+  total={0}
+/>
+`;
+
+exports[`Pagination without page param matches snapshot 1`] = `
+<PaginationComponent
+  current={1}
+  onChange={[MockFunction]}
+  total={0}
+/>
+`;

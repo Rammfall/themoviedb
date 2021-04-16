@@ -12,8 +12,14 @@ const PrivateLayout = ({ children }) => (
 )
 
 PrivateLayout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
+    ]))
+  ]).isRequired
 }
 
 export default PrivateLayout

@@ -13,10 +13,21 @@ const Input = ({
   onBlur,
   name,
   prefix,
-  iconRender
+  iconRender,
+  enterButton,
+  size,
+  className,
+  onSearch,
+  loading
 }) => {
-  const isPassword = type === 'password'
-  const CustomInput = isPassword ? AntInput.Password : AntInput
+  let CustomInput
+  if (type === 'password') {
+    CustomInput = AntInput.Password
+  } else if (type === 'search') {
+    CustomInput = AntInput.Search
+  } else {
+    CustomInput = AntInput
+  }
 
   return (
     <Form.Item
@@ -31,7 +42,12 @@ const Input = ({
         onChange={onChange}
         name={name}
         value={value}
+        onSearch={onSearch}
         iconRender={iconRender}
+        enterButton={enterButton}
+        size={size}
+        className={className}
+        loading={loading}
       />
     </Form.Item>
   )

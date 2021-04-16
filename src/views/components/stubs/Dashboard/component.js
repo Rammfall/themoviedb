@@ -1,6 +1,5 @@
 import React from 'react'
 import { Layout, Row, Col, Input, Pagination } from 'antd'
-import { range } from 'lodash'
 
 import Header from '../Header'
 import Movie from '../MovieItem'
@@ -52,7 +51,7 @@ const Dashboard = () => (
                 lg: 32
               }}
             >
-              {range(17).map((item) => (
+              {new Array(17).map((item) => (
                 <Col
                   key={item}
                   xs={{ span: 24 }}
