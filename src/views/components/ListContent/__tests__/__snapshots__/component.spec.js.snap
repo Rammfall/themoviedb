@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Watchlist matches snapshot 1`] = `
+exports[`ListContent matches snapshot 1`] = `
 <PrivateLayout>
   <Row>
     <Col
@@ -11,7 +11,7 @@ exports[`Watchlist matches snapshot 1`] = `
         className="top-margin"
       >
         <Title>
-          Watchlist
+          test
         </Title>
       </div>
     </Col>
@@ -21,10 +21,10 @@ exports[`Watchlist matches snapshot 1`] = `
     isLoading={true}
     renderEmpty={
       <EmptyState
-        title="No movies found"
+        title="test"
       />
     }
-    renderList={<injectIntl(Connect(WatchlistMovies)) />}
+    renderList={<Component />}
     renderLoading={<Loader />}
   />
 </PrivateLayout>

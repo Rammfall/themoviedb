@@ -24,6 +24,9 @@ export default {
     'lists.delete.title': 'Do you want to delete list?',
 
     'watchlist.title': 'Watchlist',
-    'watchlist.remove.title': 'Do you want to delete movie from watchlist?'
+    'watchlist.remove.title': 'Do you want to delete movie from watchlist?',
+
+    'favorites.title': 'Favorites',
+    'favorites.remove.title': 'Do you want to delete movie from favorites?'
   }
 }

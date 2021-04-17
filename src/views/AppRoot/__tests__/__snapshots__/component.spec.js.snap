@@ -49,12 +49,26 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(withRouter(WatchlistPage))",
+        "displayName": "Connect(withRouter(injectIntl(WatchlistPage)))",
         "type": [Function],
       }
     }
     exact={true}
     path="/watchlist"
+    privateRoute={true}
+  />
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(injectIntl(FavoritesPage)))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/favorites"
     privateRoute={true}
   />
 </Fragment>
@@ -109,12 +123,26 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(withRouter(WatchlistPage))",
+        "displayName": "Connect(withRouter(injectIntl(WatchlistPage)))",
         "type": [Function],
       }
     }
     exact={true}
     path="/watchlist"
+    privateRoute={true}
+  />
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(injectIntl(FavoritesPage)))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/favorites"
     privateRoute={true}
   />
 </Fragment>
