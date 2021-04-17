@@ -31,16 +31,10 @@ class DashboardPage extends Component {
     const searchQuery = queryParams(search).get('search')
 
     if (searchQuery) {
-      searchMovies(this.currentPage, decodeURIComponent(searchQuery))
+      searchMovies(decodeURIComponent(searchQuery))
     } else {
       getMovies(this.currentPage)
     }
-  }
-
-  get currentPage() {
-    const { location: { search } } = this.props
-    const queryPage = queryParams(search).get('page')
-    return queryPage ? Number(queryPage) : 1
   }
 
   render() {

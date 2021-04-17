@@ -21,6 +21,10 @@ jest.mock('Store/concepts/account/selectors', () => ({
   userIdSelector: jest.fn(() => 4)
 }))
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('loadListsOperation()', () => {
   describe('with success response', () => {
     it('dispatches action', async () => {

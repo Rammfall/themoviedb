@@ -9,14 +9,12 @@ import {
   DELETE_LIST
 } from './types'
 
-export const loadLists = (page = 1) => ({
-  type: LOAD_LISTS,
-  page
+export const loadLists = () => ({
+  type: LOAD_LISTS
 })
 
-export const getLists = (page = 1) => ({
-  type: GET_LISTS,
-  page
+export const getLists = () => ({
+  type: GET_LISTS
 })
 
 export const saveListsIds = ({ ids }) => ({
@@ -31,8 +29,7 @@ export const saveTotal = ({ total }) => ({
 
 export const addList = makeSubmitAction(ADD_LIST)
 
-export const deleteList = ({ id, page }) => ({
+export const deleteList = ({ id }) => ({
   type: DELETE_LIST,
-  id,
-  page
+  id
 })

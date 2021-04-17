@@ -2,12 +2,17 @@
 
 exports[`WatchlistMovies matches snapshot 1`] = `
 <MoviesList
+  actions={[Function]}
   movies={
-    Object {
-      "movies": Array [],
-      "total": 1,
-    }
+    Array [
+      Object {
+        "id": 1,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
   }
-  total={null}
+  total={1}
 />
 `;

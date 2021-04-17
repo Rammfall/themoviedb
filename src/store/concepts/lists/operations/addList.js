@@ -14,8 +14,7 @@ const addListOperation = createLogic({
       httpClient,
       action: {
         values: { name, description },
-        form: { setSubmitting },
-        page
+        form: { setSubmitting }
       }
     },
     dispatch,
@@ -29,7 +28,7 @@ const addListOperation = createLogic({
         session_id: session.session.get()
       }
     })
-    dispatch(loadLists(page))
+    dispatch(loadLists())
 
     setSubmitting(false)
     done()

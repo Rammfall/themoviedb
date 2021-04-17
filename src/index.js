@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
 import { IntlProvider } from 'react-intl'
+import { BrowserRouter } from 'react-router-dom'
 
 import configureStore from './store/configureStore'
 import en from './locales/en'
@@ -17,7 +18,9 @@ render(
       locale="en"
       messages={en.messages}
     >
-      <AppRoot />
+      <BrowserRouter>
+        <AppRoot />
+      </BrowserRouter>
     </IntlProvider>
   </Provider>,
   document.getElementById('app') || document.createElement('div')

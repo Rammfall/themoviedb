@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 import Watchlist from 'Views/components/Watchlist'
 import { getWatchlistMoviesSelector } from 'Store/concepts/movies/selectors'
 import { getWatchlistMovies } from 'Store/concepts/movies/actions'
-import queryParams from 'Utils/router/queryParams'
 import { userIdSelector } from 'Store/concepts/account/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { watchlistMoviesConstant } from 'Store/concepts/movies/endpoints'
@@ -25,11 +24,10 @@ class WatchlistPage extends Component {
   }
 
   getData = () => {
-    const { location: { search }, getMovies, userId } = this.props
-    const page = queryParams(search).get('page')
+    const { getMovies, userId } = this.props
 
     if (userId) {
-      getMovies(page)
+      getMovies()
     }
   }
 

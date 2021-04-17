@@ -14,6 +14,10 @@ import {
 
 import getTrendingMoviesOperation from '../trendingMovies'
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('trendingMovies()', () => {
   describe('with success response', () => {
     const httpClient = mockHttpClient([

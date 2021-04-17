@@ -17,6 +17,10 @@ jest.mock('Store/concepts/account/selectors', () => ({
   userIdSelector: jest.fn(() => 3)
 }))
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('getWatchlistMoviesOperation()', () => {
   describe('with success response', () => {
     it('dispatches actions', async () => {

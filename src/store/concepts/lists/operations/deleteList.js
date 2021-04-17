@@ -13,8 +13,7 @@ const deleteListOperation = createLogic({
     {
       httpClient,
       action: {
-        id,
-        page
+        id
       }
     },
     dispatch,
@@ -27,7 +26,7 @@ const deleteListOperation = createLogic({
       // API is bullshit, it always raise the 500 error
       // eslint-disable-next-line no-empty
     } catch (e) {}
-    dispatch(loadLists(page))
+    dispatch(loadLists())
     done()
   }
 })

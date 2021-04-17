@@ -35,8 +35,7 @@ describe('getListsOperation()', () => {
           endpoint: lists
         },
         {
-          type: LOAD_LISTS,
-          page: 1
+          type: LOAD_LISTS
         }
       ])
     })

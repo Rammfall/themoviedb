@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 
 import Route from 'Views/AppRoot/components/Route'
 
@@ -9,7 +8,7 @@ import ListsPage from '../pages/Lists'
 import WatchlistPage from '../pages/Watchlist'
 
 const AppRootComponent = () => (
-  <BrowserRouter>
+  <>
     <Route
       path="/login"
       component={LoginPage}
@@ -33,7 +32,7 @@ const AppRootComponent = () => (
       component={WatchlistPage}
       exact
     />
-  </BrowserRouter>
+  </>
 )
 
 export default AppRootComponent

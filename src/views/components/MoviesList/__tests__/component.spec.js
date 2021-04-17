@@ -14,7 +14,8 @@ describe('Pagination', () => {
     }],
     quantity: 20,
     isLoading: false,
-    getMovies: jest.fn()
+    getMovies: jest.fn(),
+    actions: (id) => [<div key={id}>{id}</div>]
   }
 
   describe('with default props', () => {

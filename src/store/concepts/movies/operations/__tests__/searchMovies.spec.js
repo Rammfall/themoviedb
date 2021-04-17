@@ -14,6 +14,10 @@ import {
 
 import searchMoviesOperation from '../searchMovies'
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('searchMoviesOperation()', () => {
   describe('with success response', () => {
     it('dispatches actions', async () => {

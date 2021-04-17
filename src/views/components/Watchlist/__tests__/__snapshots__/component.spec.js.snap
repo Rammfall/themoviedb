@@ -24,7 +24,7 @@ exports[`Watchlist matches snapshot 1`] = `
         title="No movies found"
       />
     }
-    renderList={<Memo(Connect(WatchlistMovies)) />}
+    renderList={<injectIntl(Connect(WatchlistMovies)) />}
     renderLoading={<Loader />}
   />
 </PrivateLayout>

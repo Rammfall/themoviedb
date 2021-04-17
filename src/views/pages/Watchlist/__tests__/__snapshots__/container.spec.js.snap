@@ -2,12 +2,14 @@
 
 exports[` 1`] = `
 <Watchlist
+  isEmpty={false}
   isLoading={true}
 />
 `;
 
 exports[`WatchlistPage matches snapshot 1`] = `
 <Watchlist
+  isEmpty={false}
   isLoading={true}
 />
 `;

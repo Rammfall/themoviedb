@@ -18,8 +18,7 @@ describe('deleteListOperation', () => {
 
     store.dispatch({
       type: DELETE_LIST,
-      id: 4,
-      page: 1
+      id: 4
     })
 
     it('handles correct array with actions', async () => {
@@ -28,12 +27,10 @@ describe('deleteListOperation', () => {
       expect(store.getActions()).toStrictEqual([
         {
           type: DELETE_LIST,
-          id: 4,
-          page: 1
+          id: 4
         },
         {
-          type: LOAD_LISTS,
-          page: 1
+          type: LOAD_LISTS
         }
       ])
     })

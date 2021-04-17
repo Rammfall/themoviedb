@@ -4,7 +4,7 @@ import { Card } from 'antd'
 
 import { imagePath } from 'Constants'
 
-const MovieCard = ({ title, description, image }) => (
+const MovieCard = ({ title, description, image, actions }) => (
   <Card
     hoverable
     cover={(
@@ -14,6 +14,7 @@ const MovieCard = ({ title, description, image }) => (
       />
     )}
     className='top-margin'
+    actions={actions}
   >
     <Card.Meta
       title={title}
@@ -25,11 +26,13 @@ const MovieCard = ({ title, description, image }) => (
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string
+  image: PropTypes.string,
+  actions: PropTypes.arrayOf(PropTypes.elementType)
 }
 
 MovieCard.defaultProps = {
-  image: ''
+  image: '',
+  actions: null
 }
 
 export default MovieCard

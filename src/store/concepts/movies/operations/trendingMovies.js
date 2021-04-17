@@ -3,6 +3,7 @@ import { createLogic } from 'redux-logic'
 import { dataApiRequest, dataApiSave, dataApiSuccess } from 'Store/concepts/data/actions'
 import normalizeMovies from 'Store/schemas/movies'
 
+import { getCurrentPage } from 'Store/concepts/router/selectors'
 import { saveDashboardIds, saveDashboardTotal } from '../actions'
 import { GET_TRENDING } from '../types'
 import { moviesConstant, trendingMovies, dashboard } from '../endpoints'
@@ -13,14 +14,13 @@ const getTrendingMoviesOperation = createLogic({
   async process(
     {
       httpClient,
-      action: {
-        page
-      }
+      getState
     },
     dispatch,
     done
   ) {
     dispatch(dataApiRequest({ endpoint: dashboard }))
+    const page = getCurrentPage(getState())
     const {
       data: {
         results,

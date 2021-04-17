@@ -11,7 +11,6 @@ import { getLists } from 'Store/concepts/lists/actions'
 
 import Lists from 'Views/components/Lists'
 import { userIdSelector } from 'Store/concepts/account/selectors'
-import queryParams from 'Utils/router/queryParams'
 
 class ListsPage extends Component {
   constructor(props) {
@@ -35,11 +34,10 @@ class ListsPage extends Component {
   }
 
   getData = () => {
-    const { getAllLists, userId, location: { search } } = this.props
-    const page = queryParams(search).get('page')
+    const { getAllLists, userId } = this.props
 
     if (userId) {
-      getAllLists(page)
+      getAllLists()
     }
   }
 

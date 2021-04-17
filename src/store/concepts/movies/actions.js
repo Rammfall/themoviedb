@@ -4,17 +4,16 @@ import {
   SAVE_DASHBOARD_TOTAL,
   SAVE_DASHBOARD_MOVIES,
   GET_WATCHLIST_MOVIES,
-  SAVE_WATCHLIST_MOVIES
+  SAVE_WATCHLIST_MOVIES,
+  TOGGLE_WATCHLIST_MOVIE
 } from './types'
 
-export const getTrendingMovies = (page = 1) => ({
-  type: GET_TRENDING,
-  page
+export const getTrendingMovies = () => ({
+  type: GET_TRENDING
 })
 
-export const search = (page = 1, query) => ({
+export const search = (query) => ({
   type: SEARCH,
-  page,
   query
 })
 
@@ -28,10 +27,9 @@ export const saveDashboardTotal = ({ total }) => ({
   total
 })
 
-export const getWatchlistMovies = (page = 1, withoutLoading = false) => ({
+export const getWatchlistMovies = (withoutLoading = false) => ({
   type: GET_WATCHLIST_MOVIES,
-  withoutLoading,
-  page
+  withoutLoading
 })
 
 /**
@@ -43,4 +41,15 @@ export const saveWatchlistMovies = ({ ids, total }) => ({
   type: SAVE_WATCHLIST_MOVIES,
   ids,
   total
+})
+
+/**
+ * @param {number} id
+ * @param {boolean} watchlist
+ * @returns {{id: number, type: string, watchlist: boolean}}
+ */
+export const toggleWatchlistMovie = ({ id, watchlist = false }) => ({
+  type: TOGGLE_WATCHLIST_MOVIE,
+  id,
+  watchlist
 })

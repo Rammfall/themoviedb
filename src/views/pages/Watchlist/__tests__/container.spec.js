@@ -8,9 +8,7 @@ import WatchlistPage, { WatchlistPageContainer } from '../container'
 
 jest.mock('Store/concepts/movies/selectors', () => ({
   getWatchlistMoviesSelector: jest.fn(() => ({
-    movies: {
-      isEmpty: false
-    }
+    isEmpty: false
   }))
 }))
 

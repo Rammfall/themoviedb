@@ -10,16 +10,12 @@ const getListsOperation = createLogic({
   type: GET_LISTS,
   latest: true,
   async process(
-    {
-      action: {
-        page
-      }
-    },
+    {},
     dispatch,
     done
   ) {
     dispatch(dataApiRequest({ endpoint: lists }))
-    dispatch(loadLists(page))
+    dispatch(loadLists())
 
     done()
   }

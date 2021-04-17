@@ -5,6 +5,7 @@ import { dataApiSave, dataApiSuccess } from 'Store/concepts/data/actions'
 import storage from 'Utils/storage'
 import normalizeLists from 'Store/schemas/lists'
 
+import { getCurrentPage } from 'Store/concepts/router/selectors'
 import { LOAD_LISTS } from '../types'
 import { getListsEndpoint, lists } from '../endpoints'
 import { saveListsIds, saveTotal } from '../actions'
@@ -15,15 +16,13 @@ const loadListsOperation = createLogic({
   async process(
     {
       httpClient,
-      action: {
-        page
-      },
       getState
     },
     dispatch,
     done
   ) {
     const userId = userIdSelector(getState())
+    const page = getCurrentPage(getState())
     const {
       data: {
         results,

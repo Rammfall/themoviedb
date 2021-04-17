@@ -49,6 +49,13 @@ exports[`Pagination when isLoading is true matches snapshot 1`] = `
           }
         >
           <MovieCard
+            actions={
+              Array [
+                <div>
+                  2
+                </div>,
+              ]
+            }
             description="test"
             image="test"
             title="test"
@@ -112,6 +119,13 @@ exports[`Pagination with default props matches snapshot 1`] = `
           }
         >
           <MovieCard
+            actions={
+              Array [
+                <div>
+                  2
+                </div>,
+              ]
+            }
             description="test"
             image="test"
             title="test"

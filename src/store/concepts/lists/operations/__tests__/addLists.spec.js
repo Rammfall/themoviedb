@@ -49,7 +49,6 @@ describe('getListsOperation()', () => {
           ...formMock
         },
         {
-          page: 1,
           type: LOAD_LISTS
         }
       ])
