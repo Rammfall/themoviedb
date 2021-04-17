@@ -2,6 +2,8 @@ import { USER_LOGOUT, USER_LOGOUT_SUCCESS } from 'Store/concepts/session/types'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storage from 'Utils/storage'
+import { RESET_STORE } from 'Store/types'
+
 import logoutUserOperation from '../logout'
 
 jest.mock('Utils/storage')
@@ -33,6 +35,9 @@ describe('logoutUserOperation()', () => {
       },
       {
         type: USER_LOGOUT_SUCCESS
+      },
+      {
+        type: RESET_STORE
       }
     ])
   })
