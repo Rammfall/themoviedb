@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListsPage when userId is null after componentDidUpdate when keyword props was not changed matches snapshot 1`] = `
+<Lists
+  createModalVisibility={false}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;
+
+exports[`ListsPage when userId is null after componentDidUpdate when search was changed matches snapshot 1`] = `
+<Lists
+  createModalVisibility={false}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;
+
+exports[`ListsPage when userId is null after componentDidUpdate when userId was changed matches snapshot 1`] = `
+<Lists
+  createModalVisibility={false}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;
+
+exports[`ListsPage when userId is null matches snapshot 1`] = `
+<Lists
+  createModalVisibility={false}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;
+
+exports[`ListsPage with default props after componentDidUpdate matches snapshot 1`] = `
+<Lists
+  createModalVisibility={false}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;
+
+exports[`ListsPage with default props after setState matches snapshot 1`] = `
+<Lists
+  createModalVisibility={true}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;
+
+exports[`ListsPage with default props matches snapshot 1`] = `
+<Lists
+  createModalVisibility={false}
+  isEmpty={false}
+  isLoading={true}
+  toggleCreateModal={[Function]}
+/>
+`;

@@ -13,6 +13,14 @@ export default {
     'menu.favorites': 'favorites',
     'menu.logout': 'Logout',
 
-    'movies.empty': 'No movies found'
+    'movies.empty': 'No movies found',
+
+    'lists.empty': 'No lists found',
+    'lists.title': 'My Lists ',
+    'lists.create.button': 'Create',
+    'lists.create.title': 'Create list',
+    'lists.create.name': 'Name',
+    'lists.create.description': 'Description',
+    'lists.delete.title': 'Do you want to delete list?'
   }
 }

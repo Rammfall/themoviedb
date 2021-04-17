@@ -1,7 +1,7 @@
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 
-import { GET_INFO, SET_USERNAME } from '../../types'
+import { GET_INFO, SET_ID, SET_USERNAME } from '../../types'
 
 import accountOperation from '../account'
 
@@ -10,7 +10,7 @@ describe('accountOperation()', () => {
     const httpClient = mockHttpClient([
       {
         method: 'get',
-        resolve: { data: { username: 'test' } }
+        resolve: { data: { username: 'test', id: 2 } }
       }
     ])
     const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
@@ -28,6 +28,10 @@ describe('accountOperation()', () => {
         {
           type: SET_USERNAME,
           username: 'test'
+        },
+        {
+          type: SET_ID,
+          id: 2
         }
       ])
     })

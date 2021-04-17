@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lists matches snapshot 1`] = `
+<PrivateLayout>
+  <Row>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <div
+        className="top-margin"
+      >
+        <Title>
+          test
+          <ForwardRef(PlusCircleOutlined)
+            onClick={[Function]}
+          />
+        </Title>
+      </div>
+    </Col>
+  </Row>
+  <RenderCtrl
+    isEmpty={false}
+    isLoading={false}
+    renderEmpty={
+      <EmptyState
+        title="test"
+      />
+    }
+    renderList={<Unknown />}
+    renderLoading={<Loader />}
+  />
+  <Connect(withRouter(WithFormik(CreateListModal)))
+    isVisible={false}
+    toggleHandler={[Function]}
+  />
+</PrivateLayout>
+`;

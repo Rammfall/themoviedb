@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateListModal matches snapshot 1`] = `
+<CreateListModalComponent
+  handleSubmit={[Function]}
+  isSubmitting={false}
+  isVisible={false}
+  toggleHandler={[Function]}
+/>
+`;

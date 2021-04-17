@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListsListsComponent matches snapshot 1`] = `
+<Fragment>
+  <Row
+    type="flex"
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Row>
+        <ListCard
+          description="test"
+          key="1"
+          name="test"
+          onDelete={[Function]}
+        />
+      </Row>
+    </Col>
+  </Row>
+  <Row
+    justify="center"
+    type="flex"
+  >
+    <Col>
+      <Pagination
+        total={null}
+      />
+    </Col>
+  </Row>
+</Fragment>
+`;

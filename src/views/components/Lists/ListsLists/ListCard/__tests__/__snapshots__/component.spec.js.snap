@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListCard matches snapshot 1`] = `
+<Col
+  lg={
+    Object {
+      "span": 8,
+    }
+  }
+  md={
+    Object {
+      "span": 8,
+    }
+  }
+  sm={
+    Object {
+      "span": 12,
+    }
+  }
+  xl={
+    Object {
+      "span": 6,
+    }
+  }
+  xs={
+    Object {
+      "span": 24,
+    }
+  }
+>
+  <Card
+    actions={
+      Array [
+        <ForwardRef(DeleteOutlined)
+          onClick={[Function]}
+        />,
+      ]
+    }
+    className="top-margin"
+    hoverable={true}
+  >
+    <Title
+      level={4}
+    >
+      test
+    </Title>
+    test
+  </Card>
+</Col>
+`;

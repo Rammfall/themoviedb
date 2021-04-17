@@ -9,22 +9,13 @@ exports[`MoviesPage matches snapshot 1`] = `
     <RenderCtrl
       isEmpty={false}
       isLoading={false}
-      renderEmpty={<MoviesEmptyState />}
-      renderList={
-        <MoviesList
-          movies={
-            Array [
-              Object {
-                "id": 1,
-                "original_title": "test",
-                "overview": "test",
-                "poster_path": "uri",
-              },
-            ]
-          }
+      renderEmpty={
+        <EmptyState
+          title="No movies found"
         />
       }
-      renderLoading={<MoviesLoader />}
+      renderList={<Memo(Connect(DashboardMovies)) />}
+      renderLoading={<Loader />}
     />
   </div>
 </PrivateLayout>

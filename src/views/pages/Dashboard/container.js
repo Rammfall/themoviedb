@@ -5,10 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'ramda'
 
 import { getTrendingMovies, search as searchMoviesAction } from 'Store/concepts/movies/actions'
-import {
-  getDashboardMoviesSelector,
-  isEmptySelector
-} from 'Store/concepts/movies/selectors'
+import { isEmptySelector } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { dashboard } from 'Store/concepts/movies/endpoints'
 
@@ -47,11 +44,10 @@ class DashboardPage extends Component {
   }
 
   render() {
-    const { movies, isLoading, isEmpty } = this.props
+    const { isLoading, isEmpty } = this.props
 
     return (
       <MoviesPage
-        movies={movies}
         isLoading={isLoading}
         isEmpty={isEmpty}
       />
@@ -61,7 +57,6 @@ class DashboardPage extends Component {
 
 DashboardPage.propTypes = {
   getMovies: PropTypes.func.isRequired,
-  movies: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isLoading: PropTypes.bool,
   location: PropTypes.shape({
     search: PropTypes.string
@@ -75,7 +70,6 @@ DashboardPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getDashboardMoviesSelector(state),
   isLoading: loadingSelector(state, dashboard),
   isEmpty: isEmptySelector(state)
 })

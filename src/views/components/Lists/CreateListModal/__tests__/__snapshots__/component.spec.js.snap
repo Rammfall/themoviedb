@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateListModalComponent matches snapshot 1`] = `
+<Modal
+  confirmLoading={false}
+  okButtonProps={
+    Object {
+      "htmlType": "submit",
+    }
+  }
+  okText="Create"
+  okType="primary"
+  onCancel={[Function]}
+  onOk={[Function]}
+  title="Create list"
+  visible={false}
+  width={520}
+>
+  <Form>
+    <Field
+      component={[Function]}
+      name="name"
+      placeholder="Name"
+    />
+    <Field
+      component={[Function]}
+      name="description"
+      placeholder="Description"
+    />
+  </Form>
+</Modal>
+`;

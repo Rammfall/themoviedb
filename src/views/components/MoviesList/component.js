@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { Col, Row } from 'antd'
 
 import MovieCard from 'Views/components/shared/MovieCard'
-import DashboardPagination from 'Views/components/DashboardPagination'
+import Pagination from 'Views/components/Pagination'
 
 const MoviesList = ({
-  movies
+  movies,
+  total
 }) => (
   <>
     <Row
@@ -44,7 +45,7 @@ const MoviesList = ({
         </Row>
       </Col>
     </Row>
-    <DashboardPagination />
+    <Pagination total={total} />
   </>
 )
 
@@ -54,7 +55,12 @@ MoviesList.propTypes = {
     id: PropTypes.number,
     overview: PropTypes.string,
     poster_path: PropTypes.string
-  })).isRequired
+  })).isRequired,
+  total: PropTypes.number
+}
+
+MoviesList.defaultProps = {
+  total: null
 }
 
 export default MoviesList
