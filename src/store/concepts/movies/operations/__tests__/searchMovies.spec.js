@@ -24,7 +24,7 @@ describe('searchMoviesOperation()', () => {
       const httpClient = mockHttpClient([
         {
           method: 'get',
-          resolve: { data: { ...trendingMoviesResponse } }
+          resolve: { data: trendingMoviesResponse }
         }
       ])
       const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [

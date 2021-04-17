@@ -23,7 +23,7 @@ describe('trendingMovies()', () => {
     const httpClient = mockHttpClient([
       {
         method: 'get',
-        resolve: { data: { ...moviesResponse } }
+        resolve: { data: moviesResponse }
       }
     ])
     const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [

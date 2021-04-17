@@ -6,7 +6,7 @@ import * as yup from 'yup'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-import addListSubmit from 'Utils/formikEvents/addListSubmit'
+import addListSubmit from 'Views/components/Lists/CreateListModal/utils/addListSubmit'
 import { addList } from 'Store/concepts/lists/actions'
 
 import CreateListModalComponent from './component'

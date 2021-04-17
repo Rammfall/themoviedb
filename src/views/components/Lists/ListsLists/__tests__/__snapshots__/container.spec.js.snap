@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
-<ListsListsComponent
-  lists={
-    Array [
-      Object {
-        "description": "test",
-        "id": 1,
-        "name": "test",
-      },
-    ]
-  }
-  onDelete={[Function]}
-  total={3}
-/>
-`;
-
 exports[`ListsLists with default props matches snapshot 1`] = `
 <ListsListsComponent
   lists={

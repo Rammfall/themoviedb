@@ -27,11 +27,11 @@ jest.mock('Store/concepts/router/selectors', () => ({
 
 describe('loadListsOperation()', () => {
   describe('with success response', () => {
-    it('dispatches action', async () => {
+    it('dispatches actions', async () => {
       const httpClient = mockHttpClient([
         {
           method: 'get',
-          resolve: { data: { ...listsList } }
+          resolve: { data: listsList }
         }
       ])
       const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [

@@ -45,21 +45,23 @@ describe('ListsPage', () => {
       expect(container).toMatchSnapshot()
     })
 
-    describe('after componentDidUpdate', () => {
-      it('matches snapshot', () => {
+    describe('componentDidUpdate', () => {
+      it('have been called', () => {
         const container = diveTo(wrapper, ListsPageContainer)
+        const spy = jest.spyOn(container.instance(), 'componentDidUpdate')
         container.setProps({ location: { search: '?page=3' } })
 
-        expect(container).toMatchSnapshot()
+        expect(spy).toHaveBeenCalled()
       })
     })
 
-    describe('after setState', () => {
+    describe('toggleCreateModal', () => {
       it('matches snapshot', () => {
         const container = diveTo(wrapper, ListsPageContainer)
+        const spy = jest.spyOn(container.instance(), 'toggleCreateModal')
         container.instance().toggleCreateModal()
 
-        expect(container).toMatchSnapshot()
+        expect(spy).toHaveBeenCalled()
       })
     })
   })

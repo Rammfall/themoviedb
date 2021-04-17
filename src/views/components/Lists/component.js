@@ -14,7 +14,7 @@ import CreateListModal from './CreateListModal'
 const Lists = ({
   isEmpty,
   isLoading,
-  createModalVisibility,
+  isCreateModalVisible,
   toggleCreateModal
 }) => {
   const { formatMessage } = useIntl()
@@ -42,7 +42,7 @@ const Lists = ({
         renderEmpty={<EmptyState title={formatMessage({ id: 'lists.empty' })} />}
       />
        <CreateListModal
-         isVisible={createModalVisibility}
+         isVisible={isCreateModalVisible}
          toggleHandler={toggleCreateModal}
        />
     </PrivateLayout>
@@ -52,7 +52,7 @@ const Lists = ({
 Lists.propTypes = {
   isEmpty: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool,
-  createModalVisibility: PropTypes.bool.isRequired,
+  isCreateModalVisible: PropTypes.bool.isRequired,
   toggleCreateModal: PropTypes.func.isRequired
 }
 

@@ -5,7 +5,7 @@ describe('onConfirm()', () => {
     expect(typeof onConfirm(3, () => null)).toStrictEqual('function')
   })
 
-  it('callback calls with id', () => {
+  it('calls callback with correct id', () => {
     const callback = jest.fn()
     onConfirm(3, callback)()
 

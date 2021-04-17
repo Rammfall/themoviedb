@@ -58,11 +58,13 @@ MoviesList.propTypes = {
     overview: PropTypes.string,
     poster_path: PropTypes.string
   })).isRequired,
-  total: PropTypes.number
+  total: PropTypes.number,
+  actions: PropTypes.func
 }
 
 MoviesList.defaultProps = {
-  total: null
+  total: null,
+  actions: null
 }
 
 export default MoviesList

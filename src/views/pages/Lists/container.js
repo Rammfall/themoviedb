@@ -17,7 +17,7 @@ class ListsPage extends Component {
     super(props)
 
     this.state = {
-      createModalVisibility: false
+      isCreateModalVisible: false
     }
   }
 
@@ -42,21 +42,21 @@ class ListsPage extends Component {
   }
 
   toggleCreateModal = () => {
-    this.setState(({ createModalVisibility }) => ({
-      createModalVisibility: !createModalVisibility
+    this.setState(({ isCreateModalVisible }) => ({
+      isCreateModalVisible: !isCreateModalVisible
     }))
   }
 
   render() {
     const { isEmpty, isLoading } = this.props
-    const { createModalVisibility } = this.state
+    const { isCreateModalVisible } = this.state
 
     return (
       <Lists
         isEmpty={isEmpty}
         isLoading={isLoading}
         toggleCreateModal={this.toggleCreateModal}
-        createModalVisibility={createModalVisibility}
+        isCreateModalVisible={isCreateModalVisible}
       />
     )
   }

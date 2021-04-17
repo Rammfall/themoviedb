@@ -3,19 +3,15 @@ import { shallow } from 'enzyme'
 
 import MoviesList from '../component'
 
-describe('Pagination', () => {
+describe('MoviesList', () => {
   const defaultProps = {
-    current: 1,
     movies: [{
       original_title: 'test',
       id: 2,
       overview: 'test',
       poster_path: 'test'
     }],
-    quantity: 20,
-    isLoading: false,
-    getMovies: jest.fn(),
-    actions: (id) => [<div key={id}>{id}</div>]
+    actions: (id) => [() => (<div key={id}>{id}</div>)]
   }
 
   describe('with default props', () => {

@@ -21,7 +21,7 @@ describe('deleteListOperation', () => {
       id: 4
     })
 
-    it('handles correct array with actions', async () => {
+    it('dispatches actions', async () => {
       await logicMiddleware.whenComplete()
 
       expect(store.getActions()).toStrictEqual([

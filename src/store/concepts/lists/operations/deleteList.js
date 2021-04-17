@@ -23,7 +23,7 @@ const deleteListOperation = createLogic({
     try {
       await httpClient.delete(route, { params: { session_id: storage.session.get() } })
 
-      // API is bullshit, it always raise the 500 error
+      // API is bullshit, it always raises the 500 error
       // eslint-disable-next-line no-empty
     } catch (e) {}
     dispatch(loadLists())

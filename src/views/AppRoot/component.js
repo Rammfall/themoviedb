@@ -14,12 +14,12 @@ const AppRootComponent = () => (
       component={LoginPage}
       exact
     />
-     <Route
+    <Route
       path="/"
       privateRoute
       component={DashboardPage}
       exact
-     />
+    />
     <Route
       path="/lists"
       privateRoute

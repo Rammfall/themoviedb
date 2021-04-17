@@ -17,7 +17,7 @@ jest.mock('Store/concepts/account/selectors', () => ({
 
 describe('getListsOperation()', () => {
   describe('with success response', () => {
-    it('dispatches action', async () => {
+    it('dispatches actions', async () => {
       const { store, logicMiddleware } = storeWithMiddlewareMock(undefined, [
         getListsOperation
       ])
