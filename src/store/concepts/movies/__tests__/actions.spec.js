@@ -8,7 +8,9 @@ import {
   TOGGLE_WATCHLIST_MOVIE,
   GET_FAVORITES_MOVIES,
   SAVE_FAVORITES_MOVIES,
-  TOGGLE_FAVORITE_MOVIE
+  TOGGLE_FAVORITE_MOVIE,
+  GET_LIST_MOVIES,
+  DELETE_LIST_MOVIE
 } from '../types'
 import {
   getTrendingMovies,
@@ -20,7 +22,9 @@ import {
   toggleWatchlistMovie,
   getFavoritesMovies,
   saveFavoritesMovies,
-  toggleFavoriteMovie
+  toggleFavoriteMovie,
+  getListMovies,
+  deleteListMovie
 } from '../actions'
 
 describe('movies actions', () => {
@@ -170,6 +174,39 @@ describe('movies actions', () => {
             favorite: true
           })
       })
+    })
+  })
+
+  describe('getListMovies()', () => {
+    it('returns object with correct shape', () => {
+      expect(getListMovies({ id: 3 }))
+        .toStrictEqual({
+          type: GET_LIST_MOVIES,
+          id: 3,
+          withoutLoading: false
+        })
+    })
+
+    describe('with withoutLoading', () => {
+      it('returns object with correct shape', () => {
+        expect(getListMovies({ id: 3, withoutLoading: true }))
+          .toStrictEqual({
+            type: GET_LIST_MOVIES,
+            id: 3,
+            withoutLoading: true
+          })
+      })
+    })
+  })
+
+  describe('deleteListMovie()', () => {
+    it('returns object with correct shape', () => {
+      expect(deleteListMovie({ id: 3, listId: 2 }))
+        .toStrictEqual({
+          type: DELETE_LIST_MOVIE,
+          id: 3,
+          listId: 2
+        })
     })
   })
 })

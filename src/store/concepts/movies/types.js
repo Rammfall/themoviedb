@@ -10,3 +10,5 @@ export const TOGGLE_WATCHLIST_MOVIE = `${namespace}TOGGLE_WATCHLIST_MOVIE`
 export const GET_FAVORITES_MOVIES = `${namespace}GET_FAVORITES_MOVIES`
 export const SAVE_FAVORITES_MOVIES = `${namespace}SAVE_FAVORITES_MOVIES`
 export const TOGGLE_FAVORITE_MOVIE = `${namespace}TOGGLE_FAVORITE_MOVIE`
+export const GET_LIST_MOVIES = `${namespace}GET_LIST_MOVIES`
+export const DELETE_LIST_MOVIE = `${namespace}DELETE_LIST_MOVIE`

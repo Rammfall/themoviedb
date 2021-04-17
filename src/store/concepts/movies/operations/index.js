@@ -4,6 +4,8 @@ import getWatchlistMoviesOperation from './getWatchlistMovies'
 import toggleWatchlistMovieOperation from './toggleWatchlistMovie'
 import getFavoritesMoviesOperation from './getFavoritesMovies'
 import toggleFavoriteMovieOperation from './toggleFavoriteMovie'
+import getListMoviesOperation from './getListMovies'
+import deleteListMovieOperation from './deleteListMovie'
 
 export default [
   getTrendingMoviesOperation,
@@ -11,5 +13,7 @@ export default [
   getWatchlistMoviesOperation,
   toggleWatchlistMovieOperation,
   getFavoritesMoviesOperation,
-  toggleFavoriteMovieOperation
+  toggleFavoriteMovieOperation,
+  getListMoviesOperation,
+  deleteListMovieOperation
 ]

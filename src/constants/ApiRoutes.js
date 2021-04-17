@@ -15,6 +15,10 @@ const apiRoutes = {
     favorites: {
       get: (accountId) => `/account/${accountId}/favorite/movies`,
       toggle: (accountId) => `/account/${accountId}/favorite`
+    },
+    list: {
+      get: (listId) => `/list/${listId}`,
+      remove: (listId) => `/list/${listId}/remove_item`
     }
   },
   session: {

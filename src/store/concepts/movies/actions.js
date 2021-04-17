@@ -8,7 +8,9 @@ import {
   TOGGLE_WATCHLIST_MOVIE,
   GET_FAVORITES_MOVIES,
   SAVE_FAVORITES_MOVIES,
-  TOGGLE_FAVORITE_MOVIE
+  TOGGLE_FAVORITE_MOVIE,
+  GET_LIST_MOVIES,
+  DELETE_LIST_MOVIE
 } from './types'
 
 export const getTrendingMovies = () => ({
@@ -82,4 +84,26 @@ export const toggleFavoriteMovie = ({ id, favorite = false }) => ({
   type: TOGGLE_FAVORITE_MOVIE,
   id,
   favorite
+})
+
+/**
+ * @param {number} id - list id
+ * @param withoutLoading
+ * @returns {{withoutLoading: boolean, id: number, type: string}}
+ */
+export const getListMovies = ({ id, withoutLoading = false }) => ({
+  type: GET_LIST_MOVIES,
+  id,
+  withoutLoading
+})
+
+/**
+ * @param {number} id
+ * @param {number} listId
+ * @returns {{id: number, type: string, listId: number}}
+ */
+export const deleteListMovie = ({ id, listId }) => ({
+  type: DELETE_LIST_MOVIE,
+  id,
+  listId
 })
