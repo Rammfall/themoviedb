@@ -11,6 +11,10 @@ const apiRoutes = {
     watchlist: {
       get: (accountId) => `/account/${accountId}/watchlist/movies`,
       toggle: (accountId) => `/account/${accountId}/watchlist`
+    },
+    favorites: {
+      get: (accountId) => `/account/${accountId}/favorite/movies`,
+      toggle: (accountId) => `/account/${accountId}/favorite`
     }
   },
   session: {

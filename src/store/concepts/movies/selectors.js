@@ -26,3 +26,13 @@ export const getWatchlistMoviesSelector = createSelector(
   watchlistTotalSelector,
   (movies, ids, total) => ({ total, isEmpty: !ids.length, movies: ids.map((item) => movies[item]) })
 )
+
+const favoritesIdsSelector = ({ movies: { favorites: { ids } } }) => ids
+const favoritesTotalSelector = ({ movies: { favorites: { total } } }) => total
+
+export const getFavoritesMoviesSelector = createSelector(
+  dataSelector,
+  favoritesIdsSelector,
+  favoritesTotalSelector,
+  (movies, ids, total) => ({ total, isEmpty: !ids.length, movies: ids.map((item) => movies[item]) })
+)

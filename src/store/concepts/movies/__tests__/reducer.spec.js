@@ -2,7 +2,8 @@ import movies from '../reducer'
 import {
   SAVE_DASHBOARD_TOTAL,
   SAVE_DASHBOARD_MOVIES,
-  SAVE_WATCHLIST_MOVIES
+  SAVE_WATCHLIST_MOVIES,
+  SAVE_FAVORITES_MOVIES
 } from '../types'
 
 describe('movies reducers', () => {
@@ -35,6 +36,17 @@ describe('movies reducers', () => {
         total: 20,
         ids: [1]
       }).watchlist)
+        .toStrictEqual({ total: 20, ids: [1] })
+    })
+  })
+
+  describe('favorites reducer', () => {
+    it('handles SAVE_FAVORITES_MOVIES', () => {
+      expect(movies(undefined, {
+        type: SAVE_FAVORITES_MOVIES,
+        total: 20,
+        ids: [1]
+      }).favorites)
         .toStrictEqual({ total: 20, ids: [1] })
     })
   })
