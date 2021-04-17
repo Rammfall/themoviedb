@@ -4,6 +4,7 @@ import { shallow } from 'enzyme'
 import MoviesList from '../component'
 
 describe('MoviesList', () => {
+  const Component = () => (<div>Test</div>)
   const defaultProps = {
     movies: [{
       original_title: 'test',
@@ -11,7 +12,8 @@ describe('MoviesList', () => {
       overview: 'test',
       poster_path: 'test'
     }],
-    actions: (id) => [() => (<div key={id}>{id}</div>)]
+    // eslint-disable-next-line react/jsx-key
+    actions: () => [<Component />]
   }
 
   describe('with default props', () => {

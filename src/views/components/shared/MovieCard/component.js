@@ -27,7 +27,7 @@ MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string,
-  actions: PropTypes.arrayOf(PropTypes.elementType)
+  actions: PropTypes.arrayOf(PropTypes.element)
 }
 
 MovieCard.defaultProps = {
