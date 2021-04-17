@@ -2,7 +2,7 @@ import { createLogic } from 'redux-logic'
 
 import storage from 'Utils/storage'
 import apiRoutes from 'Constants/ApiRoutes'
-import { moviesConstant } from 'Constants/concepts'
+import { movieConstant } from 'Constants/concepts'
 import { userIdSelector } from 'Store/concepts/account/selectors'
 
 import { TOGGLE_FAVORITE_MOVIE } from '../types'
@@ -26,7 +26,7 @@ const toggleFavoriteMovieOperation = createLogic({
     const userId = userIdSelector(getState())
     await httpClient.post(apiRoutes.movies.favorites.toggle(userId), {
       media_id: id,
-      media_type: moviesConstant,
+      media_type: movieConstant,
       favorite
     }, {
       params: {
