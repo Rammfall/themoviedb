@@ -7,7 +7,7 @@ import { compose } from 'ramda'
 import { getTrendingMovies, search as searchMoviesAction } from 'Store/concepts/movies/actions'
 import { isEmptyDashboardSelector } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { dashboard } from 'Store/concepts/movies/endpoints'
+import { dashboardConstant } from 'Constants/concepts'
 
 import queryParams from 'Utils/router/queryParams'
 
@@ -64,7 +64,7 @@ DashboardPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: loadingSelector(state, dashboard),
+  isLoading: loadingSelector(state, dashboardConstant),
   isEmpty: isEmptyDashboardSelector(state)
 })
 

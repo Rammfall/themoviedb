@@ -9,7 +9,7 @@ import { getWatchlistMoviesSelector } from 'Store/concepts/movies/selectors'
 import { getWatchlistMovies } from 'Store/concepts/movies/actions'
 import { userIdSelector } from 'Store/concepts/account/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { watchlistMoviesConstant } from 'Store/concepts/movies/endpoints'
+import { watchlistConstant } from 'Constants/concepts'
 
 class WatchlistPage extends Component {
   componentDidMount() {
@@ -63,7 +63,7 @@ WatchlistPage.defaultProps = {
 const mapStateToProps = (state) => ({
   movies: getWatchlistMoviesSelector(state),
   userId: userIdSelector(state),
-  isLoading: loadingSelector(state, watchlistMoviesConstant)
+  isLoading: loadingSelector(state, watchlistConstant)
 })
 
 const mapDispatchToProps = {

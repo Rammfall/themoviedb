@@ -2,9 +2,10 @@ import { createLogic } from 'redux-logic'
 
 import { userIdSelector } from 'Store/concepts/account/selectors'
 import storage from 'Utils/storage'
+import apiRoutes from 'Constants/ApiRoutes'
+import { moviesConstant } from 'Constants/concepts'
 
 import { TOGGLE_WATCHLIST_MOVIE } from '../types'
-import { movieConstant, toggleWatchlistMoviesEndpoint } from '../endpoints'
 import { getWatchlistMovies } from '../actions'
 
 const toggleWatchlistMovieOperation = createLogic({
@@ -22,9 +23,9 @@ const toggleWatchlistMovieOperation = createLogic({
     done
   ) {
     const userId = userIdSelector(getState())
-    await httpClient.post(toggleWatchlistMoviesEndpoint(userId), {
+    await httpClient.post(apiRoutes.movies.watchlist.toggle(userId), {
       media_id: id,
-      media_type: movieConstant,
+      media_type: moviesConstant,
       watchlist
     }, {
       params: {

@@ -1,10 +1,10 @@
 import { createLogic } from 'redux-logic'
 
 import storage from 'Utils/storage'
+import apiRoutes from 'Constants/ApiRoutes'
 
 import { DELETE_LIST } from '../types'
 import { loadLists } from '../actions'
-import { deleteListEndpoint } from '../endpoints'
 
 const deleteListOperation = createLogic({
   type: DELETE_LIST,
@@ -19,9 +19,8 @@ const deleteListOperation = createLogic({
     dispatch,
     done
   ) {
-    const route = deleteListEndpoint(id)
     try {
-      await httpClient.delete(route, { params: { session_id: storage.session.get() } })
+      await httpClient.delete(apiRoutes.lists.delete(id), { params: { session_id: storage.session.get() } })
 
       // API is bullshit, it always raises the 500 error
       // eslint-disable-next-line no-empty

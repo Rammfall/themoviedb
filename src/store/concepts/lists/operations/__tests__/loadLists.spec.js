@@ -7,12 +7,12 @@ import {
   API_SUCCESS
 } from 'Store/concepts/data/types'
 
+import { listsConstant } from 'Constants/concepts'
 import {
   LOAD_LISTS,
   SAVE_LISTS,
   SAVE_LISTS_TOTAL
 } from '../../types'
-import { lists } from '../../endpoints'
 import listsList from '../__mocks__/listsList'
 
 import loadListsOperation from '../loadLists'
@@ -51,11 +51,11 @@ describe('loadListsOperation()', () => {
         },
         {
           type: API_SUCCESS,
-          endpoint: lists
+          endpoint: listsConstant
         },
         {
           type: API_SAVE,
-          endpoint: lists,
+          endpoint: listsConstant,
           response: normalizedResponse.entities.list
         },
         {
@@ -101,11 +101,11 @@ describe('loadListsOperation()', () => {
         },
         {
           type: API_SUCCESS,
-          endpoint: lists
+          endpoint: listsConstant
         },
         {
           type: API_SAVE,
-          endpoint: lists,
+          endpoint: listsConstant,
           response: {}
         },
         {

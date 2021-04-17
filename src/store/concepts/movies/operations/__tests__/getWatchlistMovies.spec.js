@@ -3,8 +3,8 @@ import { normalize, schema } from 'normalizr'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
+import { moviesConstant, watchlistConstant } from 'Constants/concepts'
 
-import { moviesConstant, watchlistMoviesConstant } from '../../endpoints'
 import trendingMoviesResponse from '../__mocks__/moviesResponse'
 import {
   GET_WATCHLIST_MOVIES,
@@ -46,11 +46,11 @@ describe('getWatchlistMoviesOperation()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: watchlistMoviesConstant
+          endpoint: watchlistConstant
         },
         {
           type: API_SUCCESS,
-          endpoint: watchlistMoviesConstant
+          endpoint: watchlistConstant
         },
         {
           type: API_SAVE,
@@ -94,11 +94,11 @@ describe('getWatchlistMoviesOperation()', () => {
           },
           {
             type: API_REQUEST,
-            endpoint: watchlistMoviesConstant
+            endpoint: watchlistConstant
           },
           {
             type: API_SUCCESS,
-            endpoint: watchlistMoviesConstant
+            endpoint: watchlistConstant
           },
           {
             type: API_SAVE,
@@ -139,7 +139,7 @@ describe('getWatchlistMoviesOperation()', () => {
           },
           {
             type: API_SUCCESS,
-            endpoint: watchlistMoviesConstant
+            endpoint: watchlistConstant
           },
           {
             type: API_SAVE,

@@ -1,13 +1,9 @@
 import { createLogic } from 'redux-logic'
 
 import { USER_LOGIN_SUBMIT } from 'Store/concepts/session/types'
-import {
-  requestTokenEndpoint,
-  newSessionEndpoint,
-  validateRequestTokenEndpoint
-} from 'Store/concepts/session/endpoints'
 import { loginUserSuccess } from 'Store/concepts/session/actions'
 import storage from 'Utils/storage'
+import apiRoutes from 'Constants/ApiRoutes'
 
 const loginUserOperation = createLogic({
   type: USER_LOGIN_SUBMIT,
@@ -28,15 +24,15 @@ const loginUserOperation = createLogic({
     try {
       const {
         data: { request_token: requestToken }
-      } = await httpClient.get(requestTokenEndpoint)
-      await httpClient.post(validateRequestTokenEndpoint, {
+      } = await httpClient.get(apiRoutes.session.requestToken)
+      await httpClient.post(apiRoutes.session.validateRequestToken, {
         username,
         password,
         request_token: requestToken
       })
       const {
         data: { session_id: sessionId }
-      } = await httpClient.post(newSessionEndpoint, {
+      } = await httpClient.post(apiRoutes.session.newSession, {
         request_token: requestToken
       })
 
