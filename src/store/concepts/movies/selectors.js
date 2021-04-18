@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import { moviesConstant } from 'Constants/concepts'
 
 const dataSelector = (state) => state.data.movies
 
@@ -35,4 +36,21 @@ export const getFavoritesMoviesSelector = createSelector(
   favoritesIdsSelector,
   favoritesTotalSelector,
   (movies, ids, total) => ({ total, isEmpty: !ids.length, movies: ids.map((item) => movies[item]) })
+)
+
+const listsSelector = ({ data: { lists } }) => lists
+
+export const getListMoviesSelector = createSelector(
+  dataSelector,
+  listsSelector,
+  (_, id) => id,
+  (movies, lists, id) => {
+    const listMovies = lists[id][moviesConstant]
+
+    return {
+      total: listMovies.total,
+      isEmpty: !listMovies.ids.length,
+      movies: listMovies.ids.map((item) => movies[item])
+    }
+  }
 )

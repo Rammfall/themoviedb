@@ -3,7 +3,8 @@ import {
   getDashboardMoviesSelector,
   isEmptyDashboardSelector,
   getWatchlistMoviesSelector,
-  getFavoritesMoviesSelector
+  getFavoritesMoviesSelector,
+  getListMoviesSelector
 } from '../selectors'
 
 describe('movies selectors', () => {
@@ -15,6 +16,14 @@ describe('movies selectors', () => {
         },
         2: {
           name: 'test2'
+        }
+      },
+      lists: {
+        1: {
+          movies: {
+            total: 1,
+            ids: [1]
+          }
         }
       }
     },
@@ -124,6 +133,45 @@ describe('movies selectors', () => {
         }
 
         expect(getFavoritesMoviesSelector(currentState).isEmpty).toStrictEqual(true)
+      })
+    })
+  })
+
+  describe('getListMoviesSelector()', () => {
+    describe('total', () => {
+      it('returns correct value', () => {
+        expect(getListMoviesSelector(state, 1).total).toStrictEqual(1)
+      })
+    })
+
+    describe('movies', () => {
+      it('returns correct value', () => {
+        expect(getListMoviesSelector(state, 1).movies).toStrictEqual([{
+          name: 'test'
+        }])
+      })
+    })
+
+    describe('isEmpty', () => {
+      it('returns false', () => {
+        expect(getListMoviesSelector(state, 1).isEmpty).toStrictEqual(false)
+      })
+
+      it('returns true', () => {
+        const anotherStore = {
+          ...state,
+          data: {
+            lists: {
+              1: {
+                movies: {
+                  total: 0,
+                  ids: []
+                }
+              }
+            }
+          }
+        }
+        expect(getListMoviesSelector(anotherStore, 1).isEmpty).toStrictEqual(true)
       })
     })
   })
