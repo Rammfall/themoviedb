@@ -21,18 +21,7 @@ describe('lists actions', () => {
       it('returns object with correct shape', () => {
         expect(loadLists())
           .toStrictEqual({
-            type: LOAD_LISTS,
-            page: 1
-          })
-      })
-    })
-
-    describe('with page', () => {
-      it('returns object with correct shape', () => {
-        expect(loadLists(5))
-          .toStrictEqual({
-            type: LOAD_LISTS,
-            page: 5
+            type: LOAD_LISTS
           })
       })
     })
@@ -43,18 +32,7 @@ describe('lists actions', () => {
       it('returns object with correct shape', () => {
         expect(getLists())
           .toStrictEqual({
-            type: GET_LISTS,
-            page: 1
-          })
-      })
-    })
-
-    describe('with page', () => {
-      it('returns object with correct shape', () => {
-        expect(getLists(5))
-          .toStrictEqual({
-            type: GET_LISTS,
-            page: 5
+            type: GET_LISTS
           })
       })
     })
@@ -97,13 +75,11 @@ describe('lists actions', () => {
 
   describe('deleteList()', () => {
     it('returns object with correct shape', () => {
-      expect(deleteList({ id: 5, page: 1 }))
+      expect(deleteList({ id: 5 }))
         .toStrictEqual({
           type: DELETE_LIST,
-          id: 5,
-          page: 1
+          id: 5
         })
     })
   })
-
 })

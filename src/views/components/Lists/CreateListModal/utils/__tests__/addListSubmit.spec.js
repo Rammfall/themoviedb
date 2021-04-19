@@ -10,7 +10,7 @@ describe('addListSubmit()', () => {
   const resetForm = jest.fn()
   const location = { search: '?page=3' }
 
-  it('runs all functions', async () => {
+  it('calls all functions', async () => {
     await addListSubmit(
       {
         test: 'test'

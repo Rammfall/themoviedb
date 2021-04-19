@@ -27,7 +27,7 @@ exports[`Lists matches snapshot 1`] = `
         title="test"
       />
     }
-    renderList={<Unknown />}
+    renderList={<Memo(Connect(Component)) />}
     renderLoading={<Loader />}
   />
   <Connect(withRouter(WithFormik(CreateListModal)))

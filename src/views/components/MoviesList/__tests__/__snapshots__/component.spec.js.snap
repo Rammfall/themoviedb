@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination when isLoading is true matches snapshot 1`] = `
+exports[`MoviesList when isLoading is true matches snapshot 1`] = `
 <Fragment>
   <Row
     type="flex"
@@ -49,6 +49,11 @@ exports[`Pagination when isLoading is true matches snapshot 1`] = `
           }
         >
           <MovieCard
+            actions={
+              Array [
+                <Component />,
+              ]
+            }
             description="test"
             image="test"
             title="test"
@@ -63,7 +68,7 @@ exports[`Pagination when isLoading is true matches snapshot 1`] = `
 </Fragment>
 `;
 
-exports[`Pagination with default props matches snapshot 1`] = `
+exports[`MoviesList with default props matches snapshot 1`] = `
 <Fragment>
   <Row
     type="flex"
@@ -112,6 +117,11 @@ exports[`Pagination with default props matches snapshot 1`] = `
           }
         >
           <MovieCard
+            actions={
+              Array [
+                <Component />,
+              ]
+            }
             description="test"
             image="test"
             title="test"

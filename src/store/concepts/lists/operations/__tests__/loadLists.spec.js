@@ -7,12 +7,12 @@ import {
   API_SUCCESS
 } from 'Store/concepts/data/types'
 
+import { listsConstant } from 'Constants/concepts'
 import {
   LOAD_LISTS,
   SAVE_LISTS,
   SAVE_LISTS_TOTAL
 } from '../../types'
-import { lists } from '../../endpoints'
 import listsList from '../__mocks__/listsList'
 
 import loadListsOperation from '../loadLists'
@@ -21,13 +21,17 @@ jest.mock('Store/concepts/account/selectors', () => ({
   userIdSelector: jest.fn(() => 4)
 }))
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('loadListsOperation()', () => {
   describe('with success response', () => {
-    it('dispatches action', async () => {
+    it('dispatches actions', async () => {
       const httpClient = mockHttpClient([
         {
           method: 'get',
-          resolve: { data: { ...listsList } }
+          resolve: { data: listsList }
         }
       ])
       const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
@@ -47,11 +51,11 @@ describe('loadListsOperation()', () => {
         },
         {
           type: API_SUCCESS,
-          endpoint: lists
+          endpoint: listsConstant
         },
         {
           type: API_SAVE,
-          endpoint: lists,
+          endpoint: listsConstant,
           response: normalizedResponse.entities.list
         },
         {
@@ -97,11 +101,11 @@ describe('loadListsOperation()', () => {
         },
         {
           type: API_SUCCESS,
-          endpoint: lists
+          endpoint: listsConstant
         },
         {
           type: API_SAVE,
-          endpoint: lists,
+          endpoint: listsConstant,
           response: {}
         },
         {

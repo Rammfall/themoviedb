@@ -2,6 +2,7 @@
 
 exports[`DashboardMovies matches snapshot 1`] = `
 <MoviesList
+  actions={null}
   movies={
     Array [
       Object {

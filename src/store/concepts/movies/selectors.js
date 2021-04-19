@@ -12,7 +12,17 @@ export const getDashboardMoviesSelector = createSelector(
 
 export const getDashboardMoviesTotalSelector = ({ movies: { dashboardTotal } }) => dashboardTotal
 
-export const isEmptySelector = createSelector(
+export const isEmptyDashboardSelector = createSelector(
   dashboardIdsSelector,
   (ids) => !ids.length
+)
+
+const watchlistIdsSelector = ({ movies: { watchlist: { ids } } }) => ids
+const watchlistTotalSelector = ({ movies: { watchlist: { total } } }) => total
+
+export const getWatchlistMoviesSelector = createSelector(
+  dataSelector,
+  watchlistIdsSelector,
+  watchlistTotalSelector,
+  (movies, ids, total) => ({ total, isEmpty: !ids.length, movies: ids.map((item) => movies[item]) })
 )

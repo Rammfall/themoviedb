@@ -5,7 +5,7 @@ import { Modal } from 'antd'
 import { injectIntl } from 'react-intl'
 import { compose } from 'ramda'
 
-import onConfirm from 'Utils/components/ListsLists/onConfirm'
+import onConfirm from 'Utils/components/modalsHandlers/onConfirm'
 import { getListsSelector, getListsTotalSelector } from 'Store/concepts/lists/selectors'
 import { deleteList } from 'Store/concepts/lists/actions'
 

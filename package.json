@@ -12,7 +12,7 @@
     "start:prod": "node server",
     "start": "node index.js",
     "lint": "eslint --format codeframe src/ --max-warnings 0",
-    "ci:lint": "eslint --format junit --output-file ./reports/eslint.xml",
+    "ci:lint": "eslint --max-warnings 0 --format junit --output-file ./reports/eslint.xml",
     "heroku-prebuild": "npm i && npm run prestart:prod && npm prune --production",
     "prepare": "husky install",
     "lint-staged": "lint-staged"

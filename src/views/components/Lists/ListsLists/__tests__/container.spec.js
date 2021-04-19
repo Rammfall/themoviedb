@@ -14,7 +14,7 @@ jest.mock('react-intl', () => ({
 
 jest.mock('antd', () => ({
   Modal: {
-    confirm: jest.fn
+    confirm: jest.fn()
   }
 }))
 
@@ -35,7 +35,7 @@ describe('ListsLists', () => {
   const store = configureStore()()
   const wrapper = shallow(
     <ListsLists
-      intl={{formatMessage: jest.fn}}
+      intl={{formatMessage: jest.fn()}}
       store={store}
     />)
 
@@ -46,11 +46,12 @@ describe('ListsLists', () => {
       expect(container).toMatchSnapshot()
     })
 
-    describe('when runs onDeleteModal', () => {
+    describe('onDeleteModal', () => {
       const container = diveTo(wrapper, ListsListsContainer)
+      const spy = jest.spyOn(container.instance(), 'onDeleteModal')
       container.instance().onDeleteModal(3)
 
-      expect(container).toMatchSnapshot()
+      expect(spy).toBeCalledWith(3)
     })
   })
 })

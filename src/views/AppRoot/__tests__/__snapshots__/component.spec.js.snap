@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
-<Component>
+<Fragment>
   <Connect(Route)
     component={
       Object {
@@ -43,11 +43,25 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
     path="/lists"
     privateRoute={true}
   />
-</Component>
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(WatchlistPage))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/watchlist"
+    privateRoute={true}
+  />
+</Fragment>
 `;
 
 exports[`AppRootComponent with default props matches snapshot 1`] = `
-<Component>
+<Fragment>
   <Connect(Route)
     component={
       Object {
@@ -89,5 +103,19 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
     path="/lists"
     privateRoute={true}
   />
-</Component>
+  <Connect(Route)
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(withRouter(WatchlistPage))",
+        "type": [Function],
+      }
+    }
+    exact={true}
+    path="/watchlist"
+    privateRoute={true}
+  />
+</Fragment>
 `;

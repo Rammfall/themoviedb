@@ -1,0 +1,5 @@
+export const listsConstant = 'lists'
+export const moviesConstant = 'movies'
+export const movieConstant = 'movie'
+export const dashboardConstant = 'dashboard'
+export const watchlistConstant = 'watchlist'

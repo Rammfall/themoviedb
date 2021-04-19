@@ -7,7 +7,8 @@ import Pagination from 'Views/components/Pagination'
 
 const MoviesList = ({
   movies,
-  total
+  total,
+  actions
 }) => (
   <>
     <Row
@@ -39,6 +40,7 @@ const MoviesList = ({
                 title={originalTitle}
                 description={overview}
                 image={posterPath}
+                actions={actions && actions(id)}
               />
             </Col>
           ))}
@@ -56,11 +58,13 @@ MoviesList.propTypes = {
     overview: PropTypes.string,
     poster_path: PropTypes.string
   })).isRequired,
-  total: PropTypes.number
+  total: PropTypes.number,
+  actions: PropTypes.func
 }
 
 MoviesList.defaultProps = {
-  total: null
+  total: null,
+  actions: null
 }
 
 export default MoviesList

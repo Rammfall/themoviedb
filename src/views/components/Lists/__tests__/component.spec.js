@@ -3,13 +3,13 @@ import { shallow } from 'enzyme'
 
 import Lists from '../component'
 
-// eslint-disable-next-line react/display-name
-jest.mock('../ListsLists', () => () => <div>test</div>)
-
 jest.mock('react-intl', () => ({
   useIntl: jest.fn(() => ({
     formatMessage: jest.fn(() => 'test')
-  }))
+  })),
+  injectIntl() {
+    return component => component
+  }
 }))
 
 describe('Lists', () => {
@@ -22,7 +22,7 @@ describe('Lists', () => {
         description: 'test',
         id: 3
       }],
-      createModalVisibility: false,
+      isCreateModalVisible: false,
       toggleCreateModal: jest.fn
     }
     const component = shallow(<Lists {...props} />)

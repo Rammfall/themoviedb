@@ -3,8 +3,8 @@ import { normalize, schema } from 'normalizr'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
+import { dashboardConstant, moviesConstant } from 'Constants/concepts'
 
-import { moviesConstant, dashboard } from '../../endpoints'
 import moviesResponse from '../__mocks__/moviesResponse'
 import {
   GET_TRENDING,
@@ -14,12 +14,16 @@ import {
 
 import getTrendingMoviesOperation from '../trendingMovies'
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('trendingMovies()', () => {
   describe('with success response', () => {
     const httpClient = mockHttpClient([
       {
         method: 'get',
-        resolve: { data: { ...moviesResponse } }
+        resolve: { data: moviesResponse }
       }
     ])
     const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
@@ -39,11 +43,11 @@ describe('trendingMovies()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: dashboard
+          endpoint: dashboardConstant
         },
         {
           type: API_SUCCESS,
-          endpoint: dashboard
+          endpoint: dashboardConstant
         },
         {
           type: API_SAVE,

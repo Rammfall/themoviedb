@@ -10,8 +10,8 @@ exports[`CreateListModalComponent matches snapshot 1`] = `
   }
   okText="Create"
   okType="primary"
-  onCancel={[Function]}
-  onOk={[Function]}
+  onCancel={[MockFunction]}
+  onOk={[MockFunction]}
   title="Create list"
   visible={false}
   width={520}

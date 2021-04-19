@@ -1,13 +1,11 @@
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
-import {
-  API_REQUEST
-} from 'Store/concepts/data/types'
+import { API_REQUEST } from 'Store/concepts/data/types'
+import { listsConstant } from 'Constants/concepts'
 
 import {
   GET_LISTS,
   LOAD_LISTS
 } from '../../types'
-import { lists } from '../../endpoints'
 
 import getListsOperation from '../getLists'
 
@@ -17,7 +15,7 @@ jest.mock('Store/concepts/account/selectors', () => ({
 
 describe('getListsOperation()', () => {
   describe('with success response', () => {
-    it('dispatches action', async () => {
+    it('dispatches actions', async () => {
       const { store, logicMiddleware } = storeWithMiddlewareMock(undefined, [
         getListsOperation
       ])
@@ -32,11 +30,10 @@ describe('getListsOperation()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: lists
+          endpoint: listsConstant
         },
         {
-          type: LOAD_LISTS,
-          page: 1
+          type: LOAD_LISTS
         }
       ])
     })

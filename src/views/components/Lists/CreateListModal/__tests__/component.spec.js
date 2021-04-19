@@ -7,9 +7,9 @@ describe('CreateListModalComponent', () => {
   it('matches snapshot', () => {
     const props = {
       isVisible: false,
-      toggleHandler: jest.fn,
+      toggleHandler: jest.fn(),
       isSubmitting: false,
-      handleSubmit: jest.fn
+      handleSubmit: jest.fn()
     }
     const component = shallow(<CreateListModalComponent {...props} />)
 

@@ -2,6 +2,7 @@
 
 exports[`MovieCard matches snapshot 1`] = `
 <Card
+  actions={null}
   className="top-margin"
   cover={
     <img

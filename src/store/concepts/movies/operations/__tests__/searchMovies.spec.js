@@ -3,8 +3,8 @@ import { normalize, schema } from 'normalizr'
 import mockHttpClient from 'Api/__mocks__/mockHttpClient'
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST, API_SAVE, API_SUCCESS } from 'Store/concepts/data/types'
+import { dashboardConstant, moviesConstant } from 'Constants/concepts'
 
-import { moviesConstant, dashboard } from '../../endpoints'
 import trendingMoviesResponse from '../__mocks__/moviesResponse'
 import {
   SAVE_DASHBOARD_MOVIES,
@@ -14,13 +14,17 @@ import {
 
 import searchMoviesOperation from '../searchMovies'
 
+jest.mock('Store/concepts/router/selectors', () => ({
+  getCurrentPage: jest.fn(() => 3)
+}))
+
 describe('searchMoviesOperation()', () => {
   describe('with success response', () => {
     it('dispatches actions', async () => {
       const httpClient = mockHttpClient([
         {
           method: 'get',
-          resolve: { data: { ...trendingMoviesResponse } }
+          resolve: { data: trendingMoviesResponse }
         }
       ])
       const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
@@ -39,11 +43,11 @@ describe('searchMoviesOperation()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: dashboard
+          endpoint: dashboardConstant
         },
         {
           type: API_SUCCESS,
-          endpoint: dashboard
+          endpoint: dashboardConstant
         },
         {
           type: API_SAVE,
@@ -90,11 +94,11 @@ describe('searchMoviesOperation()', () => {
           },
           {
             type: API_REQUEST,
-            endpoint: dashboard
+            endpoint: dashboardConstant
           },
           {
             type: API_SUCCESS,
-            endpoint: dashboard
+            endpoint: dashboardConstant
           },
           {
             type: API_SAVE,

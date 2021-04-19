@@ -5,9 +5,9 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'ramda'
 
 import { getTrendingMovies, search as searchMoviesAction } from 'Store/concepts/movies/actions'
-import { isEmptySelector } from 'Store/concepts/movies/selectors'
+import { isEmptyDashboardSelector } from 'Store/concepts/movies/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { dashboard } from 'Store/concepts/movies/endpoints'
+import { dashboardConstant } from 'Constants/concepts'
 
 import queryParams from 'Utils/router/queryParams'
 
@@ -31,16 +31,10 @@ class DashboardPage extends Component {
     const searchQuery = queryParams(search).get('search')
 
     if (searchQuery) {
-      searchMovies(this.currentPage, decodeURIComponent(searchQuery))
+      searchMovies(decodeURIComponent(searchQuery))
     } else {
       getMovies(this.currentPage)
     }
-  }
-
-  get currentPage() {
-    const { location: { search } } = this.props
-    const queryPage = queryParams(search).get('page')
-    return queryPage ? Number(queryPage) : 1
   }
 
   render() {
@@ -70,8 +64,8 @@ DashboardPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: loadingSelector(state, dashboard),
-  isEmpty: isEmptySelector(state)
+  isLoading: loadingSelector(state, dashboardConstant),
+  isEmpty: isEmptyDashboardSelector(state)
 })
 
 const mapDispatchToProps = {

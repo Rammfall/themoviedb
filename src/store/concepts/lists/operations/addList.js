@@ -1,8 +1,8 @@
 import { createLogic } from 'redux-logic'
 
 import session from 'Utils/storage'
+import apiRoutes from 'Constants/ApiRoutes'
 
-import { addListEndpoint } from '../endpoints'
 import { ADD_LIST } from '../types'
 import { loadLists } from '../actions'
 
@@ -14,14 +14,13 @@ const addListOperation = createLogic({
       httpClient,
       action: {
         values: { name, description },
-        form: { setSubmitting },
-        page
+        form: { setSubmitting }
       }
     },
     dispatch,
     done
   ) {
-    await httpClient.post(addListEndpoint, {
+    await httpClient.post(apiRoutes.lists.add, {
       name,
       description
     }, {
@@ -29,7 +28,7 @@ const addListOperation = createLogic({
         session_id: session.session.get()
       }
     })
-    dispatch(loadLists(page))
+    dispatch(loadLists())
 
     setSubmitting(false)
     done()

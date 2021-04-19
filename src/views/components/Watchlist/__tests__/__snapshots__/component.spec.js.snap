@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Watchlist matches snapshot 1`] = `
+<PrivateLayout>
+  <Row>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <div
+        className="top-margin"
+      >
+        <Title>
+          Watchlist
+        </Title>
+      </div>
+    </Col>
+  </Row>
+  <RenderCtrl
+    isEmpty={false}
+    isLoading={true}
+    renderEmpty={
+      <EmptyState
+        title="No movies found"
+      />
+    }
+    renderList={<injectIntl(Connect(WatchlistMovies)) />}
+    renderLoading={<Loader />}
+  />
+</PrivateLayout>
+`;

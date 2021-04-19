@@ -5,14 +5,16 @@ import account from 'Store/concepts/account/reducer'
 import movies from 'Store/concepts/movies/reducer'
 import lists from 'Store/concepts/lists/reducer'
 import data from 'Store/concepts/data/reducer'
+import router from 'Store/concepts/router/reducer'
 
-import { RESET_STORE } from 'Store/types'
+import { RESET_STORE } from './types'
 
 const reducers = combineReducers({
   session,
   account,
   movies,
   lists,
+  router,
   data
 })
 
