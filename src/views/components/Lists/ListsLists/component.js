@@ -6,7 +6,12 @@ import ListCard from 'Views/components/Lists/ListsLists/ListCard'
 import Pagination from 'Views/components/Pagination'
 import onDeleteHandler from 'Views/components/Lists/ListsLists/utils/onDelete'
 
-const ListsListsComponent = ({ lists, total, onDelete }) => (
+const ListsListsComponent = ({
+  lists,
+  total,
+  onDelete,
+  onClick
+}) => (
   <>
     <Row
       type='flex'
@@ -22,6 +27,7 @@ const ListsListsComponent = ({ lists, total, onDelete }) => (
               name={name}
               description={description}
               onDelete={onDeleteHandler(onDelete, id)}
+              onClick={onClick(id)}
             />)
           )}
         </Row>

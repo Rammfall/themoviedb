@@ -10,6 +10,12 @@ export const getListsSelector = createSelector(
   (lists, listsIds) => listsIds.map(item => lists[item])
 )
 
+export const getListDetails = createSelector(
+  dataSelector,
+  (_, id) => id,
+  (lists, id) => lists[id]
+)
+
 export const getListsTotalSelector = ({ lists: { listsTotal } }) => listsTotal
 
 export const isEmptyListsSelector = createSelector(

@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+
 import { moviesConstant } from 'Constants/concepts'
 
 const dataSelector = (state) => state.data.movies
@@ -27,6 +28,7 @@ export const getWatchlistMoviesSelector = createSelector(
   watchlistTotalSelector,
   (movies, ids, total) => ({ total, isEmpty: !ids.length, movies: ids.map((item) => movies[item]) })
 )
+// Try to use createStructuredSelector and replace map to another selector
 
 const favoritesIdsSelector = ({ movies: { favorites: { ids } } }) => ids
 const favoritesTotalSelector = ({ movies: { favorites: { total } } }) => total

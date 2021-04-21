@@ -29,9 +29,7 @@ jest.mock('Store/concepts/movies/selectors', () => ({
 }))
 
 jest.mock('react-intl', () => ({
-  get injectIntl() {
-    return component => component
-  }
+  injectIntl: component => component
 }))
 
 describe('WatchlistMovies', () => {

@@ -7,9 +7,7 @@ import diveTo from 'TestUtils/diveToEnzyme'
 import ListsLists, { ListsListsContainer } from '../container'
 
 jest.mock('react-intl', () => ({
-  get injectIntl() {
-    return component => component
-  }
+  injectIntl: component => component
 }))
 
 jest.mock('antd', () => ({
