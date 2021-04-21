@@ -6,14 +6,15 @@ import PropTypes from 'prop-types'
 import { injectIntl } from 'react-intl'
 
 import ListContent from 'Views/components/ListContent'
-import { getWatchlistMoviesSelector } from 'Store/concepts/movies/selectors'
-import { getWatchlistMovies } from 'Store/concepts/movies/actions'
+import { getFavoritesMovies } from 'Store/concepts/movies/actions'
 import { userIdSelector } from 'Store/concepts/account/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { watchlistConstant } from 'Constants/concepts'
-import WatchlistMovies from 'Views/components/WatchlistMovies'
+import { favoritesConstant } from 'Constants/concepts'
+import { getFavoritesMoviesSelector } from 'Store/concepts/movies/selectors'
 
-class WatchlistPage extends Component {
+import FavoriteMovies from 'Views/components/FavoriteMovies'
+
+class FavoritesPage extends Component {
   componentDidMount() {
     this.getData()
   }
@@ -40,15 +41,15 @@ class WatchlistPage extends Component {
       <ListContent
         isEmpty={isEmpty}
         isLoading={isLoading}
-        list={<WatchlistMovies />}
+        list={<FavoriteMovies />}
+        title={formatMessage({ id: 'favorites.title' })}
         titleEmptyState={formatMessage({ id: 'movies.empty' })}
-        title={formatMessage({ id: 'watchlist.title' })}
       />
     )
   }
 }
 
-WatchlistPage.propTypes = {
+FavoritesPage.propTypes = {
   movies: PropTypes.shape({
     isEmpty: PropTypes.bool.isRequired
   }).isRequired,
@@ -63,24 +64,24 @@ WatchlistPage.propTypes = {
   }).isRequired
 }
 
-WatchlistPage.defaultProps = {
+FavoritesPage.defaultProps = {
   isLoading: true,
   userId: null
 }
 
 const mapStateToProps = (state) => ({
-  movies: getWatchlistMoviesSelector(state),
+  movies: getFavoritesMoviesSelector(state),
   userId: userIdSelector(state),
-  isLoading: loadingSelector(state, watchlistConstant)
+  isLoading: loadingSelector(state, favoritesConstant)
 })
 
 const mapDispatchToProps = {
-  getMovies: getWatchlistMovies
+  getMovies: getFavoritesMovies
 }
 
-export { WatchlistPage as WatchlistPageContainer }
+export { FavoritesPage as FavoritesPageContainer }
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withRouter,
   injectIntl
-)(WatchlistPage)
+)(FavoritesPage)

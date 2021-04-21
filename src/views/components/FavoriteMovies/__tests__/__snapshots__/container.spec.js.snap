@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteMovies matches snapshot 1`] = `
+<MoviesList
+  actions={[Function]}
+  movies={
+    Array [
+      Object {
+        "id": 1,
+        "original_title": "test",
+        "overview": "test",
+        "poster_path": "test",
+      },
+    ]
+  }
+  total={1}
+/>
+`;

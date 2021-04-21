@@ -4,14 +4,14 @@ import configureStore from 'redux-mock-store'
 
 import diveTo from 'TestUtils/diveToEnzyme'
 
-import WatchlistPage, { WatchlistPageContainer } from '../container'
+import FavoritesPage, { FavoritesPageContainer } from '../container'
 
 jest.mock('react-intl', () => ({
   injectIntl: jest.fn(component => component)
 }))
 
 jest.mock('Store/concepts/movies/selectors', () => ({
-  getWatchlistMoviesSelector: jest.fn(() => ({
+  getFavoritesMoviesSelector: jest.fn(() => ({
     isEmpty: false
   }))
 }))
@@ -28,7 +28,7 @@ jest.mock('react-router-dom', () => ({
   withRouter: component => component
 }))
 
-describe('WatchlistPage', () => {
+describe('FavoritesPage', () => {
   const store = configureStore()()
   const props = {
     location: {
@@ -43,19 +43,19 @@ describe('WatchlistPage', () => {
     }
   }
   const wrapper = shallow(
-    <WatchlistPage
+    <FavoritesPage
       store={store}
       {...props}
     />
   )
-  const container = diveTo(wrapper, WatchlistPageContainer)
+  const container = diveTo(wrapper, FavoritesPageContainer)
 
   it('matches snapshot', () => {
     expect(container).toMatchSnapshot()
   })
 
   describe('componentDidUpdate()', () => {
-    const anotherContainer = diveTo(wrapper, WatchlistPageContainer)
+    const anotherContainer = diveTo(wrapper, FavoritesPageContainer)
     jest.spyOn(anotherContainer.instance(), 'getData')
     anotherContainer.setProps({ userId: 2 })
     anotherContainer.setProps({ userId: undefined })

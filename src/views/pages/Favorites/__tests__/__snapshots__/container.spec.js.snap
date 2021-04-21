@@ -4,17 +4,17 @@ exports[` 1`] = `
 <ListContent
   isEmpty={false}
   isLoading={true}
-  list={<Memo(Connect(WatchlistMovies)) />}
+  list={<Memo(Connect(FavoriteMovies)) />}
   title="test"
   titleEmptyState="test"
 />
 `;
 
-exports[`WatchlistPage matches snapshot 1`] = `
+exports[`FavoritesPage matches snapshot 1`] = `
 <ListContent
   isEmpty={false}
   isLoading={true}
-  list={<Memo(Connect(WatchlistMovies)) />}
+  list={<Memo(Connect(FavoriteMovies)) />}
   title="test"
   titleEmptyState="test"
 />

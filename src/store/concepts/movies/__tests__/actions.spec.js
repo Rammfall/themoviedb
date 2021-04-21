@@ -5,7 +5,10 @@ import {
   SAVE_DASHBOARD_TOTAL,
   SAVE_WATCHLIST_MOVIES,
   GET_WATCHLIST_MOVIES,
-  TOGGLE_WATCHLIST_MOVIE
+  TOGGLE_WATCHLIST_MOVIE,
+  GET_FAVORITES_MOVIES,
+  SAVE_FAVORITES_MOVIES,
+  TOGGLE_FAVORITE_MOVIE
 } from '../types'
 import {
   getTrendingMovies,
@@ -14,45 +17,34 @@ import {
   saveDashboardTotal,
   getWatchlistMovies,
   saveWatchlistMovies,
-  toggleWatchlistMovie
+  toggleWatchlistMovie,
+  getFavoritesMovies,
+  saveFavoritesMovies,
+  toggleFavoriteMovie
 } from '../actions'
 
 describe('movies actions', () => {
   describe('getTrendingMovies()', () => {
-    describe('with default page', () => {
-      it('returns correct type and default page', () => {
-        expect(getTrendingMovies())
-          .toStrictEqual({
-            type: GET_TRENDING
-          })
-      })
+    it('returns object with correct shape', () => {
+      expect(getTrendingMovies())
+        .toStrictEqual({
+          type: GET_TRENDING
+        })
     })
   })
 
   describe('search()', () => {
-    describe('with default page', () => {
-      it('returns correct type and default page', () => {
-        expect(search('test'))
-          .toStrictEqual({
-            type: SEARCH,
-            query: 'test'
-          })
-      })
-    })
-
-    describe('with custom page', () => {
-      it('returns correct type and custom page', () => {
-        expect(search('test'))
-          .toStrictEqual({
-            type: SEARCH,
-            query: 'test'
-          })
-      })
+    it('returns object with correct shape', () => {
+      expect(search('test'))
+        .toStrictEqual({
+          type: SEARCH,
+          query: 'test'
+        })
     })
   })
 
   describe('saveDashboardIds()', () => {
-    it('returns correct type and ids array', () => {
+    it('returns object with correct shape', () => {
       expect(saveDashboardIds({ ids: [1, 2, 4] }))
         .toStrictEqual({
           type: SAVE_DASHBOARD_MOVIES,
@@ -62,7 +54,7 @@ describe('movies actions', () => {
   })
 
   describe('saveDashboardTotal()', () => {
-    it('returns correct type and quantity', () => {
+    it('returns object with correct shape', () => {
       expect(saveDashboardTotal({ total: 1000 }))
         .toStrictEqual({
           type: SAVE_DASHBOARD_TOTAL,
@@ -72,18 +64,16 @@ describe('movies actions', () => {
   })
 
   describe('getWatchlistMovies()', () => {
-    describe('with default page', () => {
-      it('returns correct type and default page', () => {
-        expect(getWatchlistMovies())
-          .toStrictEqual({
-            type: GET_WATCHLIST_MOVIES,
-            withoutLoading: false
-          })
-      })
+    it('returns object with correct shape', () => {
+      expect(getWatchlistMovies())
+        .toStrictEqual({
+          type: GET_WATCHLIST_MOVIES,
+          withoutLoading: false
+        })
     })
 
     describe('with withoutLoading', () => {
-      it('returns correct type and custom page', () => {
+      it('returns object with correct shape', () => {
         expect(getWatchlistMovies(true))
           .toStrictEqual({
             type: GET_WATCHLIST_MOVIES,
@@ -94,7 +84,7 @@ describe('movies actions', () => {
   })
 
   describe('saveWatchlistMovies()', () => {
-    it('returns correct type and quantity', () => {
+    it('returns object with correct shape', () => {
       expect(saveWatchlistMovies({ ids: [0], total: 1000 }))
         .toStrictEqual({
           type: SAVE_WATCHLIST_MOVIES,
@@ -104,7 +94,7 @@ describe('movies actions', () => {
     })
   })
 
-  describe('toggleWatchlistMovie', () => {
+  describe('toggleWatchlistMovie()', () => {
     describe('with default arg', () => {
       it('returns correct shape', () => {
         expect(toggleWatchlistMovie({ id: 3 }))
@@ -123,6 +113,61 @@ describe('movies actions', () => {
             type: TOGGLE_WATCHLIST_MOVIE,
             id: 3,
             watchlist: true
+          })
+      })
+    })
+  })
+
+  describe('getFavoritesMovies()', () => {
+    it('returns object with correct shape', () => {
+      expect(getFavoritesMovies())
+        .toStrictEqual({
+          type: GET_FAVORITES_MOVIES,
+          withoutLoading: false
+        })
+    })
+
+    describe('with withoutLoading', () => {
+      it('returns object with correct shape', () => {
+        expect(getFavoritesMovies(true))
+          .toStrictEqual({
+            type: GET_FAVORITES_MOVIES,
+            withoutLoading: true
+          })
+      })
+    })
+  })
+
+  describe('saveFavoritesMovies()', () => {
+    it('returns object with correct shape', () => {
+      expect(saveFavoritesMovies({ ids: [0], total: 1000 }))
+        .toStrictEqual({
+          type: SAVE_FAVORITES_MOVIES,
+          ids: [0],
+          total: 1000
+        })
+    })
+  })
+
+  describe('toggleFavoriteMovie()', () => {
+    describe('with default arg', () => {
+      it('returns object with correct shape', () => {
+        expect(toggleFavoriteMovie({ id: 3 }))
+          .toStrictEqual({
+            type: TOGGLE_FAVORITE_MOVIE,
+            id: 3,
+            favorite: false
+          })
+      })
+    })
+
+    describe('with custom arg', () => {
+      it('returns object with correct shape', () => {
+        expect(toggleFavoriteMovie({ id: 3, favorite: true }))
+          .toStrictEqual({
+            type: TOGGLE_FAVORITE_MOVIE,
+            id: 3,
+            favorite: true
           })
       })
     })

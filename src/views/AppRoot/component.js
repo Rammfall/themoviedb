@@ -6,6 +6,7 @@ import LoginPage from '../pages/Login'
 import DashboardPage from '../pages/Dashboard'
 import ListsPage from '../pages/Lists'
 import WatchlistPage from '../pages/Watchlist'
+import FavoritesPage from '../pages/Favorites'
 
 const AppRootComponent = () => (
   <>
@@ -30,6 +31,12 @@ const AppRootComponent = () => (
       path="/watchlist"
       privateRoute
       component={WatchlistPage}
+      exact
+    />
+    <Route
+      path="/favorites"
+      privateRoute
+      component={FavoritesPage}
       exact
     />
   </>

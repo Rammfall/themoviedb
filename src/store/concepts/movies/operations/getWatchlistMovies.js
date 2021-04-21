@@ -34,7 +34,12 @@ const getWatchlistMoviesOperation = createLogic({
         results,
         total_results: totalResults
       }
-    } = await httpClient.get(apiRoutes.movies.watchlist.get(userId), { params: { page, session_id: storage.session.get() } })
+    } = await httpClient.get(apiRoutes.movies.watchlist.get(userId), {
+      params: {
+        page,
+        session_id: storage.session.get()
+      }
+    })
     dispatch(dataApiSuccess(dataApiSuccess({ endpoint: watchlistConstant })))
     const normalizedData = normalizeMovies(results)
     dispatch(dataApiSave({ endpoint: moviesConstant, response: normalizedData.entities.movie || {} }))
