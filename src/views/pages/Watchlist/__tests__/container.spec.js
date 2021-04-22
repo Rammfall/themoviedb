@@ -10,7 +10,7 @@ jest.mock('react-intl', () => ({
   injectIntl: jest.fn(component => component)
 }))
 
-jest.mock('Store/concepts/movies/selectors', () => ({
+jest.mock('Store/concepts/watchlist/selectors', () => ({
   getWatchlistMoviesSelector: jest.fn(() => ({
     isEmpty: false
   }))

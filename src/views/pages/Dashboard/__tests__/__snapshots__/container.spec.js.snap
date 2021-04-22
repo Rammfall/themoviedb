@@ -2,35 +2,35 @@
 
 exports[`DashboardPage when page param excluded in url after componentDidUpdate when search changed matches snapshot 1`] = `
 <MoviesPage
-  isEmpty={false}
+  isEmpty={true}
   isLoading={null}
 />
 `;
 
 exports[`DashboardPage when page param excluded in url after componentDidUpdate when search not changed matches snapshot 1`] = `
 <MoviesPage
-  isEmpty={false}
+  isEmpty={true}
   isLoading={null}
 />
 `;
 
 exports[`DashboardPage when page param excluded in url with default props matches snapshot 1`] = `
 <MoviesPage
-  isEmpty={false}
+  isEmpty={true}
   isLoading={null}
 />
 `;
 
 exports[`DashboardPage with page param matches snapshot 1`] = `
 <MoviesPage
-  isEmpty={false}
+  isEmpty={true}
   isLoading={null}
 />
 `;
 
 exports[`DashboardPage with search page param matches snapshot 1`] = `
 <MoviesPage
-  isEmpty={false}
+  isEmpty={true}
   isLoading={null}
 />
 `;

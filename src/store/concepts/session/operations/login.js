@@ -1,9 +1,10 @@
 import { createLogic } from 'redux-logic'
 
-import { USER_LOGIN_SUBMIT } from 'Store/concepts/session/types'
-import { loginUserSuccess } from 'Store/concepts/session/actions'
 import storage from 'Utils/storage'
-import apiRoutes from 'Constants/ApiRoutes'
+import apiRoutes from 'Constants/apiRoutes'
+
+import { USER_LOGIN_SUBMIT } from '../types'
+import { loginUserSuccess } from '../actions'
 
 const loginUserOperation = createLogic({
   type: USER_LOGIN_SUBMIT,

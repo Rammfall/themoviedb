@@ -7,11 +7,10 @@ import {
   API_SUCCESS
 } from 'Store/concepts/data/types'
 
-import { listsConstant } from 'Constants/concepts'
+import { LISTS } from 'Constants/concepts'
 import {
   LOAD_LISTS,
-  SAVE_LISTS,
-  SAVE_LISTS_TOTAL
+  SAVE_LISTS
 } from '../../types'
 import listsList from '../__mocks__/listsList'
 
@@ -51,70 +50,17 @@ describe('loadListsOperation()', () => {
         },
         {
           type: API_SUCCESS,
-          endpoint: listsConstant
+          endpoint: LISTS
         },
         {
           type: API_SAVE,
-          endpoint: listsConstant,
+          endpoint: LISTS,
           response: normalizedResponse.entities.list
         },
         {
           type: SAVE_LISTS,
-          ids: normalizedResponse.result
-        },
-        {
-          type: SAVE_LISTS_TOTAL,
+          ids: normalizedResponse.result,
           total: 2
-        }
-      ])
-    })
-  })
-
-  describe('with empty response', () => {
-    it('returns empty object', async () => {
-      const httpClient = mockHttpClient([
-        {
-          method: 'get',
-          resolve: {
-            data: {
-              results: [],
-              total_pages: 0,
-              total_results: 0
-            }
-          }
-        }
-      ])
-      const { store, logicMiddleware } = storeWithMiddlewareMock(httpClient, [
-        loadListsOperation
-      ])
-
-      store.dispatch({ type: LOAD_LISTS })
-
-      await logicMiddleware.whenComplete()
-
-      const list = new schema.Entity('list')
-      const normalizedResponse = normalize([], [list])
-
-      expect(store.getActions()).toStrictEqual([
-        {
-          type: LOAD_LISTS
-        },
-        {
-          type: API_SUCCESS,
-          endpoint: listsConstant
-        },
-        {
-          type: API_SAVE,
-          endpoint: listsConstant,
-          response: {}
-        },
-        {
-          type: SAVE_LISTS,
-          ids: normalizedResponse.result
-        },
-        {
-          type: SAVE_LISTS_TOTAL,
-          total: 0
         }
       ])
     })

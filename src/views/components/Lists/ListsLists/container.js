@@ -4,12 +4,10 @@ import { connect } from 'react-redux'
 import { Modal } from 'antd'
 import { injectIntl } from 'react-intl'
 import { compose } from 'ramda'
-import { withRouter } from 'react-router-dom'
 
 import onConfirm from 'Utils/components/modalsHandlers/onConfirm'
-import { getListsSelector, getListsTotalSelector } from 'Store/concepts/lists/selectors'
+import { getListsSelector } from 'Store/concepts/lists/selectors'
 import { deleteList } from 'Store/concepts/lists/actions'
-import { listsConstant } from 'Constants/concepts'
 
 import ListsListsComponent from './component'
 
@@ -23,14 +21,6 @@ class ListsLists extends Component {
     })
   }
 
-  onCardClick = (id) => () => {
-    const { history: { push } } = this.props
-
-    push({
-      pathname: `${listsConstant}/${id}`
-    })
-  }
-
   render() {
     const { total, lists } = this.props
 
@@ -39,7 +29,6 @@ class ListsLists extends Component {
         total={total}
         lists={lists}
         onDelete={this.onDeleteModal}
-        onClick={this.onCardClick}
       />
     )
   }
@@ -55,9 +44,6 @@ ListsLists.propTypes = {
   onDelete: PropTypes.func.isRequired,
   intl: PropTypes.shape({
     formatMessage: PropTypes.func.isRequired
-  }).isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
   }).isRequired
 }
 
@@ -66,8 +52,8 @@ ListsLists.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  total: getListsTotalSelector(state),
-  lists: getListsSelector(state)
+  total: getListsSelector(state).total,
+  lists: getListsSelector(state).lists
 })
 
 const mapDispatchToProps = {
@@ -77,6 +63,5 @@ const mapDispatchToProps = {
 export { ListsLists as ListsListsContainer }
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  injectIntl,
-  withRouter
+  injectIntl
 )(ListsLists)

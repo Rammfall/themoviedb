@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 import { injectIntl } from 'react-intl'
 
 import ListContent from 'Views/components/ListContent'
-import { getWatchlistMoviesSelector } from 'Store/concepts/movies/selectors'
-import { getWatchlistMovies } from 'Store/concepts/movies/actions'
+import { getWatchlistMoviesSelector } from 'Store/concepts/watchlist/selectors'
+import { getWatchlistMovies } from 'Store/concepts/watchlist/actions'
 import { userIdSelector } from 'Store/concepts/account/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { watchlistConstant } from 'Constants/concepts'
+import { WATCHLIST } from 'Constants/concepts'
 import WatchlistMovies from 'Views/components/WatchlistMovies'
 
 class WatchlistPage extends Component {
@@ -34,7 +34,7 @@ class WatchlistPage extends Component {
   }
 
   render() {
-    const { movies: { isEmpty }, isLoading, intl: { formatMessage } } = this.props
+    const { isEmpty, isLoading, intl: { formatMessage } } = this.props
 
     return (
       <ListContent
@@ -49,9 +49,7 @@ class WatchlistPage extends Component {
 }
 
 WatchlistPage.propTypes = {
-  movies: PropTypes.shape({
-    isEmpty: PropTypes.bool.isRequired
-  }).isRequired,
+  isEmpty: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool,
   location: PropTypes.shape({
     search: PropTypes.string.isRequired
@@ -69,9 +67,9 @@ WatchlistPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getWatchlistMoviesSelector(state),
+  isEmpty: getWatchlistMoviesSelector(state).isEmpty,
   userId: userIdSelector(state),
-  isLoading: loadingSelector(state, watchlistConstant)
+  isLoading: loadingSelector(state, WATCHLIST)
 })
 
 const mapDispatchToProps = {

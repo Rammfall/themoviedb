@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
-<ListContent
-  isEmpty={false}
-  isLoading={true}
-  list={<Memo(Connect(FavoriteMovies)) />}
-  title="test"
-  titleEmptyState="test"
-/>
-`;
-
 exports[`FavoritesPage matches snapshot 1`] = `
 <ListContent
   isEmpty={false}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Card, Col, Typography } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 
-const ListCard = ({ name, description, onDelete, onClick }) => (
+const ListCard = ({ name, description, onDelete }) => (
   <Col
     xs={{ span: 24 }}
     sm={{ span: 12 }}
@@ -13,7 +13,6 @@ const ListCard = ({ name, description, onDelete, onClick }) => (
   >
     <Card
       hoverable
-      onClick={onClick}
       className="top-margin"
       actions={[
         <DeleteOutlined
@@ -33,8 +32,7 @@ const ListCard = ({ name, description, onDelete, onClick }) => (
 ListCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired
 }
 
 export default ListCard

@@ -12,11 +12,11 @@ jest.mock('antd', () => ({
   }
 }))
 
-jest.mock('Store/concepts/movies/actions', () => ({
+jest.mock('Store/concepts/watchlist/actions', () => ({
   toggleWatchlistMovie: jest.fn()
 }))
 
-jest.mock('Store/concepts/movies/selectors', () => ({
+jest.mock('Store/concepts/watchlist/selectors', () => ({
   getWatchlistMoviesSelector: () => ({
     movies: [{
       id: 1,

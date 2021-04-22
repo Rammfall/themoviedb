@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 import { injectIntl } from 'react-intl'
 
 import ListContent from 'Views/components/ListContent'
-import { getFavoritesMovies } from 'Store/concepts/movies/actions'
+import { getFavoritesMovies } from 'Store/concepts/favorites/actions'
 import { userIdSelector } from 'Store/concepts/account/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { favoritesConstant } from 'Constants/concepts'
-import { getFavoritesMoviesSelector } from 'Store/concepts/movies/selectors'
+import { FAVORITES } from 'Constants/concepts'
+import { getFavoritesMoviesSelector } from 'Store/concepts/favorites/selectors'
 
 import FavoriteMovies from 'Views/components/FavoriteMovies'
 
@@ -35,7 +35,7 @@ class FavoritesPage extends Component {
   }
 
   render() {
-    const { movies: { isEmpty }, isLoading, intl: { formatMessage } } = this.props
+    const { isEmpty, isLoading, intl: { formatMessage } } = this.props
 
     return (
       <ListContent
@@ -50,9 +50,7 @@ class FavoritesPage extends Component {
 }
 
 FavoritesPage.propTypes = {
-  movies: PropTypes.shape({
-    isEmpty: PropTypes.bool.isRequired
-  }).isRequired,
+  isEmpty: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool,
   location: PropTypes.shape({
     search: PropTypes.string.isRequired
@@ -70,9 +68,9 @@ FavoritesPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getFavoritesMoviesSelector(state),
+  isEmpty: getFavoritesMoviesSelector(state).isEmpty,
   userId: userIdSelector(state),
-  isLoading: loadingSelector(state, favoritesConstant)
+  isLoading: loadingSelector(state, FAVORITES)
 })
 
 const mapDispatchToProps = {

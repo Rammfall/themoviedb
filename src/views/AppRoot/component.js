@@ -7,7 +7,7 @@ import DashboardPage from '../pages/Dashboard'
 import ListsPage from '../pages/Lists'
 import WatchlistPage from '../pages/Watchlist'
 import FavoritesPage from '../pages/Favorites'
-import ListDetailsPage from '../pages/ListDetails'
+// import ListDetailsPage from '../pages/ListDetails'
 
 const AppRootComponent = () => (
   <>
@@ -40,12 +40,12 @@ const AppRootComponent = () => (
       component={FavoritesPage}
       exact
     />
-    <Route
-      path="/lists/:id"
-      privateRoute
-      component={ListDetailsPage}
-      exact
-    />
+    {/* <Route */}
+    {/*  path="/lists/:id" */}
+    {/*  privateRoute */}
+    {/*  component={ListDetailsPage} */}
+    {/*  exact */}
+    {/* /> */}
   </>
 )
 

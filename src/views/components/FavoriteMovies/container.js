@@ -7,8 +7,8 @@ import { Modal } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 
 import MoviesList from 'Views/components/MoviesList'
-import { getFavoritesMoviesSelector } from 'Store/concepts/movies/selectors'
-import { toggleFavoriteMovie } from 'Store/concepts/movies/actions'
+import { getFavoritesMoviesSelector } from 'Store/concepts/favorites/selectors'
+import { toggleFavoriteMovie } from 'Store/concepts/favorites/actions'
 import onConfirm from 'Utils/components/modalsHandlers/onConfirm'
 
 class FavoriteMovies extends Component {
@@ -29,7 +29,7 @@ class FavoriteMovies extends Component {
   ]
 
   render() {
-    const { movies: { total, movies } } = this.props
+    const { total, movies } = this.props
 
     return (
       <MoviesList
@@ -42,15 +42,13 @@ class FavoriteMovies extends Component {
 }
 
 FavoriteMovies.propTypes = {
-  movies: PropTypes.shape({
-    total: PropTypes.number.isRequired,
-    movies: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-      original_title: PropTypes.string,
-      overview: PropTypes.string,
-      poster_path: PropTypes.string
-    })).isRequired
-  }).isRequired,
+  total: PropTypes.number.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    original_title: PropTypes.string,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string
+  })).isRequired,
   intl: PropTypes.shape({
     formatMessage: PropTypes.func.isRequired
   }).isRequired,
@@ -58,7 +56,8 @@ FavoriteMovies.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getFavoritesMoviesSelector(state)
+  movies: getFavoritesMoviesSelector(state).movies,
+  total: getFavoritesMoviesSelector(state).total
 })
 
 const dispatchToProps = {

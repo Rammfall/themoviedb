@@ -7,8 +7,8 @@ import { Modal } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 
 import MoviesList from 'Views/components/MoviesList'
-import { getWatchlistMoviesSelector } from 'Store/concepts/movies/selectors'
-import { toggleWatchlistMovie } from 'Store/concepts/movies/actions'
+import { getWatchlistMoviesSelector } from 'Store/concepts/watchlist/selectors'
+import { toggleWatchlistMovie } from 'Store/concepts/watchlist/actions'
 import onConfirm from 'Utils/components/modalsHandlers/onConfirm'
 
 class WatchlistMovies extends Component {
@@ -29,7 +29,7 @@ class WatchlistMovies extends Component {
   ]
 
   render() {
-    const { movies: { total, movies } } = this.props
+    const { total, movies } = this.props
 
     return (
       <MoviesList
@@ -42,15 +42,13 @@ class WatchlistMovies extends Component {
 }
 
 WatchlistMovies.propTypes = {
-  movies: PropTypes.shape({
-    total: PropTypes.number.isRequired,
-    movies: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-      original_title: PropTypes.string,
-      overview: PropTypes.string,
-      poster_path: PropTypes.string
-    })).isRequired
-  }).isRequired,
+  total: PropTypes.number.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    original_title: PropTypes.string,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string
+  })).isRequired,
   intl: PropTypes.shape({
     formatMessage: PropTypes.func.isRequired
   }).isRequired,
@@ -58,7 +56,8 @@ WatchlistMovies.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getWatchlistMoviesSelector(state)
+  movies: getWatchlistMoviesSelector(state).movies,
+  total: getWatchlistMoviesSelector(state).total
 })
 
 const dispatchToProps = {

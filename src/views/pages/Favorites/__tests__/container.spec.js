@@ -7,10 +7,10 @@ import diveTo from 'TestUtils/diveToEnzyme'
 import FavoritesPage, { FavoritesPageContainer } from '../container'
 
 jest.mock('react-intl', () => ({
-  injectIntl: jest.fn(component => component)
+  injectIntl: component => component
 }))
 
-jest.mock('Store/concepts/movies/selectors', () => ({
+jest.mock('Store/concepts/favorites/selectors', () => ({
   getFavoritesMoviesSelector: jest.fn(() => ({
     isEmpty: false
   }))
@@ -54,14 +54,16 @@ describe('FavoritesPage', () => {
     expect(container).toMatchSnapshot()
   })
 
-  describe('componentDidUpdate()', () => {
-    const anotherContainer = diveTo(wrapper, FavoritesPageContainer)
-    jest.spyOn(anotherContainer.instance(), 'getData')
-    anotherContainer.setProps({ userId: 2 })
-    anotherContainer.setProps({ userId: undefined })
-    anotherContainer.setProps({ location: { search: 'test' } })
-    anotherContainer.setProps({ location: { search: 'test' } })
+  describe('getData()', () => {
+    it('to have been called', () => {
+      const anotherContainer = diveTo(wrapper, FavoritesPageContainer)
+      const spy = jest.spyOn(anotherContainer.instance(), 'getData')
+      anotherContainer.setProps({ userId: 2 })
+      anotherContainer.setProps({ userId: undefined })
+      anotherContainer.setProps({ location: { search: 'test' } })
+      anotherContainer.setProps({ location: { search: 'test' } })
 
-    expect(anotherContainer).toMatchSnapshot()
+      expect(spy).toHaveBeenCalledTimes(3)
+    })
   })
 })

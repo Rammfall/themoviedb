@@ -1,10 +1,6 @@
-import {
-  getListsSelector,
-  getListsTotalSelector,
-  isEmptyListsSelector
-} from '../selectors'
+import { getListsSelector } from '../selectors'
 
-describe('lists selectors', () => {
+describe('getListsSelector()', () => {
   const state = {
     data: {
       lists: {
@@ -17,34 +13,15 @@ describe('lists selectors', () => {
       }
     },
     lists: {
-      listsIds: [1],
-      listsTotal: 2
+      ids: [1],
+      total: 1
     }
   }
-
-  describe('getListsSelector()', () => {
-    it('returns correct array', () => {
-      expect(getListsSelector(state)).toStrictEqual([
-        {
-          name: 'test'
-        }
-      ])
-    })
-  })
-
-  describe('getListsTotalSelector()', () => {
-    it('returns correct array', () => {
-      expect(getListsTotalSelector(state)).toStrictEqual(2)
-    })
-  })
-
-  describe('getListsSelector()', () => {
-    it('returns false', () => {
-      expect(isEmptyListsSelector(state)).toStrictEqual(false)
-    })
-
-    it('returns true', () => {
-      expect(isEmptyListsSelector({ ...state, lists: { listsIds: [] } })).toStrictEqual(true)
+  it('returns object with correct shape', () => {
+    expect(getListsSelector(state)).toStrictEqual({
+      isEmpty: false,
+      total: 1,
+      lists: [{ name: 'test' }]
     })
   })
 })

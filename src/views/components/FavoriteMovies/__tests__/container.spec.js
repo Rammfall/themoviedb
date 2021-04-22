@@ -12,11 +12,11 @@ jest.mock('antd', () => ({
   }
 }))
 
-jest.mock('Store/concepts/movies/actions', () => ({
+jest.mock('Store/concepts/favorites/actions', () => ({
   toggleFavoriteMovie: jest.fn()
 }))
 
-jest.mock('Store/concepts/movies/selectors', () => ({
+jest.mock('Store/concepts/favorites/selectors', () => ({
   getFavoritesMoviesSelector: () => ({
     movies: [{
       id: 1,
@@ -54,31 +54,36 @@ describe('FavoriteMovies', () => {
     expect(container).toMatchSnapshot()
   })
 
-  it('handleRemoveFromList', () => {
+  describe('handleRemoveFromList()', () => {
     const wrapper = shallow(
       <FavoriteMovies
         store={store}
         {...props}
       />
     )
-    const container = diveTo(wrapper, FavoriteMoviesContainer)
-    const spy = jest.spyOn(container.instance(), 'handleRemoveFromList')
-    container.instance().handleRemoveFromList(3)()
 
-    expect(spy).toHaveBeenCalledWith(3)
+    it('have been called', () => {
+      const container = diveTo(wrapper, FavoriteMoviesContainer)
+      const spy = jest.spyOn(container.instance(), 'handleRemoveFromList')
+      container.instance().handleRemoveFromList(3)()
+
+      expect(spy).toHaveBeenCalledWith(3)
+    })
   })
 
-  it('actions', () => {
-    const wrapper = shallow(
-      <FavoriteMovies
-        store={store}
-        {...props}
-      />
-    )
-    const container = diveTo(wrapper, FavoriteMoviesContainer)
-    const spy = jest.spyOn(container.instance(), 'actions')
-    container.instance().actions(3)
+  describe('actions()', () => {
+    it('have been called', () => {
+      const wrapper = shallow(
+        <FavoriteMovies
+          store={store}
+          {...props}
+        />
+      )
+      const container = diveTo(wrapper, FavoriteMoviesContainer)
+      const spy = jest.spyOn(container.instance(), 'actions')
+      container.instance().actions(3)
 
-    expect(spy).toHaveBeenCalledWith(3)
+      expect(spy).toHaveBeenCalledWith(3)
+    })
   })
 })

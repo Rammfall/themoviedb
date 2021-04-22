@@ -1,24 +1,16 @@
 import { createSelector } from 'reselect'
 
+import { idsSelector, shapeSelector, totalSelector } from 'Store/selectors'
+import { LISTS } from 'Constants/concepts'
+
 const dataSelector = (state) => state.data.lists
 
-const listsIdsSelector = ({ lists: { listsIds } }) => listsIds
-
+/**
+ * @returns {{isEmpty: boolean, lists: Array[], total: number}}
+ */
 export const getListsSelector = createSelector(
   dataSelector,
-  listsIdsSelector,
-  (lists, listsIds) => listsIds.map(item => lists[item])
-)
-
-export const getListDetails = createSelector(
-  dataSelector,
-  (_, id) => id,
-  (lists, id) => lists[id]
-)
-
-export const getListsTotalSelector = ({ lists: { listsTotal } }) => listsTotal
-
-export const isEmptyListsSelector = createSelector(
-  listsIdsSelector,
-  (ids) => !ids.length
+  idsSelector(LISTS),
+  totalSelector(LISTS),
+  shapeSelector(LISTS)
 )

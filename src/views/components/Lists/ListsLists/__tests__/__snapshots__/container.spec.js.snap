@@ -12,6 +12,6 @@ exports[`ListsLists with default props matches snapshot 1`] = `
     ]
   }
   onDelete={[Function]}
-  total={3}
+  total={1}
 />
 `;

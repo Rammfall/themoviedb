@@ -9,8 +9,7 @@ import onDeleteHandler from 'Views/components/Lists/ListsLists/utils/onDelete'
 const ListsListsComponent = ({
   lists,
   total,
-  onDelete,
-  onClick
+  onDelete
 }) => (
   <>
     <Row
@@ -27,7 +26,6 @@ const ListsListsComponent = ({
               name={name}
               description={description}
               onDelete={onDeleteHandler(onDelete, id)}
-              onClick={onClick(id)}
             />)
           )}
         </Row>

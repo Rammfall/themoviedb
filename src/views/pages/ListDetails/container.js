@@ -9,7 +9,7 @@ import ListDetails from 'Views/components/ListDetails'
 import { getListMoviesSelector } from 'Store/concepts/movies/selectors'
 import { getListMovies } from 'Store/concepts/movies/actions'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import apiRoutes from 'Constants/ApiRoutes'
+import apiRoutes from 'Constants/apiRoutes'
 import { getListDetails } from 'Store/concepts/lists/selectors'
 
 class ListDetailsPage extends Component {

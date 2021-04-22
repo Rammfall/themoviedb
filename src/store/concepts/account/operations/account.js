@@ -2,7 +2,7 @@ import { createLogic } from 'redux-logic'
 
 import storage from 'Utils/storage'
 import { setUserId, setUsername } from 'Store/concepts/account/actions'
-import apiRoutes from 'Constants/ApiRoutes'
+import apiRoutes from 'Constants/apiRoutes'
 
 import { GET_INFO } from '../types'
 

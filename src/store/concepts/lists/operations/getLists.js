@@ -10,7 +10,7 @@ const getListsOperation = createLogic({
   type: GET_LISTS,
   latest: true,
   async process(
-    {},
+    _,
     dispatch,
     done
   ) {

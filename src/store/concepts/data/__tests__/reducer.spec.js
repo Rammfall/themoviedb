@@ -33,4 +33,18 @@ describe('data reducer', () => {
       endpoint: response
     })
   })
+
+  describe('with empty response', () => {
+    it('handles API_SAVE', () => {
+      const response = undefined
+
+      expect(reducer(undefined, {
+        type: API_SAVE,
+        endpoint,
+        response
+      })).toStrictEqual({
+        endpoint: {}
+      })
+    })
+  })
 })
