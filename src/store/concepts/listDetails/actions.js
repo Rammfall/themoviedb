@@ -38,9 +38,11 @@ export const saveListDetails = ({ listId, ids, total }) => ({
 
 /**
  * @param {number} id
+ * @param {number} listId
  * @returns {{id: number, type: string}}
  */
-export const deleteListMovie = ({ id }) => ({
+export const deleteListMovie = ({ id, listId }) => ({
   type: DELETE_LIST_MOVIE,
-  id
+  id,
+  listId
 })

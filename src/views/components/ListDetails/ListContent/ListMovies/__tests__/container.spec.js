@@ -10,6 +10,10 @@ jest.mock('react-router-dom', () => ({
   withRouter: component => component
 }))
 
+jest.mock('react-intl', () => ({
+  injectIntl: component => component
+}))
+
 jest.mock('Store/concepts/listDetails/selectors', () => ({
   getListDetailsMoviesSelector: jest.fn(() => ({
     total: 1,
@@ -21,24 +25,54 @@ jest.mock('Store/concepts/listDetails/selectors', () => ({
 }))
 
 describe('ListMovies', () => {
-  it('matches snapshot', () => {
-    const store = configureStore()()
-    const props = {
-      match: {
-        params: {
-          id: 1
-        }
+  const store = configureStore()()
+  const props = {
+    match: {
+      params: {
+        id: '1'
       }
+    },
+    intl: {
+      formatMessage: jest.fn(() => 'test')
     }
+  }
 
-    const wrapper = shallow(
-      <ListMovies
-        store={store}
-        {...props}
-      />
-    )
-    const container = diveTo(wrapper, ListMoviesContainer)
+  const wrapper = shallow(
+    <ListMovies
+      store={store}
+      {...props}
+    />
+  )
+  const container = diveTo(wrapper, ListMoviesContainer)
 
+  it('matches snapshot', () => {
     expect(container).toMatchSnapshot()
+  })
+
+  describe('handleRemoveFromList()', () => {
+    it('to have been called', () => {
+      const spy = jest.spyOn(container.instance(), 'handleRemoveFromList')
+      container.instance().handleRemoveFromList(2)()
+
+      expect(spy).toHaveBeenCalledWith(2)
+    })
+  })
+
+  describe('deleteHandler()', () => {
+    it('to have been called', () => {
+      const spy = jest.spyOn(container.instance(), 'deleteHandler')
+      container.instance().deleteHandler({ id: 2 })
+
+      expect(spy).toHaveBeenCalledWith({ id: 2 })
+    })
+  })
+
+  describe('actions()', () => {
+    it('to have been called', () => {
+      const spy = jest.spyOn(container.instance(), 'actions')
+      container.instance().actions(2)
+
+      expect(spy).toHaveBeenCalledWith(2)
+    })
   })
 })

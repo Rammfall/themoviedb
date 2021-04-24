@@ -23,7 +23,9 @@ const deleteListMovieOperation = createLogic({
     await httpClient.post(apiRoutes.listDetails.remove(listId), {
       media_id: id
     }, {
-      session_id: storage.session.get()
+      params: {
+        session_id: storage.session.get()
+      }
     })
 
     dispatch(loadListDetails({ id: listId }))

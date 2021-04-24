@@ -47,9 +47,10 @@ describe('listDetails actions', () => {
 
   describe('deleteListMovie()', () => {
     it('returns object with correct shape', () => {
-      expect(deleteListMovie({ id: 2 })).toStrictEqual({
+      expect(deleteListMovie({ id: 2, listId: 1 })).toStrictEqual({
         type: DELETE_LIST_MOVIE,
-        id: 2
+        id: 2,
+        listId: 1
       })
     })
   })

@@ -2,7 +2,7 @@
 
 exports[`ListMovies matches snapshot 1`] = `
 <MoviesList
-  actions={null}
+  actions={[Function]}
   movies={
     Array [
       Object {

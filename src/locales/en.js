@@ -23,6 +23,8 @@ export default {
     'lists.create.description': 'Description',
     'lists.delete.title': 'Do you want to delete list?',
 
+    'lists.delete.movie': 'Do you want to delete movie from list?',
+
     'watchlist.title': 'Watchlist',
     'watchlist.remove.title': 'Do you want to delete movie from watchlist?',
 

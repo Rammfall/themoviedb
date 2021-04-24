@@ -28,7 +28,7 @@ exports[`ListContentComponent matches snapshot 1`] = `
         title="test"
       />
     }
-    renderList={<withRouter(Connect(ListMovies)) />}
+    renderList={<injectIntl(withRouter(Connect(ListMovies))) />}
     renderLoading={<Loader />}
   />
 </Fragment>
