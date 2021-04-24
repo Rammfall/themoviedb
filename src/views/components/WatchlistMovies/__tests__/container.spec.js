@@ -12,11 +12,11 @@ jest.mock('antd', () => ({
   }
 }))
 
-jest.mock('Store/concepts/movies/actions', () => ({
+jest.mock('Store/concepts/watchlist/actions', () => ({
   toggleWatchlistMovie: jest.fn()
 }))
 
-jest.mock('Store/concepts/movies/selectors', () => ({
+jest.mock('Store/concepts/watchlist/selectors', () => ({
   getWatchlistMoviesSelector: () => ({
     movies: [{
       id: 1,
@@ -29,9 +29,7 @@ jest.mock('Store/concepts/movies/selectors', () => ({
 }))
 
 jest.mock('react-intl', () => ({
-  get injectIntl() {
-    return component => component
-  }
+  injectIntl: component => component
 }))
 
 describe('WatchlistMovies', () => {

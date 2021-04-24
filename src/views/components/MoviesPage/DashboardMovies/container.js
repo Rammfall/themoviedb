@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import MoviesList from 'Views/components/MoviesList'
-import { getDashboardMoviesSelector, getDashboardMoviesTotalSelector } from 'Store/concepts/movies/selectors'
+import { getDashboardMoviesSelector } from 'Store/concepts/dashboard/selectors'
 
 const DashboardMovies = ({ movies, total }) => (
   <MoviesList
@@ -27,8 +27,8 @@ DashboardMovies.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  movies: getDashboardMoviesSelector(state),
-  total: getDashboardMoviesTotalSelector(state)
+  movies: getDashboardMoviesSelector(state).movies,
+  total: getDashboardMoviesSelector(state).total
 })
 
 export { DashboardMovies as DashboardMoviesContainer }

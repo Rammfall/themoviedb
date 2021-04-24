@@ -6,13 +6,15 @@ import diveTo from 'TestUtils/diveToEnzyme'
 
 import DashboardMovies, { DashboardMoviesContainer } from '../container'
 
-jest.mock('Store/concepts/movies/selectors', () => ({
-  getDashboardMoviesSelector: jest.fn(() => [{
-    id: 1,
-    name: 'test',
-    description: 'test'
-  }]),
-  getDashboardMoviesTotalSelector: jest.fn(() => 3)
+jest.mock('Store/concepts/dashboard/selectors', () => ({
+  getDashboardMoviesSelector: jest.fn(() => ({
+    movies: [{
+      id: 1,
+      name: 'test',
+      description: 'test'
+    }],
+    total: 1
+  }))
 }))
 
 describe('DashboardMovies', () => {

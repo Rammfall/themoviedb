@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { isEmptyListsSelector } from 'Store/concepts/lists/selectors'
+import { getListsSelector } from 'Store/concepts/lists/selectors'
 import { loadingSelector } from 'Store/concepts/data/selectors'
 import { getLists } from 'Store/concepts/lists/actions'
 import { userIdSelector } from 'Store/concepts/account/selectors'
-import { listsConstant } from 'Constants/concepts'
+import { LISTS } from 'Constants/concepts'
 
 import Lists from 'Views/components/Lists'
 
@@ -28,7 +28,7 @@ class ListsPage extends Component {
   componentDidUpdate(prevProps) {
     const { userId, location: { search } } = this.props
 
-    if(userId !== prevProps.userId || search !== prevProps.location.search) {
+    if (userId !== prevProps.userId || search !== prevProps.location.search) {
       this.getData()
     }
   }
@@ -78,8 +78,8 @@ ListsPage.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  isEmpty: isEmptyListsSelector(state),
-  isLoading: loadingSelector(state, listsConstant),
+  isEmpty: getListsSelector(state).isEmpty,
+  isLoading: loadingSelector(state, LISTS),
   userId: userIdSelector(state)
 })
 

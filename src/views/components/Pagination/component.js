@@ -4,7 +4,7 @@ import { Col, Row, Pagination as AntPagination } from 'antd'
 
 import { paginationQuantityPerPage } from 'Constants/index'
 
-const PaginationComponent = ({ current, total, onChange }) => (
+const PaginationComponent = ({ current, total, onChange }) => total > paginationQuantityPerPage && (
   <Row
     type='flex'
     justify='center'
@@ -22,6 +22,7 @@ const PaginationComponent = ({ current, total, onChange }) => (
     </Col>
   </Row>
 )
+
 
 PaginationComponent.propTypes = {
   current: PropTypes.number,

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import queryParams from 'Utils/router/queryParams'
 import searchSubmit from 'Utils/formikEvents/searchSubmit'
 import { loadingSelector } from 'Store/concepts/data/selectors'
-import { dashboardConstant } from 'Constants/concepts'
+import { DASHBOARD } from 'Constants/concepts'
 
 import SearchFormComponent from './component'
 
@@ -32,7 +32,7 @@ SearchForm.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: loadingSelector(state, dashboardConstant)
+  isLoading: loadingSelector(state, DASHBOARD)
 })
 
 export { SearchForm as SearchFormContainer }

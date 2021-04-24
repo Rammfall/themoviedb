@@ -6,7 +6,7 @@ import { injectIntl } from 'react-intl'
 import { compose } from 'ramda'
 
 import onConfirm from 'Utils/components/modalsHandlers/onConfirm'
-import { getListsSelector, getListsTotalSelector } from 'Store/concepts/lists/selectors'
+import { getListsSelector } from 'Store/concepts/lists/selectors'
 import { deleteList } from 'Store/concepts/lists/actions'
 
 import ListsListsComponent from './component'
@@ -52,8 +52,8 @@ ListsLists.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  total: getListsTotalSelector(state),
-  lists: getListsSelector(state)
+  total: getListsSelector(state).total,
+  lists: getListsSelector(state).lists
 })
 
 const mapDispatchToProps = {

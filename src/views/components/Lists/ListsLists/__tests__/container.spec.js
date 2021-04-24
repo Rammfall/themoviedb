@@ -7,9 +7,7 @@ import diveTo from 'TestUtils/diveToEnzyme'
 import ListsLists, { ListsListsContainer } from '../container'
 
 jest.mock('react-intl', () => ({
-  get injectIntl() {
-    return component => component
-  }
+  injectIntl: component => component
 }))
 
 jest.mock('antd', () => ({
@@ -19,12 +17,14 @@ jest.mock('antd', () => ({
 }))
 
 jest.mock('Store/concepts/lists/selectors', () => ({
-  getListsSelector: jest.fn(() => [{
-    id: 1,
-    name: 'test',
-    description: 'test'
-  }]),
-  getListsTotalSelector: jest.fn(() => 3)
+  getListsSelector: jest.fn(() => ({
+    lists: [{
+      id: 1,
+      name: 'test',
+      description: 'test'
+    }],
+    total: 1
+  }))
 }))
 
 jest.mock('Store/concepts/lists/actions', () => ({

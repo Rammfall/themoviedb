@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic'
 
 import storage from 'Utils/storage'
-import apiRoutes from 'Constants/ApiRoutes'
+import apiRoutes from 'Constants/apiRoutes'
 
 import { DELETE_LIST } from '../types'
 import { loadLists } from '../actions'

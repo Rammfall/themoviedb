@@ -9,7 +9,7 @@ const data = (state = {}, action) => {
     case API_SUCCESS:
       return mergeDeepRight(state, { [action.endpoint]: { isLoading: false } })
     case API_SAVE:
-      return mergeDeepRight(state, { [action.endpoint]: action.response })
+      return mergeDeepRight(state, { [action.endpoint]: action.response || {} })
     default:
       return state
   }

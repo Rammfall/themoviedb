@@ -12,6 +12,7 @@ exports[`ListsListsComponent matches snapshot 1`] = `
       <Row>
         <ListCard
           description="test"
+          id={1}
           key="1"
           name="test"
           onDelete={[Function]}

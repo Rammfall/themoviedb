@@ -1,10 +1,11 @@
 import { createLogic } from 'redux-logic'
 
-import { USER_LOGOUT } from 'Store/concepts/session/types'
-import { logoutUserSuccess } from 'Store/concepts/session/actions'
 import { resetStore } from 'Store/actions'
 import storage from 'Utils/storage'
-import apiRoutes from 'Constants/ApiRoutes'
+import apiRoutes from 'Constants/apiRoutes'
+
+import { USER_LOGOUT } from '../types'
+import { logoutUserSuccess } from '../actions'
 
 const logoutUserOperation = createLogic({
   type: USER_LOGOUT,

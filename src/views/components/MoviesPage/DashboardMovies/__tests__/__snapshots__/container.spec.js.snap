@@ -12,6 +12,6 @@ exports[`DashboardMovies matches snapshot 1`] = `
       },
     ]
   }
-  total={3}
+  total={1}
 />
 `;

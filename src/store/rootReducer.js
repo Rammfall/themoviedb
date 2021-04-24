@@ -1,21 +1,27 @@
 import { combineReducers } from 'redux'
 
+import data from 'Store/concepts/data/reducer'
 import session from 'Store/concepts/session/reducer'
 import account from 'Store/concepts/account/reducer'
-import movies from 'Store/concepts/movies/reducer'
 import lists from 'Store/concepts/lists/reducer'
-import data from 'Store/concepts/data/reducer'
+import dashboard from 'Store/concepts/dashboard/reducer'
 import router from 'Store/concepts/router/reducer'
+import watchlist from 'Store/concepts/watchlist/reducer'
+import favorites from 'Store/concepts/favorites/reducer'
+import listDetails from 'Store/concepts/listDetails/reducer'
 
 import { RESET_STORE } from './types'
 
 const reducers = combineReducers({
+  data,
   session,
   account,
-  movies,
+  dashboard,
   lists,
   router,
-  data
+  watchlist,
+  favorites,
+  listDetails
 })
 
 export default (state, action) => {

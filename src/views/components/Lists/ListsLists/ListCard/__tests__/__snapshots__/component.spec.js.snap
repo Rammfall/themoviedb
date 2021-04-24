@@ -32,18 +32,22 @@ exports[`ListCard matches snapshot 1`] = `
     actions={
       Array [
         <ForwardRef(DeleteOutlined)
-          onClick={[Function]}
+          onClick={[MockFunction]}
         />,
       ]
     }
     className="top-margin"
     hoverable={true}
   >
-    <Title
-      level={4}
+    <Link
+      to="lists/3"
     >
-      test
-    </Title>
+      <Title
+        level={4}
+      >
+        test
+      </Title>
+    </Link>
     test
   </Card>
 </Col>

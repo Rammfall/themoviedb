@@ -6,8 +6,10 @@ import diveTo from 'TestUtils/diveToEnzyme'
 
 import DashboardPage, { DashboardPageContainer } from '../container'
 
-jest.mock('Store/concepts/movies/selectors', () => ({
-  isEmptyDashboardSelector: jest.fn(() => false)
+jest.mock('Store/concepts/dashboard/selectors', () => ({
+  getDashboardMoviesSelector: jest.fn(() => ({
+    isEmpty: true
+  }))
 }))
 
 jest.mock('Store/concepts/data/selectors', () => ({

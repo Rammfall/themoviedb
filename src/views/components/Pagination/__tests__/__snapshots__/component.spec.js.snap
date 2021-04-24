@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PaginationComponent matches snapshot 1`] = `
+exports[`PaginationComponent matches snapshot 1`] = `""`;
+
+exports[`PaginationComponent when total > 20 matches snapshot 1`] = `
 <Row
   justify="center"
   type="flex"
@@ -13,7 +15,7 @@ exports[`PaginationComponent matches snapshot 1`] = `
       defaultPageSize={20}
       onChange={[Function]}
       showSizeChanger={false}
-      total={1}
+      total={21}
     />
   </Col>
 </Row>

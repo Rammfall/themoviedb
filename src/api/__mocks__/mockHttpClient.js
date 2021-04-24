@@ -1,5 +1,5 @@
 /**
- * @param {Array.<{method: String, resolve: Object, reject: Object}>} mocksResponses
+ * @param {Array.<{method: 'get' | 'post' | 'delete', resolve: Object, reject: Object}>} mocksResponses
  * @returns {{}}
  */
 const mockHttpClient = (mocksResponses) => {
