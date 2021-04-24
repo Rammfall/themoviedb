@@ -11,7 +11,8 @@ import ListMovies from './ListMovies'
 const ListContentComponent = ({
   title,
   isEmpty,
-  isEmptyTitle
+  isEmptyTitle,
+  onListDelete
 }) => (
   <>
     <Row>
@@ -23,7 +24,7 @@ const ListContentComponent = ({
           <Typography.Title>
             {title}
             {' '}
-            <MinusCircleOutlined />
+            <MinusCircleOutlined onClick={onListDelete} />
           </Typography.Title>
         </div>
       </Col>
@@ -41,7 +42,8 @@ const ListContentComponent = ({
 ListContentComponent.propTypes = {
   title: PropTypes.string.isRequired,
   isEmptyTitle: PropTypes.string.isRequired,
-  isEmpty: PropTypes.bool.isRequired
+  isEmpty: PropTypes.bool.isRequired,
+  onListDelete: PropTypes.func.isRequired
 }
 
 export default ListContentComponent

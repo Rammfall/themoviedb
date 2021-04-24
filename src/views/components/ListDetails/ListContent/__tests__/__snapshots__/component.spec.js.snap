@@ -13,7 +13,9 @@ exports[`ListContentComponent matches snapshot 1`] = `
         <Title>
           test
            
-          <ForwardRef(MinusCircleOutlined) />
+          <ForwardRef(MinusCircleOutlined)
+            onClick={[MockFunction]}
+          />
         </Title>
       </div>
     </Col>

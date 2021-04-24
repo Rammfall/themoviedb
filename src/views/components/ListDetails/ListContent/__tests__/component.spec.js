@@ -8,7 +8,8 @@ describe('ListContentComponent', () => {
     const props = {
       isEmpty: false,
       title: 'test',
-      isEmptyTitle: 'test'
+      isEmptyTitle: 'test',
+      onListDelete: jest.fn()
     }
     const component = shallow(
       <ListContentComponent

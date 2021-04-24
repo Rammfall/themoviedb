@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import ListCard from 'Views/components/Lists/ListsLists/ListCard'
 import Pagination from 'Views/components/Pagination'
-import onDeleteHandler from 'Views/components/Lists/ListsLists/utils/onDelete'
+import onDeleteHandler from 'Utils/components/modalsHandlers/onDelete'
 
 const ListsListsComponent = ({
   lists,

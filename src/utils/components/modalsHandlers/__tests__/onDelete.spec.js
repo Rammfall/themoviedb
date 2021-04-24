@@ -1,4 +1,4 @@
-import onDeleteHandler from '../onDelete'
+import onDeleteHandler from 'Utils/components/modalsHandlers/onDelete'
 
 describe('onDeleteHandler()', () => {
   const callback = jest.fn()
