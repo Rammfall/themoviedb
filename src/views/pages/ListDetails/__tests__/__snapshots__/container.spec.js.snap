@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListDetailsPage matches snapshot 1`] = `
+<ListDetails
+  isBlank={true}
+/>
+`;

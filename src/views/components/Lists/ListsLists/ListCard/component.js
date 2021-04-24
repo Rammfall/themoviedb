@@ -2,8 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, Col, Typography } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
 
-const ListCard = ({ name, description, onDelete }) => (
+import { LISTS } from 'Constants/concepts'
+
+const ListCard = ({ name, description, onDelete, id }) => (
   <Col
     xs={{ span: 24 }}
     sm={{ span: 12 }}
@@ -21,9 +24,13 @@ const ListCard = ({ name, description, onDelete }) => (
         />
       ]}
     >
-      <Typography.Title level={4}>
-        {name}
-      </Typography.Title>
+      <Link
+        to={`${LISTS}/${id}`}
+      >
+        <Typography.Title level={4}>
+          {name}
+        </Typography.Title>
+      </Link>
       {description}
     </Card>
   </Col>
@@ -32,7 +39,8 @@ const ListCard = ({ name, description, onDelete }) => (
 ListCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired
 }
 
 export default ListCard

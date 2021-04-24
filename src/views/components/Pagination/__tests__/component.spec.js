@@ -9,4 +9,17 @@ describe('PaginationComponent', () => {
 
     expect(component).toMatchSnapshot()
   })
+
+  describe('when total > 20', () => {
+    it('matches snapshot', () => {
+      const component = shallow(
+        <PaginationComponent
+          total={21}
+          onChange={jest.fn}
+        />
+      )
+
+      expect(component).toMatchSnapshot()
+    })
+  })
 })

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListContent matches snapshot 1`] = `
+<ListContentComponent
+  isEmpty={false}
+  isEmptyTitle="test"
+  title="test"
+/>
+`;

@@ -17,10 +17,6 @@ const apiRoutes = {
     favorites: {
       get: (accountId) => `/account/${accountId}/favorite/movies`,
       toggle: (accountId) => `/account/${accountId}/favorite`
-    },
-    list: {
-      get: (listId) => `/list/${listId}`,
-      remove: (listId) => `/list/${listId}/remove_item`
     }
   },
   session: {
@@ -28,6 +24,10 @@ const apiRoutes = {
     validateRequestToken: 'authentication/token/validate_with_login',
     newSession: '/authentication/session/new',
     deleteSessionEndpoint: '/authentication/session'
+  },
+  listDetails: {
+    get: (listId) => `/list/${listId}`,
+    remove: (listId) => `/list/${listId}/remove_item`
   }
 }
 

@@ -28,7 +28,7 @@ class ListsPage extends Component {
   componentDidUpdate(prevProps) {
     const { userId, location: { search } } = this.props
 
-    if(userId !== prevProps.userId || search !== prevProps.location.search) {
+    if (userId !== prevProps.userId || search !== prevProps.location.search) {
       this.getData()
     }
   }

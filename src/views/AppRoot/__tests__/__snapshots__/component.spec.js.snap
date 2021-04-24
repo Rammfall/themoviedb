@@ -71,6 +71,12 @@ exports[`AppRootComponent when isLoggedIn true matches snapshot 1`] = `
     path="/favorites"
     privateRoute={true}
   />
+  <Connect(Route)
+    component={[Function]}
+    exact={true}
+    path="/lists/:id"
+    privateRoute={true}
+  />
 </Fragment>
 `;
 
@@ -143,6 +149,12 @@ exports[`AppRootComponent with default props matches snapshot 1`] = `
     }
     exact={true}
     path="/favorites"
+    privateRoute={true}
+  />
+  <Connect(Route)
+    component={[Function]}
+    exact={true}
+    path="/lists/:id"
     privateRoute={true}
   />
 </Fragment>

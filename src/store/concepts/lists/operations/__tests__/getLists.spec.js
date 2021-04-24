@@ -1,6 +1,6 @@
 import storeWithMiddlewareMock from 'Store/__mocks__/storeWithMiddlewareMock'
 import { API_REQUEST } from 'Store/concepts/data/types'
-import { listsConstant } from 'Constants/concepts'
+import { LISTS } from 'Constants/concepts'
 
 import {
   GET_LISTS,
@@ -30,7 +30,7 @@ describe('getListsOperation()', () => {
         },
         {
           type: API_REQUEST,
-          endpoint: listsConstant
+          endpoint: LISTS
         },
         {
           type: LOAD_LISTS

@@ -3,31 +3,36 @@ import { compose } from 'ramda'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { injectIntl } from 'react-intl'
 
 import ListDetails from 'Views/components/ListDetails'
-import { getListMoviesSelector } from 'Store/concepts/movies/selectors'
-import { getListMovies } from 'Store/concepts/movies/actions'
-import { loadingSelector } from 'Store/concepts/data/selectors'
-import apiRoutes from 'Constants/apiRoutes'
-import { getListDetails } from 'Store/concepts/lists/selectors'
+import { getListDetails } from 'Store/concepts/listDetails/actions'
+import { isBlankSelector } from 'Store/concepts/listDetails/selectors'
 
 class ListDetailsPage extends Component {
   componentDidMount() {
+    this.getData()
+  }
+
+  componentDidUpdate(prevProps) {
+    const { location: { search } } = this.props
+
+    if (search !== prevProps.location.search) {
+      this.getData()
+    }
+  }
+
+  getData = () => {
     const { getMovies, match: { params: { id } } } = this.props
 
     getMovies({ id })
   }
 
   render() {
-    const { title, match: { params: { id } }, isLoading, movies: { isEmpty }, intl: { formatMessage } } = this.props
+    const { isBlank } = this.props
 
     return(
       <ListDetails
-        isLoading={isLoading}
-        isEmpty={isEmpty}
-        titleEmpty={formatMessage({ id: 'movies.empty' })}
-        title={title}
+        isBlank={isBlank}
       />
     )
   }
@@ -38,21 +43,27 @@ ListDetailsPage.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string.isRequired
     }).isRequired
+  }).isRequired,
+  getMovies: PropTypes.func.isRequired,
+  isBlank: PropTypes.bool,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired
   }).isRequired
+}
+ListDetailsPage.defaultProps = {
+  isBlank: true
 }
 
 const mapStateToProps = (state, { match: { params: { id } } }) => ({
-  movies: getListMoviesSelector(state, id),
-  isLoading: loadingSelector(state, apiRoutes.movies.list.get(id)),
-  title: getListDetails(state, id).name
+  isBlank: isBlankSelector(state, id)
 })
 
 const mapDispatchToProps = {
-  getMovies: getListMovies
+  getMovies: getListDetails
 }
 
+export { ListDetailsPage as ListDetailsPageContainer }
 export default compose(
   withRouter,
-  connect(mapStateToProps, mapDispatchToProps),
-  injectIntl
+  connect(mapStateToProps, mapDispatchToProps)
 )(ListDetailsPage)

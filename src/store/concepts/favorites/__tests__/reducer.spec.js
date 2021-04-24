@@ -1,7 +1,5 @@
 import favorites from '../reducer'
-import {
-  SAVE_FAVORITE_MOVIES
-} from '../types'
+import { SAVE_FAVORITE_MOVIES } from '../types'
 
 describe('favorites reducer', () => {
   it('handles SAVE_FAVORITES_MOVIES', () => {

@@ -23,6 +23,7 @@ const ListsListsComponent = ({
           {lists.map(({name, description, id}) => (
             <ListCard
               key={id}
+              id={id}
               name={name}
               description={description}
               onDelete={onDeleteHandler(onDelete, id)}

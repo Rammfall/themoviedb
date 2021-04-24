@@ -8,7 +8,8 @@ describe('ListCard', () => {
     const props = {
       name: 'test',
       description: 'test',
-      onDelete: jest.fn
+      onDelete: jest.fn(),
+      id: '3'
     }
     const component = shallow(<ListCard {...props} />)
 

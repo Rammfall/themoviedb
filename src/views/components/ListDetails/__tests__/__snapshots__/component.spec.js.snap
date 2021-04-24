@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListDetails when isBlank false matches snapshot 1`] = `
+<PrivateLayout>
+  <withRouter(Connect(injectIntl(ListContent))) />
+</PrivateLayout>
+`;
+
+exports[`ListDetails when isBlank true matches snapshot 1`] = `
+<PrivateLayout>
+  <Loader />
+</PrivateLayout>
+`;

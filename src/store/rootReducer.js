@@ -8,6 +8,7 @@ import dashboard from 'Store/concepts/dashboard/reducer'
 import router from 'Store/concepts/router/reducer'
 import watchlist from 'Store/concepts/watchlist/reducer'
 import favorites from 'Store/concepts/favorites/reducer'
+import listDetails from 'Store/concepts/listDetails/reducer'
 
 import { RESET_STORE } from './types'
 
@@ -19,7 +20,8 @@ const reducers = combineReducers({
   lists,
   router,
   watchlist,
-  favorites
+  favorites,
+  listDetails
 })
 
 export default (state, action) => {
