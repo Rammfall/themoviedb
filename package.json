@@ -21,7 +21,7 @@
   "author": "Mykola Voronin",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.13.16",
+    "@babel/core": "^7.19.1",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-transform-async-to-generator": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.13.15",
